@@ -22,25 +22,16 @@ def allowed_file(filename):
 @app.route('/api', methods=['GET'])
 def get_task():
     if 'file' not in request.files:
-        flash('No file part')
-        return redirect(request.url)
+        return 'No file part'
     file = request.files['file']
     if file.filename == '':
-        flash('No selected file')
-        return redirect(request.url)
+        return 'No selected file'
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
+        text = parser.from_file(filename)
+        return ' '.join(text['content'].split())
 
-        if filename.split('.')[-1] == 'pdf':
-            text = parser.from_file(filename)
-            return text['content']
-        if filename.split('.')[-1] == 'doc':
-            return "DOC FILE"
-        if filename.split('.')[-1] == 'html':
-            return "HTML FILE"
-
-    flash("Something went wrong, try again!")
-    return redirect(request.url)
+    return 'Something went wrong, try again!'
 
 
 if __name__ == '__main__':
