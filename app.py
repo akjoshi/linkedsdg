@@ -1,11 +1,10 @@
 #!flask/bin/python
-import os
-from flask import Flask, flash, request, redirect, url_for
+from flask import Flask, flash, request, redirect
 from werkzeug.utils import secure_filename
+from tika import parser
+
 
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html'])
-
-
 
 app = Flask(__name__)
 
@@ -31,10 +30,17 @@ def get_task():
         return redirect(request.url)
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        print("FILENAME: " + filename)
-        return file.read()
 
-    return "Something went wrong, try again!"
+        if filename.split('.')[-1] == 'pdf':
+            text = parser.from_file(filename)
+            return text['content']
+        if filename.split('.')[-1] == 'doc':
+            return "DOC FILE"
+        if filename.split('.')[-1] == 'html':
+            return "HTML FILE"
+
+    flash("Something went wrong, try again!")
+    return redirect(request.url)
 
 
 if __name__ == '__main__':
