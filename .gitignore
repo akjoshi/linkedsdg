@@ -107,6 +107,7 @@ venv.bak/
 .DS_Store
 .AppleDouble
 .LSOverride
+.idea
 
 # Icon must end with two \r
 Icon
