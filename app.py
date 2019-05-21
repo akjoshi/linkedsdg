@@ -2,16 +2,23 @@
 from flask import Flask, request, abort
 from werkzeug.utils import secure_filename
 from tika import parser
-
+from flask_cors import CORS, cross_origin
 
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html'])
 
 app = Flask(__name__)
+CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 
 
 @app.route('/')
 def index():
     return "Hello, World!"
+
+@app.before_request
+def log_request_info():
+    app.logger.debug('Headers: %s', request.headers)
+    app.logger.debug('Body: %s', request.get_data())
 
 
 def allowed_file(filename):
@@ -20,6 +27,7 @@ def allowed_file(filename):
 
 
 @app.route('/api', methods=['GET'])
+@cross_origin(allow_headers=['Content-Type'])
 def get_task():
     if 'file' not in request.files:
         return {'message': 'No file part'}, 400
