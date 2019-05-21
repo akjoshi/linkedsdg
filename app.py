@@ -109,13 +109,11 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST'])
 def main():
-    input_array = request.get_json()
-    returned_response = []
-    for next_task in input_array:
-        input_text = next_task["text"]
-        next_task["matches"], next_task["clean_text"] = extract_concepts(input_text)
-        returned_response.append(next_task)
-    resp = Response(json.dumps(returned_response), mimetype='application/json')
+    task = request.get_json()
+    input_text = task["text"]
+    result = {}
+    result["matches"], result["clean_text"] = extract_concepts(input_text)
+    resp = Response(json.dumps(result), mimetype='application/json')
     return resp
 
 # app.run(host="0.0.0.0", port=5000)
