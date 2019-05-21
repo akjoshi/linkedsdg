@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import Upload from './Components/Upload/Upload'
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         <h2>
           un-sdgs-content-linking
         </h2>
+        <Upload></Upload>
       </header>
     </div>
   );
