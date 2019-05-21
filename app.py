@@ -1,5 +1,5 @@
 #!flask/bin/python
-from flask import Flask, flash, request, redirect
+from flask import Flask, request, abort
 from werkzeug.utils import secure_filename
 from tika import parser
 
@@ -22,10 +22,10 @@ def allowed_file(filename):
 @app.route('/api', methods=['GET'])
 def get_task():
     if 'file' not in request.files:
-        return 'No file part'
+        return {'message': 'No file part'}, 400
     file = request.files['file']
     if file.filename == '':
-        return 'No selected file'
+        return {'message': 'No selected file'}, 400
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         text = parser.from_file(filename)
