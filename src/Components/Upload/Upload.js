@@ -20,6 +20,16 @@ class Upload extends Component {
             }
         });
         this.setState({ PlainText: text.data })
+
+        const jsonText = await axios.post('http://127.0.0.1:5001/api', {
+                text: text.data,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        console.log(jsonText['data']['matches']);
     }
 
 
