@@ -1,13 +1,10 @@
 import React from 'react';
-import Upload from './Components/Upload/Upload'
+import Upload from './pages/Upload'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>
-          un-sdgs-content-linking
-        </h2>
         <Upload></Upload>
       </header>
     </div>

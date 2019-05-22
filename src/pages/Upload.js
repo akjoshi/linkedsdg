@@ -1,25 +1,23 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './Upload.scss'
 import axios from 'axios';
+import ConceptItem from '../components/ConceptItem/ConceptItem';
 
 class Upload extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     state = {
-        PlainText: null
+        PlainText: '',
+        Concepts: [],
+        LinkedData: {}
     };
 
     handleUploadFile = async (event) => {
         const data = new FormData();
         data.append('file', event.target.files[0]);
-        const text = await axios.post('http://127.0.0.1:5004/api', data, {
+        const text = await axios.post('http://127.0.0.1:5000/api', data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
         });
-        this.setState({ PlainText: text.data })
 
         const jsonText = await axios.post('http://127.0.0.1:5001/api', {
                 text: text.data,
@@ -31,21 +29,34 @@ class Upload extends Component {
 
         console.log(jsonText['data']);
 
+        this.setState({ PlainText: jsonText['data']['clean_text'] })
+
+        const concepts = [];
+
+        for (var key in jsonText['data']['concepts']) {
+            concepts.push({
+                id: key,
+                label: jsonText['data']['concepts'][key]['label'],
+                source: jsonText['data']['concepts'][key]['source'],
+                weight: jsonText['data']['concepts'][key]['weight'],
+            })
+        }
+
+        console.log(concepts)
+        this.setState({ Concepts: concepts })
+
         const match = jsonText['data']['matches'].map(function(x){
             return {
                 "url": x['url'],
-                "weight": 2
+                "weight": 1
             }
         });
 
-        console.log(match);
-
         const linkedData = await axios.post('http://127.0.0.1:5002/api', match);
 
+        this.setState({ LinkedData: linkedData });
+
         console.log(linkedData);
-
-        //this.setState({ PlainText: JSON.stringify( linkedData ) })
-
     }
 
 
@@ -59,6 +70,9 @@ class Upload extends Component {
                     </div>
                 </div>
                 <div className="Data-Area">
+                    <ul>
+                        {this.state.Concepts.map(concept => <ConceptItem concept={concept}></ConceptItem>)}
+                    </ul>
                     {this.state.PlainText}
                 </div>
             </div>
