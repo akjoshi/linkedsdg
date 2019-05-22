@@ -12,6 +12,8 @@ import json
 nlp = spacy.load('en_core_web_sm') 
 matcher = PhraseMatcher(nlp.vocab)
 
+CONTEXT_SIZE = 5
+
 concept_ids = {}
 concept_labels = {}
 concept_source = {}
@@ -99,7 +101,18 @@ def extract_concepts(input):
     for match_id, start, end in matches:
         for match_all_id in concept_spacy_ids[concept_labels[match_id]]:
             int_matches = update_matches(start, end, match_all_id, int_matches)
+    text_array = text.split(" ")
     for match in int_matches:
+        if match['start'] > CONTEXT_SIZE:
+            start = match['start'] - CONTEXT_SIZE
+        else:
+            start = 0
+        if match['end'] + CONTEXT_SIZE < len(text_array):
+            end = match['end'] + CONTEXT_SIZE
+        else:
+            end = len(text_array)
+        context_string = "[...] " + " ".join(text_array[start:end]) + " [...]"
+        match["context"] = context_string
         final_matches.append(match)
     return final_matches, text
 
@@ -107,7 +120,7 @@ load_concepts()
 
 app = Flask(__name__)
 
-@app.route("/", methods=['POST'])
+@app.route("/api", methods=['POST'])
 def main():
     task = request.get_json()
     input_text = task["text"]
