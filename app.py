@@ -26,7 +26,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/api', methods=['GET'])
+@app.route('/api', methods=['POST'])
 @cross_origin(allow_headers=['Content-Type'])
 def get_task():
     if 'file' not in request.files:
