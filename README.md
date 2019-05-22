@@ -36,6 +36,18 @@ curl -X POST \
             "context": "[...] how organisms defend themselves against diseases or other illnesses [...]"
         }
     ],
+    "concepts": {
+        "http://metadata.un.org/thesaurus#1003063": {
+            "label": "IMMUNOLOGY",
+            "source": "UNBIS",
+            "weight": 1
+        },
+        "http://metadata.un.org/thesaurus#1001705": {
+            "label": "DISEASES",
+            "source": "UNBIS",
+            "weight": 1
+        }
+    },
     "clean_text": "according to the miriam webster dictionary immunology is the science of how organisms defend themselves against diseases or other illnesses"
 }
 ```

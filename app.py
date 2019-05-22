@@ -19,6 +19,7 @@ concept_ids = {}
 concept_labels = {}
 concept_source = {}
 concept_spacy_ids = {}
+concept_index = {}
 stopwords=[]
 
 def normalise_white_space(word):
@@ -50,7 +51,7 @@ def load_concepts():
     with open('sources.json') as f:
         sources = json.load(f)
 
-    concept_list = csv.DictReader(open("labels.csv", encoding="utf8"), delimiter=",")
+    concept_list = csv.DictReader(open("sample-labels.csv", encoding="utf8"), delimiter=",")
 
     i = 1
     for concept in concept_list:
@@ -79,6 +80,17 @@ def load_concepts():
     for word in stopword_records:
         stopwords.append(word['label'])
 
+    print("\n\nLoading main index...")
+    concept_source_index = csv.DictReader(open("concept-source-index.csv", encoding="utf8"), delimiter=",")
+    for concept in concept_source_index:
+        concept_id = concept["id"]
+        label = concept["label"].upper()
+        source = concept["source"]
+        concept_index[concept_id] = {
+            "label": label,
+            "source": source
+        }
+
 def update_matches(start, end, match_id, current_matches):
     label = concept_labels[match_id].lower()
     returned_matches = []
@@ -103,6 +115,7 @@ def extract_concepts(input):
         for match_all_id in concept_spacy_ids[concept_labels[match_id]]:
             int_matches = update_matches(start, end, match_all_id, int_matches)
     text_array = text.split(" ")
+    concepts_all = {}
     for match in int_matches:
         if match['start'] > CONTEXT_SIZE:
             start = match['start'] - CONTEXT_SIZE
@@ -115,7 +128,15 @@ def extract_concepts(input):
         context_string = "[...] " + " ".join(text_array[start:end]) + " [...]"
         match["context"] = context_string
         final_matches.append(match)
-    return final_matches, text
+        if match["url"] in concepts_all:
+            concepts_all["weight"] += 1
+        else: 
+            concepts_all[match["url"]] = {
+                "label": concept_index[match["url"]]["label"],
+                "source": concept_index[match["url"]]["source"],
+                "weight": 1
+            }
+    return final_matches, concepts_all, text
 
 load_concepts()
 
@@ -127,7 +148,7 @@ def main():
     task = request.get_json()
     input_text = task["text"]
     result = {}
-    result["matches"], result["clean_text"] = extract_concepts(input_text)
+    result["matches"], result["concepts"], result["clean_text"] = extract_concepts(input_text)
     resp = Response(json.dumps(result), mimetype='application/json')
     return resp
 
