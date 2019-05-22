@@ -14,7 +14,7 @@ class Upload extends Component {
     handleUploadFile = async (event) => {
         const data = new FormData();
         data.append('file', event.target.files[0]);
-        const text = await axios.post('http://127.0.0.1:5000/api', data, {
+        const text = await axios.post('http://127.0.0.1:5004/api', data, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -29,7 +29,23 @@ class Upload extends Component {
             }
         );
 
-        console.log(jsonText['data']['matches']);
+        console.log(jsonText['data']);
+
+        const match = jsonText['data']['matches'].map(function(x){
+            return {
+                "url": x['url'],
+                "weight": 2
+            }
+        });
+
+        console.log(match);
+
+        const linkedData = await axios.post('http://127.0.0.1:5002/api', match);
+
+        console.log(linkedData);
+
+        //this.setState({ PlainText: JSON.stringify( linkedData ) })
+
     }
 
 
