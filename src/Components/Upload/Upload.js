@@ -7,17 +7,22 @@ class Upload extends Component {
     super(props)
   }
 
+  state = {
+    PlainText: null
+};
+
     handleUploadFile = async (event) => {
         const data = new FormData();
         data.append('file', event.target.files[0]);
         console.log(data);
         // '/files' is your node.js route that triggers our middleware
-        const text = await axios.get('http://127.0.0.1:5000/api', data, {
+        const text = await axios.post('http://127.0.0.1:5000/api', data, {
             headers: {
               'Content-Type': 'multipart/form-data'
             }
         });
-        console.log(text)
+        //console.log(text.data)
+        this.setState({PlainText: text.data})
     }
         
 
@@ -34,8 +39,8 @@ class Upload extends Component {
                 />
             </div>
         </div>
-        <div className="Actions">
-            <button>SEND</button>
+        <div className="Data-Area">
+          {this.state.PlainText}
         </div>
       </div>
     )

@@ -16,15 +16,6 @@
     width: 100%;
   }
   
-  .Actions {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    align-items: flex-end;
-    flex-direction: column;
-    margin-top: 32px;
-  }
-  
   .Title {
     margin:0 auto;
     margin-bottom: 32px;
@@ -33,12 +24,18 @@
 
   .File-Upload {
       text-align: right;
-      width:100%;
       border: #fff 2px solid;
       padding: 2rem;
       border-radius: 4%;  
+      margin: 0 auto;
+      margin-bottom: 2rem;
   }
 
   .File-Input {
       box-sizing: border-box;
+  }
+
+  .Data-Area {
+    font-size: 1rem;
+    padding: 0 4rem;
   }
