@@ -7,6 +7,7 @@ import string
 from flask import Flask
 from flask import Response
 from flask import request
+from flask_cors import CORS
 import json
 
 nlp = spacy.load('en_core_web_sm') 
@@ -119,6 +120,7 @@ def extract_concepts(input):
 load_concepts()
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route("/api", methods=['POST'])
 def main():
@@ -132,5 +134,5 @@ def main():
 # app.run(host="0.0.0.0", port=5000)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5001, debug=True)
 
