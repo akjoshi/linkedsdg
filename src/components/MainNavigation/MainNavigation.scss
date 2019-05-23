@@ -1,0 +1,62 @@
+@import '../../App.scss';
+
+.main-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 3.5rem;
+    background: $mainColor;
+    padding: 0.2rem 1.2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 2px rgba(255,255,255,0.2);
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-nav-logo {
+    margin: 0;
+    color: $white;
+    font-size: 0.75rem;
+    width:100%;
+}
+
+.main-nav-item {
+    margin: 0 0 0 1.5rem;
+    float: right;
+    width: 100%;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        float: right;
+        margin-right: 2rem;
+
+        li {
+            padding: 0 1rem;
+            margin: 0;
+
+            a,button {
+                text-decoration: none;
+                color: $white;
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+                padding: 0;
+            }
+
+            a:hover,button:hover 
+            a:active,button:active 
+            a.active,button:focus  {
+                outline: 0;
+                text-decoration: none;
+                border: none;
+                color: $activeWhite;
+            }
+        }
+    }
+}
+

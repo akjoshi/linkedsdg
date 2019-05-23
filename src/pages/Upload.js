@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './Upload.scss'
 import axios from 'axios';
-import ConceptItem from '../components/ConceptItem/ConceptItem';
+import ConceptItem from '../components/ConceptList/ConceptItem/ConceptItem';
+import ConceptList from '../components/ConceptList/ConceptList';
+import UploadComponent from '../components/UploadComponent/UploadComponent';
 
 class Upload extends Component {
     state = {
@@ -20,11 +22,11 @@ class Upload extends Component {
         });
 
         const jsonText = await axios.post('http://127.0.0.1:5001/api', {
-                text: text.data,
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+            text: text.data,
+            headers: {
+                'Content-Type': 'application/json'
             }
+        }
         );
 
         console.log(jsonText['data']);
@@ -39,13 +41,14 @@ class Upload extends Component {
                 label: jsonText['data']['concepts'][key]['label'],
                 source: jsonText['data']['concepts'][key]['source'],
                 weight: jsonText['data']['concepts'][key]['weight'],
+                context: jsonText['data']['matches'][0]['context']
             })
         }
 
         console.log(concepts)
         this.setState({ Concepts: concepts })
 
-        const match = jsonText['data']['matches'].map(function(x){
+        const match = jsonText['data']['matches'].map(function (x) {
             return {
                 "url": x['url'],
                 "weight": 1
@@ -65,14 +68,10 @@ class Upload extends Component {
             <div className="Upload">
                 <span className="Title">Upload Files</span>
                 <div className="Content">
-                    <div className="File-Upload">
-                        <input className="File-Input" type="file" onChange={this.handleUploadFile} />
-                    </div>
+                    <UploadComponent handleUploadFile={this.handleUploadFile}></UploadComponent>
                 </div>
                 <div className="Data-Area">
-                    <ul>
-                        {this.state.Concepts.map(concept => <ConceptItem concept={concept}></ConceptItem>)}
-                    </ul>
+                    <ConceptList Concepts={this.state.Concepts}></ConceptList> 
                     {this.state.PlainText}
                 </div>
             </div>
