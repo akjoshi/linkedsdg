@@ -4,7 +4,7 @@ import ConceptItem from './ConceptItem/ConceptItem';
 
 const ConceptList = props => (
     <ul>
-        {props.Concepts.map(concept => <ConceptItem concept={concept}></ConceptItem>)}
+        {props.Concepts.map(concept => <ConceptItem concept={concept} key={concept.id}></ConceptItem>)}
     </ul>
 );
 

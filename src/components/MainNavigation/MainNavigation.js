@@ -5,7 +5,9 @@ import './MainNavigation.scss';
 const mainNavigation = props => (
     <header className="main-nav">
         <div className="main-nav-logo">
-            <h1>UN-SDGS-Content-Linking</h1>
+            <NavLink to="/">
+                <h1>UN-SDGS-Content-Linking</h1>
+            </NavLink>
         </div>
         <nav className="main-nav-item">
             <ul>

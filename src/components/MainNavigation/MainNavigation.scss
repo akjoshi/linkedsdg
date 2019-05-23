@@ -19,6 +19,14 @@
     color: $white;
     font-size: 0.75rem;
     width:100%;
+
+    a,button {
+        text-decoration: none;
+        color: $white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
 }
 
 .main-nav-item {

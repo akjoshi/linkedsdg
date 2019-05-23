@@ -1,6 +1,6 @@
 import React from 'react';
 import Upload from './pages/Upload'
-import {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 
 import './App.scss'
@@ -11,7 +11,10 @@ function App() {
       <React.Fragment>
         <MainNavigation />
         <main className="main-content">
-          <Upload></Upload>
+          <Switch>
+            <Redirect from="/" to="/upload" exact />
+            <Route path="/upload" component={Upload} />
+          </Switch>
         </main>
 
       </React.Fragment>
