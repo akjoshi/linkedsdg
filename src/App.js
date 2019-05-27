@@ -3,7 +3,8 @@ import Upload from './pages/Upload'
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 
-import './App.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
 
 function App() {
   return (
