@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from tika import parser
 from flask_cors import CORS, cross_origin
 
-ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html'])
+ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 app = Flask(__name__)
 CORS(app)
