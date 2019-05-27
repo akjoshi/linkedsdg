@@ -6,6 +6,7 @@ import UploadComponent from '../components/UploadComponent/UploadComponent';
 import Spinner from '../components/Spinner/Spinner';
 
 class Upload extends Component {
+
     state = {
         PlainText: '',
         Concepts: [],
@@ -28,7 +29,20 @@ class Upload extends Component {
                 'Content-Type': 'multipart/form-data'
             }
         });
+        this.processText(text);
+    }
 
+    handleUrlFile = async (url) => {
+        this.setState({ isLoading: true });
+        const text = await axios.post('http://127.0.0.1:5000/apiURL', url, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        this.processText(text);
+    }
+
+    processText = async (text) => {
         const jsonText = await axios.post('http://127.0.0.1:5001/api', {
             text: text.data,
             headers: {
@@ -108,7 +122,7 @@ class Upload extends Component {
                     </div>
                 ) : (
                     <div className="Content">
-                        <UploadComponent handleUploadFile={this.handleUploadFile}></UploadComponent>
+                        <UploadComponent handleUploadFile={this.handleUploadFile} handleUrlFile={this.handleUrlFile}></UploadComponent>
                     </div>
                 ))}
             </div>
