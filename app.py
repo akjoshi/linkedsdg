@@ -51,7 +51,7 @@ def load_concepts():
     with open('sources.json') as f:
         sources = json.load(f)
 
-    concept_list = csv.DictReader(open("sample-labels.csv", encoding="utf8"), delimiter=",")
+    concept_list = csv.DictReader(open("labels.csv", encoding="utf8"), delimiter=",")
 
     i = 1
     for concept in concept_list:
@@ -138,8 +138,6 @@ def extract_concepts(input):
             }
     return final_matches, concepts_all, text
 
-load_concepts()
-
 app = Flask(__name__)
 CORS(app)
 
@@ -155,5 +153,7 @@ def main():
 # app.run(host="0.0.0.0", port=5000)
 
 if __name__ == '__main__':
+    load_concepts()
     app.run(port=5001, debug=True)
+    
 
