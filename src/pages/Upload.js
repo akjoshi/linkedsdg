@@ -101,7 +101,7 @@ class Upload extends Component {
                         <ConceptList Concepts={this.state.Concepts}></ConceptList>
 
                         <h3 className="Title">Data from 3rd api</h3>
-                        {this.state.LinkedData.map(x => <p>{x.label}</p>)}
+                        {this.state.LinkedData.map((x,index) => <p key={index}>{x.label}</p>)}
 
                         <h3 className="Title">PlainText</h3>
                         {this.state.PlainText}
