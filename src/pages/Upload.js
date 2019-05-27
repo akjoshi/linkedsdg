@@ -66,9 +66,23 @@ class Upload extends Component {
 
         const linkedData = await axios.post('http://127.0.0.1:5002/api', match);
 
-        this.setState({ LinkedData: linkedData });
 
-        this.setState({ contentLoaded: true, isLoading: false });
+        const linkedConcepts = [];
+
+        console.log(linkedData)
+
+        for (var key in linkedData['data']) {
+            linkedConcepts.push({
+                id: key,
+                type: linkedData['data'][key]['type'],
+                label: linkedData['data'][key]['label'],
+                concept: linkedData['data'][key]['concept']
+            })
+        }
+
+        console.log(linkedConcepts)
+
+        this.setState({ LinkedData: linkedConcepts, contentLoaded: true, isLoading: false });
     }
 
 
@@ -85,6 +99,11 @@ class Upload extends Component {
                 this.state.contentLoaded ? (
                     <div className="Data-Area">
                         <ConceptList Concepts={this.state.Concepts}></ConceptList>
+
+                        <h3 className="Title">Data from 3rd api</h3>
+                        {this.state.LinkedData.map(x => <p>{x.label}</p>)}
+
+                        <h3 className="Title">PlainText</h3>
                         {this.state.PlainText}
                     </div>
                 ) : (
