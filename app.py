@@ -35,6 +35,8 @@ def get_task():
     if file.filename == '':
         return {'message': 'No selected file'}, 400
     if file and allowed_file(file.filename):
+        print(file.filename)
+        print(file)
         filename = secure_filename(file.filename)
         text = parser.from_file(filename)
         return ' '.join(text['content'].split())
