@@ -129,7 +129,7 @@ def extract_concepts(input):
         match["context"] = context_string
         final_matches.append(match)
         if match["url"] in concepts_all:
-            concepts_all["weight"] += 1
+            concepts_all[match["url"]]["weight"] += 1
         else: 
             concepts_all[match["url"]] = {
                 "label": concept_index[match["url"]]["label"],
