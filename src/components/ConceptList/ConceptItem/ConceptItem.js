@@ -6,33 +6,36 @@ import './ConceptItem.scss';
 
 class ConceptItem extends React.Component {
     constructor(props, context) {
-      super(props, context);
-  
-      this.state = {
-        open: false,
-      };
+        super(props, context);
+
+        this.state = {
+            open: false,
+
+        };
     }
     render() {
         const { open } = this.state;
         return (
             <li className="event-list-item">
-            <a href={this.props.concept.id}> <p>{this.props.concept.label}</p></a>
-    
-            <Button
-            onClick={() => this.setState({ open: !open })}
-            aria-controls="example-collapse-text"
-            aria-expanded={open}>
-            click
-            </Button>
-            <Collapse in={this.state.open}>
-            <div id="example-collapse-text"> 
-                {this.props.concept.context.map((x, index) => <p key={index}>{index} {x['context']}</p>)}
-            </div>
-            </Collapse>
-        </li>
+                <div>
+                    <a href={this.props.concept.id}> {this.props.concept.label}</a>
+                </div>
+                <div className="collapse-button">
+                <Button
+                    onClick={() => this.setState({ open: !open })}
+                    aria-expanded={open}>
+                    {this.state.open ? ( <p>-</p> ) : ( <p>+</p> ) }
+                </Button>
+                </div>
+                <Collapse in={this.state.open}>
+                    <div id="example-collapse-text">
+                        {this.props.concept.context.map((x, index) => <p key={index}>{x['context']}</p>)}
+                    </div>
+                </Collapse>
+            </li>
         );
-      }
     }
-    
+}
+
 
 export default ConceptItem;
