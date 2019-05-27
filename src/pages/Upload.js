@@ -41,7 +41,6 @@ class Upload extends Component {
 
         const concepts = [];
 
-        console.log(jsonText)
 
         for (var key in jsonText['data']['concepts']) {
             let context = this.findContext(jsonText['data']['matches'], key)
@@ -53,6 +52,8 @@ class Upload extends Component {
                 context: context
             })
         }
+
+        concepts.sort((x,y) => y.weight- x.weight);
 
         this.setState({ Concepts: concepts })
 
