@@ -16,7 +16,6 @@ class Upload extends Component {
 
     findContext = (data, key) => {
         var filtered = data.filter(x => {  return x['url'] === key } );
-        console.log(filtered)
         return filtered
     }
 
@@ -38,8 +37,6 @@ class Upload extends Component {
         }
         );
 
-        console.log(jsonText['data']);
-
         this.setState({ PlainText: jsonText['data']['clean_text'] })
 
         const concepts = [];
@@ -55,7 +52,6 @@ class Upload extends Component {
             })
         }
 
-        console.log(concepts)
         this.setState({ Concepts: concepts })
 
         const match = jsonText['data']['matches'].map(function (x) {
@@ -69,8 +65,6 @@ class Upload extends Component {
 
         this.setState({ LinkedData: linkedData });
 
-        console.log(linkedData);
-
         this.setState({ contentLoaded: true, isLoading: false });
     }
 
@@ -78,6 +72,10 @@ class Upload extends Component {
     render() {
         return (
             <div className="Upload">
+                <span className="Title">Upload Files</span>
+                <p className="Description">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent mi orci, bibendum id feugiat sit amet, laoreet viverra arcu. Maecenas pulvinar mauris vitae iaculis suscipit. Phasellus scelerisque orci nec sollicitudin fringilla. Donec eu luctus metus, dictum sollicitudin dui. Nullam sit amet metus justo. Ut auctor dignissim orci eu congue. 
+                </p>
                 {this.state.isLoading ? (
                     <Spinner />
                 ) : (

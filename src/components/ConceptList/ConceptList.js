@@ -3,8 +3,9 @@ import './ConceptList.scss';
 import ConceptItem from './ConceptItem/ConceptItem';
 
 const ConceptList = props => (
-    <ul>
-        {props.Concepts.map(concept => <ConceptItem concept={concept} key={concept.id}></ConceptItem>)}
+    <ul> 
+         {/* Add sorting by weight */}
+        {props.Concepts.map( (concept, index) => <ConceptItem concept={concept} key={index}></ConceptItem>)}
     </ul>
 );
 
