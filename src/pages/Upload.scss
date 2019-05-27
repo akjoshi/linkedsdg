@@ -5,6 +5,8 @@
     align-items: flex-start;
     text-align: left;
     overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto; 
   }
   
   .Content {
@@ -25,5 +27,5 @@
 
   .Data-Area {
     font-size: 1rem;
-    padding: 0 4rem;
+    padding: 0 2rem;
   }

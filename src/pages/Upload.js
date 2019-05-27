@@ -41,6 +41,8 @@ class Upload extends Component {
 
         const concepts = [];
 
+        console.log(jsonText)
+
         for (var key in jsonText['data']['concepts']) {
             let context = this.findContext(jsonText['data']['matches'], key)
             concepts.push({

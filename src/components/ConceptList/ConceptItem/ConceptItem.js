@@ -18,7 +18,8 @@ class ConceptItem extends React.Component {
         return (
             <li className="event-list-item">
                 <div>
-                    <a href={this.props.concept.id}> {this.props.concept.label}</a>
+                    <a href={this.props.concept.id}> {this.props.concept.label}</a> 
+                    <span className="annotation">({this.props.concept.source})</span>
                 </div>
                 <div className="collapse-button">
                 <Button
