@@ -8,11 +8,12 @@ import Spinner from '../components/Spinner/Spinner';
 class Upload extends Component {
 
     state = {
-        PlainText: '',
-        Concepts: [],
-        LinkedData: {},
+        plainText: '',
+        concepts: [],
+        linkedData: {},
         isLoading: false,
-        contentLoaded: false
+        contentLoaded: false,
+        error: ''
     };
 
     findContext = (data, key) => {
@@ -21,35 +22,53 @@ class Upload extends Component {
     }
 
     handleUploadFile = async (event) => {
-        this.setState({ isLoading: true });
+        this.setState({ isLoading: true, error: '' });
         const data = new FormData();
         data.append('file', event.target.files[0]);
-        const text = await axios.post('http://127.0.0.1:5000/api', data, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
+
+        try {
+            const text = await axios.post('http://127.0.0.1:5000/api', data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            this.processText(text);
+        } catch (error) {
+            if (error.response.status !== 200 && error.response.status !== 201) {
+                this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
             }
-        });
-        this.processText(text);
+        }
+
     }
 
     handleUrlFile = async (url) => {
-        this.setState({ isLoading: true });
-        const text = await axios.post('http://127.0.0.1:5000/apiURL', url, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
+        this.setState({ isLoading: true, error: '' });
+        try {
+            const text = await axios.post('http://127.0.0.1:5000/apiURL', url, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+             this.processText(text);
+        } catch (error) {
+            if (error.response.status !== 200 && error.response.status !== 201) {
+                this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
             }
-        });
-        this.processText(text);
+        }
+
+        
     }
 
     processText = async (text) => {
+        try {
         const jsonText = await axios.post('http://127.0.0.1:5001/api', {
             text: text.data,
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
-        );
+        });
+
 
         this.setState({ PlainText: jsonText['data']['clean_text'] })
 
@@ -78,25 +97,33 @@ class Upload extends Component {
             }
         });
 
-        const linkedData = await axios.post('http://127.0.0.1:5002/api', match);
+        const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match);
 
 
         const linkedConcepts = [];
 
-        console.log(linkedData)
+        console.log(linkedDataResponse)
 
-        for (var key in linkedData['data']) {
+        for (var key in linkedDataResponse['data']) {
             linkedConcepts.push({
                 id: key,
-                type: linkedData['data'][key]['type'],
-                label: linkedData['data'][key]['label'],
-                concept: linkedData['data'][key]['concept']
+                type: linkedDataResponse['data'][key]['type'],
+                label: linkedDataResponse['data'][key]['label'],
+                concept: linkedDataResponse['data'][key]['concept']
             })
         }
 
         console.log(linkedConcepts)
 
-        this.setState({ LinkedData: linkedConcepts, contentLoaded: true, isLoading: false });
+        this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false });
+
+        } catch (error) {
+            if (error.response.status !== 200 && error.response.status !== 201) {
+                this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
+            }
+        }
+
+        
     }
 
 
@@ -112,19 +139,20 @@ class Upload extends Component {
                 ) : (
                 this.state.contentLoaded ? (
                     <div className="Data-Area">
-                        <ConceptList Concepts={this.state.Concepts}></ConceptList>
+                        <ConceptList Concepts={this.state.concepts}></ConceptList>
 
                         <h3 className="Title">Data from 3rd api</h3>
-                        {this.state.LinkedData.map((x,index) => <p key={index}>{x.label}</p>)}
+                        {this.state.linkedData.map((x,index) => <p key={index}>{x.label}</p>)}
 
                         <h3 className="Title">PlainText</h3>
-                        {this.state.PlainText}
+                        {this.state.plainText}
                     </div>
                 ) : (
                     <div className="Content">
                         <UploadComponent handleUploadFile={this.handleUploadFile} handleUrlFile={this.handleUrlFile}></UploadComponent>
                     </div>
                 ))}
+                <p>{this.state.error}</p>
             </div>
         )
     }
