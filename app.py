@@ -3,6 +3,7 @@ from flask import Flask, request, abort
 from werkzeug.utils import secure_filename
 from tika import parser
 from flask_cors import CORS, cross_origin
+import requests
 
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
@@ -30,17 +31,27 @@ def allowed_file(filename):
 @cross_origin(allow_headers=['Content-Type'])
 def get_task():
     if 'file' not in request.files:
-        return {'message': 'No file part'}, 400
+        abort(400)
     file = request.files['file']
     if file.filename == '':
-        return {'message': 'No selected file'}, 400
+        abort(400)
     if file and allowed_file(file.filename):
-        print(file.filename)
-        print(file)
         filename = secure_filename(file.filename)
         text = parser.from_file(filename)
         return ' '.join(text['content'].split())
 
+
+    abort(400)
+    return 'Something went wrong, try again!'
+
+
+@app.route('/apiURL', methods=['POST'])
+@cross_origin(allow_headers=['Content-Type'])
+def get_task_url():
+    response = requests.get(request.data)
+    if response.status_code == 200:
+        return ' '.join(parser.from_buffer(response.text)['content'].split())
+    abort(400)
     return 'Something went wrong, try again!'
 
 
