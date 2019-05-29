@@ -1,5 +1,6 @@
 import spacy
 import csv
+from SPARQLWrapper import SPARQLWrapper, JSON, BASIC
 from spacy.matcher import PhraseMatcher
 from spacy.tokens import Span
 import re
@@ -9,6 +10,29 @@ from flask import Response
 from flask import request
 from flask_cors import CORS
 import json
+
+SPARQL_QUERY = """
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+select distinct ?id ?label where { 
+	?x dct:subject ?target .
+    ?id skos:broader* ?target .
+    {
+        {
+            ?id skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) = "en")
+            BIND (lcase(str(?prefLabel)) as ?label)
+        }
+        UNION
+        {
+            ?id skos:altLabel ?altLabel .
+            FILTER(lang(?altLabel) = "en")
+            BIND (lcase(str(?altLabel)) as ?label)
+        }
+    }
+} 
+"""
+GRAPHDB = "http://35.231.89.123:7200/repositories/sdgs"
 
 nlp = spacy.load('en_core_web_sm') 
 matcher = PhraseMatcher(nlp.vocab)
@@ -45,30 +69,47 @@ def add_to_matcher(label, i):
     else:
         concept_spacy_ids[label].append(i)
 
+def get_sparql_results(sparql_query):
+    sparql = SPARQLWrapper(GRAPHDB)
+    sparql.setHTTPAuth(BASIC)
+    sparql.setCredentials("sdg-guest", "lod4stats")
+    sparql.setQuery(sparql_query)
+    sparql.setReturnFormat(JSON)
+    results = sparql.query().convert()
+    return results
+
 def load_concepts():
     print("\n\nLoading concepts...")
 
     with open('sources.json') as f:
         sources = json.load(f)
 
-    concept_list = csv.DictReader(open("labels.csv", encoding="utf8"), delimiter=",")
+    
+
+    concept_list = get_sparql_results(SPARQL_QUERY)['results']['bindings']
+    # concept_list = csv.DictReader(open("labels.csv", encoding="utf8"), delimiter=",")
 
     i = 1
     for concept in concept_list:
-        if len(concept["label"]) < 30:
-            label = concept["label"].lower()
+        # label = concept["label"].lower()
+        # concept_id = concept["id"]
+
+        label = concept["label"]["value"]
+        concept_id = concept["id"]["value"]
+
+        if len(label) < 30:
             add_to_matcher(label, i)
-            concept_ids[i]=concept["id"]
-            concept_labels[i]=concept["label"]
+            concept_ids[i]=concept_id
+            concept_labels[i]=label
             plural = ""
             if not label.endswith("s"):
                 if label.endswith("y"):
-                    plural = concept["label"].lower()[:-1] + "ies"
+                    plural = label[:-1] + "ies"
                 else:
-                    plural = concept["label"].lower() + "s"
+                    plural = label + "s"
                 add_to_matcher(plural, i)
             for source in sources:
-                if source in concept["id"]:
+                if source in concept_id:
                     concept_source[i] = source
         i += 1
         if i > 0 and i % 1000 == 0: 
