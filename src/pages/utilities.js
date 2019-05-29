@@ -6,6 +6,14 @@ import axios from 'axios';
         return filtered
     }
 
+    function calculateWeight(data) {
+        let sum = 0;
+        for (var key in data) {
+            sum += data[key].weight
+        }
+        return sum;
+    }
+
     export async function handleUploadFile (event){
         this.setState({ isLoading: true, error: '' });
         const data = new FormData();
@@ -105,12 +113,16 @@ import axios from 'axios';
                     id: key,
                     type: linkedDataResponse['data'][key]['type'],
                     label: linkedDataResponse['data'][key]['label'],
-                    concept: linkedDataResponse['data'][key]['concept']
+                    concept: linkedDataResponse['data'][key]['concept'],
+                    sumWeight: calculateWeight(linkedDataResponse['data'][key]['concept'])
                 })
             }
 
             console.log("linkedConcepts")
             console.log(linkedConcepts)
+
+
+            linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
 
             this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false });
 
