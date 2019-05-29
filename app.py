@@ -195,6 +195,6 @@ def main():
 
 if __name__ == '__main__':
     load_concepts()
-    app.run(port=5001, debug=True)
+    app.run(port=5001, debug=False)
     
 
