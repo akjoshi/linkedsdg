@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './Upload.scss'
 import ConceptList from '../components/ConceptList/ConceptList';
 import UploadComponent from '../components/UploadComponent/UploadComponent';
+import LinkedConceptsList from '../components/LinkedConceptsList/LinkedConceptsList';
 import Spinner from '../components/Spinner/Spinner';
 import {handleUploadFile, handleUrlFile, processText} from './utilities';
 
 class Upload extends Component {
     constructor(props) {
         super(props);
-    
         this.handleUploadFile = handleUploadFile.bind(this);
         this.handleUrlFile = handleUrlFile.bind(this);
         this.processText = processText.bind(this);
@@ -23,7 +23,6 @@ class Upload extends Component {
         error: ''
     };
 
-
     render() {
         return (
             <div className="Upload">
@@ -36,10 +35,10 @@ class Upload extends Component {
                 ) : (
                 this.state.contentLoaded ? (
                     <div className="Data-Area">
+                        
                         <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                        <h3 className="Title">Data from 3rd api</h3>
-                        {this.state.linkedData.map((x,index) => <p key={index}>{x.label}</p>)}
+                        <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
 
                         <h3 className="Title">PlainText</h3>
                         {this.state.plainText}

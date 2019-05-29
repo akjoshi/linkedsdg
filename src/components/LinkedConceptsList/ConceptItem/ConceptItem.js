@@ -5,19 +5,36 @@ import './ConceptItem.scss';
 
 
 class ConceptItem extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.state = {
             open: false,
         };
     }
+
+    renderConcepts = (data) => {
+        const text = [];
+
+        for (var key in data) {
+            text.push({
+                id: key,
+                weight: data[key].weight
+            })
+        }
+
+        console.log(text)
+        return text.map((x, index) => <li key={index} className="collapse-item">{index+1}. {x['id']}</li>);
+    };
+
     render() {
         const { open } = this.state;
         return (
             <li className="event-list-item">
                 <div>
-                    <a href={this.props.concept.id}> {this.props.concept.label}</a> 
-                    <span className="annotation">({this.props.concept.source})</span>
+                    <a href={this.props.data.id}>
+                    <span className="annotation">({this.props.data.type})</span>
+                    {this.props.data.label}
+                    </a> 
                 </div>
                 <div className="collapse-button">
                 <Button
@@ -29,7 +46,7 @@ class ConceptItem extends React.Component {
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
                         <ul>
-                            {this.props.concept.context.map((x, index) => <li key={index} className="collapse-item">{index+1}. {x['context']}</li>)}
+                            {this.renderConcepts(this.props.data.concept)}
                         </ul>
                     </div>
                 </Collapse>
