@@ -22,7 +22,6 @@ class ConceptItem extends React.Component {
                 label: data[key]['linkedConcept'].map(x => x.label)
             })
         }
-        console.log(text)
         return text.map((x, index) => <li key={index} className="collapse-item">{index+1}. <a href={x['id']}> {x.label} </a></li>);
     };
 

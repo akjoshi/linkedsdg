@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './Upload.scss'
-import ConceptList from '../components/ConceptList/ConceptList';
-import UploadComponent from '../components/UploadComponent/UploadComponent';
-import LinkedConceptsList from '../components/LinkedConceptsList/LinkedConceptsList';
-import Spinner from '../components/Spinner/Spinner';
+import ConceptList from '../../components/ConceptList/ConceptList';
+import UploadComponent from '../../components/UploadComponent/UploadComponent';
+import LinkedConceptsList from '../../components/LinkedConceptsList/LinkedConceptsList';
+import Spinner from '../../components/Spinner/Spinner';
 import {handleUploadFile, handleUrlFile, processText} from './utilities';
+import Button from 'react-bootstrap/Button'
 
 class Upload extends Component {
     constructor(props) {
@@ -22,6 +23,16 @@ class Upload extends Component {
         contentLoaded: false,
         error: ''
     };
+
+    clear = (event) => {
+        this.setState({plainText: '',
+        concepts: [],
+        linkedData: {},
+        isLoading: false,
+        contentLoaded: false,
+        error: ''
+        })
+    }
 
     render() {
         return (
@@ -42,6 +53,12 @@ class Upload extends Component {
 
                         <h3 className="Title">PlainText</h3>
                         {this.state.plainText}
+
+                        <div className="clear-button">
+                            <Button variant="primary" onClick={this.clear}>
+                                CLEAR
+                            </Button>
+                        </div>
                     </div>
                 ) : (
                     <div className="Content">

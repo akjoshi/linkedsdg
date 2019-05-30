@@ -12,7 +12,7 @@ const mainNavigation = props => (
         </div>
         <nav className="main-nav-item">
             <ul>
-                <li><NavLink to="/">Upload</NavLink></li>
+                <li><NavLink to="/upload">Upload</NavLink></li>
             </ul>
         </nav>
     </header>

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
     function findContext(data, key) {
         var filtered = data.filter(x => { return x['url'] === key });
         return filtered
