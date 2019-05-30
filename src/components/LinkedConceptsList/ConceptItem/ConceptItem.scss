@@ -1,7 +1,7 @@
 @import '../../../App.scss';
 
 
-.event-list-item {
+.linked-concept-list-item {
     display: grid;
     grid-template-columns: 95% 5%;
     border-bottom: 1px $grey solid;
@@ -19,7 +19,6 @@
     }
 
     a {
-        float: left;
         margin: 0;
         line-height: 2rem;
         word-wrap: break-word;
@@ -49,7 +48,6 @@
     }
 
     p {
-        float: left;
         vertical-align: middle;
         margin: 0;
         line-height: 2rem;

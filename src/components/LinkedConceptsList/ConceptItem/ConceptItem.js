@@ -18,18 +18,18 @@ class ConceptItem extends React.Component {
         for (var key in data) {
             text.push({
                 id: key,
-                weight: data[key].weight
+                weight: data[key].weight,
+                label: data[key]['linkedConcept'].map(x => x.label)
             })
         }
-
         console.log(text)
-        return text.map((x, index) => <li key={index} className="collapse-item">{index+1}. {x['id']}</li>);
+        return text.map((x, index) => <li key={index} className="collapse-item">{index+1}. <a href={x['id']}> {x.label} </a></li>);
     };
 
     render() {
         const { open } = this.state;
         return (
-            <li className="event-list-item">
+            <li className="linked-concept-list-item">
                 <div>
                     <a href={this.props.data.id}>
                     <span className="annotation">({this.props.data.type})</span>

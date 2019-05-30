@@ -14,6 +14,16 @@ import axios from 'axios';
         return sum;
     }
 
+    function linkConcepts(newConcepts, oldConcepts) {
+        for (var key in newConcepts) {
+            // eslint-disable-next-line no-loop-func
+            const importantConcepts = oldConcepts.filter(x => (x.id === key));
+            newConcepts[key] = {...newConcepts[key],linkedConcept: importantConcepts}; 
+        }
+
+        return newConcepts;
+    }
+
     export async function handleUploadFile (event){
         this.setState({ isLoading: true, error: '' });
         const data = new FormData();
@@ -70,6 +80,7 @@ import axios from 'axios';
             }
             console.log('Json z spacy')
             console.log(jsonText)
+
             this.setState({ plainText: jsonText['data']['clean_text'] })
             const conceptsResponse = [];
 
@@ -87,6 +98,9 @@ import axios from 'axios';
             
 
             conceptsResponse.sort((x, y) => y.weight - x.weight);
+
+            console.log("conceptsResponse")
+            console.log(conceptsResponse)
 
             this.setState({ concepts: conceptsResponse })
 
@@ -109,11 +123,12 @@ import axios from 'axios';
             console.log(linkedDataResponse)
 
             for (var key in linkedDataResponse['data']) {
+                const newConcepts = linkConcepts(linkedDataResponse['data'][key]['concept'], conceptsResponse)
                 linkedConcepts.push({
                     id: key,
                     type: linkedDataResponse['data'][key]['type'],
                     label: linkedDataResponse['data'][key]['label'],
-                    concept: linkedDataResponse['data'][key]['concept'],
+                    concept: newConcepts,
                     sumWeight: calculateWeight(linkedDataResponse['data'][key]['concept'])
                 })
             }
