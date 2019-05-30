@@ -18,10 +18,16 @@ class ConceptItem extends React.Component {
             text.push({
                 id: key,
                 weight: data[key].weight,
-                label: data[key]['linkedConcept'].map(x => x.label)
+                label: data[key]['linkedConcept'].map(x => x.label),
+                source: data[key]['linkedConcept'].map(x => x.source)
             })
         }
-        return text.map((x, index) => <li key={index} className="collapse-item">{index+1}. <a href={x['id']}> {x.label} </a></li>);
+        
+        return text.map((x, index) => (
+                            <li key={index} className="collapse-item">
+                            {index+1}. <a href={x['id']}> {x.label} </a> <span className="annotation">({x.source})</span> 
+                            </li>
+                        ));
     };
 
     render() {

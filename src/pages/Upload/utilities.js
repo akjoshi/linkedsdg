@@ -77,8 +77,8 @@ import axios from 'axios';
             if (jsonText.status !== 200 && jsonText.status !== 201) {
                 throw new Error('Failed!');
             }
-            // console.log('Json z spacy')
-            // console.log(jsonText)
+            console.log('Json z spacy')
+            console.log(jsonText)
 
             this.setState({ plainText: jsonText['data']['clean_text'] })
             const conceptsResponse = [];
