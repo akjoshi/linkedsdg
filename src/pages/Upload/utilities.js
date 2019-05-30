@@ -38,8 +38,8 @@ import axios from 'axios';
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log("TEKST Z PLIKU")
-            console.log(text)
+            // console.log("TEKST Z PLIKU")
+            // console.log(text)
             this.processText(text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
@@ -58,8 +58,8 @@ import axios from 'axios';
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log("TEKST Z URL")
-            console.log(text)
+            // console.log("TEKST Z URL")
+            // console.log(text)
             this.processText(text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
@@ -77,8 +77,8 @@ import axios from 'axios';
             if (jsonText.status !== 200 && jsonText.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log('Json z spacy')
-            console.log(jsonText)
+            // console.log('Json z spacy')
+            // console.log(jsonText)
 
             this.setState({ plainText: jsonText['data']['clean_text'] })
             const conceptsResponse = [];
@@ -98,8 +98,8 @@ import axios from 'axios';
 
             conceptsResponse.sort((x, y) => y.weight - x.weight);
 
-            console.log("conceptsResponse")
-            console.log(conceptsResponse)
+            // console.log("conceptsResponse")
+            // console.log(conceptsResponse)
 
             this.setState({ concepts: conceptsResponse })
 
@@ -118,8 +118,8 @@ import axios from 'axios';
 
             const linkedConcepts = [];
 
-            console.log("linkedDataResponse")
-            console.log(linkedDataResponse)
+            // console.log("linkedDataResponse")
+            // console.log(linkedDataResponse)
 
             for (var key in linkedDataResponse['data']) {
                 const newConcepts = linkConcepts(linkedDataResponse['data'][key]['concept'], conceptsResponse)
@@ -132,9 +132,8 @@ import axios from 'axios';
                 })
             }
 
-            console.log("linkedConcepts")
-            console.log(linkedConcepts)
-
+            // console.log("linkedConcepts")
+            // console.log(linkedConcepts)
 
             linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
 

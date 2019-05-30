@@ -8,7 +8,6 @@ const ConceptList = props => (
         Found:
     </h3>
     <ul> 
-         {/* Add sorting by weight */}
         {props.Concepts.map( (concept, index) => <ConceptItem concept={concept} key={index}></ConceptItem>)}
     </ul>
     </React.Fragment>

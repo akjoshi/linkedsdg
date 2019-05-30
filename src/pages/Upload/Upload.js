@@ -52,7 +52,7 @@ class Upload extends Component {
                         <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
 
                         <h3 className="Title">PlainText</h3>
-                        {this.state.plainText}
+                        <p>{this.state.plainText}</p>
 
                         <div className="clear-button">
                             <Button variant="primary" onClick={this.clear}>

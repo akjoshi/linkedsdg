@@ -14,7 +14,6 @@ class ConceptItem extends React.Component {
 
     renderConcepts = (data) => {
         const text = [];
-
         for (var key in data) {
             text.push({
                 id: key,
