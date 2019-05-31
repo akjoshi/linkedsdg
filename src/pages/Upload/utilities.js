@@ -29,7 +29,7 @@ import axios from 'axios';
         data.append('file', event.target.files[0]);
 
         try {
-            const text = await axios.post('http://127.0.0.1:5000/api', data, {
+            const text = await axios.post('http://35.231.89.123:5000/api', data, {
 
                 headers: {
                     'Content-Type': 'multipart/form-data'
