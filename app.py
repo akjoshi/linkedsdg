@@ -4,7 +4,9 @@ from werkzeug.utils import secure_filename
 from tika import parser
 from flask_cors import CORS, cross_origin
 import requests
+from os.path import join, dirname, realpath
 
+UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/uploads/..')
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 app = Flask(__name__)
@@ -36,8 +38,8 @@ def get_task():
     if file.filename == '':
         abort(400)
     if file and allowed_file(file.filename):
-        filename = secure_filename(file.filename)
-        text = parser.from_file(filename)
+        text = parser.from_buffer(file.read())
+        print("WORK3")
         return ' '.join(text['content'].split())
 
 
