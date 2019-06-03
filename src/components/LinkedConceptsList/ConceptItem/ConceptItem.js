@@ -1,6 +1,7 @@
 import React from 'react';
 import Collapse from 'react-bootstrap/Collapse'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios';
 import './ConceptItem.scss';
 
 
@@ -30,15 +31,41 @@ class ConceptItem extends React.Component {
                         ));
     };
 
+    reciveJsonFromApi = async () =>{
+        console.log("CALL API")
+        try {
+            const dataForApi = {
+                "type": this.props.data.type,
+	            "uri": this.props.data.id
+            }
+
+            let dataInJson = JSON.stringify(dataForApi)
+
+            const text = await axios.post('http://35.231.89.123:8080/describe', dataInJson, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (text.status !== 200 && text.status !== 201) {
+                throw new Error('Failed!');
+            }
+            console.log(text);
+            // let temp = window.open("data:text/json," + encodeURIComponent(text), "_blank");
+            // temp.focus();
+        } catch (error) {
+            console.log("ERROR");
+        }
+    }
+
     render() {
         const { open } = this.state;
         return (
             <li className="linked-concept-list-item">
                 <div>
-                    <a href={this.props.data.id}>
+                    <p className="link" onClick={this.reciveJsonFromApi}>
                     <span className="annotation">({this.props.data.type})</span>
                     {this.props.data.label}
-                    </a> 
+                    </p> 
                 </div>
                 <div className="collapse-button">
                 <Button

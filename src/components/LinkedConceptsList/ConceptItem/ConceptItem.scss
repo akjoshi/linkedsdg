@@ -24,6 +24,16 @@
         word-wrap: break-word;
     }
 
+    .link {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+
+    .link:hover {
+        color: #0056b3;
+    }
+
     .annotation {
         padding: 0 0.5rem;
         line-height: 2rem;
