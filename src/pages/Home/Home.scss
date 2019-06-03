@@ -18,7 +18,13 @@
   
     .Description {
       font-size: 1rem;
-      padding: 0 2rem;
+      padding: 0;
+    }
+
+    .main-image {
+      padding: 2rem;
+      max-width: 40%;
+      margin: 0 auto;
     }
   }
   

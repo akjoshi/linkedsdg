@@ -50,7 +50,7 @@ import axios from 'axios';
     export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '' });
         try {
-            const text = await axios.post('http://127.0.0.1:5000/apiURL', url, {
+            const text = await axios.post('http://35.231.89.123:5000/apiURL', url, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
