@@ -121,14 +121,14 @@ import axios from 'axios';
             // console.log("linkedDataResponse")
             // console.log(linkedDataResponse)
 
-            for (var key in linkedDataResponse['data']) {
-                const newConcepts = linkConcepts(linkedDataResponse['data'][key]['concept'], conceptsResponse)
+            for (var url in linkedDataResponse['data']) {
+                const newConcepts = linkConcepts(linkedDataResponse['data'][url]['concept'], conceptsResponse)
                 linkedConcepts.push({
-                    id: key,
-                    type: linkedDataResponse['data'][key]['type'],
-                    label: linkedDataResponse['data'][key]['label'],
+                    id: url,
+                    type: linkedDataResponse['data'][url]['type'],
+                    label: linkedDataResponse['data'][url]['label'],
                     concept: newConcepts,
-                    sumWeight: calculateWeight(linkedDataResponse['data'][key]['concept'])
+                    sumWeight: calculateWeight(linkedDataResponse['data'][url]['concept'])
                 })
             }
 

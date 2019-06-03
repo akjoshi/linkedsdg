@@ -37,24 +37,27 @@ class LinkedConceptsList extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="linked-concepts-container">
                 <h3 className="Title">Data linked with concepts</h3>
                 <ul>
                     {this.state.displayData.map((data, index) => <ConceptItem data={data} key={index}></ConceptItem>)}
                 </ul>
 
-                {this.state.loadCount < this.state.data.length ? (
-                    <p onClick={this.loadMore}>Next</p>
-                ) : (
-                        <p> Next but not working</p>
-                    )}
+                <div className="link-box">
+                    {this.state.loadCount < this.state.data.length ? (
+                        <p className="link next" onClick={this.loadMore}>Next</p>
+                    ) : (
+                            <p>Next</p>
+                        )}
 
-                {this.state.loadCount > 10 ? (
-                    <p onClick={this.loadLess}>Previous</p>
-                ) : (
-                        <p> Previous but not working</p>
-                    )}
-            </React.Fragment>
+                    {this.state.loadCount > 10 ? (
+                        <p className="link prev" onClick={this.loadLess}>Previous</p>
+                    ) : (
+                            <p>Previous</p>
+                        )}
+                </div>
+
+            </div>
         );
     }
 }

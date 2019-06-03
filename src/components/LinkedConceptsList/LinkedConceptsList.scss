@@ -1,3 +1,30 @@
+
+.linked-concepts-container {
+
+    .link {
+        color: #007bff;
+        cursor: pointer;
+    }
+
+
+    .link:hover {
+        color: #0056b3;
+    }
+
+    .link-box {
+        width:100%;
+
+        p:first-child {
+            float: right;
+        }
+
+        p:last-child {
+            float: left;
+        }
+        margin-bottom: 5rem;
+    }
+}
+
 ul {
     margin: 0;
     padding: 0;
