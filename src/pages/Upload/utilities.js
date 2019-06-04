@@ -111,9 +111,9 @@ import axios from 'axios';
                 }
             });
 
-            const linkedDataResponse = await axios.post('https://us-central1-un-sdg-232514.cloudfunctions.net/sdg-graph-query', match , {
+            const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match , {
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 }
             });
             if (linkedDataResponse.status !== 200 && linkedDataResponse.status !== 201) {

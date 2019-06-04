@@ -39,23 +39,19 @@ class ConceptItem extends React.Component {
 	            "uri": this.props.data.id
             }
 
-            
-            let dataInJson = JSON.stringify(dataForApi)
-
-            console.log(dataInJson)
-
-
-            const text = await axios.post('http://35.231.89.123:8080/describe', dataInJson, {
+            const text = await axios.post('http://35.231.89.123:8080/describe', dataForApi, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'text/plain' 
                 }
             });
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log(text);
-            // let temp = window.open("data:text/json," + encodeURIComponent(text), "_blank");
-            // temp.focus();
+
+            var myWindow = window.open("", "MsgWindow");
+            myWindow.document.write('<pre id="json"></pre>');
+            myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
+
         } catch (error) {
             console.log("ERROR");
         }
