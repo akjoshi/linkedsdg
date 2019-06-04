@@ -29,7 +29,7 @@ import axios from 'axios';
         data.append('file', event.target.files[0]);
 
         try {
-            const text = await axios.post('http://127.0.0.1:5000/api', data, {
+            const text = await axios.post(' http://35.231.89.123:5001/api', data, {
 
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -50,7 +50,7 @@ import axios from 'axios';
     export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '' });
         try {
-            const text = await axios.post('http://127.0.0.1:5000/apiURL', url, {
+            const text = await axios.post(' http://35.231.89.123:5001/apiURL', url, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -68,7 +68,7 @@ import axios from 'axios';
 
     export async function processText(text) {
         try {
-            const jsonText = await axios.post('http://127.0.0.1:5001/api', {
+            const jsonText = await axios.post('http://35.231.89.123:5000/api', {
                 text: text.data,
                 headers: {
                     'Content-Type': 'application/json'
@@ -111,7 +111,11 @@ import axios from 'axios';
                 }
             });
 
-            const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match);
+            const linkedDataResponse = await axios.post('https://us-central1-un-sdg-232514.cloudfunctions.net/sdg-graph-query', match , {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
             if (linkedDataResponse.status !== 200 && linkedDataResponse.status !== 201) {
                 throw new Error('Failed!');
             }
