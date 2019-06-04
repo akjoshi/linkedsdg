@@ -1,13 +1,15 @@
 #!flask/bin/python
+
 from flask import Flask, request, abort
-from werkzeug.utils import secure_filename
 from tika import parser
 from flask_cors import CORS, cross_origin
 import requests
 from os.path import join, dirname, realpath
 
+
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/uploads/..')
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
+
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +19,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 @app.route('/')
 def index():
     return "Hello, World!"
+
 
 @app.before_request
 def log_request_info():
@@ -39,9 +42,7 @@ def get_task():
         abort(400)
     if file and allowed_file(file.filename):
         text = parser.from_buffer(file.read())
-        print("WORK3")
         return ' '.join(text['content'].split())
-
 
     abort(400)
     return 'Something went wrong, try again!'
@@ -51,8 +52,18 @@ def get_task():
 @cross_origin(allow_headers=['Content-Type'])
 def get_task_url():
     response = requests.get(request.data)
+
+    h = requests.head(request.data, allow_redirects=True)
+    header = h.headers
+    content_type = header.get('content-type')
+
+    response.raw.decode_content = True
     if response.status_code == 200:
-        return ' '.join(parser.from_buffer(response.text)['content'].split())
+        if content_type == 'application/pdf':
+            return ' '.join(parser.from_buffer(response.content)['content'].split())
+        else:
+            return ' '.join(parser.from_buffer(response.text)['content'].split())
+
     abort(400)
     return 'Something went wrong, try again!'
 
