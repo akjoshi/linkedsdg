@@ -24,6 +24,7 @@ class Upload extends Component {
         linkedData: {},
         isLoading: false,
         contentLoaded: false,
+        tryItLink: '',
         error: ''
     };
 
@@ -35,7 +36,7 @@ class Upload extends Component {
         contentLoaded: false,
         error: ''
         })
-        
+
         this.context.waitForData = true;
     }
 
@@ -48,10 +49,22 @@ class Upload extends Component {
                 </p>
 
                 <ul className="example-links">
-                    <li><a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a></li> 
-                    <li><a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a></li>
-                    <li><a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a></li>
-                    <li><a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a></li>
+                    <li>
+                        <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf"})}> Click me to paste link from </span>
+                        <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
+                    </li> 
+                    <li>
+                        <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf"})}> Click me to paste link from </span>
+                        <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
+                        </li>
+                    <li>
+                        <span onClick={() => this.setState({tryItLink: "http://www.transforming-tourism.org/goal-14-life-below-water.html"})}> Click me to paste link from </span>
+                        <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                        </li>
+                    <li>
+                        <span onClick={() => this.setState({tryItLink: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world"})}> Click me to paste link from </span>
+                        <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
+                        </li>
                 </ul>
                 
                 {this.state.isLoading ? (
@@ -75,7 +88,7 @@ class Upload extends Component {
                     </div>
                 ) : (
                     <div className="Content">
-                        <UploadComponent handleUploadFile={this.handleUploadFile} handleUrlFile={this.handleUrlFile}></UploadComponent>
+                        <UploadComponent handleUploadFile={this.handleUploadFile} handleUrlFile={this.handleUrlFile}  tryItLink={this.state.tryItLink} key={this.state.tryItLink}></UploadComponent>
                     </div>
                 ))}
                 <p>{this.state.error}</p>

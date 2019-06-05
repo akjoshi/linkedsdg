@@ -13,22 +13,19 @@ class UploadComponent extends React.Component {
         super(props);
         this.state = {
             open: false,
+            URL: this.props.tryItLink
         };
     }
 
     static contextType = MainContext;
 
-    state = {
-        URL: ''
-    };
-
     gotURL = (event) => {
-        this.props.handleUrlFile(this.state.URL); 
+        this.props.handleUrlFile(this.state.URL);
         this.context.waitForData = false
     }
 
     gotFile = (event) => {
-        this.props.handleUploadFile(event); 
+        this.props.handleUploadFile(event);
         this.context.waitForData = false
     }
 
@@ -40,7 +37,7 @@ class UploadComponent extends React.Component {
                         <Form>
                             <Row>
                                 <Col sm={10}>
-                                    <Form.Control type="text" placeholder="URL" onChange={(e) => this.setState({URL: e.target.value})} />
+                                    <Form.Control type="text" placeholder="URL" value={this.props.tryItLink} onChange={(e) => this.setState({ URL: e.target.value })} />
                                 </Col>
                                 <Col sm={2}>
                                     <Button variant="primary" onClick={this.gotURL}>
