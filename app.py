@@ -155,18 +155,17 @@ def extract_concepts(input):
     for match_id, start, end in matches:
         for match_all_id in concept_spacy_ids[concept_labels[match_id]]:
             int_matches = update_matches(start, end, match_all_id, int_matches)
-    text_array = text.split(" ")
     concepts_all = {}
     for match in int_matches:
         if match['start'] > CONTEXT_SIZE:
             start = match['start'] - CONTEXT_SIZE
         else:
             start = 0
-        if match['end'] + CONTEXT_SIZE < len(text_array):
+        if match['end'] + CONTEXT_SIZE < len(doc):
             end = match['end'] + CONTEXT_SIZE
         else:
-            end = len(text_array)
-        context_string = "[...] " + " ".join(text_array[start:end]) + " [...]"
+            end = len(doc)
+        context_string = "[...] " + str(doc[start:end]) + " [...]"
         match["context"] = context_string
         final_matches.append(match)
         if match["url"] in concepts_all:
@@ -195,6 +194,4 @@ def main():
 
 if __name__ == '__main__':
     load_concepts()
-    app.run(port=5001, debug=False)
-    
-
+    app.run(host="0.0.0.0", port=5000, debug=False)
