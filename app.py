@@ -12,7 +12,7 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/foo": {"origins": "http://34.66.148.181:5003"}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 
