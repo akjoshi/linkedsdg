@@ -50,7 +50,7 @@ import axios from 'axios';
     export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '' });
         try {
-            const text = await axios.post(' http://35.231.89.123:5001/apiURL', url, {
+            const text = await axios.post(' http://127.0.0.1:5000/apiURL', url, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -111,7 +111,7 @@ import axios from 'axios';
                 }
             });
 
-            const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match , {
+            const linkedDataResponse = await axios.post('http://35.231.89.123:5002/api', match , {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -142,6 +142,7 @@ import axios from 'axios';
             linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
 
             this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false });
+        
 
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });

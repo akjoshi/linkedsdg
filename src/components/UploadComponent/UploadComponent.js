@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button'
+import MainContext from '../../context/main-context'
 
 import './UploadComponent.scss';
 import cloud from './upload.png';
@@ -15,9 +16,21 @@ class UploadComponent extends React.Component {
         };
     }
 
+    static contextType = MainContext;
+
     state = {
         URL: ''
     };
+
+    gotURL = (event) => {
+        this.props.handleUrlFile(this.state.URL); 
+        this.context.waitForData = false
+    }
+
+    gotFile = (event) => {
+        this.props.handleUploadFile(event); 
+        this.context.waitForData = false
+    }
 
     render() {
         return (
@@ -30,7 +43,7 @@ class UploadComponent extends React.Component {
                                     <Form.Control type="text" placeholder="URL" onChange={(e) => this.setState({URL: e.target.value})} />
                                 </Col>
                                 <Col sm={2}>
-                                    <Button variant="primary" onClick={(e) => this.props.handleUrlFile(this.state.URL)}>
+                                    <Button variant="primary" onClick={this.gotURL}>
                                         Submit
                                     </Button>
                                 </Col>
@@ -45,7 +58,7 @@ class UploadComponent extends React.Component {
                                 Select File
                             </p>
                         </label>
-                        <input id="upload-photo" className="File-Input" type="file" onChange={this.props.handleUploadFile} />
+                        <input id="upload-photo" className="File-Input" type="file" onChange={this.gotFile} />
                     </div>
                 </div>
             </React.Fragment>
