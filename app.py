@@ -117,12 +117,12 @@ def load_concepts():
 
     print("\n\nLoading stopwords...")
 
-    stopword_records = csv.DictReader(open("stopwords.csv", encoding="utf8"), delimiter=",")
+    stopword_records = csv.DictReader(open("stopwords.csv"), delimiter=",")
     for word in stopword_records:
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv", encoding="utf8"), delimiter=",")
+    concept_source_index = csv.DictReader(open("concept-source-index.csv"), delimiter=",")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
