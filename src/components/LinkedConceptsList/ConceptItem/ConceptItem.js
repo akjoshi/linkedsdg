@@ -32,7 +32,6 @@ class ConceptItem extends React.Component {
     };
 
     reciveJsonFromApi = async () =>{
-        console.log("CALL API")
         try {
             const dataForApi = {
                 "type": this.props.data.type,
@@ -62,7 +61,7 @@ class ConceptItem extends React.Component {
         return (
             <li className="linked-concept-list-item">
                 <div>
-                    <p className="link" onClick={this.reciveJsonFromApi}>
+                    <p className="link" onClick={this.reciveJsonFromApi} >
                     <span className="annotation">({this.props.data.type})</span>
                     {this.props.data.label}
                     </p> 

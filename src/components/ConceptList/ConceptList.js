@@ -45,7 +45,7 @@ class ConceptList extends React.Component {
                     Found:
                 </h3>
                 <ul>
-                    {this.state.displayData.map((concept, index) => <ConceptItem concept={concept} key={index}></ConceptItem>)}
+                    {this.state.displayData.map((concept, index) => <ConceptItem concept={concept} key={index+this.state.loadCount}></ConceptItem>)}
                 </ul>
 
                 <div className="link-box">

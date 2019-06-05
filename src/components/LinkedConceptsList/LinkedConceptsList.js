@@ -40,7 +40,7 @@ class LinkedConceptsList extends React.Component {
             <div className="linked-concepts-container">
                 <h3 className="Title">Data linked with concepts</h3>
                 <ul>
-                    {this.state.displayData.map((data, index) => <ConceptItem data={data} key={index}></ConceptItem>)}
+                    {this.state.displayData.map((data, index) => <ConceptItem data={data} key={index+this.state.loadCount}></ConceptItem>)}
                 </ul>
 
                 <div className="link-box">

@@ -35,6 +35,7 @@ class Upload extends Component {
         contentLoaded: false,
         error: ''
         })
+        
         this.context.waitForData = true;
     }
 
