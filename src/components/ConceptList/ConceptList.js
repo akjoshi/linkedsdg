@@ -42,7 +42,7 @@ class ConceptList extends React.Component {
             <div className="linked-concepts-container">
 
                 <h3 className="Title">
-                    Found:
+                    Extracted concepts:
                 </h3>
                 <ul>
                     {this.state.displayData.map((concept, index) => <ConceptItem concept={concept} key={index+this.state.loadCount}></ConceptItem>)}

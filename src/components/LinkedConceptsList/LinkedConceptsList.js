@@ -38,7 +38,7 @@ class LinkedConceptsList extends React.Component {
     render() {
         return (
             <div className="linked-concepts-container">
-                <h3 className="Title">Data linked with concepts</h3>
+                <h3 className="Title">Related SDG entities</h3>
                 <ul>
                     {this.state.displayData.map((data, index) => <ConceptItem data={data} key={index+this.state.loadCount}></ConceptItem>)}
                 </ul>

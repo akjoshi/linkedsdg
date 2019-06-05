@@ -25,6 +25,7 @@ class Upload extends Component {
         isLoading: false,
         contentLoaded: false,
         tryItLink: '',
+        loadedFrom: '',
         error: ''
     };
 
@@ -44,28 +45,36 @@ class Upload extends Component {
         return (
             <div className="Upload">
                 <span className="Title">Sustainable Development Links</span>
-                <p className="Description">
-                Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can use some of the example links listed below:
-                </p>
-
-                <ul className="example-links">
-                    <li>
-                        <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf"})}> Click me to paste link from </span>
-                        <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
-                    </li> 
-                    <li>
-                        <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf"})}> Click me to paste link from </span>
-                        <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
-                        </li>
-                    <li>
-                        <span onClick={() => this.setState({tryItLink: "http://www.transforming-tourism.org/goal-14-life-below-water.html"})}> Click me to paste link from </span>
-                        <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
-                        </li>
-                    <li>
-                        <span onClick={() => this.setState({tryItLink: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world"})}> Click me to paste link from </span>
-                        <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
-                        </li>
-                </ul>
+                <div>
+                    {this.context.waitForData || this.state.isLoading ? (
+                        <div>
+                            <p className="Description">
+                            Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can use some of the example links listed below:
+                            </p>
+            
+                            <ul className="example-links">
+                                <li>
+                                    <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf"})}> Click me to paste link from </span>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
+                                </li> 
+                                <li>
+                                    <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf"})}> Click me to paste link from </span>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
+                                    </li>
+                                <li>
+                                    <span onClick={() => this.setState({tryItLink: "http://www.transforming-tourism.org/goal-14-life-below-water.html"})}> Click me to paste link from </span>
+                                    <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                                    </li>
+                                <li>
+                                    <span onClick={() => this.setState({tryItLink: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world"})}> Click me to paste link from </span>
+                                    <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
+                                    </li>
+                            </ul>
+                        </div>
+                    ) : (
+                        <p>Informations was extracted from {this.state.loadedFrom}.</p>
+                    )}
+                </div>
                 
                 {this.state.isLoading ? (
                     <Spinner />

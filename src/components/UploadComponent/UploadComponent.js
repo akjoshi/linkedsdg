@@ -20,19 +20,19 @@ class UploadComponent extends React.Component {
     static contextType = MainContext;
 
     gotURL = (event) => {
-        this.props.handleUrlFile(this.state.URL);
-        this.context.waitForData = false
+        this.props.handleUrlFile(this.state.URL, this.context);
+        this.setState({URL:''});
     }
 
     gotFile = (event) => {
-        this.props.handleUploadFile(event);
-        this.context.waitForData = false
+        this.props.handleUploadFile(event, this.context);
+        this.setState({URL:''});
     }
 
     render() {
         return (
             <React.Fragment>
-                <div className="Upload-Content">
+                <div className="Upload-Content" key={this.context.waitForData}>
                     <div className="File-Upload-by-url">
                         <Form>
                             <Row>

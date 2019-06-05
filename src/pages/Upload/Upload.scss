@@ -12,6 +12,11 @@
       text-decoration: none;
       li{
         padding: 0.15rem 0;
+
+        span:hover{
+          opacity: 0.6;
+          cursor: pointer;
+        }
       }
     }
   }
