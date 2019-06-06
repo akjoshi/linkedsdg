@@ -12,8 +12,7 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/foo": {"origins": "http://34.66.148.181:5003"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
+CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 
 
 @app.route('/')
@@ -33,7 +32,6 @@ def allowed_file(filename):
 
 
 @app.route('/api', methods=['POST'])
-@cross_origin(allow_headers=['Content-Type'])
 def get_task():
     if 'file' not in request.files:
         abort(400)
@@ -49,7 +47,6 @@ def get_task():
 
 
 @app.route('/apiURL', methods=['POST'])
-@cross_origin(allow_headers=['Content-Type'])
 def get_task_url():
     response = requests.get(request.data)
 
@@ -69,4 +66,4 @@ def get_task_url():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5001, debug=False, host="0.0.0.0")
