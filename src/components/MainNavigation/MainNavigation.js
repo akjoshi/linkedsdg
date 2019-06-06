@@ -14,11 +14,14 @@ const mainNavigation = props => (
                             <img src={logo} alt="Upload"></img>
                         </NavLink>
                     </div>
-                    <nav className="main-nav-item">
+                    <div className="nav-title">
+                        <h2>SUSTAINABLE DEVELOPMENT LINKS</h2>
+                    </div>
+                    {/* <nav className="main-nav-item">
                         <ul>
-                            <li><NavLink to="/upload" onClick={(e) => {context.waitForData = true}}>Upload</NavLink></li>
+                            <li>SUSTAINABLE DEVELOPMENT LINKS</li>
                         </ul>
-                    </nav>
+                    </nav> */}
                 </header>
             )
         }}

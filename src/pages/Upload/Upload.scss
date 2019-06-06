@@ -5,18 +5,55 @@
     align-items: flex-start;
     text-align: left;
     overflow: hidden;
+    width:80%;
     max-width: 1200px;
     margin: 0 auto; 
+    margin-top:5rem;
+
+    .Title {
+      margin:0 0 2rem 0;
+      margin-bottom: 1rem;
+      color: #555;
+      font-size: 2rem;
+    
+    }
+
+    .upload-content{
+      margin:0 auto;
+
+      .analyze-button-container{
+        margin:0 auto;
+        text-align: center;
+        display: flex; 
+        justify-content: center;
+        
+
+        .analyze-button{
+          width: 60%;
+          height: 4rem;
+          padding: 0;
+          margin: 2rem 0;
+        }
+      }
+    }
 
     .example-links {
-      text-decoration: none;
-      li{
-        padding: 0.15rem 0;
+      ul {
+          text-decoration: none;
+          list-style: none;
+          li{
+            padding: 0.15rem 0;
 
-        span:hover{
-          opacity: 0.6;
-          cursor: pointer;
-        }
+            span img{
+              height: 1.4rem;
+              margin: 0.2rem 0.5rem 0.2rem 0;
+            }
+
+            span:hover{
+              opacity: 0.6;
+              cursor: pointer;
+            }
+          }
       }
     }
   }
@@ -29,13 +66,7 @@
     width: 100%;
   }
   
-  .Title {
-    margin:1rem 0;
-    margin-bottom: 1rem;
-    color: #555;
-    font-size: 2rem;
   
-  }
 
   .Data-Area {
     font-size: 1rem;
