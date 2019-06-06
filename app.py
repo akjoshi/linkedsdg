@@ -32,7 +32,7 @@ select distinct ?id ?label where {
     }
 } 
 """
-GRAPHDB = "http://35.231.89.123:7200/repositories/sdgs"
+GRAPHDB = "http://34.66.148.181:7200/repositories/sdgs"
 
 nlp = spacy.load('en_core_web_sm') 
 matcher = PhraseMatcher(nlp.vocab)
