@@ -38,7 +38,7 @@ class ConceptItem extends React.Component {
 	            "uri": this.props.data.id
             }
 
-            const text = await axios.post('http://35.231.89.123:8080/describe', dataForApi, {
+            const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
                 headers: {
                     'Content-Type': 'text/plain' 
                 }
