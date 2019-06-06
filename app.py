@@ -117,12 +117,12 @@ def load_concepts():
 
     print("\n\nLoading stopwords...")
 
-    stopword_records = csv.DictReader(open("stopwords.csv"), delimiter=",")
+    stopword_records = csv.DictReader(open("stopwords.csv"), encoding="utf8", delimiter=",")
     for word in stopword_records:
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv"), delimiter=",")
+    concept_source_index = csv.DictReader(open("concept-source-index.csv"), encoding="utf8", delimiter=",")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
@@ -137,11 +137,11 @@ def update_matches(start, end, match_id, current_matches):
     returned_matches = []
     returned_matches.extend(current_matches)
     if not (label in stopwords):
-        for match in current_matches:
-            if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label) and concept_source[match_id] in match['url']:
-               return returned_matches
-            if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']) and concept_source[match_id] in match['url']:
-                returned_matches.remove(match)
+        # for match in current_matches:
+        #     if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label) and concept_source[match_id] in match['url']:
+        #        return returned_matches
+        #     if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']) and concept_source[match_id] in match['url']:
+        #         returned_matches.remove(match)
         new_match = {'url': concept_ids[match_id], 'label': label, 'start': start, 'end': end}
         returned_matches.append(new_match)
     return returned_matches
