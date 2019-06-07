@@ -27,20 +27,17 @@ class ConceptList extends React.Component {
 
     loadMore = async () => {
         await this.setState({ loadCount: this.state.loadCount + 10 });
-
         this.displayData()
     }
 
     loadLess = async () => {
         await this.setState({ loadCount: this.state.loadCount - 10 });
-
         this.displayData()
     }
 
     render() {
         return (
             <div className="linked-concepts-container">
-
                 <h3 className="Title">
                     Extracted concepts:
                 </h3>
@@ -54,7 +51,6 @@ class ConceptList extends React.Component {
                     ) : (
                             <p>Next</p>
                         )}
-
                     {this.state.loadCount > 10 ? (
                         <p className="link prev" onClick={this.loadLess}>Previous</p>
                     ) : (

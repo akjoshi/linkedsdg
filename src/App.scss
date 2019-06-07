@@ -5,6 +5,9 @@ $grey: rgb(170, 170, 170);
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
 
 .main-content {
     margin: 4rem 0;

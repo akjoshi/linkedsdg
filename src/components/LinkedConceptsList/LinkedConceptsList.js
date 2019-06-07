@@ -16,7 +16,6 @@ class LinkedConceptsList extends React.Component {
         this.displayData()
     }
 
-
     displayData = async () => {
         const { data, loadCount } = this.state;
         const chunkOfData = await data.filter((data, index) => index < loadCount && index >= loadCount - 10)
@@ -25,13 +24,11 @@ class LinkedConceptsList extends React.Component {
 
     loadMore = async () => {
         await this.setState({ loadCount: this.state.loadCount + 10 });
-
         this.displayData()
     }
 
     loadLess = async () => {
         await this.setState({ loadCount: this.state.loadCount - 10 });
-
         this.displayData()
     }
 
@@ -49,7 +46,6 @@ class LinkedConceptsList extends React.Component {
                     ) : (
                             <p>Next</p>
                         )}
-
                     {this.state.loadCount > 10 ? (
                         <p className="link prev" onClick={this.loadLess}>Previous</p>
                     ) : (

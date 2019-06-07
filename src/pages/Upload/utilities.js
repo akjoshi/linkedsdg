@@ -144,8 +144,8 @@ import axios from 'axios';
 
             linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
 
-            this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false });
-            this.setState({waitForData: false});
+            await this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false, waitForData: false });
+            window.location.href = '#Data-Area-id';
 
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });

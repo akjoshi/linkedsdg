@@ -5,12 +5,11 @@ import LinkedConceptsList from '../../components/LinkedConceptsList/LinkedConcep
 import Spinner from '../../components/Spinner/Spinner';
 import { handleUploadFile, handleUrlFile, processText } from './utilities';
 import Button from 'react-bootstrap/Button';
-import MainContext from '../../context/main-context';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import CopyIcon from './copy-icon.png';
+import UploadForm from '../../components/UploadForm/UploadForm'
 
-import Form from 'react-bootstrap/Form'
 
 class Upload extends Component {
     constructor(props) {
@@ -19,8 +18,6 @@ class Upload extends Component {
         this.handleUrlFile = handleUrlFile.bind(this);
         this.processText = processText.bind(this);
     }
-
-    static contextType = MainContext;
 
     state = {
         plainText: '',
@@ -45,7 +42,6 @@ class Upload extends Component {
             waitForData: true,
             error: ''
         })
-
     }
 
     handleOptionChange = changeEvent => {
@@ -54,7 +50,21 @@ class Upload extends Component {
         });
     };
 
+    handleURLChange = changeEvent => {
+        this.setState({
+            URL: changeEvent.target.value
+        });
+    };
+
+    handleFileChange = changeEvent => {
+        this.setState({ 
+            selectedOption: "fromFile", 
+            file: changeEvent.target.files[0], 
+            fileName: changeEvent.target.files[0].name })
+    };
+
     analyze = () => {
+        this.clear()
         if (this.state.selectedOption === 'fromURL') {
             this.handleUrlFile(this.state.URL);
         }
@@ -82,59 +92,14 @@ class Upload extends Component {
                             <React.Fragment>
                                 <div className="Upload-Content" key={this.context.waitForData}>
                                     <div className="File-Upload-by-form">
-                                        <Form>
-                                            <Row>
-                                                <Col sm={12}>
-                                                    <div className="input-container">
-                                                        <div className="radio-box">
-                                                            <input
-                                                                type="radio"
-                                                                name="optradio"
-                                                                className="radio-button"
-                                                                value="fromURL"
-                                                                checked={this.state.selectedOption === "fromURL"}
-                                                                onChange={this.handleOptionChange} />
-                                                        </div>
-                                                        <div className="input-box">
-                                                            <Form.Control 
-                                                                type="text" 
-                                                                className="input-data" 
-                                                                placeholder="URL" 
-                                                                value={this.state.URL} 
-                                                                onChange={(e) => this.setState({ URL: e.target.value })} />
-                                                        </div>
-                                                    </div>
-
-                                                </Col>
-                                                <Col sm={12}>
-                                                    <div className="input-container">
-                                                        <div className="radio-box">
-                                                            <input
-                                                                type="radio"
-                                                                name="optradio"
-                                                                className="radio-button"
-                                                                value="fromFile"
-                                                                checked={this.state.selectedOption === "fromFile"}
-                                                                onChange={this.handleOptionChange} />
-                                                        </div>
-                                                        <div className="input-box">
-                                                            <div className="custom-file">
-                                                                <input 
-                                                                    type="file" 
-                                                                    placeholder="URL" 
-                                                                    className="custom-file-input" 
-                                                                    id="customFile" 
-                                                                    onChange={(e) => this.setState({selectedOption: "fromFile", file: e.target.files[0], fileName: e.target.files[0].name })} />
-                                                                <label 
-                                                                    className="custom-file-label" 
-                                                                    htmlFor="customFile"> 
-                                                                    Choose file: {this.state.fileName}</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </Col>
-                                            </Row>
-                                        </Form>
+                                        <UploadForm
+                                            handleOptionChange={this.handleOptionChange}
+                                            handleURLChange={this.handleURLChange}
+                                            handleFileChange={this.handleFileChange}
+                                            selectedOption={this.state.selectedOption}
+                                            URL={this.state.URL}
+                                            fileName={this.state.fileName}
+                                        ></UploadForm>
                                     </div>
                                 </div>
                             </React.Fragment>
@@ -143,48 +108,44 @@ class Upload extends Component {
                     <Row>
                         <Col lg={4} className="analyze-button-container">
                             <Button variant="primary" className="analyze-button" onClick={this.analyze}>
-                                ANALYZE
-                        </Button>
+                                {this.state.isLoading ? (<React.Fragment>Loading</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                            </Button>
                         </Col>
                         <Col lg={8} className="example-links">
                             <p className="small-label">Examples</p>
                             <ul>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" })}><img src={CopyIcon}></img></span>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
                                 </li>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img src={CopyIcon}></img></span>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
                                 </li>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img src={CopyIcon}></img></span>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
                                 </li>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" })}><img src={CopyIcon}></img></span>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
                                 </li>
                             </ul>
                         </Col>
                     </Row>
-
-
                 </div>
 
                 {this.state.isLoading ? (
                     <Spinner />
                 ) : (
                         !this.state.waitForData ? (
-                            <div className="Data-Area">
-                                <p>Informations was extracted from {this.state.loadedFrom}.</p>
+                            <div className="Data-Area" >
+                                <div id="Data-Area-id"></div>
+                                <p className="information-source">Informations was extracted from {this.state.loadedFrom}.</p>
 
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
                                 <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
-
-                                {/* <h3 className="Title">PlainText</h3>
-                                <p>{this.state.plainText}</p> */}
 
                                 <div className="clear-button">
                                     <Button variant="primary" onClick={this.clear}>

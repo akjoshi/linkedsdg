@@ -7,14 +7,9 @@ import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 
 class Upload extends Component {
-    state = {
-
-    };
-
     render() {
         return (
             <div className="Home">
-
                 <Row className="home-content">
                     <Col lg={4}>
                         <div className="Title">Sustainable Development Links</div>

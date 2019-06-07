@@ -59,6 +59,13 @@
               opacity: 0.6;
               cursor: pointer;
             }
+
+            
+          }
+          @media only screen and (max-width: 720px) {
+            li a{
+                font-size: 0.75rem;
+            }
           }
       }
     }
@@ -72,12 +79,24 @@
     width: 100%;
   }
   
-  
-
   .Data-Area {
     font-size: 1rem;
-    padding: 0 2rem;
     width:100%;
+
+    #Data-Area-id {
+      margin-top: -60px;
+      position: absolute;
+    }
+
+    .information-source{
+      overflow: hidden;
+      color:grey;
+    }
+    @media only screen and (max-width: 720px) {
+      .information-source{
+          font-size: 0.75rem;
+      }
+    }
   }
 
   .clear-button{
@@ -95,7 +114,11 @@
       display: grid;
 
       .radio-box, .input-box{
-        padding: 3px 3px 0 0;
+        padding: 3px;
+
+        .radio-button {
+          margin-top: 8px;
+        }
       }
     }
     margin-bottom: 1.2rem;

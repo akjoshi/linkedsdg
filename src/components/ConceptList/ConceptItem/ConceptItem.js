@@ -11,6 +11,7 @@ class ConceptItem extends React.Component {
             open: false,
         };
     }
+    
     render() {
         const { open } = this.state;
         return (
