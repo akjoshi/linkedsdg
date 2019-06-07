@@ -38,6 +38,12 @@
     }
 
     .example-links {
+      .small-label {
+        font-size: 0.7rem;
+        color: grey;
+        margin-bottom: 0.3rem;
+      }
+
       ul {
           text-decoration: none;
           list-style: none;
@@ -81,4 +87,16 @@
     button {
       padding: 0.4rem 2rem;
     }
+  }
+
+  .File-Upload-by-form {
+    .input-container {
+      grid-template-columns: 30px auto;
+      display: grid;
+
+      .radio-box, .input-box{
+        padding: 3px 3px 0 0;
+      }
+    }
+    margin-bottom: 1.2rem;
   }

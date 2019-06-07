@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import './Upload.scss'
 import ConceptList from '../../components/ConceptList/ConceptList';
-import UploadComponent from '../../components/UploadComponent/UploadComponent';
 import LinkedConceptsList from '../../components/LinkedConceptsList/LinkedConceptsList';
 import Spinner from '../../components/Spinner/Spinner';
-import {handleUploadFile, handleUrlFile, processText} from './utilities';
+import { handleUploadFile, handleUrlFile, processText } from './utilities';
 import Button from 'react-bootstrap/Button';
 import MainContext from '../../context/main-context';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import CopyIcon from './copy-icon.png';
+
+import Form from 'react-bootstrap/Form'
 
 class Upload extends Component {
     constructor(props) {
@@ -26,100 +27,174 @@ class Upload extends Component {
         concepts: [],
         linkedData: {},
         isLoading: false,
-        contentLoaded: false,
-        tryItLink: '',
         loadedFrom: '',
+        URL: '',
+        file: null,
+        fileName: '',
+        waitForData: true,
+        selectedOption: 'fromURL',
         error: ''
     };
 
     clear = (event) => {
-        this.setState({plainText: '',
-        concepts: [],
-        linkedData: {},
-        isLoading: false,
-        contentLoaded: false,
-        error: ''
+        this.setState({
+            plainText: '',
+            concepts: [],
+            linkedData: {},
+            isLoading: false,
+            waitForData: true,
+            error: ''
         })
 
-        this.context.waitForData = true;
+    }
+
+    handleOptionChange = changeEvent => {
+        this.setState({
+            selectedOption: changeEvent.target.value
+        });
+    };
+
+    analyze = () => {
+        if (this.state.selectedOption === 'fromURL') {
+            this.handleUrlFile(this.state.URL);
+        }
+        else if (this.state.selectedOption === 'fromFile') {
+            if(this.state.file !== null){
+                this.handleUploadFile(this.state.file);
+            }
+            else{
+                this.setState({error: "Please select file."})
+            }
+        }
     }
 
     render() {
         return (
             <div className="Upload">
                 <div className="upload-content">
-                <Row>
-                    <Col lg={4}>
-                        <p className="Description">
-                            Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can use some of the example links listed below:
+                    <Row>
+                        <Col lg={4}>
+                            <p className="Description">
+                                Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can use some of the example links listed below:
                         </p>
-                    </Col>
-                    <Col lg={8}>
-                        inputs
-                    </Col>
-                </Row>
-                <Row>
-                    <Col lg={4} className="analyze-button-container">
-                        <Button variant="primary" className="analyze-button">
+                        </Col>
+                        <Col lg={8}>
+                            <React.Fragment>
+                                <div className="Upload-Content" key={this.context.waitForData}>
+                                    <div className="File-Upload-by-form">
+                                        <Form>
+                                            <Row>
+                                                <Col sm={12}>
+                                                    <div className="input-container">
+                                                        <div className="radio-box">
+                                                            <input
+                                                                type="radio"
+                                                                name="optradio"
+                                                                className="radio-button"
+                                                                value="fromURL"
+                                                                checked={this.state.selectedOption === "fromURL"}
+                                                                onChange={this.handleOptionChange} />
+                                                        </div>
+                                                        <div className="input-box">
+                                                            <Form.Control 
+                                                                type="text" 
+                                                                className="input-data" 
+                                                                placeholder="URL" 
+                                                                value={this.state.URL} 
+                                                                onChange={(e) => this.setState({ URL: e.target.value })} />
+                                                        </div>
+                                                    </div>
+
+                                                </Col>
+                                                <Col sm={12}>
+                                                    <div className="input-container">
+                                                        <div className="radio-box">
+                                                            <input
+                                                                type="radio"
+                                                                name="optradio"
+                                                                className="radio-button"
+                                                                value="fromFile"
+                                                                checked={this.state.selectedOption === "fromFile"}
+                                                                onChange={this.handleOptionChange} />
+                                                        </div>
+                                                        <div className="input-box">
+                                                            <div className="custom-file">
+                                                                <input 
+                                                                    type="file" 
+                                                                    placeholder="URL" 
+                                                                    className="custom-file-input" 
+                                                                    id="customFile" 
+                                                                    onChange={(e) => this.setState({selectedOption: "fromFile", file: e.target.files[0], fileName: e.target.files[0].name })} />
+                                                                <label 
+                                                                    className="custom-file-label" 
+                                                                    htmlFor="customFile"> 
+                                                                    Choose file: {this.state.fileName}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </Col>
+                                            </Row>
+                                        </Form>
+                                    </div>
+                                </div>
+                            </React.Fragment>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col lg={4} className="analyze-button-container">
+                            <Button variant="primary" className="analyze-button" onClick={this.analyze}>
                                 ANALYZE
-                        </Button>    
-                    </Col>
-                    <Col lg={8} className="example-links">
-                        <ul>
-                            <li>
-                                <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf"})}><img src={CopyIcon}></img></span>
-                                <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
-                            </li> 
-                            <li>
-                                <span onClick={() => this.setState({tryItLink: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf"})}><img src={CopyIcon}></img></span>
-                                <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
+                        </Button>
+                        </Col>
+                        <Col lg={8} className="example-links">
+                            <p className="small-label">Examples</p>
+                            <ul>
+                                <li>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" })}><img src={CopyIcon}></img></span>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
                                 </li>
-                            <li>
-                                <span onClick={() => this.setState({tryItLink: "http://www.transforming-tourism.org/goal-14-life-below-water.html"})}><img src={CopyIcon}></img></span>
-                                <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                                <li>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img src={CopyIcon}></img></span>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
                                 </li>
-                            <li>
-                                <span onClick={() => this.setState({tryItLink: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world"})}><img src={CopyIcon}></img></span>
-                                <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
+                                <li>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img src={CopyIcon}></img></span>
+                                    <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
                                 </li>
-                        </ul>
-                    </Col>
-                </Row>
-                    {this.context.waitForData || this.state.isLoading ? (
-                        <div>
-                            
-            
-                            
-                        </div>
-                    ) : (
-                        <p>Informations was extracted from {this.state.loadedFrom}.</p>
-                    )}
+                                <li>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" })}><img src={CopyIcon}></img></span>
+                                    <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
+                                </li>
+                            </ul>
+                        </Col>
+                    </Row>
+
+
                 </div>
-                
+
                 {this.state.isLoading ? (
                     <Spinner />
                 ) : (
-                !this.context.waitForData ? (
-                    <div className="Data-Area">
-                        
-                        <ConceptList Concepts={this.state.concepts}></ConceptList>
+                        !this.state.waitForData ? (
+                            <div className="Data-Area">
+                                <p>Informations was extracted from {this.state.loadedFrom}.</p>
 
-                        <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
+                                <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                        {/* <h3 className="Title">PlainText</h3>
-                        <p>{this.state.plainText}</p> */}
+                                <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
 
-                        <div className="clear-button">
-                            <Button variant="primary" onClick={this.clear}>
-                                CLEAR
-                            </Button>
-                        </div>
-                    </div>
-                ) : (
-                    <div className="Content">
-                        <UploadComponent handleUploadFile={this.handleUploadFile} handleUrlFile={this.handleUrlFile}  tryItLink={this.state.tryItLink} key={this.state.tryItLink}></UploadComponent>
-                    </div>
-                ))}
+                                {/* <h3 className="Title">PlainText</h3>
+                                <p>{this.state.plainText}</p> */}
+
+                                <div className="clear-button">
+                                    <Button variant="primary" onClick={this.clear}>
+                                        CLEAR
+                                    </Button>
+                                </div>
+                            </div>
+                        ) : (
+                                <React.Fragment></React.Fragment>
+                            ))}
                 <p>{this.state.error}</p>
             </div>
         )

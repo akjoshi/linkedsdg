@@ -23,11 +23,11 @@ import axios from 'axios';
         return newConcepts;
     }
 
-    export async function handleUploadFile (event, context){
-        this.setState({ isLoading: true, error: '' , loadedFrom: event.target.files[0].name });
+    export async function handleUploadFile (file){
+        console.log(file);
+        this.setState({ isLoading: true, error: '' , loadedFrom: file.name, fileName: file.name });
         const data = new FormData();
-        console.log()
-        data.append('file', event.target.files[0]);
+        data.append('file', file);
 
         try {
             const text = await axios.post('http://34.66.148.181:5001/api', data, {
@@ -41,15 +41,15 @@ import axios from 'axios';
             }
             // console.log("TEKST Z PLIKU")
             // console.log(text)
-            this.processText(text, context);
+            this.processText(text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
-            context.waitForData = true;
+            this.setState({waitForData: true});
         }
 
     }
 
-    export async function handleUrlFile(url, context) {
+    export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '', loadedFrom: url  });
         try {
             const text = await axios.post('http://34.66.148.181:5001/apiURL', url, {
@@ -62,14 +62,14 @@ import axios from 'axios';
             }
             // console.log("TEKST Z URL")
             // console.log(text)
-            this.processText(text, context);
+            this.processText(text);
         } catch (error) {
-            this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
-            context.waitForData = true;
+            this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!" });
+            this.setState({waitForData: true});
         }
     }
 
-    export async function processText(text, context) {
+    export async function processText(text) {
         try {
             const jsonText = await axios.post('http://34.66.148.181:5000/api', {
                 text: text.data,
@@ -145,12 +145,11 @@ import axios from 'axios';
             linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
 
             this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false });
-            context.waitForData = false;
-            console.log(context.waitForData)
+            this.setState({waitForData: false});
 
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
-            context.waitForData = true;
+            this.setState({waitForData: true});
         }
 
 
