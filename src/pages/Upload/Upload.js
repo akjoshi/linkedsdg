@@ -116,19 +116,19 @@ class Upload extends Component {
                             <ul>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf">Zero Hunger: Why It Matters?</a>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" target="_blank">Zero Hunger: Why It Matters?</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf">Partnerships: Why They Matter?</a>
+                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" target="_blank">Partnerships: Why They Matter?</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                                    <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world">Gender equality: closing the gap in the private sector around the world</a>
+                                    <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" target="_blank">Gender equality: closing the gap in the private sector around the world</a>
                                 </li>
                             </ul>
                         </Col>
