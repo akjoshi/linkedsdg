@@ -26,7 +26,7 @@ class ConceptItem extends React.Component {
         
         return text.map((x, index) => (
                             <li key={index} className="collapse-item">
-                            {index+1}. <a href={x['id']}> {x.label} </a> <span className="annotation">({x.source})</span> 
+                            {index+1}. <a href={x['id']} target="_blank"> {x.label} </a> <span className="annotation">({x.source})</span> 
                             </li>
                         ));
     };
