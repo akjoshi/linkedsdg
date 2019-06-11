@@ -108,7 +108,7 @@ class Upload extends Component {
                     <Row>
                         <Col lg={4} className="analyze-button-container">
                             <Button variant="primary" className="analyze-button" onClick={this.analyze}>
-                                {this.state.isLoading ? (<React.Fragment>Loading</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                                {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
                             </Button>
                         </Col>
                         <Col lg={8} className="example-links">
@@ -141,8 +141,7 @@ class Upload extends Component {
                         !this.state.waitForData ? (
                             <div className="Data-Area" >
                                 <div id="Data-Area-id"></div>
-                                <p className="information-source">Informations was extracted from {this.state.loadedFrom}.</p>
-
+                                
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
                                 <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>

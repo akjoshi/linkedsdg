@@ -6,12 +6,14 @@ import logo from './logo.jpg';
 const mainNavigation = props => (
     <header className="main-nav">
         <div className="main-nav-logo">
-            <NavLink to="/">
+            <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">
                 <img src={logo} alt="Upload"></img>
-            </NavLink>
+            </a>
         </div>
         <div className="nav-title">
-            <h2>SUSTAINABLE DEVELOPMENT LINKS</h2>
+            <NavLink to="/">
+                <h2>SUSTAINABLE DEVELOPMENT LINKS</h2>
+            </NavLink>
         </div>
     </header>
 );
