@@ -30,7 +30,7 @@ class ConceptItem extends React.Component {
                 <Collapse in={this.state.open}>
                     <div id="example-collapse-text">
                         <ul>
-                            {this.props.concept.context.map((x, index) => <li key={index} className="collapse-item">{index+1}. {x['context']}</li>)}
+                            {this.props.concept.context.map((x, index) => <li key={index} className="collapse-item">{index+1}. {x['contextl']} <strong>{x['phrase']}</strong> {x['contextr']}</li>)}
                         </ul>
                     </div>
                 </Collapse>

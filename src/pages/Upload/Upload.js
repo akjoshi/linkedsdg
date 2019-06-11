@@ -85,7 +85,7 @@ class Upload extends Component {
                     <Row>
                         <Col lg={4}>
                             <p className="Description">
-                                Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can use some of the example links listed below:
+                                Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can also use some of the example links listed below.
                         </p>
                         </Col>
                         <Col lg={8}>
