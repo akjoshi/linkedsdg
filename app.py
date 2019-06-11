@@ -166,7 +166,13 @@ def extract_concepts(input):
         else:
             end = len(doc)
         context_string = "[...] " + str(doc[start:end]) + " [...]"
-        match["context"] = context_string
+	phrase = str(doc[match['start']:match['end']])
+        context_l= "[...] " + str(doc[start:match['start']])
+        context_r = str(doc[match['end']:end]) + " [...]"
+        match["contextl"] = context_l
+        match["phrase"] = phrase
+        match["contextr"] = context_r
+	match["context"] = context_string
         final_matches.append(match)
         if match["url"] in concepts_all:
             concepts_all[match["url"]]["weight"] += 1
