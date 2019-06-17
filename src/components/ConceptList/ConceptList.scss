@@ -6,6 +6,13 @@
         cursor: pointer;
     }
 
+    .download-button {
+        
+        button {
+            float: right;
+        }
+    }
+
 
     .link:hover {
         color: #0056b3;
