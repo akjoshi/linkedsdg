@@ -117,12 +117,12 @@ def load_concepts():
 
     print("\n\nLoading stopwords...")
 
-    stopword_records = csv.DictReader(open("stopwords.csv"), encoding="utf8", delimiter=",")
+    stopword_records = csv.DictReader(open("stopwords.csv", encoding="utf8"), delimiter=",")
     for word in stopword_records:
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv"), encoding="utf8", delimiter=",")
+    concept_source_index = csv.DictReader(open("concept-source-index.csv", encoding="utf8"), delimiter=",")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
@@ -166,13 +166,13 @@ def extract_concepts(input):
         else:
             end = len(doc)
         context_string = "[...] " + str(doc[start:end]) + " [...]"
-	phrase = str(doc[match['start']:match['end']])
+        phrase = str(doc[match['start']:match['end']])
         context_l= "[...] " + str(doc[start:match['start']])
         context_r = str(doc[match['end']:end]) + " [...]"
         match["contextl"] = context_l
         match["phrase"] = phrase
         match["contextr"] = context_r
-	match["context"] = context_string
+        match["context"] = context_string
         final_matches.append(match)
         if match["url"] in concepts_all:
             concepts_all[match["url"]]["weight"] += 1
