@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
+import axios from 'axios';
 import Wheel from './img/wheel.png';
 import Goal01 from './img/01.png';
 import Goal02 from './img/02.png';
@@ -20,6 +21,7 @@ import Goal16 from './img/16.png';
 import Goal17 from './img/17.png';
 import './ZoomableSunburst.scss'
 
+
 class ZoomableSunburst extends Component {
     componentDidMount() {
         this.drawChart();
@@ -29,9 +31,35 @@ class ZoomableSunburst extends Component {
     state = {
         svgElement: '',
         lastPointedData: '',
-        clickedData: '',
+        clickedData: {},
         selectedGoal: undefined,
         selectedGoalName: 'Sustainable Development Goals',
+    }
+
+    reciveJsonFromApi = async () =>{
+        try {
+            
+            const dataForApi = {
+                "type": this.state.clickedData.label.split(" ")[0],
+	            "uri": this.state.clickedData.id
+            }
+
+            const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
+                headers: {
+                    'Content-Type': 'text/plain' 
+                }
+            });
+            if (text.status !== 200 && text.status !== 201) {
+                throw new Error('Failed!');
+            }
+
+            var myWindow = window.open("", "MsgWindow");
+            myWindow.document.write('<pre id="json"></pre>');
+            myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
+
+        } catch (error) {
+            console.log("ERROR");
+        }
     }
 
     drawChart = async () => {
@@ -66,15 +94,21 @@ class ZoomableSunburst extends Component {
                 "http://data.un.org/kos/sdg/16",
                 "http://data.un.org/kos/sdg/17",
             ]
-            this.setState({ clickedData: `URI: ${p.data.id} NAME: ${p.data.name}  LABEL: ${p.data.label}` })
-            if( p.parent === null){
+            this.setState({
+                clickedData: {
+                    id: p.data.id,
+                    name: p.data.name,
+                    label: p.data.label
+                }
+            })
+            if (p.parent === null) {
                 this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
             }
             else if (this.state.selectedGoal === undefined) {
-                if(uris.includes(p.data.id)){
+                if (uris.includes(p.data.id)) {
                     this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
                 }
-                else if(p.parent !==null && uris.includes(p.parent.data.id)){
+                else if (p.parent !== null && uris.includes(p.parent.data.id)) {
 
                     this.setState({ selectedGoal: p.parent.data.id, selectedGoalName: p.parent.data.name })
                 }
@@ -93,8 +127,14 @@ class ZoomableSunburst extends Component {
                 .filter(function (d) {
                     return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
+                // .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
                 .attrTween("d", d => () => arc(d.current));
+
+
+            if (p.children !== undefined) {
+                path.transition(t)
+                    .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
+            }
 
             label.filter(function (d) {
                 return +this.getAttribute("fill-opacity") || labelVisible(d.target);
@@ -166,7 +206,7 @@ class ZoomableSunburst extends Component {
             .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 1 : 0.6) : 0)
             .attr("d", d => arc(d.current));
 
-        path.filter(d => d.children)
+        path.filter(d => d)
             .style("cursor", "pointer")
             .on("click", clicked);
 
@@ -193,16 +233,15 @@ class ZoomableSunburst extends Component {
             .attr("fill", "none")
             .attr("pointer-events", "all")
 
-        parent = g.append("text")
+
+        g.append("text")
             .datum(root)
-            .text(function (d) { return "BACK" })
-            .attr("x", -28)
+            .text(function (d) {  return "Back" })
+            .attr("x", -18)
             .style("font-size", "24px")
             .style("cursor", "pointer")
             .attr("pointer-events", "all")
             .on("click", clicked);
-
-
 
 
 
@@ -257,14 +296,31 @@ class ZoomableSunburst extends Component {
                 <div className="grid-item">
 
                     <div className="grid-container-info">
-                        <div>
+                        <div className="goal-image-container">
                             {this.selectImage()}
                         </div>
                         <div>
                             <h3 className="title">{this.state.selectedGoalName}</h3>
                         </div>
                         <div className="grid-item-text">
-                            {this.state.clickedData}
+                            {this.state.clickedData.id ? (
+                                <React.Fragment>
+                                    <p>
+                                        <span>LABEL: </span>
+                                        {this.state.clickedData.label}
+                                    </p>
+                                    <p>
+                                        <span>NAME: </span>
+                                        {this.state.clickedData.name}
+                                    </p>
+                                    <p onClick={this.reciveJsonFromApi} className="uri-link">
+                                        <span>URI: </span>
+                                        {this.state.clickedData.id}
+                                    </p>
+                                </React.Fragment>
+                            ) : (<React.Fragment></React.Fragment>)}
+
+
                         </div>
                     </div>
 

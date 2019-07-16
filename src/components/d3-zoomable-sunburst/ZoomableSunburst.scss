@@ -6,6 +6,7 @@
     display: grid;
     grid-template-columns: 60% auto;
     grid-column-gap: 20px;
+    grid-row-gap: 20px;
 
     svg { 
         width: 100%;
@@ -24,6 +25,15 @@
         .grid-item-text{
             grid-column-start: 1; 
             grid-column-end: 3; 
+            .uri-link{
+                cursor: pointer;
+                color: #007bff;
+            }
+
+            p span {
+                font-weight: 700;
+                color: black;
+            }
         }
 
         .title {
@@ -36,8 +46,13 @@
     .grid-container{
         grid-template-columns: 100%;
 
+        .goal-image-container{
+            margin:0 auto;
+            text-align: center;
+        }
         .goal-image{
-            width: 20%;
+            width: 70%;
+            margin: 0 auto;
         }
     }
     
