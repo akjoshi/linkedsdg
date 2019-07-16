@@ -25,12 +25,16 @@ import axios from 'axios';
 
     export async function handleUploadFile (file){
         console.log(file);
+        if(file === undefined){
+            this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
+            this.setState({waitForData: true});
+        }
         this.setState({ isLoading: true, error: '' , loadedFrom: file.name, fileName: file.name });
         const data = new FormData();
         data.append('file', file);
 
         try {
-            const text = await axios.post('http://localhost:5001/api', data, {
+            const text = await axios.post('http://34.66.148.181:5001/api', data, {
 
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -52,7 +56,7 @@ import axios from 'axios';
     export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '', loadedFrom: url  });
         try {
-            const text = await axios.post('http://localhost:5001/apiURL', url, {
+            const text = await axios.post('http://34.66.148.181:5001/apiURL', url, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -71,7 +75,12 @@ import axios from 'axios';
 
     export async function processText(text) {
         try {
-            const jsonText = await axios.post('http://localhost:5000/api', {
+            console.log("TEXT")
+            text.data = "announced"
+            
+            console.log(text)
+
+            const jsonText = await axios.post('http://34.66.148.181:5000/api', {
                 text: text.data,
                 headers: {
                     'Content-Type': 'application/json'
@@ -114,7 +123,7 @@ import axios from 'axios';
                 }
             });
 
-            const linkedDataResponse = await axios.post('http://localhost:5002/api', match , {
+            const linkedDataResponse = await axios.post('http://34.66.148.181:5002/api', match , {
                 headers: {
                     'Content-Type': 'application/json'
                 }

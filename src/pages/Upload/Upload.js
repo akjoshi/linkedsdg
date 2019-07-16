@@ -10,6 +10,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import CopyIcon from './copy-icon.png';
 import UploadForm from '../../components/UploadForm/UploadForm'
+import ZoomableSunburst from '../../components/d3-zoomable-sunburst/ZoomableSunburst'
 
 
 class Upload extends Component {
@@ -31,7 +32,7 @@ class Upload extends Component {
         fileName: '',
         waitForData: true,
         selectedOption: 'fromURL',
-        error: ''
+        error: '',
     };
 
     clear = (event) => {
@@ -58,6 +59,9 @@ class Upload extends Component {
     };
 
     handleFileChange = changeEvent => {
+        if(changeEvent.target.files[0] === undefined){
+            return;
+        }
         this.setState({ 
             selectedOption: "fromFile", 
             file: changeEvent.target.files[0], 
@@ -135,6 +139,7 @@ class Upload extends Component {
                         </Col>
                     </Row>
                 </div>
+                <ZoomableSunburst/>
 
                 {this.state.isLoading ? (
                     <Spinner />
