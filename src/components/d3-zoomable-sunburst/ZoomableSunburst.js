@@ -12,9 +12,6 @@ class ZoomableSunburst extends Component {
         svgElement: '',
     }
 
-
-
-
     drawChart = async () => {
         let width = 932
         let radius = 155.33333333333334
@@ -84,7 +81,7 @@ class ZoomableSunburst extends Component {
             .on("click", clicked);
 
         path.append("title")
-            .text(d => `${d.ancestors().map(d => d.data.label).reverse().join("/")}\n${format(d.value)}`);
+            .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
 
         const label = g.append("g")
             .attr("pointer-events", "none")
@@ -98,15 +95,25 @@ class ZoomableSunburst extends Component {
             .attr("transform", d => labelTransform(d.current))
             .text(d => d.data.label);
 
-        const parent = g.append("circle")
+        let parent = g.append("circle")
             .datum(root)
             .attr("r", radius)
             .attr("fill", "none")
             .attr("pointer-events", "all")
+            .style("cursor", "pointer")
             .on("click", clicked);
 
+        parent = g.append("text")
+            .datum(root)
+            .text(function(d){return "BACK"})
+            .attr("x", -28)
+            .style("font-size", "24px")
+            .style("cursor", "pointer")
+            .attr("pointer-events", "all")
+            .on("click", clicked);
+
+
         function clicked(p) {
-            console.log(p)
             parent.datum(p.parent || root);
 
             root.each(d => d.target = {
