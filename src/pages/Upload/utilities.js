@@ -75,11 +75,7 @@ import axios from 'axios';
 
     export async function processText(text) {
         try {
-            console.log("TEXT")
-            text.data = "announced"
             
-            console.log(text)
-
             const jsonText = await axios.post('http://34.66.148.181:5000/api', {
                 text: text.data,
                 headers: {

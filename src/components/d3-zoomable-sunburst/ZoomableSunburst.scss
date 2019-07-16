@@ -1,7 +1,45 @@
 @import '../../App.scss';
 
-.ZoomableSunburst {
-    width: 80%;
-    margin: 0 auto;
+.grid-container {
     margin-top: 2rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-column-gap: 20px;
+
+    svg { 
+        width: 100%;
+    }
+    
+    .goal-image{
+        width: 100%;
+    }
+
+    .grid-container-info {
+        display: grid;
+        grid-template-columns:  30% auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+
+        .grid-item-text{
+            grid-column-start: 1; 
+            grid-column-end: 3; 
+        }
+
+        .title {
+            font-size: 1.2rem;
+        }
+    }
 }
+
+@media only screen and (max-width: 991px) {
+    .grid-container{
+        grid-template-columns: 100%;
+
+        .goal-image{
+            width: 20%;
+        }
+    }
+    
+    
+  }

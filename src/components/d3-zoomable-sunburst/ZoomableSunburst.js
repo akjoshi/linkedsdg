@@ -1,5 +1,23 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
+import Wheel from './img/wheel.png';
+import Goal01 from './img/01.png';
+import Goal02 from './img/02.png';
+import Goal03 from './img/03.png';
+import Goal04 from './img/04.png';
+import Goal05 from './img/05.png';
+import Goal06 from './img/06.png';
+import Goal07 from './img/07.png';
+import Goal08 from './img/08.png';
+import Goal09 from './img/09.png';
+import Goal10 from './img/10.png';
+import Goal11 from './img/11.png';
+import Goal12 from './img/12.png';
+import Goal13 from './img/13.png';
+import Goal14 from './img/14.png';
+import Goal15 from './img/15.png';
+import Goal16 from './img/16.png';
+import Goal17 from './img/17.png';
 import './ZoomableSunburst.scss'
 
 class ZoomableSunburst extends Component {
@@ -10,9 +28,81 @@ class ZoomableSunburst extends Component {
 
     state = {
         svgElement: '',
+        lastPointedData: '',
+        clickedData: '',
+        selectedGoal: undefined,
+        selectedGoalName: 'Sustainable Development Goals',
     }
 
     drawChart = async () => {
+
+        const clicked = (p) => {
+            parent.datum(p.parent || root);
+
+            root.each(d => d.target = {
+                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                y0: Math.max(0, d.y0 - p.depth),
+                y1: Math.max(0, d.y1 - p.depth)
+            });
+
+            console.log(p)
+            const uris = [
+                "http://data.un.org/kos/sdg/01",
+                "http://data.un.org/kos/sdg/02",
+                "http://data.un.org/kos/sdg/03",
+                "http://data.un.org/kos/sdg/04",
+                "http://data.un.org/kos/sdg/05",
+                "http://data.un.org/kos/sdg/06",
+                "http://data.un.org/kos/sdg/07",
+                "http://data.un.org/kos/sdg/08",
+                "http://data.un.org/kos/sdg/09",
+                "http://data.un.org/kos/sdg/10",
+                "http://data.un.org/kos/sdg/11",
+                "http://data.un.org/kos/sdg/12",
+                "http://data.un.org/kos/sdg/13",
+                "http://data.un.org/kos/sdg/14",
+                "http://data.un.org/kos/sdg/15",
+                "http://data.un.org/kos/sdg/16",
+                "http://data.un.org/kos/sdg/17",
+            ]
+            this.setState({ clickedData: `URI: ${p.data.id} NAME: ${p.data.name}  LABEL: ${p.data.label}` })
+            if( p.parent === null){
+                this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
+            }
+            else if (this.state.selectedGoal === undefined) {
+                if(uris.includes(p.data.id)){
+                    this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
+                }
+                else if(p.parent !==null && uris.includes(p.parent.data.id)){
+
+                    this.setState({ selectedGoal: p.parent.data.id, selectedGoalName: p.parent.data.name })
+                }
+            }
+
+            const t = g.transition().duration(750);
+
+            // Transition the data on all arcs, even the ones that aren’t visible,
+            // so that if this transition is interrupted, entering arcs will start
+            // the next transition from the desired position.
+            path.transition(t)
+                .tween("data", d => {
+                    const i = d3.interpolate(d.current, d.target);
+                    return t => d.current = i(t);
+                })
+                .filter(function (d) {
+                    return +this.getAttribute("fill-opacity") || arcVisible(d.target);
+                })
+                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
+                .attrTween("d", d => () => arc(d.current));
+
+            label.filter(function (d) {
+                return +this.getAttribute("fill-opacity") || labelVisible(d.target);
+            }).transition(t)
+                .attr("fill-opacity", d => +labelVisible(d.target))
+                .attrTween("transform", d => () => labelTransform(d.current));
+        }
+
         let width = 932
         let radius = 155.33333333333334
         let arc = d3.arc()
@@ -37,7 +127,7 @@ class ZoomableSunburst extends Component {
         }
 
         const root = partition(data);
-        
+
         let colors = {
             "http://data.un.org/kos/sdg/01": "rgb( 229, 36,59 )",
             "http://data.un.org/kos/sdg/02": "rgb( 221, 166,58 )",
@@ -81,7 +171,9 @@ class ZoomableSunburst extends Component {
             .on("click", clicked);
 
         path.append("title")
-            .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
+            .text(d => {
+                return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`;
+            });
 
         const label = g.append("g")
             .attr("pointer-events", "none")
@@ -100,12 +192,10 @@ class ZoomableSunburst extends Component {
             .attr("r", radius)
             .attr("fill", "none")
             .attr("pointer-events", "all")
-            .style("cursor", "pointer")
-            .on("click", clicked);
 
         parent = g.append("text")
             .datum(root)
-            .text(function(d){return "BACK"})
+            .text(function (d) { return "BACK" })
             .attr("x", -28)
             .style("font-size", "24px")
             .style("cursor", "pointer")
@@ -113,38 +203,8 @@ class ZoomableSunburst extends Component {
             .on("click", clicked);
 
 
-        function clicked(p) {
-            parent.datum(p.parent || root);
 
-            root.each(d => d.target = {
-                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                y0: Math.max(0, d.y0 - p.depth),
-                y1: Math.max(0, d.y1 - p.depth)
-            });
 
-            const t = g.transition().duration(750);
-
-            // Transition the data on all arcs, even the ones that aren’t visible,
-            // so that if this transition is interrupted, entering arcs will start
-            // the next transition from the desired position.
-            path.transition(t)
-                .tween("data", d => {
-                    const i = d3.interpolate(d.current, d.target);
-                    return t => d.current = i(t);
-                })
-                .filter(function (d) {
-                    return +this.getAttribute("fill-opacity") || arcVisible(d.target);
-                })
-                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
-                .attrTween("d", d => () => arc(d.current));
-
-            label.filter(function (d) {
-                return +this.getAttribute("fill-opacity") || labelVisible(d.target);
-            }).transition(t)
-                .attr("fill-opacity", d => +labelVisible(d.target))
-                .attrTween("transform", d => () => labelTransform(d.current));
-        }
 
         function arcVisible(d) {
             return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
@@ -163,16 +223,52 @@ class ZoomableSunburst extends Component {
         return svg.node();
     }
 
+    selectImage = () => {
+        let images = {
+            "http://data.un.org/kos/sdg/01": Goal01,
+            "http://data.un.org/kos/sdg/02": Goal02,
+            "http://data.un.org/kos/sdg/03": Goal03,
+            "http://data.un.org/kos/sdg/04": Goal04,
+            "http://data.un.org/kos/sdg/05": Goal05,
+            "http://data.un.org/kos/sdg/06": Goal06,
+            "http://data.un.org/kos/sdg/07": Goal07,
+            "http://data.un.org/kos/sdg/08": Goal08,
+            "http://data.un.org/kos/sdg/09": Goal09,
+            "http://data.un.org/kos/sdg/10": Goal10,
+            "http://data.un.org/kos/sdg/11": Goal11,
+            "http://data.un.org/kos/sdg/12": Goal12,
+            "http://data.un.org/kos/sdg/13": Goal13,
+            "http://data.un.org/kos/sdg/14": Goal14,
+            "http://data.un.org/kos/sdg/15": Goal15,
+            "http://data.un.org/kos/sdg/16": Goal16,
+            "http://data.un.org/kos/sdg/17": Goal17,
+        }
 
-
-
-
-
-
+        if (this.state.selectedGoal === undefined) {
+            return <img className="goal-image" src={Wheel} alt="Goal img"></img>;;
+        }
+        return <img className="goal-image" src={images[this.state.selectedGoal]} alt="Goal img"></img>;
+    }
 
     render() {
         return (
-            <div id={"ZoomableSunburst"} className="ZoomableSunburst">
+            <div className="grid-container">
+                <div id={"ZoomableSunburst"} className="grid-item"></div>
+                <div className="grid-item">
+
+                    <div className="grid-container-info">
+                        <div>
+                            {this.selectImage()}
+                        </div>
+                        <div>
+                            <h3 className="title">{this.state.selectedGoalName}</h3>
+                        </div>
+                        <div className="grid-item-text">
+                            {this.state.clickedData}
+                        </div>
+                    </div>
+
+                </div>
             </div>
         )
     }
