@@ -26,11 +26,10 @@ class ZoomableSunburst extends Component {
             .innerRadius(d => d.y0 * radius)
             .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
-        
+
         let data = require('./data');
-        
+
         let format = d3.format(",d")
-        let color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
 
         const partition = data => {
             const root = d3.hierarchy(data)
@@ -41,6 +40,26 @@ class ZoomableSunburst extends Component {
         }
 
         const root = partition(data);
+        
+        let colors = {
+            "http://data.un.org/kos/sdg/01": "rgb( 229, 36,59 )",
+            "http://data.un.org/kos/sdg/02": "rgb( 221, 166,58 )",
+            "http://data.un.org/kos/sdg/03": "rgb( 76, 159, 56)",
+            "http://data.un.org/kos/sdg/04": "rgb( 197, 25,45 )",
+            "http://data.un.org/kos/sdg/05": "rgb( 255, 58, 33)",
+            "http://data.un.org/kos/sdg/06": "rgb( 38, 189, 226)",
+            "http://data.un.org/kos/sdg/07": "rgb( 252, 195, 11)",
+            "http://data.un.org/kos/sdg/08": "rgb( 162, 25, 66)",
+            "http://data.un.org/kos/sdg/09": "rgb( 253, 105, 37)",
+            "http://data.un.org/kos/sdg/10": "rgb( 221, 19, 103)",
+            "http://data.un.org/kos/sdg/11": "rgb( 253, 157, 36)",
+            "http://data.un.org/kos/sdg/12": "rgb( 191, 139, 46)",
+            "http://data.un.org/kos/sdg/13": "rgb( 63, 126, 68)",
+            "http://data.un.org/kos/sdg/14": "rgb( 10, 151, 217)",
+            "http://data.un.org/kos/sdg/15": "rgb( 86, 192, 43)",
+            "http://data.un.org/kos/sdg/16": "rgb( 0, 104, 157)",
+            "http://data.un.org/kos/sdg/17": "rgb( 25, 72, 106)",
+        }
 
         root.each(d => d.current = d);
 
@@ -56,8 +75,8 @@ class ZoomableSunburst extends Component {
             .selectAll("path")
             .data(root.descendants().slice(1))
             .join("path")
-            .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.label); })
-            .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+            .attr("fill", d => { while (d.depth > 1) d = d.parent; return colors[d.data.id]; })
+            .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 1 : 0.6) : 0)
             .attr("d", d => arc(d.current));
 
         path.filter(d => d.children)
@@ -110,7 +129,7 @@ class ZoomableSunburst extends Component {
                 .filter(function (d) {
                     return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+                .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
                 .attrTween("d", d => () => arc(d.current));
 
             label.filter(function (d) {
