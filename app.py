@@ -87,22 +87,22 @@ def normalise_white_space(word):
     word = re.sub(' +',' ', word)
     return word
     
-def shallow_clean(label):
-    label = normalise_white_space(label).lower()
-    for char in string.punctuation:
-        label = label.replace(char, ' ')
-    label = normalise_white_space(label)
-    return label
+# def shallow_clean(label):
+#     label = normalise_white_space(label).lower()
+#     for char in string.punctuation:
+#         label = label.replace(char, ' ')
+#     label = normalise_white_space(label)
+#     return label
 
-def add_to_concept_matcher(label, i):
-    if label not in concept_spacy_ids:
-        word_list = []
-        word_list.append(label)
-        concept_pattern = [nlp(text) for text in word_list]
-        concept_matcher.add(i, None, *concept_pattern)
-        concept_spacy_ids[label]=[i]
-    else:
-        concept_spacy_ids[label].append(i)
+# def add_to_concept_matcher(label, i):
+#     if label not in concept_spacy_ids:
+#         word_list = []
+#         word_list.append(label)
+#         concept_pattern = [nlp(text) for text in word_list]
+#         concept_matcher.add(i, None, *concept_pattern)
+#         concept_spacy_ids[label]=[i]
+#     else:
+#         concept_spacy_ids[label].append(i)
 
 def add_to_country_matcher(label, i):
     if label not in concept_spacy_ids:
@@ -240,7 +240,7 @@ def extract_concepts(input, matcher_id):
         index = country_index
         matcher = country_matcher
 
-    text = shallow_clean(input)
+    text = input
     final_matches = []
     doc = nlp(text)
     matches = matcher(doc)
