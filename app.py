@@ -81,11 +81,11 @@ country_source = {}
 country_spacy_ids = {}
 country_index = {}
 
-def normalise_white_space(word):
-    word = word.rstrip()
-    word = word.lstrip()
-    word = re.sub(' +',' ', word)
-    return word
+# def normalise_white_space(word):
+#     word = word.rstrip()
+#     word = word.lstrip()
+#     word = re.sub(' +',' ', word)
+#     return word
     
 # def shallow_clean(label):
 #     label = normalise_white_space(label).lower()
@@ -94,15 +94,15 @@ def normalise_white_space(word):
 #     label = normalise_white_space(label)
 #     return label
 
-# def add_to_concept_matcher(label, i):
-#     if label not in concept_spacy_ids:
-#         word_list = []
-#         word_list.append(label)
-#         concept_pattern = [nlp(text) for text in word_list]
-#         concept_matcher.add(i, None, *concept_pattern)
-#         concept_spacy_ids[label]=[i]
-#     else:
-#         concept_spacy_ids[label].append(i)
+def add_to_concept_matcher(label, i):
+    if label not in concept_spacy_ids:
+        word_list = []
+        word_list.append(label)
+        concept_pattern = [nlp(text) for text in word_list]
+        concept_matcher.add(i, None, *concept_pattern)
+        concept_spacy_ids[label]=[i]
+    else:
+        concept_spacy_ids[label].append(i)
 
 def add_to_country_matcher(label, i):
     if label not in concept_spacy_ids:
