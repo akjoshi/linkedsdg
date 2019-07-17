@@ -36,17 +36,17 @@ class ZoomableSunburst extends Component {
         selectedGoalName: 'Sustainable Development Goals',
     }
 
-    reciveJsonFromApi = async () =>{
+    reciveJsonFromApi = async () => {
         try {
-            
+
             const dataForApi = {
                 "type": this.state.clickedData.label.split(" ")[0],
-	            "uri": this.state.clickedData.id
+                "uri": this.state.clickedData.id
             }
 
             const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
                 headers: {
-                    'Content-Type': 'text/plain' 
+                    'Content-Type': 'text/plain'
                 }
             });
             if (text.status !== 200 && text.status !== 201) {
@@ -74,7 +74,6 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            console.log(p)
             const uris = [
                 "http://data.un.org/kos/sdg/01",
                 "http://data.un.org/kos/sdg/02",
@@ -94,11 +93,13 @@ class ZoomableSunburst extends Component {
                 "http://data.un.org/kos/sdg/16",
                 "http://data.un.org/kos/sdg/17",
             ]
+            console.log(p.data.concept)
             this.setState({
                 clickedData: {
                     id: p.data.id,
                     name: p.data.name,
-                    label: p.data.label
+                    label: p.data.label,
+                    concept: p.data.concept
                 }
             })
             if (p.parent === null) {
@@ -237,7 +238,7 @@ class ZoomableSunburst extends Component {
 
         parent = g.append("text")
             .datum(root)
-            .text(function (d) {  return "Back" })
+            .text(function (d) { return "Back" })
             .attr("x", -18)
             .style("font-size", "24px")
             .style("cursor", "pointer")
@@ -290,6 +291,47 @@ class ZoomableSunburst extends Component {
         return <img className="goal-image" src={images[this.state.selectedGoal]} alt="Goal img"></img>;
     }
 
+    loadConcepts = () => {
+        let data = [];
+
+        for (var url in this.state.clickedData.concept) {
+            let linkedConcepts = [];
+
+            for (var url2 in this.state.clickedData.concept[url]['subconcepts']) {
+                linkedConcepts.push({
+                    url: url2,
+                    label: this.state.clickedData.concept[url]['subconcepts'][url2].label,
+                })
+            }
+
+            data.push({
+                url: url,
+                label: this.state.clickedData.concept[url].label,
+                source: this.state.clickedData.concept[url].source,
+                linkedConcepts: linkedConcepts
+            })
+        }
+        console.log(data)
+
+        return data.map(x => (
+            <p key={x.url}>
+                <span>{x.label}</span> concept from {x.source}:
+                {x.linkedConcepts.map(y => {
+                    if (y.label !== x.label) { 
+                        return <span key={y.url}  className="uri-link">
+                            <br></br>
+                            <a href={y.url}> {y.label} +</a>
+                            </span>
+                    }
+                    return <i key={y.url} className="uri-link">
+                        <br></br>
+                        <a href={y.url}> {y.label}</a>
+                        </i>
+                })}
+            </p>
+        ))
+    }
+
     render() {
         return (
             <div className="grid-container">
@@ -318,6 +360,8 @@ class ZoomableSunburst extends Component {
                                         <span>URI: </span>
                                         {this.state.clickedData.id}
                                     </p>
+                                    <p> <span>CONCEPTS: </span> </p>
+                                    {this.loadConcepts()}
                                 </React.Fragment>
                             ) : (<React.Fragment></React.Fragment>)}
 

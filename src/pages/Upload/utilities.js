@@ -34,18 +34,18 @@ import axios from 'axios';
         data.append('file', file);
 
         try {
-            const text = await axios.post('http://34.66.148.181:5001/api', data, {
+            const json = await axios.post('http://127.0.0.1:5001/api', data, {
 
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            if (text.status !== 200 && text.status !== 201) {
+            if (json.status !== 200 && json.status !== 201) {
                 throw new Error('Failed!');
             }
-            // console.log("TEKST Z PLIKU")
-            // console.log(text)
-            this.processText(text);
+            console.log("TEKST Z PLIKU")
+            console.log(json.data.text)
+            this.processText(json.data.text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
             this.setState({waitForData: true});
@@ -56,17 +56,17 @@ import axios from 'axios';
     export async function handleUrlFile(url) {
         this.setState({ isLoading: true, error: '', loadedFrom: url  });
         try {
-            const text = await axios.post('http://34.66.148.181:5001/apiURL', url, {
+            const json = await axios.post('http://127.0.0.1:5001/apiURL', url, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             });
-            if (text.status !== 200 && text.status !== 201) {
+            if (json.status !== 200 && json.status !== 201) {
                 throw new Error('Failed!');
             }
-            // console.log("TEKST Z URL")
-            // console.log(text)
-            this.processText(text);
+            console.log("TEKST Z URL")
+            console.log(json.data.text)
+            this.processText(json.data.text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!" });
             this.setState({waitForData: true});
@@ -76,8 +76,8 @@ import axios from 'axios';
     export async function processText(text) {
         try {
             
-            const jsonText = await axios.post('http://34.66.148.181:5000/api', {
-                text: text.data,
+            const jsonText = await axios.post('http://127.0.0.1:5000/api', {
+                text: text,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -119,7 +119,7 @@ import axios from 'axios';
                 }
             });
 
-            const linkedDataResponse = await axios.post('http://34.66.148.181:5002/api', match , {
+            const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match , {
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -128,28 +128,12 @@ import axios from 'axios';
                 throw new Error('Failed!');
             }
 
-            const linkedConcepts = [];
+            console.log("linkedDataResponse")
+            console.log(linkedDataResponse)
+            await this.setState({dataForSun: linkedDataResponse.data});
 
-            // console.log("linkedDataResponse")
-            // console.log(linkedDataResponse)
 
-            for (var url in linkedDataResponse['data']) {
-                const newConcepts = linkConcepts(linkedDataResponse['data'][url]['concept'], conceptsResponse)
-                linkedConcepts.push({
-                    id: url,
-                    type: linkedDataResponse['data'][url]['type'],
-                    label: linkedDataResponse['data'][url]['label'],
-                    concept: newConcepts,
-                    sumWeight: calculateWeight(linkedDataResponse['data'][url]['concept'])
-                })
-            }
-
-            // console.log("linkedConcepts")
-            // console.log(linkedConcepts)
-
-            linkedConcepts.sort((x, y) => y.sumWeight - x.sumWeight);
-
-            await this.setState({ linkedData: linkedConcepts, contentLoaded: true, isLoading: false, waitForData: false });
+            await this.setState({  contentLoaded: true, isLoading: false, waitForData: false });
             window.location.href = '#Data-Area-id';
 
         } catch (error) {

@@ -33,6 +33,7 @@ class Upload extends Component {
         waitForData: true,
         selectedOption: 'fromURL',
         error: '',
+        dataForSun: {},
     };
 
     clear = (event) => {
@@ -59,13 +60,14 @@ class Upload extends Component {
     };
 
     handleFileChange = changeEvent => {
-        if(changeEvent.target.files[0] === undefined){
+        if (changeEvent.target.files[0] === undefined) {
             return;
         }
-        this.setState({ 
-            selectedOption: "fromFile", 
-            file: changeEvent.target.files[0], 
-            fileName: changeEvent.target.files[0].name })
+        this.setState({
+            selectedOption: "fromFile",
+            file: changeEvent.target.files[0],
+            fileName: changeEvent.target.files[0].name
+        })
     };
 
     analyze = () => {
@@ -74,11 +76,11 @@ class Upload extends Component {
             this.handleUrlFile(this.state.URL);
         }
         else if (this.state.selectedOption === 'fromFile') {
-            if(this.state.file !== null){
+            if (this.state.file !== null) {
                 this.handleUploadFile(this.state.file);
             }
-            else{
-                this.setState({error: "Please select file."})
+            else {
+                this.setState({ error: "Please select file." })
             }
         }
     }
@@ -139,7 +141,6 @@ class Upload extends Component {
                         </Col>
                     </Row>
                 </div>
-                <ZoomableSunburst data={{}}/>
 
                 {this.state.isLoading ? (
                     <Spinner />
@@ -147,10 +148,10 @@ class Upload extends Component {
                         !this.state.waitForData ? (
                             <div className="Data-Area" >
                                 <div id="Data-Area-id"></div>
-                                
+
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                                <LinkedConceptsList Data={this.state.linkedData}></LinkedConceptsList>
+                                <ZoomableSunburst data={this.state.dataForSun} />
 
                                 <div className="clear-button">
                                     <Button variant="primary" onClick={this.clear}>
