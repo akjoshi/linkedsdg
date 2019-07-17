@@ -154,7 +154,8 @@ class ZoomableSunburst extends Component {
             .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
 
-        let data = require('./data');
+        // let data = require('./data');
+        let data = this.props.data;
 
         let format = d3.format(",d")
 
@@ -234,7 +235,7 @@ class ZoomableSunburst extends Component {
             .attr("pointer-events", "all")
 
 
-        g.append("text")
+        parent = g.append("text")
             .datum(root)
             .text(function (d) {  return "Back" })
             .attr("x", -18)

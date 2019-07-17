@@ -139,7 +139,7 @@ class Upload extends Component {
                         </Col>
                     </Row>
                 </div>
-                <ZoomableSunburst/>
+                <ZoomableSunburst data={{}}/>
 
                 {this.state.isLoading ? (
                     <Spinner />
