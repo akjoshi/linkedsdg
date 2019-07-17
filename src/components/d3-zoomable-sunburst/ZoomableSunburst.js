@@ -64,6 +64,69 @@ class ZoomableSunburst extends Component {
 
     drawChart = async () => {
 
+        const uris = [
+            "http://data.un.org/kos/sdg/01",
+            "http://data.un.org/kos/sdg/02",
+            "http://data.un.org/kos/sdg/03",
+            "http://data.un.org/kos/sdg/04",
+            "http://data.un.org/kos/sdg/05",
+            "http://data.un.org/kos/sdg/06",
+            "http://data.un.org/kos/sdg/07",
+            "http://data.un.org/kos/sdg/08",
+            "http://data.un.org/kos/sdg/09",
+            "http://data.un.org/kos/sdg/10",
+            "http://data.un.org/kos/sdg/11",
+            "http://data.un.org/kos/sdg/12",
+            "http://data.un.org/kos/sdg/13",
+            "http://data.un.org/kos/sdg/14",
+            "http://data.un.org/kos/sdg/15",
+            "http://data.un.org/kos/sdg/16",
+            "http://data.un.org/kos/sdg/17",
+        ]
+
+        const mouseover = (p) => {
+            parent.datum(p.parent || root);
+
+            root.each(d => d.target = {
+                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                y0: Math.max(0, d.y0 - p.depth),
+                y1: Math.max(0, d.y1 - p.depth)
+            });
+
+            
+            console.log(p.data.concept)
+
+            if (p.parent === null) {
+                this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
+            }
+            else if (this.state.selectedGoal === undefined) {
+                if (uris.includes(p.data.id)) {
+                    this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
+                }
+                else if (p.parent !== null && uris.includes(p.parent.data.id)) {
+
+                    this.setState({ selectedGoal: p.parent.data.id, selectedGoalName: p.parent.data.name })
+                }
+            }
+        }
+
+        const mouseout = (p) => {
+            parent.datum(p.parent || root);
+
+            root.each(d => d.target = {
+                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                y0: Math.max(0, d.y0 - p.depth),
+                y1: Math.max(0, d.y1 - p.depth)
+            });
+
+            if(this.state.clickedData.id === undefined){
+                this.setState({ selectedGoal: undefined, selectedGoalName: 'Sustainable Development Goals' })
+            }
+            
+        }
+
         const clicked = (p) => {
             parent.datum(p.parent || root);
 
@@ -74,25 +137,6 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            const uris = [
-                "http://data.un.org/kos/sdg/01",
-                "http://data.un.org/kos/sdg/02",
-                "http://data.un.org/kos/sdg/03",
-                "http://data.un.org/kos/sdg/04",
-                "http://data.un.org/kos/sdg/05",
-                "http://data.un.org/kos/sdg/06",
-                "http://data.un.org/kos/sdg/07",
-                "http://data.un.org/kos/sdg/08",
-                "http://data.un.org/kos/sdg/09",
-                "http://data.un.org/kos/sdg/10",
-                "http://data.un.org/kos/sdg/11",
-                "http://data.un.org/kos/sdg/12",
-                "http://data.un.org/kos/sdg/13",
-                "http://data.un.org/kos/sdg/14",
-                "http://data.un.org/kos/sdg/15",
-                "http://data.un.org/kos/sdg/16",
-                "http://data.un.org/kos/sdg/17",
-            ]
             console.log(p.data.concept)
             this.setState({
                 clickedData: {
@@ -210,7 +254,9 @@ class ZoomableSunburst extends Component {
 
         path.filter(d => d)
             .style("cursor", "pointer")
-            .on("click", clicked);
+            .on("click", clicked)
+            .on("mouseover", mouseover)
+            .on("mouseout", mouseout);
 
         path.append("title")
             .text(d => {
