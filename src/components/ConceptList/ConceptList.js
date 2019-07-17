@@ -4,7 +4,7 @@ import ConceptItem from './ConceptItem/ConceptItem';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-
+import BubbleChart from '../BubbleChart/BubbleChart'
 
 
 class ConceptList extends React.Component {
@@ -58,6 +58,16 @@ class ConceptList extends React.Component {
     render() {
         return (
             <div className="linked-concepts-container">
+                <Row>
+                    <Col>
+                        <h3 className="Title">
+                            Most relevant extracted concepts:
+                        </h3>
+                    </Col>
+                </Row>
+
+                <BubbleChart data={this.props.Concepts}></BubbleChart>
+
                 <Row>
                     <Col>
                         <h3 className="Title">

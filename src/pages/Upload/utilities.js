@@ -43,8 +43,8 @@ import axios from 'axios';
             if (json.status !== 200 && json.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log("TEKST Z PLIKU")
-            console.log(json.data.text)
+            // console.log("TEKST Z PLIKU")
+            // console.log(json.data.text)
             this.processText(json.data.text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
@@ -64,8 +64,8 @@ import axios from 'axios';
             if (json.status !== 200 && json.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log("TEKST Z URL")
-            console.log(json.data.text)
+            // console.log("TEKST Z URL")
+            // console.log(json.data.text)
             this.processText(json.data.text);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!" });
@@ -128,8 +128,8 @@ import axios from 'axios';
                 throw new Error('Failed!');
             }
 
-            console.log("linkedDataResponse")
-            console.log(linkedDataResponse)
+            // console.log("linkedDataResponse")
+            // console.log(linkedDataResponse)
             await this.setState({dataForSun: linkedDataResponse.data});
 
 

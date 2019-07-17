@@ -95,7 +95,7 @@ class ZoomableSunburst extends Component {
             });
 
             
-            console.log(p.data.concept)
+            // console.log(p.data.concept)
 
             if (p.parent === null) {
                 this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
@@ -137,7 +137,7 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            console.log(p.data.concept)
+            // console.log(p.data.concept)
             this.setState({
                 clickedData: {
                     id: p.data.id,
