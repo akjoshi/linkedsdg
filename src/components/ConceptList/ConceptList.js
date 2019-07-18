@@ -13,7 +13,7 @@ class ConceptList extends React.Component {
         this.state = {
             data: props.Concepts,
             loadCount: 10,
-            displayData: []
+            displayData: props.Concepts
         };
     }
 
@@ -23,9 +23,10 @@ class ConceptList extends React.Component {
 
 
     displayData = async () => {
-        const { data, loadCount } = this.state;
-        const chunkOfData = await data.filter((data, index) => index < loadCount && index >= loadCount - 10)
-        this.setState({ displayData: chunkOfData });
+        // const { data, loadCount } = this.state;
+        // //const chunkOfData = await data.filter((data, index) => index < loadCount && index >= loadCount - 10)
+        // data.forEach(x => x.open = false)
+        // this.setState({ displayData: data });
     }
 
     loadMore = async () => {
@@ -55,19 +56,18 @@ class ConceptList extends React.Component {
         }
     }
 
+    handlerForOpen = async ( uri) => {
+        let data = await this.state.data.map(x => {if(x.id === uri){x.open = !x.open} return x})
+        await this.setState({
+          data: data
+        })
+      }
+
     render() {
         return (
             <div className="linked-concepts-container">
-                <Row>
-                    <Col>
-                        <h3 className="Title">
-                            Most relevant extracted concepts:
-                        </h3>
-                    </Col>
-                </Row>
-
-                <BubbleChart data={this.props.Concepts}></BubbleChart>
-
+                <div className="grid-container">
+                <div className="grid-item">
                 <Row>
                     <Col>
                         <h3 className="Title">
@@ -81,11 +81,11 @@ class ConceptList extends React.Component {
                     </Col>
                 </Row>
 
-                <ul>
-                    {this.state.displayData.map((concept, index) => <ConceptItem concept={concept} key={index + this.state.loadCount}></ConceptItem>)}
+                <ul className="keywords-list" id="keywords-list-id">
+                    {this.state.displayData.map((concept, index) => <ConceptItem handlerForOpen={this.handlerForOpen} concept={concept} key={index}></ConceptItem>)}
                 </ul>
 
-                <div className="link-box">
+                {/* <div className="link-box">
                     {this.state.loadCount < this.state.data.length ? (
                         <p className="link next" onClick={this.loadMore}>Next</p>
                     ) : (
@@ -96,7 +96,24 @@ class ConceptList extends React.Component {
                     ) : (
                             <p>Previous</p>
                         )}
+                </div> */}
                 </div>
+                <div className="grid-item">
+                <Row>
+                    <Col>
+                        <h3 className="Title">
+                            Most relevant extracted concepts:
+                        </h3>
+                    </Col>
+                </Row>
+
+                <BubbleChart handlerForOpen={this.handlerForOpen} data={this.props.Concepts}></BubbleChart>
+                </div>
+                </div>
+
+                
+
+                
             </div>
         );
     }

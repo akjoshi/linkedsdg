@@ -99,15 +99,18 @@ import axios from 'axios';
                     label: jsonText['data']['concepts'][key]['label'],
                     source: jsonText['data']['concepts'][key]['source'],
                     weight: jsonText['data']['concepts'][key]['weight'],
-                    context: context
+                    context: context,
+                    open: false
                 })
             }
             
 
             conceptsResponse.sort((x, y) => y.weight - x.weight);
 
+
             // console.log("conceptsResponse")
             // console.log(conceptsResponse)
+
 
             this.setState({ concepts: conceptsResponse })
 
