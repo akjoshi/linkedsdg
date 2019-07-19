@@ -94,7 +94,7 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            
+
             // console.log(p.data.concept)
 
             if (p.parent === null) {
@@ -121,14 +121,15 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            if(this.state.clickedData.id === undefined){
+            if (this.state.clickedData.id === undefined) {
                 this.setState({ selectedGoal: undefined, selectedGoalName: 'Sustainable Development Goals' })
             }
-            
+
         }
 
         const clicked = (p) => {
             parent.datum(p.parent || root);
+
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -160,6 +161,40 @@ class ZoomableSunburst extends Component {
             }
 
             const t = g.transition().duration(750);
+
+            if (p.data.label !== undefined) {
+
+                let xzx = g.select("text#middleTitle");
+
+
+                let middleTitle = p.data.label.split(" ");
+                middleTitle = middleTitle[0] + "s";
+                if (middleTitle === 'Seriess') {
+                    middleTitle = "Series";
+                }
+
+
+                xzx.text(function (d) { return middleTitle })
+                .attr("x", 0)
+                .attr("y", 0)
+
+
+                var test = document.getElementById("middleTitle");
+                var height = (test.clientHeight + 1) / 2 + "px";
+                var middleTitleWidth = '-' + (test.clientWidth + 1) / 2 + "px"
+
+             
+                xzx.attr("x", middleTitleWidth)
+                    .attr("y", height)
+            }
+            else {
+                g.select("text#middleTitle")
+                    .text(function (d) { return "" })
+                    .attr("x", 0)
+                    .attr("y", 0)
+            }
+
+
 
             // Transition the data on all arcs, even the ones that aren’t visible,
             // so that if this transition is interrupted, entering arcs will start
@@ -282,14 +317,17 @@ class ZoomableSunburst extends Component {
             .attr("pointer-events", "all")
 
 
+
         parent = g.append("text")
-            .datum(root)
-            .text(function (d) { return "Back" })
-            .attr("x", -18)
-            .style("font-size", "24px")
+            .attr("id", "middleTitle")
+            .text(function (d) { return "" })
+            .style("font-size", "48px")
+            .style("font-weight", "700")
             .style("cursor", "pointer")
             .attr("pointer-events", "all")
             .on("click", clicked);
+
+
 
 
 
@@ -363,16 +401,16 @@ class ZoomableSunburst extends Component {
             <p key={x.url}>
                 <span>{x.label}</span> concept from {x.source}:
                 {x.linkedConcepts.map(y => {
-                    if (y.label !== x.label) { 
-                        return <span key={y.url}  className="uri-link">
+                    if (y.label !== x.label) {
+                        return <span key={y.url} className="uri-link">
                             <br></br>
                             <a href={y.url}> {y.label} +</a>
-                            </span>
+                        </span>
                     }
                     return <i key={y.url} className="uri-link">
                         <br></br>
                         <a href={y.url}> {y.label}</a>
-                        </i>
+                    </i>
                 })}
             </p>
         ))
