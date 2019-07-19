@@ -278,7 +278,7 @@ def extract_concepts(input, matcher_id):
     return final_matches, concepts_all, text
 
 app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 @app.route("/api", methods=['POST'])
 def concepts():
@@ -310,4 +310,4 @@ def concepts():
 
 if __name__ == '__main__':
     load_concepts()
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(port=5000, debug=False)
