@@ -19,10 +19,12 @@ class BubbleChart extends React.Component {
             var topPos = myElement.offsetTop - document.getElementById("keywords-list-id").offsetTop;
             document.getElementById("keywords-list-id").scrollTop = topPos;
 
+
+
         }
 
         let data = [];
-        let color = d3.scaleOrdinal(data.map(d => d.group), d3.schemeCategory10);
+        let color = d3.scaleOrdinal(data.map(d => d.group), d3.schemePastel1);
         let format = d3.format(",d");
         let width = 932;
         let height = width;
@@ -52,29 +54,75 @@ class BubbleChart extends React.Component {
             .attr("font-family", "sans-serif")
             .attr("text-anchor", "middle");
 
+
         const leaf = svg.selectAll("g")
             .data(root.leaves())
             .join("g")
-            .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`);
+            .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`)
+            .attr("id", d => (d.data.id))
+            .on("mouseover", function (d) {
+                svg.selectAll("g")
+                    .attr("fill-opacity", 0.2);
+
+                d3.select(this).select("text").remove()
+                d3.select(this).raise()
+                    .attr("fill-opacity", 1)
+                    .append("text")
+                    .attr("pointer-events", "none")
+                    .attr("y", (d, i, nodes) => {
+
+                        return `${(d.r / d.data.name.length) / 2 + 5}px`;
+                    })
+                    .text(d.data.name)
+                    .style("font-size", `${(d.r / d.data.name.length) * 2.2 + 20}px`)
+            })
+            .on("mouseout", function (d) {
+                svg.selectAll("g")
+                    .attr("fill-opacity", 1);
+
+                d3.select(this).select("text").remove()
+                d3.select(this)
+                    .append("text").raise()
+                    .attr("pointer-events", "none")
+                    .attr("y", (d, i, nodes) => {
+
+                        return `${(d.r / d.data.name.length) / 2}px`;
+                    })
+                    .text(d.data.name)
+                    .style("font-size", `${(d.r / d.data.name.length) * 2.2}px`)
+            });
+
 
         leaf.append("circle")
-            .attr("id", d => (d.data.id))
             .attr("r", d => d.r)
             .attr("fill-opacity", 0.7)
             .attr("fill", d => color(d.data.group))
             .style("cursor", "pointer")
-            .on("click", clicked);
+            .on("click", clicked)
 
         leaf.append("text")
-            .attr("clip-path", d => { return d.clipUid })
-            .selectAll("tspan")
-            .data(d => { return d.data.name.split(/(?=[A-Z][^A-Z])/g) })
-            .join("tspan")
             .attr("x", 0)
-            .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
-            .text(d => d)
-            .style("font-size", `18px`)
-            .style("cursor", "pointer")
+            .attr("y", (d, i, nodes) => {
+
+                return `${(d.r / d.data.name.length) / 2}px`;
+            })
+            .text(d => { return d.data.name })
+            .style("font-size", d => {
+                return `${(d.r / d.data.name.length) * 2.2}px`;
+            })
+
+
+
+        // .attr("clip-path", d => { return d.clipUid })
+        // .selectAll("tspan")
+        // .data(d => { return d.data.name.split(/(?=[A-Z][^A-Z])/g) })
+        // .join("tspan")
+        // .attr("x", 0)
+        // .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
+        // .text(d => d)
+        // .style("font-size", `18px`)
+        // .style("cursor", "pointer")
+
 
         leaf.append("title")
             .text(d => `${d.data.title}\n${format(d.value)}`);
