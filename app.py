@@ -60,6 +60,7 @@ SELECT DISTINCT ?id ?label
 GRAPHDB = "http://34.66.148.181:7200/repositories/sdgs"
 
 nlp = spacy.load('en_core_web_sm') 
+
 concept_matcher = {
    "en": PhraseMatcher(nlp.vocab),
    "fr": PhraseMatcher(nlp.vocab),
@@ -70,12 +71,12 @@ concept_matcher = {
 }
 
 country_matcher = {
-    "en": PhraseMatcher(nlp.vocab),
-    "fr": PhraseMatcher(nlp.vocab),
-    "es": PhraseMatcher(nlp.vocab),
-    "ru": PhraseMatcher(nlp.vocab),
-    "zh": PhraseMatcher(nlp.vocab),
-    "ar": PhraseMatcher(nlp.vocab)
+   "en": PhraseMatcher(nlp.vocab),
+   "fr": PhraseMatcher(nlp.vocab),
+   "es": PhraseMatcher(nlp.vocab),
+   "ru": PhraseMatcher(nlp.vocab),
+   "zh": PhraseMatcher(nlp.vocab),
+   "ar": PhraseMatcher(nlp.vocab)
 }
 
 CONTEXT_SIZE = 5
@@ -121,7 +122,7 @@ country_index = {}
 #     return label
 
 def add_to_concept_matcher(label, i, lang):
-    if label not in concept_spacy_ids:
+    if label not in concept_spacy_ids[lang]:
         word_list = []
         word_list.append(label)
         concept_pattern = [nlp(text) for text in word_list]
@@ -131,7 +132,7 @@ def add_to_concept_matcher(label, i, lang):
         concept_spacy_ids[lang][label].append(i)
 
 def add_to_country_matcher(label, i, lang):
-    if label not in concept_spacy_ids:
+    if label not in concept_spacy_ids[lang]:
         word_list = []
         word_list.append(label)
         concept_pattern = [nlp(text) for text in word_list]
@@ -291,14 +292,14 @@ def extract_concepts(input, matcher_id, lang):
             end = match['end'] + CONTEXT_SIZE
         else:
             end = len(doc)
-        context_string = "[...] " + str(doc[start:end]) + " [...]"
+        # context_string = "[...] " + str(doc[start:end]) + " [...]"
         phrase = str(doc[match['start']:match['end']])
         context_l= "[...] " + str(doc[start:match['start']])
         context_r = str(doc[match['end']:end]) + " [...]"
         match["contextl"] = context_l
         match["phrase"] = phrase
         match["contextr"] = context_r
-        match["context"] = context_string
+        # match["context"] = context_string
         final_matches.append(match)
         if match["url"] in concepts_all:
             concepts_all[match["url"]]["weight"] += 1
@@ -315,11 +316,13 @@ CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 @app.route("/api", methods=['POST'])
 def concepts():
+
     task = request.get_json()
     input_text = task["text"]
     input_lang = task["lang"]
     if input_lang not in ["en", "fr", "es", "ru", "zh", "ar"]:
-        raise Exception("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.") 
+        return Exception("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.") 
+
     result = {}
     result["matches"], result["concepts"], result["clean_text"] = extract_concepts(input_text, 'concept', input_lang)
     country_res = {}
