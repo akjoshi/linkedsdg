@@ -330,11 +330,7 @@ def concepts():
     top = 0
     top_country = {}
     all_countries = {}
-    sum_all = 0
     tops = []
-    for country_url in country_res["countries"]:
-        sum_all += country_res["countries"][country_url]['weight']
-
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
         country["url"] = country_url
@@ -343,7 +339,9 @@ def concepts():
         if country['weight'] > top:
             top = country['weight']
             top_country = country
-        if country['weight'] > (sum_all / 20):
+    for country_url in country_res["countries"]: 
+        country = country_res["countries"][country_url]
+        if country['weight'] >= (top / 5):
             tops.append(country["url"])
     result["countries"] = {
         "matches": country_res["matches"],
