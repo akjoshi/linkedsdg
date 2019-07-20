@@ -109,11 +109,10 @@ country_spacy_ids = {
 }
 country_index = {}
 
-def normalise_white_space(word):
-    word = word.rstrip()
-    word = word.lstrip()
-    word = re.sub(' +',' ', word)
-    return word
+def normalise_white_space(text):
+    text = re.sub(' +',' ', text)
+    text = re.sub('\n',' ', text)
+    return text
     
 def shallow_clean(text):
     text = normalise_white_space(text).lower()
