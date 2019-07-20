@@ -1,18 +1,18 @@
 id	label	name	source
-http://data.un.org/kos/geo/1	World	World	geo
-http://data.un.org/kos/geo/2	Africa	Africa	geo
-http://data.un.org/kos/geo/19	Americas	Americas	geo
-http://data.un.org/kos/geo/142	Asia	Asia	geo
-http://data.un.org/kos/geo/150	Europe	Europe	geo
-http://data.un.org/kos/geo/9	Oceania	Oceania	geo
-http://data.un.org/kos/geo/14	Eastern Africa	Eastern Africa	geo
-http://data.un.org/kos/geo/17	Middle Africa	Middle Africa	geo
-http://data.un.org/kos/geo/18	Southern Africa	Southern Africa	geo
-http://data.un.org/kos/geo/11	Western Africa	Western Africa	geo
-http://data.un.org/kos/geo/29	Caribbean	Caribbean	geo
-http://data.un.org/kos/geo/13	Central America	Central America	geo
-http://data.un.org/kos/geo/5	South America	South America	geo
-http://data.un.org/kos/geo/830	Channel Islands	Channel Islands	geo
+http://data.un.org/kos/geo/1	World	World	geo-all
+http://data.un.org/kos/geo/2	Africa	Africa	geo-all
+http://data.un.org/kos/geo/19	Americas	Americas	geo-all
+http://data.un.org/kos/geo/142	Asia	Asia	geo-all
+http://data.un.org/kos/geo/150	Europe	Europe	geo-all
+http://data.un.org/kos/geo/9	Oceania	Oceania	geo-all
+http://data.un.org/kos/geo/14	Eastern Africa	Eastern Africa	geo-all
+http://data.un.org/kos/geo/17	Middle Africa	Middle Africa	geo-all
+http://data.un.org/kos/geo/18	Southern Africa	Southern Africa	geo-all
+http://data.un.org/kos/geo/11	Western Africa	Western Africa	geo-all
+http://data.un.org/kos/geo/29	Caribbean	Caribbean	geo-all
+http://data.un.org/kos/geo/13	Central America	Central America	geo-all
+http://data.un.org/kos/geo/5	South America	South America	geo-all
+http://data.un.org/kos/geo/830	Channel Islands	Channel Islands	geo-all
 http://data.un.org/kos/geo/86	IOT	British Indian Ocean Territory	geo
 http://data.un.org/kos/geo/108	BDI	Burundi	geo
 http://data.un.org/kos/geo/174	COM	Comoros	geo
@@ -262,6 +262,6 @@ http://data.un.org/kos/geo/772	TKL	Tokelau	geo
 http://data.un.org/kos/geo/776	TON	Tonga	geo
 http://data.un.org/kos/geo/798	TUV	Tuvalu	geo
 http://data.un.org/kos/geo/876	WLF	Wallis and Futuna Islands	geo
-http://data.un.org/kos/geo/202	Sub-Saharan Africa	Sub-Saharan Africa	geo
-http://data.un.org/kos/geo/419	Latin America and the Caribbean	Latin America and the Caribbean	geo
-http://data.un.org/kos/geo/154	Northern Europe	Northern Europe	geo
+http://data.un.org/kos/geo/202	Sub-Saharan Africa	Sub-Saharan Africa	geo-all
+http://data.un.org/kos/geo/419	Latin America and the Caribbean	Latin America and the Caribbean	geo-all
+http://data.un.org/kos/geo/154	Northern Europe	Northern Europe	geo-all
