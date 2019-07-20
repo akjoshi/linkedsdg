@@ -17,17 +17,17 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 app = Flask(__name__)
 CORS(app)
 
-def normalise_white_space(text):
-    text = re.sub(' +',' ', text)
-    text = re.sub('\n',' ', text)
-    return text
+# def normalise_white_space(text):
+#     text = re.sub(' +',' ', text)
+#     text = re.sub('\n',' ', text)
+#     return text
     
-def shallow_clean(text):
-    label = normalise_white_space(text).lower()
-    for char in string.punctuation:
-        text = label.replace(char, ' ')
-    text = normalise_white_space(text)
-    return text
+# def shallow_clean(text):
+#     label = normalise_white_space(text).lower()
+#     for char in string.punctuation:
+#         text = label.replace(char, ' ')
+#     text = normalise_white_space(text)
+#     return text
 
 
 @app.route('/')
@@ -59,7 +59,7 @@ def get_task():
         print(text['metadata'])
         result = {
             "lang": detect(text['content']),
-            "text": shallow_clean(text['content'])
+            "text": text['content']
         }
 
         return Response(json.dumps(result), mimetype='application/json')
@@ -82,7 +82,7 @@ def get_task_url():
         text = parser.from_buffer(response.content)
         result = {
             "lang": detect(text['content']),
-            "text": shallow_clean(text['content'])
+            "text": text['content']
         }
 
         return Response(json.dumps(result), mimetype='application/json')
