@@ -11,6 +11,7 @@ from flask import request
 from flask_cors import CORS
 import json
 
+
 SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -30,7 +31,7 @@ SELECT DISTINCT ?id ?label where {
             BIND (?altLabel as ?label)
         }
     }
-} 
+}
 """
 
 SPARQL_QUERY_COUNTRIES = """
@@ -108,18 +109,18 @@ country_spacy_ids = {
 }
 country_index = {}
 
-# def normalise_white_space(word):
-#     word = word.rstrip()
-#     word = word.lstrip()
-#     word = re.sub(' +',' ', word)
-#     return word
+def normalise_white_space(word):
+    word = word.rstrip()
+    word = word.lstrip()
+    word = re.sub(' +',' ', word)
+    return word
     
-# def shallow_clean(label):
-#     label = normalise_white_space(label).lower()
-#     for char in string.punctuation:
-#         label = label.replace(char, ' ')
-#     label = normalise_white_space(label)
-#     return label
+def shallow_clean(text):
+    text = normalise_white_space(text).lower()
+    for char in string.punctuation:
+        text = text.replace(char, ' ')
+    text = normalise_white_space(text)
+    return text
 
 def add_to_concept_matcher(label, i, lang):
     if label not in concept_spacy_ids[lang]:
@@ -274,7 +275,7 @@ def extract_concepts(input, matcher_id, lang):
         index = country_index
         matcher = country_matcher[lang]
 
-    text = input
+    text = shallow_clean(input)
     final_matches = []
     doc = nlp(text)
     matches = matcher(doc)
@@ -309,7 +310,7 @@ def extract_concepts(input, matcher_id, lang):
                 "source": index[match["url"]]["source"],
                 "weight": 1
             }
-    return final_matches, concepts_all, text
+    return final_matches, concepts_all
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
@@ -321,27 +322,35 @@ def concepts():
     input_text = task["text"]
     input_lang = task["lang"]
     if input_lang not in ["en", "fr", "es", "ru", "zh", "ar"]:
-        return Exception("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.") 
+        return Response("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.", status=400)
 
     result = {}
-    result["matches"], result["concepts"], result["clean_text"] = extract_concepts(input_text, 'concept', input_lang)
+    result["matches"], result["concepts"] = extract_concepts(input_text, 'concept', input_lang)
     country_res = {}
-    country_res["matches"], country_res["countries"], _ = extract_concepts(input_text, 'country', input_lang)
+    country_res["matches"], country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
     top = 0
     top_country = {}
-    all_countries = []
+    all_countries = {}
+    sum_all = 0
+    tops = []
     for country_url in country_res["countries"]:
+        sum_all += country_res["countries"][country_url]['weight']
+
+    for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
         country["url"] = country_url
         country["name"]= country_index[country_url]["name"]
-        all_countries.append(country)
+        all_countries[country_url] = country
         if country['weight'] > top:
             top = country['weight']
             top_country = country
+        if country['weight'] > (sum_all / 20):
+            tops.append(country["url"])
     result["countries"] = {
         "matches": country_res["matches"],
         "total": all_countries,
-        "top": top_country
+        "top_region": top_country["url"],
+        "top_regions": tops
     }
     resp = Response(json.dumps(result), mimetype='application/json')
     return resp
@@ -350,4 +359,4 @@ def concepts():
 
 if __name__ == '__main__':
     load_concepts()
-    app.run(port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False)
