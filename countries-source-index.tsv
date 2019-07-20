@@ -1,267 +1,267 @@
-id	label	source
-http://data.un.org/kos/geo/1	World	geo
-http://data.un.org/kos/geo/2	Africa	geo
-http://data.un.org/kos/geo/19	Americas	geo
-http://data.un.org/kos/geo/142	Asia	geo
-http://data.un.org/kos/geo/150	Europe	geo
-http://data.un.org/kos/geo/9	Oceania	geo
-http://data.un.org/kos/geo/14	Eastern Africa	geo
-http://data.un.org/kos/geo/17	Middle Africa	geo
-http://data.un.org/kos/geo/18	Southern Africa	geo
-http://data.un.org/kos/geo/11	Western Africa	geo
-http://data.un.org/kos/geo/29	Caribbean	geo
-http://data.un.org/kos/geo/13	Central America	geo
-http://data.un.org/kos/geo/5	South America	geo
-http://data.un.org/kos/geo/830	Channel Islands	geo
-http://data.un.org/kos/geo/86	IOT	geo
-http://data.un.org/kos/geo/108	BDI	geo
-http://data.un.org/kos/geo/174	COM	geo
-http://data.un.org/kos/geo/262	DJI	geo
-http://data.un.org/kos/geo/232	ERI	geo
-http://data.un.org/kos/geo/231	ETH	geo
-http://data.un.org/kos/geo/260	ATF	geo
-http://data.un.org/kos/geo/404	KEN	geo
-http://data.un.org/kos/geo/450	MDG	geo
-http://data.un.org/kos/geo/454	MWI	geo
-http://data.un.org/kos/geo/480	MUS	geo
-http://data.un.org/kos/geo/175	MYT	geo
-http://data.un.org/kos/geo/508	MOZ	geo
-http://data.un.org/kos/geo/638	REU	geo
-http://data.un.org/kos/geo/646	RWA	geo
-http://data.un.org/kos/geo/690	SYC	geo
-http://data.un.org/kos/geo/706	SOM	geo
-http://data.un.org/kos/geo/728	SSD	geo
-http://data.un.org/kos/geo/800	UGA	geo
-http://data.un.org/kos/geo/834	TZA	geo
-http://data.un.org/kos/geo/894	ZMB	geo
-http://data.un.org/kos/geo/716	ZWE	geo
-http://data.un.org/kos/geo/24	AGO	geo
-http://data.un.org/kos/geo/120	CMR	geo
-http://data.un.org/kos/geo/140	CAF	geo
-http://data.un.org/kos/geo/148	TCD	geo
-http://data.un.org/kos/geo/178	COG	geo
-http://data.un.org/kos/geo/180	COD	geo
-http://data.un.org/kos/geo/226	GNQ	geo
-http://data.un.org/kos/geo/266	GAB	geo
-http://data.un.org/kos/geo/678	STP	geo
-http://data.un.org/kos/geo/72	BWA	geo
-http://data.un.org/kos/geo/748	SWZ	geo
-http://data.un.org/kos/geo/426	LSO	geo
-http://data.un.org/kos/geo/516	NAM	geo
-http://data.un.org/kos/geo/710	ZAF	geo
-http://data.un.org/kos/geo/204	BEN	geo
-http://data.un.org/kos/geo/854	BFA	geo
-http://data.un.org/kos/geo/132	CPV	geo
-http://data.un.org/kos/geo/384	CIV	geo
-http://data.un.org/kos/geo/270	GMB	geo
-http://data.un.org/kos/geo/288	GHA	geo
-http://data.un.org/kos/geo/324	GIN	geo
-http://data.un.org/kos/geo/624	GNB	geo
-http://data.un.org/kos/geo/430	LBR	geo
-http://data.un.org/kos/geo/466	MLI	geo
-http://data.un.org/kos/geo/478	MRT	geo
-http://data.un.org/kos/geo/562	NER	geo
-http://data.un.org/kos/geo/566	NGA	geo
-http://data.un.org/kos/geo/654	SHN	geo
-http://data.un.org/kos/geo/686	SEN	geo
-http://data.un.org/kos/geo/694	SLE	geo
-http://data.un.org/kos/geo/768	TGO	geo
-http://data.un.org/kos/geo/660	AIA	geo
-http://data.un.org/kos/geo/28	ATG	geo
-http://data.un.org/kos/geo/533	ABW	geo
-http://data.un.org/kos/geo/44	BHS	geo
-http://data.un.org/kos/geo/52	BRB	geo
-http://data.un.org/kos/geo/535	BES	geo
-http://data.un.org/kos/geo/92	VGB	geo
-http://data.un.org/kos/geo/136	CYM	geo
-http://data.un.org/kos/geo/192	CUB	geo
-http://data.un.org/kos/geo/531	CUW	geo
-http://data.un.org/kos/geo/212	DMA	geo
-http://data.un.org/kos/geo/214	DOM	geo
-http://data.un.org/kos/geo/308	GRD	geo
-http://data.un.org/kos/geo/312	GLP	geo
-http://data.un.org/kos/geo/332	HTI	geo
-http://data.un.org/kos/geo/388	JAM	geo
-http://data.un.org/kos/geo/474	MTQ	geo
-http://data.un.org/kos/geo/500	MSR	geo
-http://data.un.org/kos/geo/630	PRI	geo
-http://data.un.org/kos/geo/652	BLM	geo
-http://data.un.org/kos/geo/659	KNA	geo
-http://data.un.org/kos/geo/662	LCA	geo
-http://data.un.org/kos/geo/663	MAF	geo
-http://data.un.org/kos/geo/670	VCT	geo
-http://data.un.org/kos/geo/534	SXM	geo
-http://data.un.org/kos/geo/780	TTO	geo
-http://data.un.org/kos/geo/796	TCA	geo
-http://data.un.org/kos/geo/850	VIR	geo
-http://data.un.org/kos/geo/84	BLZ	geo
-http://data.un.org/kos/geo/188	CRI	geo
-http://data.un.org/kos/geo/222	SLV	geo
-http://data.un.org/kos/geo/320	GTM	geo
-http://data.un.org/kos/geo/340	HND	geo
-http://data.un.org/kos/geo/484	MEX	geo
-http://data.un.org/kos/geo/558	NIC	geo
-http://data.un.org/kos/geo/591	PAN	geo
-http://data.un.org/kos/geo/32	ARG	geo
-http://data.un.org/kos/geo/68	BOL	geo
-http://data.un.org/kos/geo/74	BVT	geo
-http://data.un.org/kos/geo/76	BRA	geo
-http://data.un.org/kos/geo/152	CHL	geo
-http://data.un.org/kos/geo/170	COL	geo
-http://data.un.org/kos/geo/218	ECU	geo
-http://data.un.org/kos/geo/238	FLK	geo
-http://data.un.org/kos/geo/254	GUF	geo
-http://data.un.org/kos/geo/328	GUY	geo
-http://data.un.org/kos/geo/600	PRY	geo
-http://data.un.org/kos/geo/604	PER	geo
-http://data.un.org/kos/geo/239	SGS	geo
-http://data.un.org/kos/geo/740	SUR	geo
-http://data.un.org/kos/geo/858	URY	geo
-http://data.un.org/kos/geo/862	VEN	geo
-http://data.un.org/kos/geo/831	GGY	geo
-http://data.un.org/kos/geo/832	JEY	geo
-http://data.un.org/kos/geo/680	Sark	geo
-http://data.un.org/kos/geo/12	DZA	geo
-http://data.un.org/kos/geo/818	EGY	geo
-http://data.un.org/kos/geo/434	LBY	geo
-http://data.un.org/kos/geo/504	MAR	geo
-http://data.un.org/kos/geo/729	SDN	geo
-http://data.un.org/kos/geo/788	TUN	geo
-http://data.un.org/kos/geo/732	ESH	geo
-http://data.un.org/kos/geo/60	BMU	geo
-http://data.un.org/kos/geo/124	CAN	geo
-http://data.un.org/kos/geo/304	GRL	geo
-http://data.un.org/kos/geo/666	SPM	geo
-http://data.un.org/kos/geo/840	USA	geo
-http://data.un.org/kos/geo/10	ATA	geo
-http://data.un.org/kos/geo/398	KAZ	geo
-http://data.un.org/kos/geo/417	KGZ	geo
-http://data.un.org/kos/geo/762	TJK	geo
-http://data.un.org/kos/geo/795	TKM	geo
-http://data.un.org/kos/geo/860	UZB	geo
-http://data.un.org/kos/geo/156	CHN	geo
-http://data.un.org/kos/geo/344	HKG	geo
-http://data.un.org/kos/geo/446	MAC	geo
-http://data.un.org/kos/geo/408	PRK	geo
-http://data.un.org/kos/geo/392	JPN	geo
-http://data.un.org/kos/geo/496	MNG	geo
-http://data.un.org/kos/geo/410	KOR	geo
-http://data.un.org/kos/geo/96	BRN	geo
-http://data.un.org/kos/geo/116	KHM	geo
-http://data.un.org/kos/geo/360	IDN	geo
-http://data.un.org/kos/geo/418	LAO	geo
-http://data.un.org/kos/geo/458	MYS	geo
-http://data.un.org/kos/geo/104	MMR	geo
-http://data.un.org/kos/geo/608	PHL	geo
-http://data.un.org/kos/geo/702	SGP	geo
-http://data.un.org/kos/geo/764	THA	geo
-http://data.un.org/kos/geo/626	TLS	geo
-http://data.un.org/kos/geo/704	VNM	geo
-http://data.un.org/kos/geo/4	AFG	geo
-http://data.un.org/kos/geo/50	BGD	geo
-http://data.un.org/kos/geo/64	BTN	geo
-http://data.un.org/kos/geo/356	IND	geo
-http://data.un.org/kos/geo/364	IRN	geo
-http://data.un.org/kos/geo/462	MDV	geo
-http://data.un.org/kos/geo/524	NPL	geo
-http://data.un.org/kos/geo/586	PAK	geo
-http://data.un.org/kos/geo/144	LKA	geo
-http://data.un.org/kos/geo/51	ARM	geo
-http://data.un.org/kos/geo/31	AZE	geo
-http://data.un.org/kos/geo/48	BHR	geo
-http://data.un.org/kos/geo/196	CYP	geo
-http://data.un.org/kos/geo/268	GEO	geo
-http://data.un.org/kos/geo/368	IRQ	geo
-http://data.un.org/kos/geo/376	ISR	geo
-http://data.un.org/kos/geo/400	JOR	geo
-http://data.un.org/kos/geo/414	KWT	geo
-http://data.un.org/kos/geo/422	LBN	geo
-http://data.un.org/kos/geo/512	OMN	geo
-http://data.un.org/kos/geo/634	QAT	geo
-http://data.un.org/kos/geo/682	SAU	geo
-http://data.un.org/kos/geo/275	PSE	geo
-http://data.un.org/kos/geo/760	SYR	geo
-http://data.un.org/kos/geo/792	TUR	geo
-http://data.un.org/kos/geo/784	ARE	geo
-http://data.un.org/kos/geo/887	YEM	geo
-http://data.un.org/kos/geo/112	BLR	geo
-http://data.un.org/kos/geo/100	BGR	geo
-http://data.un.org/kos/geo/203	CZE	geo
-http://data.un.org/kos/geo/348	HUN	geo
-http://data.un.org/kos/geo/616	POL	geo
-http://data.un.org/kos/geo/498	MDA	geo
-http://data.un.org/kos/geo/642	ROU	geo
-http://data.un.org/kos/geo/643	RUS	geo
-http://data.un.org/kos/geo/703	SVK	geo
-http://data.un.org/kos/geo/804	UKR	geo
-http://data.un.org/kos/geo/248	ALA	geo
-http://data.un.org/kos/geo/208	DNK	geo
-http://data.un.org/kos/geo/233	EST	geo
-http://data.un.org/kos/geo/234	FRO	geo
-http://data.un.org/kos/geo/246	FIN	geo
-http://data.un.org/kos/geo/352	ISL	geo
-http://data.un.org/kos/geo/372	IRL	geo
-http://data.un.org/kos/geo/833	IMN	geo
-http://data.un.org/kos/geo/428	LVA	geo
-http://data.un.org/kos/geo/440	LTU	geo
-http://data.un.org/kos/geo/578	NOR	geo
-http://data.un.org/kos/geo/744	SJM	geo
-http://data.un.org/kos/geo/752	SWE	geo
-http://data.un.org/kos/geo/826	GBR	geo
-http://data.un.org/kos/geo/8	ALB	geo
-http://data.un.org/kos/geo/20	AND	geo
-http://data.un.org/kos/geo/70	BIH	geo
-http://data.un.org/kos/geo/191	HRV	geo
-http://data.un.org/kos/geo/292	GIB	geo
-http://data.un.org/kos/geo/300	GRC	geo
-http://data.un.org/kos/geo/336	VAT	geo
-http://data.un.org/kos/geo/380	ITA	geo
-http://data.un.org/kos/geo/470	MLT	geo
-http://data.un.org/kos/geo/499	MNE	geo
-http://data.un.org/kos/geo/807	MKD	geo
-http://data.un.org/kos/geo/620	PRT	geo
-http://data.un.org/kos/geo/674	SMR	geo
-http://data.un.org/kos/geo/688	SRB	geo
-http://data.un.org/kos/geo/705	SVN	geo
-http://data.un.org/kos/geo/724	ESP	geo
-http://data.un.org/kos/geo/40	AUT	geo
-http://data.un.org/kos/geo/56	BEL	geo
-http://data.un.org/kos/geo/250	FRA	geo
-http://data.un.org/kos/geo/276	DEU	geo
-http://data.un.org/kos/geo/438	LIE	geo
-http://data.un.org/kos/geo/442	LUX	geo
-http://data.un.org/kos/geo/492	MCO	geo
-http://data.un.org/kos/geo/528	NLD	geo
-http://data.un.org/kos/geo/756	CHE	geo
-http://data.un.org/kos/geo/36	AUS	geo
-http://data.un.org/kos/geo/162	CXR	geo
-http://data.un.org/kos/geo/166	CCK	geo
-http://data.un.org/kos/geo/334	HMD	geo
-http://data.un.org/kos/geo/554	NZL	geo
-http://data.un.org/kos/geo/574	NFK	geo
-http://data.un.org/kos/geo/242	FJI	geo
-http://data.un.org/kos/geo/540	NCL	geo
-http://data.un.org/kos/geo/598	PNG	geo
-http://data.un.org/kos/geo/90	SLB	geo
-http://data.un.org/kos/geo/548	VUT	geo
-http://data.un.org/kos/geo/316	GUM	geo
-http://data.un.org/kos/geo/296	KIR	geo
-http://data.un.org/kos/geo/584	MHL	geo
-http://data.un.org/kos/geo/583	FSM	geo
-http://data.un.org/kos/geo/520	NRU	geo
-http://data.un.org/kos/geo/580	MNP	geo
-http://data.un.org/kos/geo/585	PLW	geo
-http://data.un.org/kos/geo/581	UMI	geo
-http://data.un.org/kos/geo/16	ASM	geo
-http://data.un.org/kos/geo/184	COK	geo
-http://data.un.org/kos/geo/258	PYF	geo
-http://data.un.org/kos/geo/570	NIU	geo
-http://data.un.org/kos/geo/612	PCN	geo
-http://data.un.org/kos/geo/882	WSM	geo
-http://data.un.org/kos/geo/772	TKL	geo
-http://data.un.org/kos/geo/776	TON	geo
-http://data.un.org/kos/geo/798	TUV	geo
-http://data.un.org/kos/geo/876	WLF	geo
-http://data.un.org/kos/geo/202	Sub-Saharan Africa	geo
-http://data.un.org/kos/geo/419	Latin America and the Caribbean	geo
-http://data.un.org/kos/geo/154	Northern Europe	geo
+id	label	name	source
+http://data.un.org/kos/geo/1	World	World	geo
+http://data.un.org/kos/geo/2	Africa	Africa	geo
+http://data.un.org/kos/geo/19	Americas	Americas	geo
+http://data.un.org/kos/geo/142	Asia	Asia	geo
+http://data.un.org/kos/geo/150	Europe	Europe	geo
+http://data.un.org/kos/geo/9	Oceania	Oceania	geo
+http://data.un.org/kos/geo/14	Eastern Africa	Eastern Africa	geo
+http://data.un.org/kos/geo/17	Middle Africa	Middle Africa	geo
+http://data.un.org/kos/geo/18	Southern Africa	Southern Africa	geo
+http://data.un.org/kos/geo/11	Western Africa	Western Africa	geo
+http://data.un.org/kos/geo/29	Caribbean	Caribbean	geo
+http://data.un.org/kos/geo/13	Central America	Central America	geo
+http://data.un.org/kos/geo/5	South America	South America	geo
+http://data.un.org/kos/geo/830	Channel Islands	Channel Islands	geo
+http://data.un.org/kos/geo/86	IOT	British Indian Ocean Territory	geo
+http://data.un.org/kos/geo/108	BDI	Burundi	geo
+http://data.un.org/kos/geo/174	COM	Comoros	geo
+http://data.un.org/kos/geo/262	DJI	Djibouti	geo
+http://data.un.org/kos/geo/232	ERI	Eritrea	geo
+http://data.un.org/kos/geo/231	ETH	Ethiopia	geo
+http://data.un.org/kos/geo/260	ATF	French Southern Territories	geo
+http://data.un.org/kos/geo/404	KEN	Kenya	geo
+http://data.un.org/kos/geo/450	MDG	Madagascar	geo
+http://data.un.org/kos/geo/454	MWI	Malawi	geo
+http://data.un.org/kos/geo/480	MUS	Mauritius	geo
+http://data.un.org/kos/geo/175	MYT	Mayotte	geo
+http://data.un.org/kos/geo/508	MOZ	Mozambique	geo
+http://data.un.org/kos/geo/638	REU	Réunion	geo
+http://data.un.org/kos/geo/646	RWA	Rwanda	geo
+http://data.un.org/kos/geo/690	SYC	Seychelles	geo
+http://data.un.org/kos/geo/706	SOM	Somalia	geo
+http://data.un.org/kos/geo/728	SSD	South Sudan	geo
+http://data.un.org/kos/geo/800	UGA	Uganda	geo
+http://data.un.org/kos/geo/834	TZA	United Republic of Tanzania	geo
+http://data.un.org/kos/geo/894	ZMB	Zambia	geo
+http://data.un.org/kos/geo/716	ZWE	Zimbabwe	geo
+http://data.un.org/kos/geo/24	AGO	Angola	geo
+http://data.un.org/kos/geo/120	CMR	Cameroon	geo
+http://data.un.org/kos/geo/140	CAF	Central African Republic	geo
+http://data.un.org/kos/geo/148	TCD	Chad	geo
+http://data.un.org/kos/geo/178	COG	Congo	geo
+http://data.un.org/kos/geo/180	COD	Democratic Republic of the Congo	geo
+http://data.un.org/kos/geo/226	GNQ	Equatorial Guinea	geo
+http://data.un.org/kos/geo/266	GAB	Gabon	geo
+http://data.un.org/kos/geo/678	STP	Sao Tome and Principe	geo
+http://data.un.org/kos/geo/72	BWA	Botswana	geo
+http://data.un.org/kos/geo/748	SWZ	Eswatini	geo
+http://data.un.org/kos/geo/426	LSO	Lesotho	geo
+http://data.un.org/kos/geo/516	NAM	Namibia	geo
+http://data.un.org/kos/geo/710	ZAF	South Africa	geo
+http://data.un.org/kos/geo/204	BEN	Benin	geo
+http://data.un.org/kos/geo/854	BFA	Burkina Faso	geo
+http://data.un.org/kos/geo/132	CPV	Cabo Verde	geo
+http://data.un.org/kos/geo/384	CIV	Côte d’Ivoire	geo
+http://data.un.org/kos/geo/270	GMB	Gambia	geo
+http://data.un.org/kos/geo/288	GHA	Ghana	geo
+http://data.un.org/kos/geo/324	GIN	Guinea	geo
+http://data.un.org/kos/geo/624	GNB	Guinea-Bissau	geo
+http://data.un.org/kos/geo/430	LBR	Liberia	geo
+http://data.un.org/kos/geo/466	MLI	Mali	geo
+http://data.un.org/kos/geo/478	MRT	Mauritania	geo
+http://data.un.org/kos/geo/562	NER	Niger	geo
+http://data.un.org/kos/geo/566	NGA	Nigeria	geo
+http://data.un.org/kos/geo/654	SHN	Saint Helena	geo
+http://data.un.org/kos/geo/686	SEN	Senegal	geo
+http://data.un.org/kos/geo/694	SLE	Sierra Leone	geo
+http://data.un.org/kos/geo/768	TGO	Togo	geo
+http://data.un.org/kos/geo/660	AIA	Anguilla	geo
+http://data.un.org/kos/geo/28	ATG	Antigua and Barbuda	geo
+http://data.un.org/kos/geo/533	ABW	Aruba	geo
+http://data.un.org/kos/geo/44	BHS	Bahamas	geo
+http://data.un.org/kos/geo/52	BRB	Barbados	geo
+http://data.un.org/kos/geo/535	BES	Bonaire, Sint Eustatius and Saba	geo
+http://data.un.org/kos/geo/92	VGB	British Virgin Islands	geo
+http://data.un.org/kos/geo/136	CYM	Cayman Islands	geo
+http://data.un.org/kos/geo/192	CUB	Cuba	geo
+http://data.un.org/kos/geo/531	CUW	Curaçao	geo
+http://data.un.org/kos/geo/212	DMA	Dominica	geo
+http://data.un.org/kos/geo/214	DOM	Dominican Republic	geo
+http://data.un.org/kos/geo/308	GRD	Grenada	geo
+http://data.un.org/kos/geo/312	GLP	Guadeloupe	geo
+http://data.un.org/kos/geo/332	HTI	Haiti	geo
+http://data.un.org/kos/geo/388	JAM	Jamaica	geo
+http://data.un.org/kos/geo/474	MTQ	Martinique	geo
+http://data.un.org/kos/geo/500	MSR	Montserrat	geo
+http://data.un.org/kos/geo/630	PRI	Puerto Rico	geo
+http://data.un.org/kos/geo/652	BLM	Saint Barthélemy	geo
+http://data.un.org/kos/geo/659	KNA	Saint Kitts and Nevis	geo
+http://data.un.org/kos/geo/662	LCA	Saint Lucia	geo
+http://data.un.org/kos/geo/663	MAF	Saint Martin (French Part)	geo
+http://data.un.org/kos/geo/670	VCT	Saint Vincent and the Grenadines	geo
+http://data.un.org/kos/geo/534	SXM	Sint Maarten (Dutch part)	geo
+http://data.un.org/kos/geo/780	TTO	Trinidad and Tobago	geo
+http://data.un.org/kos/geo/796	TCA	Turks and Caicos Islands	geo
+http://data.un.org/kos/geo/850	VIR	United States Virgin Islands	geo
+http://data.un.org/kos/geo/84	BLZ	Belize	geo
+http://data.un.org/kos/geo/188	CRI	Costa Rica	geo
+http://data.un.org/kos/geo/222	SLV	El Salvador	geo
+http://data.un.org/kos/geo/320	GTM	Guatemala	geo
+http://data.un.org/kos/geo/340	HND	Honduras	geo
+http://data.un.org/kos/geo/484	MEX	Mexico	geo
+http://data.un.org/kos/geo/558	NIC	Nicaragua	geo
+http://data.un.org/kos/geo/591	PAN	Panama	geo
+http://data.un.org/kos/geo/32	ARG	Argentina	geo
+http://data.un.org/kos/geo/68	BOL	Bolivia (Plurinational State of)	geo
+http://data.un.org/kos/geo/74	BVT	Bouvet Island	geo
+http://data.un.org/kos/geo/76	BRA	Brazil	geo
+http://data.un.org/kos/geo/152	CHL	Chile	geo
+http://data.un.org/kos/geo/170	COL	Colombia	geo
+http://data.un.org/kos/geo/218	ECU	Ecuador	geo
+http://data.un.org/kos/geo/238	FLK	Falkland Islands (Malvinas)	geo
+http://data.un.org/kos/geo/254	GUF	French Guiana	geo
+http://data.un.org/kos/geo/328	GUY	Guyana	geo
+http://data.un.org/kos/geo/600	PRY	Paraguay	geo
+http://data.un.org/kos/geo/604	PER	Peru	geo
+http://data.un.org/kos/geo/239	SGS	South Georgia and the South Sandwich Islands	geo
+http://data.un.org/kos/geo/740	SUR	Suriname	geo
+http://data.un.org/kos/geo/858	URY	Uruguay	geo
+http://data.un.org/kos/geo/862	VEN	Venezuela (Bolivarian Republic of)	geo
+http://data.un.org/kos/geo/831	GGY	Guernsey	geo
+http://data.un.org/kos/geo/832	JEY	Jersey	geo
+http://data.un.org/kos/geo/680	Sark	Sark	geo
+http://data.un.org/kos/geo/12	DZA	Algeria	geo
+http://data.un.org/kos/geo/818	EGY	Egypt	geo
+http://data.un.org/kos/geo/434	LBY	Libya	geo
+http://data.un.org/kos/geo/504	MAR	Morocco	geo
+http://data.un.org/kos/geo/729	SDN	Sudan	geo
+http://data.un.org/kos/geo/788	TUN	Tunisia	geo
+http://data.un.org/kos/geo/732	ESH	Western Sahara	geo
+http://data.un.org/kos/geo/60	BMU	Bermuda	geo
+http://data.un.org/kos/geo/124	CAN	Canada	geo
+http://data.un.org/kos/geo/304	GRL	Greenland	geo
+http://data.un.org/kos/geo/666	SPM	Saint Pierre and Miquelon	geo
+http://data.un.org/kos/geo/840	USA	United States of America	geo
+http://data.un.org/kos/geo/10	ATA	Antarctica	geo
+http://data.un.org/kos/geo/398	KAZ	Kazakhstan	geo
+http://data.un.org/kos/geo/417	KGZ	Kyrgyzstan	geo
+http://data.un.org/kos/geo/762	TJK	Tajikistan	geo
+http://data.un.org/kos/geo/795	TKM	Turkmenistan	geo
+http://data.un.org/kos/geo/860	UZB	Uzbekistan	geo
+http://data.un.org/kos/geo/156	CHN	China	geo
+http://data.un.org/kos/geo/344	HKG	China, Hong Kong Special Administrative Region	geo
+http://data.un.org/kos/geo/446	MAC	China, Macao Special Administrative Region	geo
+http://data.un.org/kos/geo/408	PRK	Democratic People's Republic of Korea	geo
+http://data.un.org/kos/geo/392	JPN	Japan	geo
+http://data.un.org/kos/geo/496	MNG	Mongolia	geo
+http://data.un.org/kos/geo/410	KOR	Republic of Korea	geo
+http://data.un.org/kos/geo/96	BRN	Brunei Darussalam	geo
+http://data.un.org/kos/geo/116	KHM	Cambodia	geo
+http://data.un.org/kos/geo/360	IDN	Indonesia	geo
+http://data.un.org/kos/geo/418	LAO	Lao People's Democratic Republic	geo
+http://data.un.org/kos/geo/458	MYS	Malaysia	geo
+http://data.un.org/kos/geo/104	MMR	Myanmar	geo
+http://data.un.org/kos/geo/608	PHL	Philippines	geo
+http://data.un.org/kos/geo/702	SGP	Singapore	geo
+http://data.un.org/kos/geo/764	THA	Thailand	geo
+http://data.un.org/kos/geo/626	TLS	Timor-Leste	geo
+http://data.un.org/kos/geo/704	VNM	Viet Nam	geo
+http://data.un.org/kos/geo/4	AFG	Afghanistan	geo
+http://data.un.org/kos/geo/50	BGD	Bangladesh	geo
+http://data.un.org/kos/geo/64	BTN	Bhutan	geo
+http://data.un.org/kos/geo/356	IND	India	geo
+http://data.un.org/kos/geo/364	IRN	Iran (Islamic Republic of)	geo
+http://data.un.org/kos/geo/462	MDV	Maldives	geo
+http://data.un.org/kos/geo/524	NPL	Nepal	geo
+http://data.un.org/kos/geo/586	PAK	Pakistan	geo
+http://data.un.org/kos/geo/144	LKA	Sri Lanka	geo
+http://data.un.org/kos/geo/51	ARM	Armenia	geo
+http://data.un.org/kos/geo/31	AZE	Azerbaijan	geo
+http://data.un.org/kos/geo/48	BHR	Bahrain	geo
+http://data.un.org/kos/geo/196	CYP	Cyprus	geo
+http://data.un.org/kos/geo/268	GEO	Georgia	geo
+http://data.un.org/kos/geo/368	IRQ	Iraq	geo
+http://data.un.org/kos/geo/376	ISR	Israel	geo
+http://data.un.org/kos/geo/400	JOR	Jordan	geo
+http://data.un.org/kos/geo/414	KWT	Kuwait	geo
+http://data.un.org/kos/geo/422	LBN	Lebanon	geo
+http://data.un.org/kos/geo/512	OMN	Oman	geo
+http://data.un.org/kos/geo/634	QAT	Qatar	geo
+http://data.un.org/kos/geo/682	SAU	Saudi Arabia	geo
+http://data.un.org/kos/geo/275	PSE	State of Palestine	geo
+http://data.un.org/kos/geo/760	SYR	Syrian Arab Republic	geo
+http://data.un.org/kos/geo/792	TUR	Turkey	geo
+http://data.un.org/kos/geo/784	ARE	United Arab Emirates	geo
+http://data.un.org/kos/geo/887	YEM	Yemen	geo
+http://data.un.org/kos/geo/112	BLR	Belarus	geo
+http://data.un.org/kos/geo/100	BGR	Bulgaria	geo
+http://data.un.org/kos/geo/203	CZE	Czechia	geo
+http://data.un.org/kos/geo/348	HUN	Hungary	geo
+http://data.un.org/kos/geo/616	POL	Poland	geo
+http://data.un.org/kos/geo/498	MDA	Republic of Moldova	geo
+http://data.un.org/kos/geo/642	ROU	Romania	geo
+http://data.un.org/kos/geo/643	RUS	Russian Federation	geo
+http://data.un.org/kos/geo/703	SVK	Slovakia	geo
+http://data.un.org/kos/geo/804	UKR	Ukraine	geo
+http://data.un.org/kos/geo/248	ALA	Åland Islands	geo
+http://data.un.org/kos/geo/208	DNK	Denmark	geo
+http://data.un.org/kos/geo/233	EST	Estonia	geo
+http://data.un.org/kos/geo/234	FRO	Faroe Islands	geo
+http://data.un.org/kos/geo/246	FIN	Finland	geo
+http://data.un.org/kos/geo/352	ISL	Iceland	geo
+http://data.un.org/kos/geo/372	IRL	Ireland	geo
+http://data.un.org/kos/geo/833	IMN	Isle of Man	geo
+http://data.un.org/kos/geo/428	LVA	Latvia	geo
+http://data.un.org/kos/geo/440	LTU	Lithuania	geo
+http://data.un.org/kos/geo/578	NOR	Norway	geo
+http://data.un.org/kos/geo/744	SJM	Svalbard and Jan Mayen Islands	geo
+http://data.un.org/kos/geo/752	SWE	Sweden	geo
+http://data.un.org/kos/geo/826	GBR	United Kingdom of Great Britain and Northern Ireland	geo
+http://data.un.org/kos/geo/8	ALB	Albania	geo
+http://data.un.org/kos/geo/20	AND	Andorra	geo
+http://data.un.org/kos/geo/70	BIH	Bosnia and Herzegovina	geo
+http://data.un.org/kos/geo/191	HRV	Croatia	geo
+http://data.un.org/kos/geo/292	GIB	Gibraltar	geo
+http://data.un.org/kos/geo/300	GRC	Greece	geo
+http://data.un.org/kos/geo/336	VAT	Holy See	geo
+http://data.un.org/kos/geo/380	ITA	Italy	geo
+http://data.un.org/kos/geo/470	MLT	Malta	geo
+http://data.un.org/kos/geo/499	MNE	Montenegro	geo
+http://data.un.org/kos/geo/807	MKD	North Macedonia	geo
+http://data.un.org/kos/geo/620	PRT	Portugal	geo
+http://data.un.org/kos/geo/674	SMR	San Marino	geo
+http://data.un.org/kos/geo/688	SRB	Serbia	geo
+http://data.un.org/kos/geo/705	SVN	Slovenia	geo
+http://data.un.org/kos/geo/724	ESP	Spain	geo
+http://data.un.org/kos/geo/40	AUT	Austria	geo
+http://data.un.org/kos/geo/56	BEL	Belgium	geo
+http://data.un.org/kos/geo/250	FRA	France	geo
+http://data.un.org/kos/geo/276	DEU	Germany	geo
+http://data.un.org/kos/geo/438	LIE	Liechtenstein	geo
+http://data.un.org/kos/geo/442	LUX	Luxembourg	geo
+http://data.un.org/kos/geo/492	MCO	Monaco	geo
+http://data.un.org/kos/geo/528	NLD	Netherlands	geo
+http://data.un.org/kos/geo/756	CHE	Switzerland	geo
+http://data.un.org/kos/geo/36	AUS	Australia	geo
+http://data.un.org/kos/geo/162	CXR	Christmas Island	geo
+http://data.un.org/kos/geo/166	CCK	Cocos (Keeling) Islands	geo
+http://data.un.org/kos/geo/334	HMD	Heard Island and McDonald Islands	geo
+http://data.un.org/kos/geo/554	NZL	New Zealand	geo
+http://data.un.org/kos/geo/574	NFK	Norfolk Island	geo
+http://data.un.org/kos/geo/242	FJI	Fiji	geo
+http://data.un.org/kos/geo/540	NCL	New Caledonia	geo
+http://data.un.org/kos/geo/598	PNG	Papua New Guinea	geo
+http://data.un.org/kos/geo/90	SLB	Solomon Islands	geo
+http://data.un.org/kos/geo/548	VUT	Vanuatu	geo
+http://data.un.org/kos/geo/316	GUM	Guam	geo
+http://data.un.org/kos/geo/296	KIR	Kiribati	geo
+http://data.un.org/kos/geo/584	MHL	Marshall Islands	geo
+http://data.un.org/kos/geo/583	FSM	Micronesia (Federated States of)	geo
+http://data.un.org/kos/geo/520	NRU	Nauru	geo
+http://data.un.org/kos/geo/580	MNP	Northern Mariana Islands	geo
+http://data.un.org/kos/geo/585	PLW	Palau	geo
+http://data.un.org/kos/geo/581	UMI	United States Minor Outlying Islands	geo
+http://data.un.org/kos/geo/16	ASM	American Samoa	geo
+http://data.un.org/kos/geo/184	COK	Cook Islands	geo
+http://data.un.org/kos/geo/258	PYF	French Polynesia	geo
+http://data.un.org/kos/geo/570	NIU	Niue	geo
+http://data.un.org/kos/geo/612	PCN	Pitcairn	geo
+http://data.un.org/kos/geo/882	WSM	Samoa	geo
+http://data.un.org/kos/geo/772	TKL	Tokelau	geo
+http://data.un.org/kos/geo/776	TON	Tonga	geo
+http://data.un.org/kos/geo/798	TUV	Tuvalu	geo
+http://data.un.org/kos/geo/876	WLF	Wallis and Futuna Islands	geo
+http://data.un.org/kos/geo/202	Sub-Saharan Africa	Sub-Saharan Africa	geo
+http://data.un.org/kos/geo/419	Latin America and the Caribbean	Latin America and the Caribbean	geo
+http://data.un.org/kos/geo/154	Northern Europe	Northern Europe	geo
