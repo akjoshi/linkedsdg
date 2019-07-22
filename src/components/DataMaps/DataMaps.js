@@ -53,7 +53,7 @@ export default class Datamap extends React.Component {
     componentWillUnmount() {
         this.clear();
         window.removeEventListener('resize', this.resizeMap);
-        
+
     }
 
     clear() {
@@ -113,8 +113,6 @@ export default class Datamap extends React.Component {
     }
 
     resizeMap = () => {
-        // console.log("xxxxxxxxxx")
-
         this.map.resize();
     }
 
@@ -125,10 +123,13 @@ export default class Datamap extends React.Component {
         };
 
         return <div className="dataMap">
-            <h3 className="Title">
-                Related countries:
-                        </h3>
-            <div ref="container" id="containerForMap" style={style} />
+            <div ref="container" id="containerForMap" style={style} >
+
+                <h3 className="Title">
+                    Related countries:
+                </h3>
+
+            </div>
             <Row className="Datamap-info">
                 <Col>
                     <i>Type of relation: </i>

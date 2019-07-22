@@ -94,15 +94,27 @@ export async function processText(data) {
 
         let dataForDataMap = {};
         if (jsonText.data.countries.total !== undefined) {
+            let max = jsonText.data.countries.total[jsonText.data.countries.top_region];
             for (let elem in jsonText.data.countries.top_regions) {
+                // console.log(max)
                 if (jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].source === 'geo') {
-                    dataForDataMap[jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].label] = { fillKey: "countryColor" };
+                    let countryInfo = jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]];
+                    let colorIntens = countryInfo.weight / max.weight
+                    const componentToHex = (c) => {
+                        var hex = c.toString(16);
+                        return hex.length == 1 ? "0" + hex : hex;
+                    }
+                    const rgbToHex = (r, g, b) => {
+                        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+                    }
+                    // console.log(rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)))
+                    dataForDataMap[countryInfo.label] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
                 }
                 else {
                     let temp = countryAreas.filter(x => x.id === jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].url)
-                    for(let key in temp){
-                        if(dataForDataMap[temp[key].code] === undefined){
-                            dataForDataMap[temp[key].code] = { fillKey: "areaColor" };
+                    for (let key in temp) {
+                        if (dataForDataMap[temp[key].code] === undefined) {
+                            dataForDataMap[temp[key].code] = { fillKey: "areaColor" };//{fillColor: '#ff0000'}
                         }
                     }
                 }

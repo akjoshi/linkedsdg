@@ -1,6 +1,8 @@
 .dataMap{
     margin: 4em 0;
-
+    .Title{
+        margin-bottom: -30px;
+    }
     .map{
         height: 400px;
         position: relative;
@@ -9,7 +11,7 @@
     .Datamap-info{
         font-size:10px;
         float: right;
-        margin: 1rem;
+        margin: -30px 1rem 1rem 1rem;
         i {
             float: left;
             margin: 0.2rem 0.5rem 0.2rem 0;
@@ -22,9 +24,9 @@
             margin: 3px 5px;
         }
         .countryColor{
-            background: #FBB4AE;
+            background: linear-gradient(-90deg, red, white);
             float: left;
-            width:10px;
+            width:100px;
             height: 10px;
             margin: 3px 5px;
         }
