@@ -61,8 +61,8 @@ class BubbleChart extends React.Component {
             .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`)
             .attr("id", d => (d.data.id))
             .on("mouseover", function (d) {
-                svg.selectAll("g")
-                    .attr("fill-opacity", 0.2);
+                // svg.selectAll("g")
+                //     .attr("fill-opacity", 0.2);
 
                 d3.select(this).select("text").remove()
                 d3.select(this).raise()
@@ -75,6 +75,8 @@ class BubbleChart extends React.Component {
                     })
                     .text(d.data.name)
                     .style("font-size", `${(d.r / d.data.name.length) * 2.2 + 20}px`)
+                    .style("fill","black");
+                
             })
             .on("mouseout", function (d) {
                 svg.selectAll("g")
@@ -90,6 +92,7 @@ class BubbleChart extends React.Component {
                     })
                     .text(d.data.name)
                     .style("font-size", `${(d.r / d.data.name.length) * 2.2}px`)
+                    .style("fill","#555555");
             });
 
 
@@ -110,6 +113,7 @@ class BubbleChart extends React.Component {
             .style("font-size", d => {
                 return `${(d.r / d.data.name.length) * 2.2}px`;
             })
+            .style("fill","#555555");
 
 
 

@@ -164,7 +164,7 @@ class ZoomableSunburst extends Component {
 
             if (p.data.label !== undefined) {
 
-                let xzx = g.select("text#middleTitle");
+                let midTitle = g.select("text#middleTitle");
 
 
                 let middleTitle = p.data.label.split(" ");
@@ -174,17 +174,17 @@ class ZoomableSunburst extends Component {
                 }
 
 
-                xzx.text(function (d) { return middleTitle })
-                .attr("x", 0)
-                .attr("y", 0)
+                midTitle.text(function (d) { return middleTitle })
+                    .attr("x", 0)
+                    .attr("y", 0)
 
 
                 var test = document.getElementById("middleTitle");
-                var height = (test.clientHeight + 1) / 2 + "px";
+                var height = "12px";
                 var middleTitleWidth = '-' + (test.clientWidth + 1) / 2 + "px"
 
-             
-                xzx.attr("x", middleTitleWidth)
+                midTitle
+                    .attr("x", middleTitleWidth)
                     .attr("y", height)
             }
             else {
@@ -418,43 +418,49 @@ class ZoomableSunburst extends Component {
 
     render() {
         return (
-            <div className="grid-container">
-                <div id={"ZoomableSunburst"} className="grid-item"></div>
-                <div className="grid-item">
+            <React.Fragment>
+                <h3 className="Title">
+                    Linked concepts:
+                </h3>
+                <div className="grid-container">
+                    <div id={"ZoomableSunburst"} className="grid-item"></div>
+                    <div className="grid-item">
 
-                    <div className="grid-container-info">
-                        <div className="goal-image-container">
-                            {this.selectImage()}
-                        </div>
-                        <div>
-                            <h3 className="title">{this.state.selectedGoalName}</h3>
-                        </div>
-                        <div className="grid-item-text">
-                            {this.state.clickedData.id ? (
-                                <React.Fragment>
-                                    <p>
-                                        <span>LABEL: </span>
-                                        {this.state.clickedData.label}
-                                    </p>
-                                    <p>
-                                        <span>NAME: </span>
-                                        {this.state.clickedData.name}
-                                    </p>
-                                    <p onClick={this.reciveJsonFromApi} className="uri-link">
-                                        <span>URI: </span>
-                                        {this.state.clickedData.id}
-                                    </p>
-                                    <p> <span>CONCEPTS: </span> </p>
-                                    {this.loadConcepts()}
-                                </React.Fragment>
-                            ) : (<React.Fragment></React.Fragment>)}
+                        <div className="grid-container-info">
+                            <div className="goal-image-container">
+                                {this.selectImage()}
+                            </div>
+                            <div>
+                                <h3 className="title">{this.state.selectedGoalName}</h3>
+                            </div>
+                            <div className="grid-item-text">
+                                {this.state.clickedData.id ? (
+                                    <React.Fragment>
+                                        <p>
+                                            <span>LABEL: </span>
+                                            {this.state.clickedData.label}
+                                        </p>
+                                        <p>
+                                            <span>NAME: </span>
+                                            {this.state.clickedData.name}
+                                        </p>
+                                        <p onClick={this.reciveJsonFromApi} className="uri-link">
+                                            <span>URI: </span>
+                                            {this.state.clickedData.id}
+                                        </p>
+                                        <p> <span>CONCEPTS: </span> </p>
+                                        {this.loadConcepts()}
+                                    </React.Fragment>
+                                ) : (<React.Fragment></React.Fragment>)}
 
 
+                            </div>
                         </div>
+
                     </div>
-
                 </div>
-            </div>
+            </React.Fragment>
+
         )
     }
 }

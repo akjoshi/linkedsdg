@@ -11,6 +11,7 @@ import Row from 'react-bootstrap/Row';
 import CopyIcon from './copy-icon.png';
 import UploadForm from '../../components/UploadForm/UploadForm'
 import ZoomableSunburst from '../../components/d3-zoomable-sunburst/ZoomableSunburst'
+import DataMap from '../../components/DataMaps/DataMaps'
 
 
 class Upload extends Component {
@@ -34,6 +35,7 @@ class Upload extends Component {
         selectedOption: 'fromURL',
         error: '',
         dataForSun: {},
+        dataForDataMap: {},
     };
 
     clear = (event) => {
@@ -142,6 +144,9 @@ class Upload extends Component {
                     </Row>
                 </div>
 
+
+
+
                 {this.state.isLoading ? (
                     <Spinner />
                 ) : (
@@ -150,6 +155,8 @@ class Upload extends Component {
                                 <div id="Data-Area-id"></div>
 
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
+
+                                <DataMap data={this.state.dataForDataMap}/>
 
                                 <ZoomableSunburst data={this.state.dataForSun} />
 

@@ -43,7 +43,13 @@ ul {
 .keywords-list {
     height: 450px;
     max-height: 500px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.keywords-list:hover {
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .grid-item{

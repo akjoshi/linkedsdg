@@ -45,7 +45,7 @@ import axios from 'axios';
             }
             // console.log("TEKST Z PLIKU")
             // console.log(json.data.text)
-            this.processText(json.data.text);
+            this.processText(json.data);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
             this.setState({waitForData: true});
@@ -66,18 +66,19 @@ import axios from 'axios';
             }
             // console.log("TEKST Z URL")
             // console.log(json.data.text)
-            this.processText(json.data.text);
+            this.processText(json.data);
         } catch (error) {
             this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!" });
             this.setState({waitForData: true});
         }
     }
 
-    export async function processText(text) {
+    export async function processText(data) {
         try {
             
             const jsonText = await axios.post('http://127.0.0.1:5000/api', {
-                text: text,
+                text: data.text,
+                lang: data.lang,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -85,10 +86,22 @@ import axios from 'axios';
             if (jsonText.status !== 200 && jsonText.status !== 201) {
                 throw new Error('Failed!');
             }
-            console.log('Json z spacy')
-            console.log(jsonText)
+            // console.log('Json z spacy')
+            // console.log(jsonText)
 
-            this.setState({ plainText: jsonText['data']['clean_text'] })
+            let dataForDataMap = {};
+            if(jsonText.data.countries.total !== undefined){
+                for(let elem in jsonText.data.countries.top_regions){
+                    console.log(jsonText.data.countries.top_regions[elem])
+                    if(jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].source === 'geo'){
+                        dataForDataMap[jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].label] = { fillKey: "authorHasTraveledTo" };
+                    }
+                }
+            }
+
+            console.log(dataForDataMap)
+
+            this.setState({ plainText: jsonText['data']['clean_text'] , dataForDataMap: dataForDataMap})
             const conceptsResponse = [];
 
             
