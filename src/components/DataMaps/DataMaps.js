@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Datamaps from 'datamaps';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import './DataMaps.scss';
 
 const MAP_CLEARING_PROPS = [
     'height', 'scope', 'setProjection', 'width'
@@ -91,8 +94,9 @@ export default class Datamap extends React.Component {
                 //     DEU: { fillKey: "authorHasTraveledTo" },
                 // }, 
                 fills: {
-                    defaultFill: "#CADCEB",
-                    authorHasTraveledTo: "#FCCAC6"
+                    defaultFill: "#BDBDBB",
+                    areaColor: "#CADCEB",
+                    countryColor: "#FCCAC6"
                 },
                 element: this.refs.container
             });
@@ -134,6 +138,13 @@ export default class Datamap extends React.Component {
                 Related countries:
                         </h3>
             <div ref="container" style={style} />
+            <Row className="Datamap-info">
+                <Col>
+                    <i>Type of relation: </i>
+                    <i><span className="areaColor"></span> Area</i>
+                    <i><span className="countryColor"></span> Country</i>
+                </Col>
+            </Row>
         </React.Fragment>
     }
 

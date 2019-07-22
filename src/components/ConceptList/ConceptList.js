@@ -67,13 +67,13 @@ class ConceptList extends React.Component {
         return (
             <div className="linked-concepts-container">
                 <h3 className="Title">
-                                    Extracted concepts:
-                        </h3>
+                    Extracted concepts:
+                </h3>
                 <div className="grid-container">
                     <div className="grid-item">
                         <Row>
                             <Col>
-                                
+
                             </Col>
 
                         </Row>
@@ -107,13 +107,9 @@ class ConceptList extends React.Component {
                         <BubbleChart handlerForOpen={this.handlerForOpen} data={this.props.Concepts}></BubbleChart>
                         <Row className="BubbleChart-info">
                             <Col>
-                                <p>Source: </p>
-                            </Col>
-                            <Col>
-                                <p><span className="UNBIS"></span> UNBIS</p>
-                            </Col>
-                            <Col>
-                                <p><span className="EuroVoc"></span> EuroVoc</p>
+                                <i>Source: </i>
+                                <i><span className="UNBIS"></span> UNBIS</i>
+                                <i><span className="EuroVoc"></span> EuroVoc</i>
                             </Col>
                         </Row>
                     </div>

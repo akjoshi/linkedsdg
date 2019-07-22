@@ -55,9 +55,14 @@ ul {
 .grid-item{
     .BubbleChart-info{
         font-size:10px;
+        float: right;
+        margin: 1rem;
+        i {
+            float: left;
+            margin: 0.2rem 0.5rem 0.2rem 0;
+        }
         .UNBIS{
             background: #B3CDE3;
-            display: flex;
             float: left;
             width:10px;
             height: 10px;
@@ -65,11 +70,11 @@ ul {
         }
         .EuroVoc{
             background: #FBB4AE;
-            display: flex;
             float: left;
             width:10px;
             height: 10px;
             margin: 3px 5px;
         }
     }
+
 }
