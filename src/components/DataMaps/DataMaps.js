@@ -4,6 +4,7 @@ import Datamaps from 'datamaps';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
+import * as d3 from "d3";
 
 const MAP_CLEARING_PROPS = [
     'height', 'scope', 'setProjection', 'width'
@@ -32,15 +33,14 @@ export default class Datamap extends React.Component {
         width: PropTypes.any
     };
 
-    constructor(props) {
-        super(props);
-        this.resizeMap = this.resizeMap.bind(this);
-    }
 
     componentDidMount() {
-        if (this.props.responsive) {
-            window.addEventListener('resize', this.resizeMap);
-        }
+        window.addEventListener('resize', this.resizeMap);
+
+        this.drawMap();
+    }
+
+    componentDidUpdate() {
         this.drawMap();
     }
 
@@ -52,9 +52,8 @@ export default class Datamap extends React.Component {
 
     componentWillUnmount() {
         this.clear();
-        if (this.props.responsive) {
-            window.removeEventListener('resize', this.resizeMap);
-        }
+        window.removeEventListener('resize', this.resizeMap);
+        
     }
 
     clear() {
@@ -85,14 +84,6 @@ export default class Datamap extends React.Component {
         if (!map) {
             map = this.map = new Datamaps({
                 ...this.props,
-                // data: {
-                //     USA: { fillKey: "authorHasTraveledTo" },
-                //     JPN: { fillKey: "authorHasTraveledTo" },
-                //     ITA: { fillKey: "authorHasTraveledTo" },
-                //     CRI: { fillKey: "authorHasTraveledTo" },
-                //     KOR: { fillKey: "authorHasTraveledTo" },
-                //     DEU: { fillKey: "authorHasTraveledTo" },
-                // }, 
                 fills: {
                     defaultFill: "#BDBDBB",
                     areaColor: "#CADCEB",
@@ -121,23 +112,23 @@ export default class Datamap extends React.Component {
         }
     }
 
-    resizeMap() {
+    resizeMap = () => {
+        // console.log("xxxxxxxxxx")
+
         this.map.resize();
     }
 
     render() {
         const style = {
-            height: '600px',
-            position: 'relative',
-            width: '100%',
+            display: 'relative',
             ...this.props.style
         };
 
-        return <React.Fragment>
+        return <div className="dataMap">
             <h3 className="Title">
                 Related countries:
                         </h3>
-            <div ref="container" style={style} />
+            <div ref="container" id="containerForMap" style={style} />
             <Row className="Datamap-info">
                 <Col>
                     <i>Type of relation: </i>
@@ -145,7 +136,7 @@ export default class Datamap extends React.Component {
                     <i><span className="countryColor"></span> Country</i>
                 </Col>
             </Row>
-        </React.Fragment>
+        </div>
     }
 
 }

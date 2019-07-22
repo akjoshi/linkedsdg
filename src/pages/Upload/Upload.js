@@ -156,7 +156,7 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                                <DataMap data={this.state.dataForDataMap}/>
+                                <DataMap data={this.state.dataForDataMap} responsive={true}/>
 
                                 <ZoomableSunburst data={this.state.dataForSun} />
 

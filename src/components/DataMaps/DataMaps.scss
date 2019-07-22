@@ -1,24 +1,33 @@
+.dataMap{
+    margin: 4em 0;
 
-.Datamap-info{
-    font-size:10px;
-    float: right;
-    margin: 1rem;
-    i {
-        float: left;
-        margin: 0.2rem 0.5rem 0.2rem 0;
+    .map{
+        height: 400px;
+        position: relative;
+        width: 100%;
     }
-    .areaColor{
-        background: #B3CDE3;
-        float: left;
-        width:10px;
-        height: 10px;
-        margin: 3px 5px;
-    }
-    .countryColor{
-        background: #FBB4AE;
-        float: left;
-        width:10px;
-        height: 10px;
-        margin: 3px 5px;
+    .Datamap-info{
+        font-size:10px;
+        float: right;
+        margin: 1rem;
+        i {
+            float: left;
+            margin: 0.2rem 0.5rem 0.2rem 0;
+        }
+        .areaColor{
+            background: #B3CDE3;
+            float: left;
+            width:10px;
+            height: 10px;
+            margin: 3px 5px;
+        }
+        .countryColor{
+            background: #FBB4AE;
+            float: left;
+            width:10px;
+            height: 10px;
+            margin: 3px 5px;
+        }
     }
 }
+    

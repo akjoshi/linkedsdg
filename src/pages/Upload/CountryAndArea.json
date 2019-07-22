@@ -30,6 +30,1122 @@
       {
         "member_country_code" : {
           "type" : "literal",
+          "value" : "DZA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/12"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "EGY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/818"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/434"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/504"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/729"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/788"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/732"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BMU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/60"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CAN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/124"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/304"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SPM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/666"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "USA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/840"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KAZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/398"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KGZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/417"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TJK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/762"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/795"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UZB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/860"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/156"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HKG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/344"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/446"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/408"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JPN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/392"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/496"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/410"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/96"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KHM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/116"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/360"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LAO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/418"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MYS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/458"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/104"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/608"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SGP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/702"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "THA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/764"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TLS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/626"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VNM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/704"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AFG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/4"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/50"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BTN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/64"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/356"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/364"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/462"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NPL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/524"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PAK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/586"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LKA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/144"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/51"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/31"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BHR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/48"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CYP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/196"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GEO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/268"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRQ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/368"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ISR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/376"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/400"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KWT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/414"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/422"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "OMN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/512"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "QAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/634"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SAU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/682"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PSE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/275"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SYR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/760"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/792"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/784"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "YEM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/887"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
           "value" : "ALA"
         },
         "id" : {
@@ -273,6 +1389,1158 @@
         "member_country" : {
           "type" : "uri",
           "value" : "http://data.un.org/kos/geo/826"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BLR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/112"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/100"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/203"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/348"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "POL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/616"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/498"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ROU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/642"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "RUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/643"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/703"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UKR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/804"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ALB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/8"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/20"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BIH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/70"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HRV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/191"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GIB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/292"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/300"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/336"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ITA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/380"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MLT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/470"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/499"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MKD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/807"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/620"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/674"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SRB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/688"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/705"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/724"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/40"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BEL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/56"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FRA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/250"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "DEU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/276"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LIE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/438"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LUX"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/442"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MCO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/492"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NLD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/528"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/756"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/36"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CXR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/162"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CCK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/166"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HMD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/334"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NZL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/554"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NFK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/574"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FJI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/242"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NCL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/540"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/598"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SLB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/90"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/548"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GUM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/316"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KIR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/296"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/584"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/583"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NRU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/520"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/580"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PLW"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/585"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UMI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/581"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ASM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/16"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "COK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/184"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PYF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/258"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NIU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/570"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PCN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/612"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/882"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/772"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TON"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/776"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/798"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "World"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WLF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/1"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/876"
         },
         "region" : {
           "type" : "literal",
@@ -2208,6 +4476,132 @@
       {
         "member_country_code" : {
           "type" : "literal",
+          "value" : "DZA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/12"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "EGY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/818"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/434"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/504"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/729"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/788"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/2"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/732"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
           "value" : "IOT"
         },
         "id" : {
@@ -3162,6 +5556,96 @@
       {
         "member_country_code" : {
           "type" : "literal",
+          "value" : "BMU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/19"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/60"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Americas"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CAN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/19"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/124"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Americas"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/19"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/304"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Americas"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SPM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/19"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/666"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Americas"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "USA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/19"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/840"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Americas"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
           "value" : "AIA"
         },
         "id" : {
@@ -4098,6 +6582,906 @@
       {
         "member_country_code" : {
           "type" : "literal",
+          "value" : "KAZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/398"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KGZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/417"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TJK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/762"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/795"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UZB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/860"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/156"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HKG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/344"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/446"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/408"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JPN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/392"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/496"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/410"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/96"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KHM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/116"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/360"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LAO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/418"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MYS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/458"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/104"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/608"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SGP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/702"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "THA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/764"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TLS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/626"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VNM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/704"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AFG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/4"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/50"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BTN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/64"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/356"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/364"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/462"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NPL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/524"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PAK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/586"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LKA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/144"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/51"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/31"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BHR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/48"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CYP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/196"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GEO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/268"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRQ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/368"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ISR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/376"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/400"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KWT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/414"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/422"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "OMN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/512"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "QAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/634"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SAU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/682"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PSE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/275"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SYR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/760"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/792"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/784"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "YEM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/142"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/887"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
           "value" : "ALA"
         },
         "id" : {
@@ -4350,6 +7734,636 @@
       {
         "member_country_code" : {
           "type" : "literal",
+          "value" : "BLR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/112"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/100"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/203"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/348"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "POL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/616"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/498"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ROU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/642"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "RUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/643"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/703"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UKR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/804"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ALB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/8"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/20"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BIH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/70"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HRV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/191"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GIB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/292"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/300"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/336"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ITA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/380"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MLT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/470"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/499"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MKD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/807"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/620"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/674"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SRB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/688"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/705"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/724"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/40"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BEL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/56"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FRA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/250"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "DEU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/276"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LIE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/438"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LUX"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/442"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MCO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/492"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NLD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/528"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/150"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/756"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
           "value" : "GGY"
         },
         "id" : {
@@ -4381,6 +8395,528 @@
         "region" : {
           "type" : "literal",
           "value" : "Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/36"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CXR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/162"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CCK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/166"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HMD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/334"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NZL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/554"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NFK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/574"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FJI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/242"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NCL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/540"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/598"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SLB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/90"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/548"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GUM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/316"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KIR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/296"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/584"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/583"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NRU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/520"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/580"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PLW"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/585"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UMI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/581"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ASM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/16"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "COK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/184"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PYF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/258"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NIU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/570"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PCN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/612"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/882"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/772"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TON"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/776"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/798"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WLF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/9"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/876"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Oceania"
         }
       },
       {
@@ -8485,6 +13021,2274 @@
         "region" : {
           "type" : "literal",
           "value" : "Northern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "DZA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/12"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "EGY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/818"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBY"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/434"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/504"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/729"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/788"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/15"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/732"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern Africa"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BMU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/21"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/60"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern America"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CAN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/21"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/124"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern America"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/21"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/304"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern America"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SPM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/21"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/666"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern America"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "USA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/21"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/840"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Northern America"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KAZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/143"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/398"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Central Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KGZ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/143"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/417"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Central Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TJK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/143"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/762"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Central Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/143"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/795"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Central Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UZB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/143"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/860"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Central Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/156"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HKG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/344"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MAC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/446"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/408"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JPN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/392"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/496"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/30"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/410"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/96"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KHM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/116"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IDN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/360"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LAO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/418"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MYS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/458"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/104"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/608"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SGP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/702"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "THA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/764"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TLS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/626"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VNM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/35"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/704"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "South-eastern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AFG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/4"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/50"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BTN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/64"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/356"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/364"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/462"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NPL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/524"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PAK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/586"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LKA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/34"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/144"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/51"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/31"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BHR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/48"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CYP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/196"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GEO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/268"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "IRQ"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/368"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ISR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/376"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "JOR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/400"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KWT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/414"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LBN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/422"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "OMN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/512"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "QAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/634"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SAU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/682"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PSE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/275"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SYR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/760"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/792"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ARE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/784"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "YEM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/145"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/887"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Asia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BLR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/112"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BGR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/100"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CZE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/203"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HUN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/348"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "POL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/616"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MDA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/498"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ROU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/642"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "RUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/643"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/703"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UKR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/151"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/804"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Eastern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ALB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/8"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AND"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/20"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BIH"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/70"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HRV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/191"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GIB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/292"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GRC"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/300"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VAT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/336"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ITA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/380"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MLT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/470"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/499"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MKD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/807"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PRT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/620"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SMR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/674"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SRB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/688"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SVN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/705"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ESP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/39"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/724"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Southern Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/40"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "BEL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/56"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FRA"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/250"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "DEU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/276"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LIE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/438"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "LUX"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/442"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MCO"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/492"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NLD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/528"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CHE"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/155"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/756"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Western Europe"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "AUS"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/36"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CXR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/162"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "CCK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/166"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "HMD"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/334"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NZL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/554"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NFK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/53"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/574"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Australia and New Zealand"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FJI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/54"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/242"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Melanesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NCL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/54"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/540"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Melanesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PNG"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/54"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/598"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Melanesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "SLB"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/54"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/90"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Melanesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "VUT"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/54"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/548"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Melanesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "GUM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/316"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "KIR"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/296"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MHL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/584"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "FSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/583"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NRU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/520"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "MNP"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/580"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PLW"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/585"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "UMI"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/57"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/581"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Micronesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "ASM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/16"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "COK"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/184"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PYF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/258"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "NIU"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/570"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "PCN"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/612"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WSM"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/882"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TKL"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/772"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TON"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/776"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "TUV"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/798"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
+        }
+      },
+      {
+        "member_country_code" : {
+          "type" : "literal",
+          "value" : "WLF"
+        },
+        "id" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/61"
+        },
+        "member_country" : {
+          "type" : "uri",
+          "value" : "http://data.un.org/kos/geo/876"
+        },
+        "region" : {
+          "type" : "literal",
+          "value" : "Polynesia"
         }
       }
     ]
