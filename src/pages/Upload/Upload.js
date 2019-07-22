@@ -36,6 +36,7 @@ class Upload extends Component {
         error: '',
         dataForSun: {},
         dataForDataMap: {},
+        dataForSeries: [],
     };
 
     clear = (event) => {
@@ -158,7 +159,7 @@ class Upload extends Component {
 
                                 <DataMap data={this.state.dataForDataMap} responsive={true}/>
 
-                                <ZoomableSunburst data={this.state.dataForSun} />
+                                <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 
                                 <div className="clear-button">
                                     <Button variant="primary" onClick={this.clear}>

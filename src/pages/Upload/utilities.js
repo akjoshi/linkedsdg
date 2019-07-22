@@ -93,6 +93,7 @@ export async function processText(data) {
         countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
 
         let dataForDataMap = {};
+        let dataForSeries = [];
         if (jsonText.data.countries.total !== undefined) {
             let max = jsonText.data.countries.total[jsonText.data.countries.top_region];
             for (let elem in jsonText.data.countries.top_regions) {
@@ -109,6 +110,7 @@ export async function processText(data) {
                     }
                     // console.log(rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)))
                     dataForDataMap[countryInfo.label] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
+                    dataForSeries.push(countryInfo.label);
                 }
                 else {
                     let temp = countryAreas.filter(x => x.id === jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].url)
@@ -123,7 +125,7 @@ export async function processText(data) {
 
         console.log(dataForDataMap)
 
-        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap })
+        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries })
         const conceptsResponse = [];
 
 

@@ -36,6 +36,32 @@ class ZoomableSunburst extends Component {
         selectedGoalName: 'Sustainable Development Goals',
     }
 
+    reciveSeriesJsonFromApi = async () => {
+        try {
+            const dataForApi = {
+                "countries": this.props.dataForSeries,
+                "stat": this.state.clickedData.id
+            }
+
+
+            const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (text.status !== 200 && text.status !== 201) {
+                throw new Error('Failed!');
+            }
+
+            var myWindow = window.open("", "MsgWindow");
+            myWindow.document.write('<pre id="json"></pre>');
+            myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
+
+        } catch (error) {
+            console.log("ERROR");
+        }
+    }
+
     reciveJsonFromApi = async () => {
         try {
 
@@ -423,7 +449,8 @@ class ZoomableSunburst extends Component {
                     Linked concepts:
                 </h3>
                 <div className="grid-container">
-                    <div id={"ZoomableSunburst"} className="grid-item"></div>
+                    <div id={"ZoomableSunburst"} className="grid-item">
+                    </div>
                     <div className="grid-item">
 
                         <div className="grid-container-info">
@@ -436,10 +463,17 @@ class ZoomableSunburst extends Component {
                             <div className="grid-item-text">
                                 {this.state.clickedData.id ? (
                                     <React.Fragment>
+
                                         <p>
                                             <span>LABEL: </span>
                                             {this.state.clickedData.label}
                                         </p>
+                                        {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
+                                            <p onClick={this.reciveSeriesJsonFromApi} className="uri-link">
+                                                <span>GET DATA: </span>information about the data series for the most suitable countries
+                                        </p>) : 
+                                            (<React.Fragment></React.Fragment>)
+                                        }
                                         <p>
                                             <span>NAME: </span>
                                             {this.state.clickedData.name}
@@ -450,6 +484,8 @@ class ZoomableSunburst extends Component {
                                         </p>
                                         <p> <span>CONCEPTS: </span> </p>
                                         {this.loadConcepts()}
+
+
                                     </React.Fragment>
                                 ) : (<React.Fragment></React.Fragment>)}
 
@@ -460,7 +496,6 @@ class ZoomableSunburst extends Component {
                     </div>
                 </div>
             </React.Fragment>
-
         )
     }
 }

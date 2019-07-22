@@ -12,15 +12,18 @@ class BubbleChart extends React.Component {
     drawChart = async () => {
 
 
-        const clicked = (p) => {
+        const clicked = async (p) => {
             this.props.handlerForOpen(p.data.id)
 
-            var myElement = document.getElementById(p.data.id);
-            var topPos = myElement.offsetTop - document.getElementById("keywords-list-id").offsetTop;
-            document.getElementById("keywords-list-id").scrollTop = topPos;
-
-
-
+            let myElement = document.getElementById(p.data.id);
+            let w = window.innerWidth;
+            if (w < 992) {
+                myElement.scrollIntoView(true);
+            }
+            else {
+                var topPos = myElement.offsetTop - document.getElementById("keywords-list-id").offsetTop;
+                document.getElementById("keywords-list-id").scrollTop = topPos;
+            }
         }
 
         let data = [];
@@ -75,8 +78,8 @@ class BubbleChart extends React.Component {
                     })
                     .text(d.data.name)
                     .style("font-size", `${(d.r / d.data.name.length) * 2.2 + 20}px`)
-                    .style("fill","black");
-                
+                    .style("fill", "black");
+
             })
             .on("mouseout", function (d) {
                 svg.selectAll("g")
@@ -92,7 +95,7 @@ class BubbleChart extends React.Component {
                     })
                     .text(d.data.name)
                     .style("font-size", `${(d.r / d.data.name.length) * 2.2}px`)
-                    .style("fill","#555555");
+                    .style("fill", "#555555");
             });
 
 
@@ -113,7 +116,7 @@ class BubbleChart extends React.Component {
             .style("font-size", d => {
                 return `${(d.r / d.data.name.length) * 2.2}px`;
             })
-            .style("fill","#555555");
+            .style("fill", "#555555");
 
 
 
