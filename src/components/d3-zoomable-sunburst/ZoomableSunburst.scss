@@ -9,6 +9,30 @@
     grid-row-gap: 20px;
     margin-bottom: 3rem;
 
+    .country-series-info{
+        .row {
+            border-bottom: 1px #ccc solid;
+            height: 24px;
+            overflow: hidden;
+            .series-info{
+                cursor: pointer;
+            }
+        }
+        .uri-link{
+            margin: 1rem 0 0 0;
+            cursor: pointer;
+            color: #007bff;
+        }
+
+        p span {
+            font-weight: 700;
+            color: black;
+        }
+    }
+
+    .country-series-info{
+       margin-top: -25%;
+    }
 
 
     svg { 

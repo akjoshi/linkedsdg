@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
 import * as d3 from "d3";
+import Button from 'react-bootstrap/Button';
 
 const MAP_CLEARING_PROPS = [
     'height', 'scope', 'setProjection', 'width'
@@ -116,6 +117,33 @@ export default class Datamap extends React.Component {
         this.map.resize();
     }
 
+    handleDownload = async () => {
+        console.log(this.props.data)
+        let dataForJson = []//[ ...this.props.data];
+        // dataForJson = dataForJson.map(x => { 
+        //     return {
+        //         id: x.id,
+        //         label: x.label,
+        //         source: x.source
+        //     };
+        // })
+
+        // let filename = "export.json";
+        // let contentType = "application/json;charset=utf-8;";
+        // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        //     var blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(dataForJson)))], { type: contentType });
+        //     navigator.msSaveOrOpenBlob(blob, filename);
+        // } else {
+        //     var a = document.createElement('a');
+        //     a.download = filename;
+        //     a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(dataForJson));
+        //     a.target = '_blank';
+        //     document.body.appendChild(a);
+        //     a.click();
+        //     document.body.removeChild(a);
+        // }
+    }
+
     render() {
         const style = {
             display: 'relative',
@@ -134,6 +162,13 @@ export default class Datamap extends React.Component {
                 <Col>
                     <i><span className="areaColor"></span> Area</i>
                     <i><span className="countryColor"></span> Country</i>
+                </Col>
+            </Row>
+            <Row>
+                <Col className="download-button">
+                    <Button variant="primary" onClick={this.handleDownload}>
+                        ⤓ Download
+                    </Button>
                 </Col>
             </Row>
         </div>

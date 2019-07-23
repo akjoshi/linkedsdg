@@ -107,7 +107,7 @@ class ConceptList extends React.Component {
                             <Col className="download-button">
                                 <Button variant="primary" onClick={this.handleDownload}>
                                     ⤓ Download
-                        </Button>
+                                </Button>
                             </Col>
                         </Row>
                     </div>

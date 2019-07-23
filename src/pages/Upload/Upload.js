@@ -168,11 +168,11 @@ class Upload extends Component {
 
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 
-                                <div className="clear-button">
+                                {/* <div className="clear-button">
                                     <Button variant="primary" onClick={this.clear}>
                                         CLEAR
                                     </Button>
-                                </div>
+                                </div> */}
                             </div>
                         ) : (
                                 <React.Fragment></React.Fragment>

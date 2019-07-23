@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 import axios from 'axios';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Wheel from './img/wheel.png';
 import Goal01 from './img/01.png';
 import Goal02 from './img/02.png';
@@ -20,6 +22,7 @@ import Goal15 from './img/15.png';
 import Goal16 from './img/16.png';
 import Goal17 from './img/17.png';
 import './ZoomableSunburst.scss'
+import Spiner from '../Spinner/Spinner'
 
 
 class ZoomableSunburst extends Component {
@@ -34,6 +37,7 @@ class ZoomableSunburst extends Component {
         clickedData: {},
         selectedGoal: undefined,
         selectedGoalName: 'Sustainable Development Goals',
+        countrySeriesData: [],
     }
 
     reciveSeriesJsonFromApi = async () => {
@@ -52,7 +56,8 @@ class ZoomableSunburst extends Component {
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-
+            // this.setState({ countrySeriesData: text.data })
+            // console.log(text.data)
             var myWindow = window.open("", "MsgWindow");
             myWindow.document.write('<pre id="json"></pre>');
             myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
@@ -153,7 +158,7 @@ class ZoomableSunburst extends Component {
 
         }
 
-        const clicked = (p) => {
+        const clicked = async (p) => {
             parent.datum(p.parent || root);
 
 
@@ -220,6 +225,7 @@ class ZoomableSunburst extends Component {
 
 
 
+
             // Transition the data on all arcs, even the ones that aren’t visible,
             // so that if this transition is interrupted, entering arcs will start
             // the next transition from the desired position.
@@ -245,6 +251,33 @@ class ZoomableSunburst extends Component {
             }).transition(t)
                 .attr("fill-opacity", d => +labelVisible(d.target))
                 .attrTween("transform", d => () => labelTransform(d.current));
+
+
+            if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
+                try {
+                    const dataForApi = {
+                        "countries": this.props.dataForSeries,
+                        "stat": this.state.clickedData.id
+                    }
+
+
+                    const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (text.status !== 200 && text.status !== 201) {
+                        throw new Error('Failed!');
+                    }
+                    this.setState({ countrySeriesData: text.data })
+
+                } catch (error) {
+                    console.log("ERROR");
+                }
+            }
+            else {
+                this.setState({ countrySeriesData: [] })
+            }
         }
 
         let width = 932
@@ -336,7 +369,7 @@ class ZoomableSunburst extends Component {
             .attr("transform", d => labelTransform(d.current))
             .text(d => d.data.label.substr(d.data.label.indexOf(" ") + 1))
             .style("font-size", (d) => {
-                if(d.data.label.split(" ")[0] !== 'Series'){
+                if (d.data.label.split(" ")[0] !== 'Series') {
                     return "20px"
                 }
                 return "12px"
@@ -449,6 +482,50 @@ class ZoomableSunburst extends Component {
         ))
     }
 
+    genOnClick = (x) => {
+        return () => {
+            let elem = document.getElementById("Series" + x['@id'])
+            if (elem.style.height === "auto") {
+                elem.style.height = "24px"
+            }
+            else {
+                elem.style.height = "auto";
+            }
+        }
+    }
+
+    getJsonText = (x) => {
+        if (typeof (x) === 'object') {
+            let tab = [
+                "Type_of_skill_description",
+                "Freq_description",
+                "Location_description",
+                "Age_description",
+                "Sex_description",
+                "Bounds_description",
+                "Hazard_type_description",
+                "Migratory_status_description",
+                "Education_level_description",
+                "Type_of_product_description",
+                "Type_of_occupation_description",
+                "Level_Status_description",
+                "Name_of_international_institu_1",
+                "Mode_of_transportation_descript",
+                "Name_of_non_communicable_dise_1",
+                "IHR_Capacity_description",
+                "Type_of_speed_description",
+                "Type_of_mobile_technology_descr"
+              ]
+            let data = []
+            for (let y in x) {
+                if(tab.filter(x => x === y).length > 0){
+                    data.push(y+": "+x[y]);
+                }
+            }
+            return data.map(elem => { return <p>{elem}</p> })
+        }
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -456,7 +533,41 @@ class ZoomableSunburst extends Component {
                     Linked concepts:
                 </h3>
                 <div className="grid-container">
-                    <div id={"ZoomableSunburst"} className="grid-item">
+                    <div>
+
+                        <div id={"ZoomableSunburst"} className="grid-item"></div>
+                        {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
+
+
+                            <div className="country-series-info">
+                                <h4>Values</h4>
+                                <Row >
+                                    <Col xs={6}>Name</Col>
+                                    <Col>Value </Col>
+                                    <Col>Units </Col>
+                                </Row>
+                                {this.state.countrySeriesData.map(x => {
+                                    return <Row key={x['@id']} id={"Series" + x['@id']}>
+
+                                        <Col xs={6} className="series-info" onClick={this.genOnClick(x)}>{x.geoAreaName}
+
+                                        {this.getJsonText(x)}
+
+                                        </Col>
+                                        <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
+                                        <Col>{x.Units} </Col>
+                                    </Row>
+                                })}
+
+                                <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DETAIL INFORMATION ABOUT EACH DATA SERIES</p>
+                            </div>
+
+
+
+                        ) :
+                            (<React.Fragment></React.Fragment>)
+                        }
+
                     </div>
                     <div className="grid-item">
 
@@ -475,12 +586,7 @@ class ZoomableSunburst extends Component {
                                             <span>LABEL: </span>
                                             {this.state.clickedData.label}
                                         </p>
-                                        {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
-                                            <p onClick={this.reciveSeriesJsonFromApi} className="uri-link">
-                                                <span>GET DATA: </span>information about the data series for the most suitable countries
-                                        </p>) :
-                                            (<React.Fragment></React.Fragment>)
-                                        }
+
                                         <p>
                                             <span>NAME: </span>
                                             {this.state.clickedData.name}
