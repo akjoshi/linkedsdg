@@ -199,12 +199,14 @@ class ZoomableSunburst extends Component {
                     middleTitle = "Series";
                 }
 
+                middleTitle = "BACK TO " + middleTitle.toUpperCase();
+
 
                 midTitle.text(function (d) { return middleTitle })
                     .attr("x", 0)
                     .attr("y", 0)
 
-                var height = "12px";
+                var height = "10px";
 
                 midTitle
                     .attr("y", height)
@@ -345,7 +347,7 @@ class ZoomableSunburst extends Component {
             .style("text-anchor", "middle")
             .attr("id", "middleTitle")
             .text(function (d) { return "" })
-            .style("font-size", "48px")
+            .style("font-size", "28px")
             .style("font-weight", "700")
             .style("cursor", "pointer")
             .attr("pointer-events", "all")
