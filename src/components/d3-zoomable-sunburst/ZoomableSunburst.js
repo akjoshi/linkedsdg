@@ -204,13 +204,9 @@ class ZoomableSunburst extends Component {
                     .attr("x", 0)
                     .attr("y", 0)
 
-
-                var test = document.getElementById("middleTitle");
                 var height = "12px";
-                var middleTitleWidth = '-' + (test.clientWidth + 1) / 2 + "px"
 
                 midTitle
-                    .attr("x", middleTitleWidth)
                     .attr("y", height)
             }
             else {
@@ -344,7 +340,9 @@ class ZoomableSunburst extends Component {
 
 
 
-        parent = g.append("text")
+        parent = g
+            .append("text")
+            .style("text-anchor", "middle")
             .attr("id", "middleTitle")
             .text(function (d) { return "" })
             .style("font-size", "48px")
@@ -421,7 +419,6 @@ class ZoomableSunburst extends Component {
                 linkedConcepts: linkedConcepts
             })
         }
-        console.log(data)
 
         return data.map(x => (
             <p key={x.url}>
@@ -471,7 +468,7 @@ class ZoomableSunburst extends Component {
                                         {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
                                             <p onClick={this.reciveSeriesJsonFromApi} className="uri-link">
                                                 <span>GET DATA: </span>information about the data series for the most suitable countries
-                                        </p>) : 
+                                        </p>) :
                                             (<React.Fragment></React.Fragment>)
                                         }
                                         <p>
