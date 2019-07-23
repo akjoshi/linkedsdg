@@ -24,7 +24,7 @@ function linkConcepts(newConcepts, oldConcepts) {
 }
 
 export async function handleUploadFile(file) {
-    console.log(file);
+    this.setState({ progress: 10  })
     if (file === undefined) {
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
         this.setState({ waitForData: true });
@@ -47,14 +47,14 @@ export async function handleUploadFile(file) {
         // console.log(json.data.text)
         this.processText(json.data);
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
+        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" , progress: 45 });
         this.setState({ waitForData: true });
     }
 
 }
 
 export async function handleUrlFile(url) {
-    this.setState({ isLoading: true, error: '', loadedFrom: url });
+    this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10});
     try {
         const json = await axios.post('http://127.0.0.1:5001/apiURL', url, {
             headers: {
@@ -68,7 +68,7 @@ export async function handleUrlFile(url) {
         // console.log(json.data.text)
         this.processText(json.data);
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!" });
+        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45 });
         this.setState({ waitForData: true });
     }
 }
@@ -103,14 +103,14 @@ export async function processText(data) {
                     let colorIntens = countryInfo.weight / max.weight
                     const componentToHex = (c) => {
                         var hex = c.toString(16);
-                        return hex.length == 1 ? "0" + hex : hex;
+                        return hex.length === 1 ? "0" + hex : hex;
                     }
                     const rgbToHex = (r, g, b) => {
                         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
                     }
                     // console.log(rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)))
-                    dataForDataMap[countryInfo.label] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
-                    dataForSeries.push(countryInfo.label);
+                    dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
+                    dataForSeries.push(countryInfo.name);
                 }
                 else {
                     let temp = countryAreas.filter(x => x.id === jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].url)
@@ -125,7 +125,7 @@ export async function processText(data) {
 
         console.log(dataForDataMap)
 
-        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries })
+        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60  })
         const conceptsResponse = [];
 
 
@@ -173,7 +173,7 @@ export async function processText(data) {
         await this.setState({ dataForSun: linkedDataResponse.data });
 
 
-        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false });
+        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
         window.location.href = '#Data-Area-id';
 
     } catch (error) {

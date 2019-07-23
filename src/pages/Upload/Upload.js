@@ -8,6 +8,7 @@ import { handleUploadFile, handleUrlFile, processText } from './utilities';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import ProgressBar from 'react-bootstrap/ProgressBar'
 import CopyIcon from './copy-icon.png';
 import UploadForm from '../../components/UploadForm/UploadForm'
 import ZoomableSunburst from '../../components/d3-zoomable-sunburst/ZoomableSunburst'
@@ -37,6 +38,7 @@ class Upload extends Component {
         dataForSun: {},
         dataForDataMap: {},
         dataForSeries: [],
+        progress: 0,
     };
 
     clear = (event) => {
@@ -149,7 +151,12 @@ class Upload extends Component {
 
 
                 {this.state.isLoading ? (
-                    <Spinner />
+                    //<Spinner />
+                    // <ProgressBar animated now={45} />
+                    <div className="progress-bar-container">
+                        <h4>Progress:</h4>
+                        <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} />
+                    </div>
                 ) : (
                         !this.state.waitForData ? (
                             <div className="Data-Area" >
