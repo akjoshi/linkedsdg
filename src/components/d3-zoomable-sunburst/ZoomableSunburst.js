@@ -261,6 +261,8 @@ class ZoomableSunburst extends Component {
         // let data = require('./data');
         let data = this.props.data;
 
+        console.log(data)
+
         let format = d3.format(",d")
 
         const partition = data => {
@@ -332,7 +334,13 @@ class ZoomableSunburst extends Component {
             .attr("dy", "0.35em")
             .attr("fill-opacity", d => +labelVisible(d.current))
             .attr("transform", d => labelTransform(d.current))
-            .text(d => d.data.label);
+            .text(d => d.data.label.substr(d.data.label.indexOf(" ") + 1))
+            .style("font-size", (d) => {
+                if(d.data.label.split(" ")[0] !== 'Series'){
+                    return "20px"
+                }
+                return "12px"
+            });
 
         let parent = g.append("circle")
             .datum(root)

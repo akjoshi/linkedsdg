@@ -127,8 +127,8 @@ class Upload extends Component {
                             <p className="small-label">Examples</p>
                             <ul>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2016/08/2_Why-it-Matters_ZeroHunger_2p.pdf" target="_blank">Zero Hunger: Why It Matters?</a>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/15693Qatar_Arabic.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                    <a href="https://sustainabledevelopment.un.org/content/documents/15693Qatar_Arabic.pdf" target="_blank">Voluntary National Review - Qatar 2017</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
