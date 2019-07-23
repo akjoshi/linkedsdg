@@ -515,14 +515,14 @@ class ZoomableSunburst extends Component {
                 "IHR_Capacity_description",
                 "Type_of_speed_description",
                 "Type_of_mobile_technology_descr"
-              ]
+            ]
             let data = []
             for (let y in x) {
-                if(tab.filter(x => x === y).length > 0){
-                    data.push(y+": "+x[y]);
+                if (tab.filter(x => x === y).length > 0) {
+                    data.push(y + ": " + x[y]);
                 }
             }
-            return data.map(elem => { return <p>{elem}</p> })
+            return data.map(elem => { return <li key={x['@id']+elem.split(" ")[1]}>{elem}</li> })
         }
     }
 
@@ -547,16 +547,21 @@ class ZoomableSunburst extends Component {
                                     <Col>Units </Col>
                                 </Row>
                                 {this.state.countrySeriesData.map(x => {
-                                    return <Row key={x['@id']} id={"Series" + x['@id']}>
+                                    return <div key={x['@id']} id={"Series" + x['@id']} className="series-info" >
+                                        <Row>
+                                            <Col xs={6} className="series-country-title" onClick={this.genOnClick(x)}>{x.geoAreaName}</Col>
+                                            <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
+                                            <Col>{x.Units} </Col>
 
-                                        <Col xs={6} className="series-info" onClick={this.genOnClick(x)}>{x.geoAreaName}
-
-                                        {this.getJsonText(x)}
-
-                                        </Col>
-                                        <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
-                                        <Col>{x.Units} </Col>
-                                    </Row>
+                                        </Row>
+                                        <Row className="series-country-json">
+                                            <Col>
+                                                <ul>
+                                                    {this.getJsonText(x)}
+                                                </ul>
+                                            </Col>
+                                        </Row>
+                                    </div>
                                 })}
 
                                 <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DETAIL INFORMATION ABOUT EACH DATA SERIES</p>

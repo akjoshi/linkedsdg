@@ -10,12 +10,25 @@
     margin-bottom: 3rem;
 
     .country-series-info{
-        .row {
+        .series-info {
             border-bottom: 1px #ccc solid;
             height: 24px;
             overflow: hidden;
-            .series-info{
+
+            .series-country-title{
                 cursor: pointer;
+            }
+
+            .series-country-title:hover{
+                opacity: 0.6;
+            }
+
+            .series-country-json{
+                ul{
+                    li{
+                        font-size: 12px;
+                    }
+                } 
             }
         }
         .uri-link{
