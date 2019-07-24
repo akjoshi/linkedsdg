@@ -35,9 +35,48 @@ class ZoomableSunburst extends Component {
         svgElement: '',
         lastPointedData: '',
         clickedData: {},
+        dataForPreview: undefined,
         selectedGoal: undefined,
         selectedGoalName: 'Sustainable Development Goals',
         countrySeriesData: [],
+        sunState: "root",
+    }
+
+    setSunState(deeper = true) {
+        if (deeper === true) {
+            if (this.state.sunState === "root") {
+                this.setState({ sunState: "goal" })
+            }
+            else if (this.state.sunState === "goal") {
+                this.setState({ sunState: "target" })
+            }
+            else if (this.state.sunState === "target") {
+                this.setState({ sunState: "indicator" })
+            }
+            else if (this.state.sunState === "indicator") {
+                this.setState({ sunState: "series" })
+            }
+            else if (this.state.sunState === "series") {
+                this.setState({ sunState: "dataseries" })
+            }
+        }
+        else {
+            if (this.state.sunState === "dataseries") {
+                this.setState({ sunState: "series" })
+            }
+            else if (this.state.sunState === "series") {
+                this.setState({ sunState: "indicator" })
+            }
+            else if (this.state.sunState === "indicator") {
+                this.setState({ sunState: "target" })
+            }
+            else if (this.state.sunState === "target") {
+                this.setState({ sunState: "goal" })
+            }
+            else if (this.state.sunState === "goal") {
+                this.setState({ sunState: "root" })
+            }
+        }
     }
 
     reciveSeriesJsonFromApi = async () => {
@@ -124,9 +163,15 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-
-            // console.log(p.data.concept)
-
+            
+            this.setState({
+                dataForPreview: {
+                    id: p.data.id,
+                    name: p.data.name,
+                    label: p.data.label,
+                    concept: p.data.concept
+                }
+            })
             if (p.parent === null) {
                 this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
             }
@@ -149,7 +194,10 @@ class ZoomableSunburst extends Component {
                 y0: Math.max(0, d.y0 - p.depth),
                 y1: Math.max(0, d.y1 - p.depth)
             });
-
+            
+            this.setState({
+                dataForPreview: undefined
+            })
             if (this.state.clickedData.id === undefined) {
                 this.setState({ selectedGoal: undefined, selectedGoalName: 'Sustainable Development Goals' })
             }
@@ -292,7 +340,7 @@ class ZoomableSunburst extends Component {
         // let data = require('./data');
         let data = this.props.data;
 
-        console.log(data)
+        // console.log(data)
 
         let format = d3.format(",d")
 
@@ -345,15 +393,27 @@ class ZoomableSunburst extends Component {
             .attr("d", d => arc(d.current));
 
         path.filter(d => d)
-            .style("cursor", "pointer")
-            .on("click", clicked)
-            .on("mouseover", mouseover)
-            .on("mouseout", mouseout);
+            .style("cursor", d => arcVisible(d.current) ? (d.children ? "pointer" : "pointer") : "" )
+            .on("click", d => { 
+                if(arcVisible(d.current)){
+                    clicked(d)
+                } 
+            })
+            .on("mouseover", d => { 
+                if(arcVisible(d.current)){
+                    mouseover(d)
+                } 
+            })
+            .on("mouseout", d => { 
+                if(arcVisible(d.current)){
+                    mouseout(d)
+                } 
+            })
 
-        path.append("title")
-            .text(d => {
-                return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`;
-            });
+        // path.append("title")
+        //     .text(d => {
+        //         return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`;
+        //     });
 
         const label = g.append("g")
             .attr("pointer-events", "none")
@@ -365,13 +425,17 @@ class ZoomableSunburst extends Component {
             .attr("dy", "0.35em")
             .attr("fill-opacity", d => +labelVisible(d.current))
             .attr("transform", d => labelTransform(d.current))
-            .text(d => d.data.label.substr(d.data.label.indexOf(" ") + 1))
+            .text(d => {
+                return d.data.label
+                // d.data.label.substr(d.data.label.indexOf(" ") + 1)
+            })
             .style("font-size", (d) => {
                 if (d.data.label.split(" ")[0] !== 'Series') {
-                    return "20px"
+                    return "16px"
                 }
                 return "12px"
-            });
+            })
+            
 
         let parent = g.append("circle")
             .datum(root)
@@ -392,7 +456,7 @@ class ZoomableSunburst extends Component {
             .attr("pointer-events", "all")
             .on("click", clicked);
 
-        
+
 
 
 
@@ -521,7 +585,7 @@ class ZoomableSunburst extends Component {
                     data.push(y + ": " + x[y]);
                 }
             }
-            return data.map(elem => { return <li key={x['@id']+elem.split(" ")[1]}>{elem}</li> })
+            return data.map(elem => { return <li key={x['@id'] + elem.split(" ")[1]}>{elem}</li> })
         }
     }
 
@@ -536,8 +600,6 @@ class ZoomableSunburst extends Component {
 
                         <div id={"ZoomableSunburst"} className="grid-item"></div>
                         {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
-
-
                             <div className="country-series-info">
                                 <h4>Values</h4>
                                 <Row >
@@ -565,9 +627,6 @@ class ZoomableSunburst extends Component {
 
                                 <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DETAIL INFORMATION ABOUT EACH DATA SERIES</p>
                             </div>
-
-
-
                         ) :
                             (<React.Fragment></React.Fragment>)
                         }
@@ -583,7 +642,20 @@ class ZoomableSunburst extends Component {
                                 <h3 className="title">{this.state.selectedGoalName}</h3>
                             </div>
                             <div className="grid-item-text">
-                                {this.state.clickedData.id ? (
+
+                                {this.state.dataForPreview ? (
+                                    <React.Fragment>
+                                        <p>
+                                            <span>LABEL: </span>
+                                            {this.state.dataForPreview.label}
+                                        </p>
+
+                                        <p>
+                                            <span>NAME: </span>
+                                            {this.state.dataForPreview.name}
+                                        </p>
+                                    </React.Fragment>
+                                ) : (this.state.clickedData.id ? (
                                     <React.Fragment>
 
                                         <p>
@@ -604,12 +676,11 @@ class ZoomableSunburst extends Component {
 
 
                                     </React.Fragment>
-                                ) : (<React.Fragment></React.Fragment>)}
+                                ) : (<React.Fragment></React.Fragment>))}
 
 
                             </div>
                         </div>
-
                     </div>
                 </div>
             </React.Fragment>
