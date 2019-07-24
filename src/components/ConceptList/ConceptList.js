@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import './ConceptList.scss';
 import ConceptItem from './ConceptItem/ConceptItem';
@@ -90,19 +91,6 @@ class ConceptList extends React.Component {
                         <ul className="keywords-list" id="keywords-list-id">
                             {this.state.displayData.map((concept, index) => <ConceptItem handlerForOpen={this.handlerForOpen} concept={concept} key={index}></ConceptItem>)}
                         </ul>
-
-                        {/* <div className="link-box">
-                    {this.state.loadCount < this.state.data.length ? (
-                        <p className="link next" onClick={this.loadMore}>Next</p>
-                    ) : (
-                            <p>Next</p>
-                        )}
-                    {this.state.loadCount > 10 ? (
-                        <p className="link prev" onClick={this.loadLess}>Previous</p>
-                    ) : (
-                            <p>Previous</p>
-                        )}
-                </div> */}
                         <Row>
                             <Col className="download-button">
                                 <Button variant="primary" onClick={this.handleDownload}>

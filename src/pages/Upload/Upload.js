@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import './Upload.scss'
 import ConceptList from '../../components/ConceptList/ConceptList';
-import LinkedConceptsList from '../../components/LinkedConceptsList/LinkedConceptsList';
-import Spinner from '../../components/Spinner/Spinner';
 import { handleUploadFile, handleUrlFile, processText } from './utilities';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
@@ -149,11 +147,7 @@ class Upload extends Component {
                 </div>
 
 
-
-
                 {this.state.isLoading ? (
-                    //<Spinner />
-                    // <ProgressBar animated now={45} />
                     <div className="progress-bar-container">
                         <h4>Progress:</h4>
                         <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} />

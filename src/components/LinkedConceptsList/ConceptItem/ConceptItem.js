@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import Collapse from 'react-bootstrap/Collapse'
 import Button from 'react-bootstrap/Button'

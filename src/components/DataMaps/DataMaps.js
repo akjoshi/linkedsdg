@@ -4,7 +4,6 @@ import Datamaps from 'datamaps';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
-import * as d3 from "d3";
 import Button from 'react-bootstrap/Button';
 
 const MAP_CLEARING_PROPS = [

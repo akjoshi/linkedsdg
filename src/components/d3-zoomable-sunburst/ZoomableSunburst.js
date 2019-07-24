@@ -22,7 +22,6 @@ import Goal15 from './img/15.png';
 import Goal16 from './img/16.png';
 import Goal17 from './img/17.png';
 import './ZoomableSunburst.scss'
-import Spiner from '../Spinner/Spinner'
 
 
 class ZoomableSunburst extends Component {
@@ -347,7 +346,7 @@ class ZoomableSunburst extends Component {
 
         // console.log(data)
 
-        let format = d3.format(",d")
+        // let format = d3.format(",d")
 
         const partition = data => {
             const root = d3.hierarchy(data)

@@ -5,26 +5,47 @@ function findContext(data, key) {
     return filtered
 }
 
-function calculateWeight(data) {
-    let sum = 0;
-    for (var key in data) {
-        sum += data[key].weight
-    }
-    return sum;
+const componentToHex = (c) => {
+    var hex = c.toString(16);
+    return hex.length === 1 ? "0" + hex : hex;
 }
 
-function linkConcepts(newConcepts, oldConcepts) {
-    for (var key in newConcepts) {
-        // eslint-disable-next-line no-loop-func
-        const importantConcepts = oldConcepts.filter(x => (x.id === key));
-        newConcepts[key] = { ...newConcepts[key], linkedConcept: importantConcepts };
-    }
+const rgbToHex = (r, g, b) => {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
 
-    return newConcepts;
+const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
+    let countryArr = jsonText.data.countries.total;
+    let countryAreas = require('./CountryAndArea.json');
+    countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
+
+    if (countryArr !== undefined) {
+        let maxWeight = countryArr[jsonText.data.countries.top_region].weight;
+        let top_regions = jsonText.data.countries.top_regions;
+
+        for (let elem in jsonText.data.countries.top_regions) {
+            if (countryArr[top_regions[elem]].source === 'geo') {
+                let countryInfo = countryArr[top_regions[elem]];
+                let colorIntens = countryInfo.weight / maxWeight
+
+                dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
+                dataForSeries.push(countryInfo.name);
+            }
+            else {
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
+
+                for (let key in temp) {
+                    if (dataForDataMap[temp[key].code] === undefined) {
+                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" };
+                    }
+                }
+            }
+        }
+    }
 }
 
 export async function handleUploadFile(file) {
-    this.setState({ progress: 10  })
+    this.setState({ progress: 10 })
     if (file === undefined) {
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
         this.setState({ waitForData: true });
@@ -47,14 +68,14 @@ export async function handleUploadFile(file) {
         // console.log(json.data.text)
         this.processText(json.data);
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" , progress: 45 });
+        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!", progress: 45 });
         this.setState({ waitForData: true });
     }
 
 }
 
 export async function handleUrlFile(url) {
-    this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10});
+    this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
     try {
         const json = await axios.post('http://127.0.0.1:5001/apiURL', url, {
             headers: {
@@ -89,44 +110,14 @@ export async function processText(data) {
         // console.log('Json z spacy')
         // console.log(jsonText)
 
-        let countryAreas = require('./CountryAndArea.json');
-        countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
 
-        this.setState({downloadDataAboutCountry: jsonText.data.countries.total})
         let dataForDataMap = {};
         let dataForSeries = [];
-        if (jsonText.data.countries.total !== undefined) {
-            let max = jsonText.data.countries.total[jsonText.data.countries.top_region];
-            for (let elem in jsonText.data.countries.top_regions) {
-                // console.log(max)
-                if (jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].source === 'geo') {
-                    let countryInfo = jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]];
-                    let colorIntens = countryInfo.weight / max.weight
-                    const componentToHex = (c) => {
-                        var hex = c.toString(16);
-                        return hex.length === 1 ? "0" + hex : hex;
-                    }
-                    const rgbToHex = (r, g, b) => {
-                        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-                    }
-                    // console.log(rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)))
-                    dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
-                    dataForSeries.push(countryInfo.name);
-                }
-                else {
-                    let temp = countryAreas.filter(x => x.id === jsonText.data.countries.total[jsonText.data.countries.top_regions[elem]].url)
-                    for (let key in temp) {
-                        if (dataForDataMap[temp[key].code] === undefined) {
-                            dataForDataMap[temp[key].code] = { fillKey: "areaColor" };//{fillColor: '#ff0000'}
-                        }
-                    }
-                }
-            }
-        }
+        this.setState({ downloadDataAboutCountry: jsonText.data.countries.total })
 
-        console.log(dataForDataMap)
+        handleCountryColors(jsonText, dataForDataMap, dataForSeries)
 
-        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60  })
+        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
 
 
