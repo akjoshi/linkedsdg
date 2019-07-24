@@ -21,6 +21,7 @@ class ZoomableSunburst extends Component {
         selectedGoalName: 'Sustainable Development Goals',
         countrySeriesData: [],
         sunState: "root",
+        lastNode: undefined,
     }
 
     setSunState(deeper = true) {
@@ -37,15 +38,9 @@ class ZoomableSunburst extends Component {
             else if (this.state.sunState === "indicator") {
                 this.setState({ sunState: "series" })
             }
-            else if (this.state.sunState === "series") {
-                this.setState({ sunState: "dataseries" })
-            }
         }
         else {
-            if (this.state.sunState === "dataseries") {
-                this.setState({ sunState: "series" })
-            }
-            else if (this.state.sunState === "series") {
+            if (this.state.sunState === "series") {
                 this.setState({ sunState: "indicator" })
             }
             else if (this.state.sunState === "indicator") {
@@ -58,6 +53,22 @@ class ZoomableSunburst extends Component {
                 this.setState({ sunState: "root" })
             }
         }
+    }
+
+    chooseState = (p) => {
+        if(this.state.lastNode === p.parent || this.state.lastNode === undefined){
+            this.setSunState(true)
+        }
+        else if(p.parent !== null && this.state.lastNode === p.parent.parent){
+            this.setSunState(true)
+            this.setState({lastNode: p})
+            this.setSunState(true)
+        }
+        else{
+            this.setSunState(false)
+        }
+        console.log(this.state.sunState)
+        this.setState({lastNode: p})
     }
 
     reciveSeriesJsonFromApi = async () => {
@@ -115,13 +126,6 @@ class ZoomableSunburst extends Component {
         const uris = require('./sdgURIS.json')
 
         const mouseover = (p) => {
-            root.each(d => d.target = {
-                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                y0: Math.max(0, d.y0 - p.depth),
-                y1: Math.max(0, d.y1 - p.depth)
-            });
-
             this.setState({
                 dataForPreview: {
                     id: p.data.id,
@@ -145,13 +149,6 @@ class ZoomableSunburst extends Component {
         }
 
         const mouseout = (p) => {
-            root.each(d => d.target = {
-                x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
-                y0: Math.max(0, d.y0 - p.depth),
-                y1: Math.max(0, d.y1 - p.depth)
-            });
-
             this.setState({
                 dataForPreview: undefined
             })
@@ -163,6 +160,9 @@ class ZoomableSunburst extends Component {
 
         const clicked = async (p) => {
             parent.datum(p.parent || root);
+
+            this.chooseState(p)
+
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
