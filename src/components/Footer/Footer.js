@@ -10,16 +10,6 @@ const Footer = props => (
                 <img src={logo} alt="Epistemik"></img>
             </a>
         </div>
-        {/* <div className="main-nav-logo">
-            <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">
-                <img src={logo} alt="Upload"></img>
-            </a>
-        </div> */}
-        {/* <div className="nav-title">
-            <NavLink to="/">
-                <h2>SUSTAINABLE DEVELOPMENT LINKS</h2>
-            </NavLink>
-        </div> */}
     </footer>
 );
 

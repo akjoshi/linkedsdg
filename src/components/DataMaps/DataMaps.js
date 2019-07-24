@@ -75,8 +75,7 @@ export default class Datamap extends React.Component {
             data,
             graticule,
             labels,
-            updateChoroplethOptions,
-            ...props
+            updateChoroplethOptions
         } = this.props;
 
         let map = this.map;
@@ -117,14 +116,10 @@ export default class Datamap extends React.Component {
     }
 
     handleDownload = async () => {
-        console.log(this.props.downloadData)
-
-        let dataForJson = []; //  ...this.props.downloadData
+        let dataForJson = [];
         for( let key in this.props.downloadData){
             dataForJson.push(this.props.downloadData[key])
         }
-
-
         let filename = "export.json";
         let contentType = "application/json;charset=utf-8;";
         if (window.navigator && window.navigator.msSaveOrOpenBlob) {

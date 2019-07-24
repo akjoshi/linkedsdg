@@ -4,23 +4,6 @@ import axios from 'axios';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Wheel from './img/wheel.png';
-import Goal01 from './img/01.png';
-import Goal02 from './img/02.png';
-import Goal03 from './img/03.png';
-import Goal04 from './img/04.png';
-import Goal05 from './img/05.png';
-import Goal06 from './img/06.png';
-import Goal07 from './img/07.png';
-import Goal08 from './img/08.png';
-import Goal09 from './img/09.png';
-import Goal10 from './img/10.png';
-import Goal11 from './img/11.png';
-import Goal12 from './img/12.png';
-import Goal13 from './img/13.png';
-import Goal14 from './img/14.png';
-import Goal15 from './img/15.png';
-import Goal16 from './img/16.png';
-import Goal17 from './img/17.png';
 import './ZoomableSunburst.scss'
 
 
@@ -28,7 +11,6 @@ class ZoomableSunburst extends Component {
     componentDidMount() {
         this.drawChart();
     }
-
 
     state = {
         svgElement: '',
@@ -77,13 +59,13 @@ class ZoomableSunburst extends Component {
             }
         }
     }
+
     reciveSeriesJsonFromApi = async () => {
         try {
             const dataForApi = {
                 "countries": this.props.dataForSeries,
                 "stat": this.state.clickedData.id
             }
-
 
             const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
                 headers: {
@@ -93,8 +75,7 @@ class ZoomableSunburst extends Component {
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-            // this.setState({ countrySeriesData: text.data })
-            // console.log(text.data)
+            
             var myWindow = window.open("", "MsgWindow");
             myWindow.document.write('<pre id="json"></pre>');
             myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
@@ -120,7 +101,7 @@ class ZoomableSunburst extends Component {
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-            // console.log(text.data)
+            
             var myWindow = window.open("", "MsgWindow");
             myWindow.document.write('<pre id="json"></pre>');
             myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
@@ -131,36 +112,15 @@ class ZoomableSunburst extends Component {
     }
 
     drawChart = async () => {
-
-        const uris = [
-            "http://data.un.org/kos/sdg/01",
-            "http://data.un.org/kos/sdg/02",
-            "http://data.un.org/kos/sdg/03",
-            "http://data.un.org/kos/sdg/04",
-            "http://data.un.org/kos/sdg/05",
-            "http://data.un.org/kos/sdg/06",
-            "http://data.un.org/kos/sdg/07",
-            "http://data.un.org/kos/sdg/08",
-            "http://data.un.org/kos/sdg/09",
-            "http://data.un.org/kos/sdg/10",
-            "http://data.un.org/kos/sdg/11",
-            "http://data.un.org/kos/sdg/12",
-            "http://data.un.org/kos/sdg/13",
-            "http://data.un.org/kos/sdg/14",
-            "http://data.un.org/kos/sdg/15",
-            "http://data.un.org/kos/sdg/16",
-            "http://data.un.org/kos/sdg/17",
-        ]
+        const uris = require('./sdgURIS.json')
 
         const mouseover = (p) => {
-
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
                 x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
                 y0: Math.max(0, d.y0 - p.depth),
                 y1: Math.max(0, d.y1 - p.depth)
             });
-
 
             this.setState({
                 dataForPreview: {
@@ -185,7 +145,6 @@ class ZoomableSunburst extends Component {
         }
 
         const mouseout = (p) => {
-
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
                 x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -205,7 +164,6 @@ class ZoomableSunburst extends Component {
         const clicked = async (p) => {
             parent.datum(p.parent || root);
 
-
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
                 x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -213,7 +171,6 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            // console.log(p.data.concept)
             this.setState({
                 clickedData: {
                     id: p.data.id,
@@ -241,7 +198,6 @@ class ZoomableSunburst extends Component {
 
                 let midTitle = g.select("text#middleTitle");
 
-
                 let middleTitle = p.data.label.split(" ");
                 middleTitle = middleTitle[0] + "s";
                 if (middleTitle === 'Seriess') {
@@ -249,7 +205,6 @@ class ZoomableSunburst extends Component {
                 }
 
                 middleTitle = "BACK TO " + middleTitle.toUpperCase();
-
 
                 midTitle.text(function (d) { return middleTitle })
                     .attr("x", 0)
@@ -267,12 +222,6 @@ class ZoomableSunburst extends Component {
                     .attr("y", 0)
             }
 
-
-
-
-            // Transition the data on all arcs, even the ones that aren’t visible,
-            // so that if this transition is interrupted, entering arcs will start
-            // the next transition from the desired position.
             path.transition(t)
                 .tween("data", d => {
                     const i = d3.interpolate(d.current, d.target);
@@ -281,7 +230,6 @@ class ZoomableSunburst extends Component {
                 .filter(function (d) {
                     return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                //.attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
                 .attrTween("d", d => () => arc(d.current));
 
 
@@ -304,17 +252,16 @@ class ZoomableSunburst extends Component {
                         "stat": this.state.clickedData.id
                     }
 
-
                     const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
                         headers: {
                             'Content-Type': 'application/json'
                         }
                     });
-                    // console.log(text)
+                    
                     if (text.status !== 200 && text.status !== 201) {
                         throw new Error('Failed!');
                     }
-                    text.data['@graph'].sort(function(a, b) {
+                    text.data['@graph'].sort(function (a, b) {
                         let textA = a.geoAreaName.toUpperCase();
                         let textB = b.geoAreaName.toUpperCase();
                         return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
@@ -341,12 +288,7 @@ class ZoomableSunburst extends Component {
             .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
 
-        // let data = require('./data');
         let data = this.props.data;
-
-        // console.log(data)
-
-        // let format = d3.format(",d")
 
         const partition = data => {
             const root = d3.hierarchy(data)
@@ -358,25 +300,7 @@ class ZoomableSunburst extends Component {
 
         const root = partition(data);
 
-        let colors = {
-            "http://data.un.org/kos/sdg/01": "rgb( 229, 36,59 )",
-            "http://data.un.org/kos/sdg/02": "rgb( 221, 166,58 )",
-            "http://data.un.org/kos/sdg/03": "rgb( 76, 159, 56)",
-            "http://data.un.org/kos/sdg/04": "rgb( 197, 25,45 )",
-            "http://data.un.org/kos/sdg/05": "rgb( 255, 58, 33)",
-            "http://data.un.org/kos/sdg/06": "rgb( 38, 189, 226)",
-            "http://data.un.org/kos/sdg/07": "rgb( 252, 195, 11)",
-            "http://data.un.org/kos/sdg/08": "rgb( 162, 25, 66)",
-            "http://data.un.org/kos/sdg/09": "rgb( 253, 105, 37)",
-            "http://data.un.org/kos/sdg/10": "rgb( 221, 19, 103)",
-            "http://data.un.org/kos/sdg/11": "rgb( 253, 157, 36)",
-            "http://data.un.org/kos/sdg/12": "rgb( 191, 139, 46)",
-            "http://data.un.org/kos/sdg/13": "rgb( 63, 126, 68)",
-            "http://data.un.org/kos/sdg/14": "rgb( 10, 151, 217)",
-            "http://data.un.org/kos/sdg/15": "rgb( 86, 192, 43)",
-            "http://data.un.org/kos/sdg/16": "rgb( 0, 104, 157)",
-            "http://data.un.org/kos/sdg/17": "rgb( 25, 72, 106)",
-        }
+        let colors = require(`./sdgColors.json`)
 
         root.each(d => d.current = d);
 
@@ -420,11 +344,6 @@ class ZoomableSunburst extends Component {
                 }
             })
 
-        // path.append("title")
-        //     .text(d => {
-        //         return `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`;
-        //     });
-
         const label = g.append("g")
             .attr("pointer-events", "none")
             .attr("text-anchor", "middle")
@@ -436,8 +355,7 @@ class ZoomableSunburst extends Component {
             .attr("fill-opacity", d => +labelVisible(d.current))
             .attr("transform", d => labelTransform(d.current))
             .text(d => {
-                return d.data.label
-                // d.data.label.substr(d.data.label.indexOf(" ") + 1)
+                return d.data.label;
             })
             .style("font-size", (d) => {
                 if (d.data.label.split(" ")[0] !== 'Series') {
@@ -453,8 +371,6 @@ class ZoomableSunburst extends Component {
             .attr("fill", "none")
             .attr("pointer-events", "all")
 
-
-
         parent = g
             .append("text")
             .style("text-anchor", "middle")
@@ -465,11 +381,6 @@ class ZoomableSunburst extends Component {
             .style("cursor", "pointer")
             .attr("pointer-events", "all")
             .on("click", clicked);
-
-
-
-
-
 
         function arcVisible(d) {
             return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
@@ -489,24 +400,13 @@ class ZoomableSunburst extends Component {
     }
 
     selectImage = () => {
-        let images = {
-            "http://data.un.org/kos/sdg/01": Goal01,
-            "http://data.un.org/kos/sdg/02": Goal02,
-            "http://data.un.org/kos/sdg/03": Goal03,
-            "http://data.un.org/kos/sdg/04": Goal04,
-            "http://data.un.org/kos/sdg/05": Goal05,
-            "http://data.un.org/kos/sdg/06": Goal06,
-            "http://data.un.org/kos/sdg/07": Goal07,
-            "http://data.un.org/kos/sdg/08": Goal08,
-            "http://data.un.org/kos/sdg/09": Goal09,
-            "http://data.un.org/kos/sdg/10": Goal10,
-            "http://data.un.org/kos/sdg/11": Goal11,
-            "http://data.un.org/kos/sdg/12": Goal12,
-            "http://data.un.org/kos/sdg/13": Goal13,
-            "http://data.un.org/kos/sdg/14": Goal14,
-            "http://data.un.org/kos/sdg/15": Goal15,
-            "http://data.un.org/kos/sdg/16": Goal16,
-            "http://data.un.org/kos/sdg/17": Goal17,
+        let images = {}
+        let index = 1;
+        while (index < 18) {
+            let indexNr = ""
+            index < 10 ? indexNr = "0" + index : indexNr = index;
+            images["http://data.un.org/kos/sdg/" + indexNr] = require(`./img/${indexNr}.png`);
+            index = index + 1;
         }
 
         if (this.state.selectedGoal === undefined) {
@@ -537,26 +437,16 @@ class ZoomableSunburst extends Component {
         }
 
         return data.map(x => {
-            // console.log(x.label)
-            // console.log(x.linkedConcepts)
-            // console.log(x.linkedConcepts.includes(x.label))
-            // if(x.linkedConcepts.map(x => x.label).includes(x.label)){
-            //     let index = x.linkedConcepts.map(x => x.label).indexOf(x.label);
-            //     console.log(index);
-            //     console.log(x.linkedConcepts);
-            //     [x.linkedConcepts[0], x.linkedConcepts[index]] = [x.linkedConcepts[index], x.linkedConcepts[0]];
-            //     console.log(x.linkedConcepts);
-            // }
             let linkedConceptsSorted = []
-            for(let k in x.linkedConcepts){
-                if(x.linkedConcepts[k].label === x.label ){
+            for (let k in x.linkedConcepts) {
+                if (x.linkedConcepts[k].label === x.label) {
                     linkedConceptsSorted.push(x.linkedConcepts[k])
-                }   
+                }
             }
-            for(let k in x.linkedConcepts){
-                if(x.linkedConcepts[k].label !== x.label ){
+            for (let k in x.linkedConcepts) {
+                if (x.linkedConcepts[k].label !== x.label) {
                     linkedConceptsSorted.push(x.linkedConcepts[k])
-                }   
+                }
             }
             return <p key={x.url}>
                 <span>{x.label}</span> concept from {x.source}:
@@ -573,7 +463,6 @@ class ZoomableSunburst extends Component {
                     </i>
                 })}
             </p>
-        
         })
     }
 
@@ -584,8 +473,6 @@ class ZoomableSunburst extends Component {
                     "type": "Country",
                     "uri": x['@id']
                 }
-
-                console.log(dataForApi)
 
                 const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
                     headers: {
@@ -621,26 +508,7 @@ class ZoomableSunburst extends Component {
 
     getJsonText = (x) => {
         if (typeof (x) === 'object') {
-            let tab = [
-                "Type_of_skill_description",
-                "Freq_description",
-                "Location_description",
-                "Age_description",
-                "Sex_description",
-                "Bounds_description",
-                "Hazard_type_description",
-                "Migratory_status_description",
-                "Education_level_description",
-                "Type_of_product_description",
-                "Type_of_occupation_description",
-                "Level_Status_description",
-                "Name_of_international_institu_1",
-                "Mode_of_transportation_descript",
-                "Name_of_non_communicable_dise_1",
-                "IHR_Capacity_description",
-                "Type_of_speed_description",
-                "Type_of_mobile_technology_descr"
-            ]
+            let tab = require(`./jsonSeriesData.json`);
             let data = []
             for (let y in x) {
                 if (tab.filter(x => x === y).length > 0) {

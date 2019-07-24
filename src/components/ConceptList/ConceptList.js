@@ -13,31 +13,8 @@ class ConceptList extends React.Component {
         super(props);
         this.state = {
             data: props.Concepts,
-            loadCount: 10,
             displayData: props.Concepts
         };
-    }
-
-    componentDidMount() {
-        this.displayData()
-    }
-
-
-    displayData = async () => {
-        // const { data, loadCount } = this.state;
-        // //const chunkOfData = await data.filter((data, index) => index < loadCount && index >= loadCount - 10)
-        // data.forEach(x => x.open = false)
-        // this.setState({ displayData: data });
-    }
-
-    loadMore = async () => {
-        await this.setState({ loadCount: this.state.loadCount + 10 });
-        this.displayData()
-    }
-
-    loadLess = async () => {
-        await this.setState({ loadCount: this.state.loadCount - 10 });
-        this.displayData()
     }
 
     handleDownload = async () => {
@@ -81,13 +58,6 @@ class ConceptList extends React.Component {
                 </h3>
                 <div className="grid-container">
                     <div className="grid-item">
-                        <Row>
-                            <Col>
-
-                            </Col>
-
-                        </Row>
-
                         <ul className="keywords-list" id="keywords-list-id">
                             {this.state.displayData.map((concept, index) => <ConceptItem handlerForOpen={this.handlerForOpen} concept={concept} key={index}></ConceptItem>)}
                         </ul>
@@ -100,7 +70,6 @@ class ConceptList extends React.Component {
                         </Row>
                     </div>
                     <div className="grid-item">
-
                         <BubbleChart handlerForOpen={this.handlerForOpen} data={this.props.Concepts}></BubbleChart>
                         <Row className="BubbleChart-info">
                             <Col>
@@ -110,12 +79,7 @@ class ConceptList extends React.Component {
                             </Col>
                         </Row>
                     </div>
-
                 </div>
-
-
-
-
             </div>
         );
     }

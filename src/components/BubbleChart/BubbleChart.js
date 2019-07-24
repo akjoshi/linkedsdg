@@ -10,8 +10,6 @@ class BubbleChart extends React.Component {
     }
 
     drawChart = async () => {
-
-
         const clicked = async (p) => {
             this.props.handlerForOpen(p.data.id)
 
@@ -64,9 +62,6 @@ class BubbleChart extends React.Component {
             .attr("transform", d => `translate(${d.x + 1},${d.y + 1})`)
             .attr("id", d => (d.data.id))
             .on("mouseover", function (d) {
-                // svg.selectAll("g")
-                //     .attr("fill-opacity", 0.2);
-
                 d3.select(this).select("text").remove()
                 d3.select(this).raise()
                     .attr("fill-opacity", 1)
@@ -118,17 +113,6 @@ class BubbleChart extends React.Component {
             })
             .style("fill", "#555555");
 
-
-
-        // .attr("clip-path", d => { return d.clipUid })
-        // .selectAll("tspan")
-        // .data(d => { return d.data.name.split(/(?=[A-Z][^A-Z])/g) })
-        // .join("tspan")
-        // .attr("x", 0)
-        // .attr("y", (d, i, nodes) => `${i - nodes.length / 2 + 0.8}em`)
-        // .text(d => d)
-        // .style("font-size", `18px`)
-        // .style("cursor", "pointer")
 
 
         leaf.append("title")
