@@ -152,14 +152,14 @@ export default class Datamap extends React.Component {
             <div ref="container" id="containerForMap" style={style} >
 
                 <h3 className="Title">
-                    Related countries:
+                Extracted regions
                 </h3>
 
             </div>
             <Row className="Datamap-info">
                 <Col>
                     <i><span className="areaColor"></span> Area</i>
-                    <i><span className="countryColor"></span> Country</i>
+                    <i><span className="countryColor"></span> Country relevance</i>
                 </Col>
             </Row>
             <Row>

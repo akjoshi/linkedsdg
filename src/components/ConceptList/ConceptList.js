@@ -40,8 +40,8 @@ class ConceptList extends React.Component {
     }
 
     handleDownload = async () => {
-        let dataForJson = [ ...this.state.data ];
-        dataForJson = dataForJson.map(x => { 
+        let dataForJson = [...this.state.data];
+        dataForJson = dataForJson.map(x => {
             return {
                 id: x.id,
                 label: x.label,
@@ -76,7 +76,7 @@ class ConceptList extends React.Component {
         return (
             <div className="linked-concepts-container">
                 <h3 className="Title">
-                    Extracted concepts:
+                    Extracted concepts
                 </h3>
                 <div className="grid-container">
                     <div className="grid-item">

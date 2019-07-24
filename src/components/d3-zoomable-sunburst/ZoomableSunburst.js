@@ -162,7 +162,7 @@ class ZoomableSunburst extends Component {
                 y1: Math.max(0, d.y1 - p.depth)
             });
 
-            
+
             this.setState({
                 dataForPreview: {
                     id: p.data.id,
@@ -193,7 +193,7 @@ class ZoomableSunburst extends Component {
                 y0: Math.max(0, d.y0 - p.depth),
                 y1: Math.max(0, d.y1 - p.depth)
             });
-            
+
             this.setState({
                 dataForPreview: undefined
             })
@@ -311,10 +311,15 @@ class ZoomableSunburst extends Component {
                             'Content-Type': 'application/json'
                         }
                     });
-                    console.log(text)
+                    // console.log(text)
                     if (text.status !== 200 && text.status !== 201) {
                         throw new Error('Failed!');
                     }
+                    text.data['@graph'].sort(function(a, b) {
+                        let textA = a.geoAreaName.toUpperCase();
+                        let textB = b.geoAreaName.toUpperCase();
+                        return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                    });
                     this.setState({ countrySeriesData: text.data['@graph'] })
 
                 } catch (error) {
@@ -393,27 +398,27 @@ class ZoomableSunburst extends Component {
             .attr("d", d => arc(d.current));
 
         path.filter(d => d)
-            .style("cursor",d => { 
-                if(!arcVisible(d.current) ){
+            .style("cursor", d => {
+                if (!arcVisible(d.current)) {
                     return ""
                 }
                 return "pointer"
             })
-            .on("click", d => { 
-                if(arcVisible(d.current || (d.children === undefined && arcVisible(d.current))) ){
+            .on("click", d => {
+                if (arcVisible(d.current || (d.children === undefined && arcVisible(d.current)))) {
                     clicked(d)
                     mouseout(d)
-                } 
+                }
             })
-            .on("mouseover", d => { 
-                if(arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))){
+            .on("mouseover", d => {
+                if (arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))) {
                     mouseover(d)
-                } 
+                }
             })
-            .on("mouseout", d => { 
-                if(arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))){
+            .on("mouseout", d => {
+                if (arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))) {
                     mouseout(d)
-                } 
+                }
             })
 
         // path.append("title")
@@ -441,7 +446,7 @@ class ZoomableSunburst extends Component {
                 }
                 return "12px"
             })
-            
+
 
         let parent = g.append("circle")
             .datum(root)
@@ -532,10 +537,31 @@ class ZoomableSunburst extends Component {
             })
         }
 
-        return data.map(x => (
-            <p key={x.url}>
+        return data.map(x => {
+            // console.log(x.label)
+            // console.log(x.linkedConcepts)
+            // console.log(x.linkedConcepts.includes(x.label))
+            // if(x.linkedConcepts.map(x => x.label).includes(x.label)){
+            //     let index = x.linkedConcepts.map(x => x.label).indexOf(x.label);
+            //     console.log(index);
+            //     console.log(x.linkedConcepts);
+            //     [x.linkedConcepts[0], x.linkedConcepts[index]] = [x.linkedConcepts[index], x.linkedConcepts[0]];
+            //     console.log(x.linkedConcepts);
+            // }
+            let linkedConceptsSorted = []
+            for(let k in x.linkedConcepts){
+                if(x.linkedConcepts[k].label === x.label ){
+                    linkedConceptsSorted.push(x.linkedConcepts[k])
+                }   
+            }
+            for(let k in x.linkedConcepts){
+                if(x.linkedConcepts[k].label !== x.label ){
+                    linkedConceptsSorted.push(x.linkedConcepts[k])
+                }   
+            }
+            return <p key={x.url}>
                 <span>{x.label}</span> concept from {x.source}:
-                {x.linkedConcepts.map(y => {
+                {linkedConceptsSorted.map(y => {
                     if (y.label !== x.label) {
                         return <span key={y.url} className="uri-link">
                             <br></br>
@@ -548,7 +574,8 @@ class ZoomableSunburst extends Component {
                     </i>
                 })}
             </p>
-        ))
+        
+        })
     }
 
     callForCountryApi = (x) => {
@@ -558,7 +585,7 @@ class ZoomableSunburst extends Component {
                     "type": "Country",
                     "uri": x['@id']
                 }
-    
+
                 console.log(dataForApi)
 
                 const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
@@ -573,7 +600,7 @@ class ZoomableSunburst extends Component {
                 var myWindow = window.open("", "MsgWindow");
                 myWindow.document.write('<pre id="json"></pre>');
                 myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
-    
+
             } catch (error) {
                 console.log("ERROR");
             }
@@ -629,7 +656,7 @@ class ZoomableSunburst extends Component {
         return (
             <React.Fragment>
                 <h3 className="Title">
-                    Linked concepts:
+                    Most relevant SDGs
                 </h3>
                 <div className="grid-container">
                     <div>
@@ -649,7 +676,7 @@ class ZoomableSunburst extends Component {
                                         <Row>
                                             <Col className="uri-link series-country-country" onClick={this.callForCountryApi(x)}>{x.geoAreaName}</Col>
                                             <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
-                                            <Col>{x.Units} </Col>
+                                            <Col>{x.Units_description} </Col>
                                             <Col xs={1} className="series-country-expand" onClick={this.genOnClick(x)}>+</Col>
                                         </Row>
                                         <Row className="series-country-json">
@@ -662,7 +689,7 @@ class ZoomableSunburst extends Component {
                                     </div>
                                 })}
 
-                                <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DETAIL INFORMATION ABOUT EACH DATA SERIES</p>
+                                <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DATA</p>
                             </div>
                         ) :
                             (<React.Fragment></React.Fragment>)
