@@ -78,7 +78,6 @@ class ZoomableSunburst extends Component {
             }
         }
     }
-
     reciveSeriesJsonFromApi = async () => {
         try {
             const dataForApi = {
@@ -122,7 +121,7 @@ class ZoomableSunburst extends Component {
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
-
+            // console.log(text.data)
             var myWindow = window.open("", "MsgWindow");
             myWindow.document.write('<pre id="json"></pre>');
             myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
@@ -312,10 +311,11 @@ class ZoomableSunburst extends Component {
                             'Content-Type': 'application/json'
                         }
                     });
+                    console.log(text)
                     if (text.status !== 200 && text.status !== 201) {
                         throw new Error('Failed!');
                     }
-                    this.setState({ countrySeriesData: text.data })
+                    this.setState({ countrySeriesData: text.data['@graph'] })
 
                 } catch (error) {
                     console.log("ERROR");
