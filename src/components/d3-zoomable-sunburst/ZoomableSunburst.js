@@ -116,7 +116,6 @@ class ZoomableSunburst extends Component {
         ]
 
         const mouseover = (p) => {
-            parent.datum(p.parent || root);
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -143,7 +142,6 @@ class ZoomableSunburst extends Component {
         }
 
         const mouseout = (p) => {
-            parent.datum(p.parent || root);
 
             root.each(d => d.target = {
                 x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
@@ -237,7 +235,7 @@ class ZoomableSunburst extends Component {
                 .filter(function (d) {
                     return +this.getAttribute("fill-opacity") || arcVisible(d.target);
                 })
-                // .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
+                //.attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 1 : 0.6) : 0)
                 .attrTween("d", d => () => arc(d.current));
 
 
@@ -394,6 +392,7 @@ class ZoomableSunburst extends Component {
             .attr("pointer-events", "all")
             .on("click", clicked);
 
+        
 
 
 
