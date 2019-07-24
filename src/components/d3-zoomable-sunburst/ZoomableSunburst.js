@@ -551,6 +551,36 @@ class ZoomableSunburst extends Component {
         ))
     }
 
+    callForCountryApi = (x) => {
+        return async () => {
+            try {
+                const dataForApi = {
+                    "type": "Country",
+                    "uri": x['@id']
+                }
+    
+                console.log(dataForApi)
+
+                const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+                if (text.status !== 200 && text.status !== 201) {
+                    throw new Error('Failed!');
+                }
+
+                var myWindow = window.open("", "MsgWindow");
+                myWindow.document.write('<pre id="json"></pre>');
+                myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
+    
+            } catch (error) {
+                console.log("ERROR");
+            }
+        }
+    }
+
+
     genOnClick = (x) => {
         return () => {
             let elem = document.getElementById("Series" + x['@id'])
@@ -609,17 +639,18 @@ class ZoomableSunburst extends Component {
                             <div className="country-series-info">
                                 <h4>Values</h4>
                                 <Row >
-                                    <Col xs={6}>Name</Col>
+                                    <Col>Name</Col>
                                     <Col>Value </Col>
                                     <Col>Units </Col>
+                                    <Col xs={1}></Col>
                                 </Row>
                                 {this.state.countrySeriesData.map(x => {
                                     return <div key={x['@id']} id={"Series" + x['@id']} className="series-info" >
                                         <Row>
-                                            <Col xs={6} className="series-country-title" onClick={this.genOnClick(x)}>{x.geoAreaName}</Col>
+                                            <Col className="uri-link series-country-country" onClick={this.callForCountryApi(x)}>{x.geoAreaName}</Col>
                                             <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
                                             <Col>{x.Units} </Col>
-
+                                            <Col xs={1} className="series-country-expand" onClick={this.genOnClick(x)}>+</Col>
                                         </Row>
                                         <Row className="series-country-json">
                                             <Col>

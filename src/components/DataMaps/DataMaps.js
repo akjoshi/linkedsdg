@@ -118,30 +118,28 @@ export default class Datamap extends React.Component {
     }
 
     handleDownload = async () => {
-        console.log(this.props.data)
-        let dataForJson = []//[ ...this.props.data];
-        // dataForJson = dataForJson.map(x => { 
-        //     return {
-        //         id: x.id,
-        //         label: x.label,
-        //         source: x.source
-        //     };
-        // })
+        console.log(this.props.downloadData)
 
-        // let filename = "export.json";
-        // let contentType = "application/json;charset=utf-8;";
-        // if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-        //     var blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(dataForJson)))], { type: contentType });
-        //     navigator.msSaveOrOpenBlob(blob, filename);
-        // } else {
-        //     var a = document.createElement('a');
-        //     a.download = filename;
-        //     a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(dataForJson));
-        //     a.target = '_blank';
-        //     document.body.appendChild(a);
-        //     a.click();
-        //     document.body.removeChild(a);
-        // }
+        let dataForJson = []; //  ...this.props.downloadData
+        for( let key in this.props.downloadData){
+            dataForJson.push(this.props.downloadData[key])
+        }
+
+
+        let filename = "export.json";
+        let contentType = "application/json;charset=utf-8;";
+        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+            var blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(dataForJson)))], { type: contentType });
+            navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+            var a = document.createElement('a');
+            a.download = filename;
+            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(dataForJson));
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
     }
 
     render() {

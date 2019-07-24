@@ -15,11 +15,15 @@
             height: 24px;
             overflow: hidden;
 
-            .series-country-title{
+            .series-country-country{
+                margin:0;
+            }
+
+            .series-country-expand{
                 cursor: pointer;
             }
 
-            .series-country-title:hover{
+            .series-country-expand:hover{
                 opacity: 0.6;
             }
 

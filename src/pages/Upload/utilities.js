@@ -92,6 +92,7 @@ export async function processText(data) {
         let countryAreas = require('./CountryAndArea.json');
         countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
 
+        this.setState({downloadDataAboutCountry: jsonText.data.countries.total})
         let dataForDataMap = {};
         let dataForSeries = [];
         if (jsonText.data.countries.total !== undefined) {

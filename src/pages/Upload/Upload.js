@@ -39,6 +39,7 @@ class Upload extends Component {
         dataForDataMap: {},
         dataForSeries: [],
         progress: 0,
+        downloadDataAboutCountry: [],
     };
 
     clear = (event) => {
@@ -164,7 +165,7 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                                <DataMap data={this.state.dataForDataMap} responsive={true}/>
+                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true}/>
 
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 
