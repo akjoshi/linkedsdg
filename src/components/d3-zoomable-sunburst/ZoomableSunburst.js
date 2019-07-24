@@ -393,19 +393,25 @@ class ZoomableSunburst extends Component {
             .attr("d", d => arc(d.current));
 
         path.filter(d => d)
-            .style("cursor", d => arcVisible(d.current) ? (d.children ? "pointer" : "pointer") : "" )
+            .style("cursor",d => { 
+                if(!arcVisible(d.current) ){
+                    return ""
+                }
+                return "pointer"
+            })
             .on("click", d => { 
-                if(arcVisible(d.current)){
+                if(arcVisible(d.current || (d.children === undefined && arcVisible(d.current))) ){
                     clicked(d)
+                    mouseout(d)
                 } 
             })
             .on("mouseover", d => { 
-                if(arcVisible(d.current)){
+                if(arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))){
                     mouseover(d)
                 } 
             })
             .on("mouseout", d => { 
-                if(arcVisible(d.current)){
+                if(arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))){
                     mouseout(d)
                 } 
             })
