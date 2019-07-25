@@ -2,7 +2,7 @@ import * as d3 from "d3";
 import axios from 'axios';
 
 export async function drawChart(){
-    const uris = require('./sdgURIS.json')
+    const uris = require('./data/sdgURIS.json')
 
     const mouseover = (p) => {
         this.setState({
@@ -174,7 +174,7 @@ export async function drawChart(){
 
     const root = partition(data);
 
-    let colors = require(`./sdgColors.json`)
+    let colors = require(`./data/sdgColors.json`)
 
     root.each(d => d.current = d);
 

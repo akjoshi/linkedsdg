@@ -42,6 +42,16 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             }
         }
     }
+    if(dataForSeries.length === 0){
+        // console.log("data")
+        // console.log(dataForDataMap)
+        for(let key in dataForDataMap){
+            dataForSeries.push(key)
+        }
+        console.log(dataForSeries)
+    }
+
+
 }
 
 export async function handleUploadFile(file) {

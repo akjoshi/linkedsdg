@@ -68,6 +68,7 @@ class ZoomableSunburst extends Component {
                                     <Col>Units </Col>
                                     <Col xs={1}></Col>
                                 </Row>
+                                <div className="records-container">
                                 {this.state.countrySeriesData.map(x => {
                                     return <div key={x['@id']} id={"Series" + x['@id']} className="series-info" >
                                         <Row>
@@ -85,6 +86,7 @@ class ZoomableSunburst extends Component {
                                         </Row>
                                     </div>
                                 })}
+                                </div>
 
                                 <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DATA</p>
                             </div>

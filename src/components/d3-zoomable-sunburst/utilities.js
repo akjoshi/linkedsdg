@@ -157,7 +157,7 @@ export function  genOnClick(x){
 
 export function  getJsonText(x){
     if (typeof (x) === 'object') {
-        let tab = require(`./jsonSeriesData.json`);
+        let tab = require(`./data/jsonSeriesData.json`);
         let data = []
         for (let y in x) {
             if (tab.filter(x => x === y).length > 0) {

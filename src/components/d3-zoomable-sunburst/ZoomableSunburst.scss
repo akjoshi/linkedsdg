@@ -10,6 +10,18 @@
     margin-bottom: 3rem;
 
     .country-series-info{
+        .records-container{
+            max-height: 500px;
+            overflow: scroll;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+        
+        .records-container:hover {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
         .series-info {
             border-bottom: 1px #ccc solid;
             height: 24px;
