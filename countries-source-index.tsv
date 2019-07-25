@@ -279,3 +279,9 @@ http://data.un.org/kos/geo/53	Australia and New Zealand	Australia and New Zealan
 http://data.un.org/kos/geo/54	Melanesia	Melanesia	geo-all
 http://data.un.org/kos/geo/57	Micronesia	Micronesia	geo-all
 http://data.un.org/kos/geo/61	Polynesia	Polynesia	geo-all
+http://data.un.org/kos/geo/DevelopingCountry	Developing country	Developing country	geo-all
+http://data.un.org/kos/geo/LeastDevelopedCountry	Least developed country	Least developed country	geo-all
+http://data.un.org/kos/geo/SmallIslandDevelopingState	Small island developing state	Small island developing state	geo-all
+http://data.un.org/kos/geo/DevelopedCountry	Developed country	Developed country	geo-all
+http://data.un.org/kos/geo/736	Sudan (pre-2011)	SDN	geo
+http://data.un.org/kos/geo/530	Netherlands Antilles (pre-2011)	ANT	geo
