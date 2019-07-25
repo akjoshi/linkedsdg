@@ -15,7 +15,7 @@ export async function drawChart() {
         .innerRadius(d => d.y0 * radius)
         .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
-        
+
     const mouseover = (p) => {
         this.setState({
             dataForPreview: {
@@ -152,6 +152,8 @@ export async function drawChart() {
                     let textB = b.geoAreaName.toUpperCase();
                     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
                 });
+                
+                text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
                 this.setState({ countrySeriesData: text.data['@graph'] })
 
             } catch (error) {

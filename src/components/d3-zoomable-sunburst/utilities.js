@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React from 'react';
 import axios from 'axios';
 import Wheel from './img/wheel.png';
@@ -104,12 +105,12 @@ export function loadConcepts() {
                 if (y.label !== x.label) {
                     return <span key={y.url} className="uri-link">
                         <br></br>
-                        <a href={y.url}> {y.label} +</a>
+                        <a href={y.url} target="_blank"> {y.label} +</a>
                     </span>
                 }
                 return <i key={y.url} className="uri-link">
                     <br></br>
-                    <a href={y.url}> {y.label}</a>
+                    <a href={y.url} target="_blank"> {y.label}</a>
                 </i>
             })}
         </p>
@@ -127,9 +128,47 @@ export function describeCountry(x) {
     }
 }
 
+export function expandAllCountryDetailsOnClick() {
+    this.setState({
+        countrySeriesData: this.state.countrySeriesData.map(x => {
+            let elem = document.getElementById("Series" + x['@id'])
+            if (x.open === "+") {
+                x.open = "-"
+            }
+            else {
+                x.open = "+"
+            }
+
+            if (elem.style.height === "auto") {
+                elem.style.height = "24px"
+            }
+            else {
+                elem.style.height = "auto";
+            }
+            return x;
+        })
+    })
+
+}
+
 export function expandCountryDetailsOnClick(x) {
     return () => {
         let elem = document.getElementById("Series" + x['@id'])
+        // this should be fixed
+        this.setState({
+            countrySeriesData: this.state.countrySeriesData.map(elem => {
+                if (elem['@id'] === x['@id']) {
+                    if (elem.open === "+") {
+                        elem.open = "-"
+                    }
+                    else {
+                        elem.open = "+"
+                    }
+                }
+                return elem;
+            })
+        })
+
         if (elem.style.height === "auto") {
             elem.style.height = "24px"
         }

@@ -10,6 +10,16 @@
     margin-bottom: 3rem;
 
     .country-series-info{
+        .big-plus{
+            font-size: 1rem;
+        }
+        .download-series .download-button{
+            width: 100%;
+            text-align: left;
+            button {
+                margin: 1.5rem 0;
+            }
+        }
         .records-container{
             max-height: 500px;
             overflow: scroll;
@@ -20,6 +30,20 @@
         .records-container:hover {
             overflow: scroll;
             overflow-x: hidden;
+        }
+
+        .series-country-expand-all{
+            font-size: 14px;
+            line-height: 16px;
+            margin-right: 5px;
+            text-align: right;
+            max-width: 15%;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .series-country-expand-all:hover{
+            opacity: 0.6;
         }
 
         .series-info {

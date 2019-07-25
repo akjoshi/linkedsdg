@@ -5,7 +5,7 @@ import logo from './logo.png';
 const Footer = props => (
     <footer className="main-footer">
         <div className="logo-container">
-            <p className="describe">Powered by</p>
+            <p className="describe">Delivered by</p>
             <a href=" http://epistemik.co">
                 <img src={logo} alt="Epistemik"></img>
             </a>

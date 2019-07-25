@@ -26,21 +26,10 @@ class ConceptList extends React.Component {
                 source: x.source
             };
         })
-
-        let filename = "export.json";
-        let contentType = "application/json;charset=utf-8;";
-        if (window.navigator && window.navigator.msSaveOrOpenBlob) {
-            var blob = new Blob([decodeURIComponent(encodeURI(JSON.stringify(dataForJson)))], { type: contentType });
-            navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-            var a = document.createElement('a');
-            a.download = filename;
-            a.href = 'data:' + contentType + ',' + encodeURIComponent(JSON.stringify(dataForJson));
-            a.target = '_blank';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-        }
+        
+        var myWindow = window.open("", "MsgWindow");
+        myWindow.document.write('<pre id="json"></pre>');
+        myWindow.document.getElementById("json").innerHTML = JSON.stringify(dataForJson, undefined, 2);
     }
 
     handlerForOpen = async (uri) => {
@@ -64,7 +53,7 @@ class ConceptList extends React.Component {
                         <Row>
                             <Col className="download-button">
                                 <Button variant="primary" onClick={this.handleDownload}>
-                                    ⤓ Download
+                                    ⤓ Get data
                                 </Button>
                             </Col>
                         </Row>
