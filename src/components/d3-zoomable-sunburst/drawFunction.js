@@ -1,9 +1,21 @@
 import * as d3 from "d3";
 import axios from 'axios';
 
-export async function drawChart(){
+export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
+    const colors = require(`./data/sdgColors.json`)
+    let data = this.props.data;
+    let width = 932
+    let radius = 155.33333333333334
+    let arc = d3.arc()
+        .startAngle(d => d.x0)
+        .endAngle(d => d.x1)
+        .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+        .padRadius(radius * 1.5)
+        .innerRadius(d => d.y0 * radius)
+        .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
 
+        
     const mouseover = (p) => {
         this.setState({
             dataForPreview: {
@@ -131,7 +143,7 @@ export async function drawChart(){
                         'Content-Type': 'application/json'
                     }
                 });
-                
+
                 if (text.status !== 200 && text.status !== 201) {
                     throw new Error('Failed!');
                 }
@@ -151,19 +163,6 @@ export async function drawChart(){
         }
     }
 
-    let width = 932
-    let radius = 155.33333333333334
-    let arc = d3.arc()
-        .startAngle(d => d.x0)
-        .endAngle(d => d.x1)
-        .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
-        .padRadius(radius * 1.5)
-        .innerRadius(d => d.y0 * radius)
-        .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
-
-
-    let data = this.props.data;
-
     const partition = data => {
         const root = d3.hierarchy(data)
             .sum(d => d.value)
@@ -172,9 +171,21 @@ export async function drawChart(){
             .size([2 * Math.PI, root.height + 1])(root);
     }
 
-    const root = partition(data);
+    const arcVisible = (d) => {
+        return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
+    }
 
-    let colors = require(`./data/sdgColors.json`)
+    const labelVisible = (d) => {
+        return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+    }
+
+    const labelTransform = (d) => {
+        const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
+        const y = (d.y0 + d.y1) / 2 * radius;
+        return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
+    }
+
+    const root = partition(data);
 
     root.each(d => d.current = d);
 
@@ -238,7 +249,6 @@ export async function drawChart(){
             return "12px"
         })
 
-
     let parent = g.append("circle")
         .datum(root)
         .attr("r", radius)
@@ -256,19 +266,6 @@ export async function drawChart(){
         .attr("pointer-events", "all")
         .on("click", clicked);
 
-    function arcVisible(d) {
-        return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
-    }
-
-    function labelVisible(d) {
-        return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
-    }
-
-    function labelTransform(d) {
-        const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
-        const y = (d.y0 + d.y1) / 2 * radius;
-        return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
-    }
 
     return svg.node();
 }

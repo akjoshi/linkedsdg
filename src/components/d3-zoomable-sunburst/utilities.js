@@ -34,22 +34,22 @@ export function setSunState(deeper = true) {
     }
 }
 
-export function chooseState(p){
-    if(this.state.lastNode === p.parent || this.state.lastNode === undefined){
+export function chooseState(p) {
+    if (this.state.lastNode === p.parent || this.state.lastNode === undefined) {
         this.setSunState(true)
     }
-    else if(p.parent !== null && this.state.lastNode === p.parent.parent){
+    else if (p.parent !== null && this.state.lastNode === p.parent.parent) {
         this.setSunState(true)
-        this.setState({lastNode: p})
+        this.setState({ lastNode: p })
         this.setSunState(true)
     }
-    else{
+    else {
         this.setSunState(false)
     }
-    this.setState({lastNode: p})
+    this.setState({ lastNode: p })
 }
 
-export function  selectImage(){
+export function selectImage() {
     let images = {}
     let index = 1;
     while (index < 18) {
@@ -65,7 +65,7 @@ export function  selectImage(){
     return <img className="goal-image" src={images[this.state.selectedGoal]} alt="Goal img"></img>;
 }
 
-export function  loadConcepts(){
+export function loadConcepts() {
     let data = [];
 
     for (var url in this.state.clickedData.concept) {
@@ -116,38 +116,18 @@ export function  loadConcepts(){
     })
 }
 
-export function  describeCountry(x){
+export function describeCountry(x) {
     return async () => {
-        try {
-            console.log(x)
-            const dataForApi = {
-                "type": "Country",
-                "uri": x.geoArea['@id']
-            }
-
-            console.log(dataForApi)
-
-            const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
-                headers: {
-                    'Content-Type': 'text/plain'
-                }
-            });
-            console.log(text)
-            if (text.status !== 200 && text.status !== 201) {
-                throw new Error('Failed!');
-            }
-
-            var myWindow = window.open("", "MsgWindow");
-            myWindow.document.write('<pre id="json"></pre>');
-            myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
-
-        } catch (error) {
-            console.log("ERROR");
+        const dataForApi = {
+            "type": "Country",
+            "uri": x.geoArea['@id']
         }
+
+        await callDescribeApi(dataForApi)
     }
 }
 
-export function  expandCountryDetailsOnClick(x){
+export function expandCountryDetailsOnClick(x) {
     return () => {
         let elem = document.getElementById("Series" + x['@id'])
         if (elem.style.height === "auto") {
@@ -159,7 +139,7 @@ export function  expandCountryDetailsOnClick(x){
     }
 }
 
-export function  getJsonWithImportantFields(x){
+export function getJsonWithImportantFields(x) {
     if (typeof (x) === 'object') {
         let tab = require(`./data/jsonSeriesData.json`);
         let data = []
@@ -172,7 +152,7 @@ export function  getJsonWithImportantFields(x){
     }
 }
 
-export async function  getSeriesJsonFromApi(){
+export async function getSeriesJsonFromApi() {
     try {
         const dataForApi = {
             "countries": this.props.dataForSeries,
@@ -187,7 +167,7 @@ export async function  getSeriesJsonFromApi(){
         if (text.status !== 200 && text.status !== 201) {
             throw new Error('Failed!');
         }
-        
+
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
@@ -197,14 +177,16 @@ export async function  getSeriesJsonFromApi(){
     }
 }
 
-export async function  getJsonDescribeOfUri(){
+export async function getJsonDescribeOfUri() {
+    const dataForApi = {
+        "type": this.state.clickedData.label.split(" ")[0],
+        "uri": this.state.clickedData.id
+    }
+    await callDescribeApi(dataForApi)
+}
+
+const callDescribeApi = async (dataForApi) => {
     try {
-
-        const dataForApi = {
-            "type": this.state.clickedData.label.split(" ")[0],
-            "uri": this.state.clickedData.id
-        }
-
         const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
             headers: {
                 'Content-Type': 'text/plain'
@@ -213,7 +195,7 @@ export async function  getJsonDescribeOfUri(){
         if (text.status !== 200 && text.status !== 201) {
             throw new Error('Failed!');
         }
-        
+
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(text.data, undefined, 2);
