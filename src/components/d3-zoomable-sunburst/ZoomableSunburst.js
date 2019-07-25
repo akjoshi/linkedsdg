@@ -112,7 +112,7 @@ class ZoomableSunburst extends Component {
                             <div>
                                 <h3 className="title">{this.state.selectedGoalName}</h3>
                             </div>
-                            <div className="grid-item-text">
+                            <div id="informationFromTheSun" className="grid-item-text">
 
                                 {this.state.dataForPreview ? (
                                     <React.Fragment>

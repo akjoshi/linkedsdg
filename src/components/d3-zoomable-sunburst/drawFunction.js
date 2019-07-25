@@ -17,6 +17,11 @@ export async function drawChart() {
 
 
     const mouseover = (p) => {
+        let box = document.getElementById("informationFromTheSun");
+        if(box.clientHeight > 0){
+            box.setAttribute("style","height:"+box.clientHeight+"px");
+        }
+
         this.setState({
             dataForPreview: {
                 id: p.data.id,
@@ -45,6 +50,10 @@ export async function drawChart() {
         })
         if (this.state.clickedData.id === undefined) {
             this.setState({ selectedGoal: undefined, selectedGoalName: 'Sustainable Development Goals' })
+        }
+        let box = document.getElementById("informationFromTheSun");
+        if(box.clientHeight > 0){
+            box.setAttribute("style","height:auto");
         }
 
     }

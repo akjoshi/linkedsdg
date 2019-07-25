@@ -130,16 +130,12 @@ class Upload extends Component {
                                     <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank">Voluntary National Review - Saudi Arabia 2018 (AR)</a>
                                 </li>
                                 <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.un.org/sustainabledevelopment/wp-content/uploads/2017/02/ENGLISH_Why_it_Matters_Goal_17_Partnerships.pdf" target="_blank">Partnerships: Why They Matter?</a>
+                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank">Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
-                                </li>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.theguardian.com/business-call-to-action-partnerzone/2019/apr/29/gender-equality-closing-the-gap-in-the-private-sector-around-the-world" target="_blank">Gender equality: closing the gap in the private sector around the world</a>
                                 </li>
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
@@ -148,10 +144,6 @@ class Upload extends Component {
                                 <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" target="_blank">Higher Education in Africa: Our continent needs science, not aid</a>
-                                </li>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank">Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</a>
                                 </li>
                             </ul>
                         </Col>
