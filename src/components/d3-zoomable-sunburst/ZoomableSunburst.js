@@ -2,17 +2,16 @@ import React, { Component } from 'react';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './ZoomableSunburst.scss'
-
 import {
     chooseState, 
     setSunState, 
     selectImage,
     loadConcepts,
-    callForCountryApi,
-    genOnClick,
-    getJsonText,
-    reciveSeriesJsonFromApi,
-    reciveJsonFromApi
+    describeCountry,
+    expandCountryDetailsOnClick,
+    getJsonWithImportantFields,
+    getSeriesJsonFromApi,
+    getJsonDescribeOfUri
 } from './utilities';
 
 import { drawChart } from './drawFunction';
@@ -24,11 +23,11 @@ class ZoomableSunburst extends Component {
         this.setSunState = setSunState.bind(this);
         this.selectImage = selectImage.bind(this);
         this.loadConcepts = loadConcepts.bind(this);
-        this.callForCountryApi = callForCountryApi.bind(this);
-        this.genOnClick = genOnClick.bind(this);
-        this.getJsonText = getJsonText.bind(this);
-        this.reciveSeriesJsonFromApi = reciveSeriesJsonFromApi.bind(this);
-        this.reciveJsonFromApi = reciveJsonFromApi.bind(this);
+        this.describeCountry = describeCountry.bind(this);
+        this.expandCountryDetailsOnClick = expandCountryDetailsOnClick.bind(this);
+        this.getJsonWithImportantFields = getJsonWithImportantFields.bind(this);
+        this.getSeriesJsonFromApi = getSeriesJsonFromApi.bind(this);
+        this.getJsonDescribeOfUri = getJsonDescribeOfUri.bind(this);
         this.drawChart = drawChart.bind(this);
     }
 
@@ -57,9 +56,9 @@ class ZoomableSunburst extends Component {
                 </h3>
                 <div className="grid-container">
                     <div>
-
                         <div id={"ZoomableSunburst"} className="grid-item"></div>
-                        {this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series" ? (
+
+                        {this.state.sunState === "series" ? (
                             <div className="country-series-info">
                                 <h4>Values</h4>
                                 <Row >
@@ -72,15 +71,15 @@ class ZoomableSunburst extends Component {
                                 {this.state.countrySeriesData.map(x => {
                                     return <div key={x['@id']} id={"Series" + x['@id']} className="series-info" >
                                         <Row>
-                                            <Col className="uri-link series-country-country" onClick={this.callForCountryApi(x)}>{x.geoAreaName}</Col>
+                                            <Col className="uri-link series-country-country" onClick={this.describeCountry(x)}>{x.geoAreaName}</Col>
                                             <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
                                             <Col>{x.Units_description} </Col>
-                                            <Col xs={1} className="series-country-expand" onClick={this.genOnClick(x)}>+</Col>
+                                            <Col xs={1} className="series-country-expand" onClick={this.expandCountryDetailsOnClick(x)}>+</Col>
                                         </Row>
                                         <Row className="series-country-json">
                                             <Col>
                                                 <ul>
-                                                    {this.getJsonText(x)}
+                                                    {this.getJsonWithImportantFields(x)}
                                                 </ul>
                                             </Col>
                                         </Row>
@@ -88,15 +87,14 @@ class ZoomableSunburst extends Component {
                                 })}
                                 </div>
 
-                                <p className="uri-link" onClick={this.reciveSeriesJsonFromApi}>GET DATA</p>
+                                <p className="uri-link" onClick={this.getSeriesJsonFromApi}>GET DATA</p>
                             </div>
                         ) :
                             (<React.Fragment></React.Fragment>)
                         }
-
                     </div>
-                    <div className="grid-item">
 
+                    <div className="grid-item">
                         <div className="grid-container-info">
                             <div className="goal-image-container">
                                 {this.selectImage()}
@@ -130,7 +128,7 @@ class ZoomableSunburst extends Component {
                                             <span>NAME: </span>
                                             {this.state.clickedData.name}
                                         </p>
-                                        <p onClick={this.reciveJsonFromApi} className="uri-link">
+                                        <p onClick={this.getJsonDescribeOfUri} className="uri-link">
                                             <span>URI: </span>
                                             {this.state.clickedData.id}
                                         </p>
@@ -140,8 +138,6 @@ class ZoomableSunburst extends Component {
 
                                     </React.Fragment>
                                 ) : (<React.Fragment></React.Fragment>))}
-
-
                             </div>
                         </div>
                     </div>

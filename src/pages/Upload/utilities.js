@@ -22,6 +22,13 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     if (countryArr !== undefined) {
         let maxWeight = countryArr[jsonText.data.countries.top_region].weight;
         let top_regions = jsonText.data.countries.top_regions;
+        let anyArea = false;
+
+        for (let elem in jsonText.data.countries.top_regions) {
+            if(countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/kos/geo/1"){
+                anyArea = true;
+            }
+        }
 
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source === 'geo') {
@@ -32,6 +39,9 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 dataForSeries.push(countryInfo.name);
             }
             else {
+                if(countryArr[top_regions[elem]].url === "http://data.un.org/kos/geo/1" && anyArea){
+                    continue;
+                }
                 let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
 
                 for (let key in temp) {
@@ -42,13 +52,11 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             }
         }
     }
+    
     if(dataForSeries.length === 0){
-        // console.log("data")
-        // console.log(dataForDataMap)
         for(let key in dataForDataMap){
             dataForSeries.push(key)
         }
-        console.log(dataForSeries)
     }
 
 

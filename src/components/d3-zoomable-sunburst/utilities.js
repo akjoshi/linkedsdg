@@ -116,19 +116,23 @@ export function  loadConcepts(){
     })
 }
 
-export function  callForCountryApi(x){
+export function  describeCountry(x){
     return async () => {
         try {
+            console.log(x)
             const dataForApi = {
                 "type": "Country",
-                "uri": x['@id']
+                "uri": x.geoArea['@id']
             }
+
+            console.log(dataForApi)
 
             const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'text/plain'
                 }
             });
+            console.log(text)
             if (text.status !== 200 && text.status !== 201) {
                 throw new Error('Failed!');
             }
@@ -143,7 +147,7 @@ export function  callForCountryApi(x){
     }
 }
 
-export function  genOnClick(x){
+export function  expandCountryDetailsOnClick(x){
     return () => {
         let elem = document.getElementById("Series" + x['@id'])
         if (elem.style.height === "auto") {
@@ -155,7 +159,7 @@ export function  genOnClick(x){
     }
 }
 
-export function  getJsonText(x){
+export function  getJsonWithImportantFields(x){
     if (typeof (x) === 'object') {
         let tab = require(`./data/jsonSeriesData.json`);
         let data = []
@@ -168,7 +172,7 @@ export function  getJsonText(x){
     }
 }
 
-export async function  reciveSeriesJsonFromApi(){
+export async function  getSeriesJsonFromApi(){
     try {
         const dataForApi = {
             "countries": this.props.dataForSeries,
@@ -193,7 +197,7 @@ export async function  reciveSeriesJsonFromApi(){
     }
 }
 
-export async function  reciveJsonFromApi(){
+export async function  getJsonDescribeOfUri(){
     try {
 
         const dataForApi = {
