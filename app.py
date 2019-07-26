@@ -34,6 +34,7 @@ SELECT DISTINCT ?id ?label where {
 }
 """
 
+
 SPARQL_QUERY_COUNTRIES = """
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -142,23 +143,21 @@ def shallow_clean(text):
 
 def add_to_concept_matcher(label, i, lang):
     if label not in concept_spacy_ids[lang]:
-        word_list = []
-        word_list.append(label)
-        concept_pattern = [nlp(text) for text in word_list]
+        concept_pattern = [nlp(text) for text in [label]]
         concept_matcher[lang].add(i, None, *concept_pattern)
         concept_spacy_ids[lang][label]=[i]
     else:
         concept_spacy_ids[lang][label].append(i)
 
 def add_to_country_matcher(label, i, lang):
-    if label not in concept_spacy_ids[lang]:
-        word_list = []
-        word_list.append(label)
-        concept_pattern = [nlp(text) for text in word_list]
-        country_matcher[lang].add(i, None, *concept_pattern)
-        country_spacy_ids[lang][label]=[i]
+    if label not in country_spacy_ids[lang]:
+        country_pattern = [nlp(text) for text in [label]]
+        country_matcher[lang].add(i, None, *country_pattern)
+        country_spacy_ids[lang][label] = [i]
     else:
         country_spacy_ids[lang][label].append(i)
+        
+        
 
 def get_sparql_results(sparql_query):
     sparql = SPARQLWrapper(GRAPHDB)
@@ -218,7 +217,6 @@ def load_concepts():
             "source": source
         }
 
-    i = 1
     print("\n\nLoading countries...")
     # countries_list = csv.DictReader(open("countries.tsv", encoding="utf8"), delimiter="\t")
 
