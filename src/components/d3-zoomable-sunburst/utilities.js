@@ -37,7 +37,7 @@ export function setSunState(deeper = true) {
 
 export function chooseState(p) {
     if (this.state.lastNode === p.parent || this.state.lastNode === undefined) {
-        if(this.state.lastNode === undefined && p.parent !== null && p.parent.parent !== undefined){
+        if(this.state.lastNode === undefined && p.parent !== null && p.parent.parent !== null){
             this.setSunState(true)
             this.setState({ lastNode: p })
             this.setSunState(true)

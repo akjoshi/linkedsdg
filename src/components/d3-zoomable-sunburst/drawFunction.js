@@ -218,13 +218,10 @@ export async function drawChart() {
 
     path.filter(d => d)
         .style("cursor", d => {
-            if (!arcVisible(d.current)) {
-                return ""
-            }
             return "pointer"
         })
         .on("click", d => {
-            if (arcVisible(d.current || (d.children === undefined && arcVisible(d.current)))) {
+            if (arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))) {
                 clicked(d)
                 mouseout(d)
             }
