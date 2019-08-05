@@ -329,7 +329,7 @@ def extract_concepts(input, matcher_id, lang):
     return final_matches, concepts_all
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 
 @app.route("/api", methods=['POST'])
 def concepts():
