@@ -73,7 +73,7 @@ export async function handleUploadFile(file) {
     data.append('file', file);
 
     try {
-        const json = await axios.post('http://127.0.0.1:5001/api', data, {
+        const json = await axios.post('http://34.66.148.181:5001/api', data, {
 
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -95,7 +95,7 @@ export async function handleUploadFile(file) {
 export async function handleUrlFile(url) {
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
     try {
-        const json = await axios.post('http://127.0.0.1:5001/apiURL', url, {
+        const json = await axios.post('http://34.66.148.181:5001/apiURL', url, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -115,7 +115,7 @@ export async function handleUrlFile(url) {
 export async function processText(data) {
     try {
 
-        const jsonText = await axios.post('http://127.0.0.1:5000/api', {
+        const jsonText = await axios.post('http://34.66.148.181:5000/api', {
             text: data.text,
             lang: data.lang,
             headers: {
@@ -169,7 +169,7 @@ export async function processText(data) {
             }
         });
 
-        const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match, {
+        const linkedDataResponse = await axios.post('http://34.66.148.181:5002/api', match, {
             headers: {
                 'Content-Type': 'application/json'
             }

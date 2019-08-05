@@ -147,7 +147,7 @@ export async function drawChart() {
                     "stat": this.state.clickedData.id
                 }
 
-                const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
+                const text = await axios.post('http://34.66.148.181:5002/stats', dataForApi, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
