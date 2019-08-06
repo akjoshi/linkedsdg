@@ -46,7 +46,8 @@ SELECT DISTINCT ?id ?label
         
 	    {
             ?id skos:prefLabel ?prefLabel .
-            BIND (STRLANG(?prefLabel, 'en') as ?label)
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
+            BIND (?prefLabel as ?label)
         }
         UNION
         {
