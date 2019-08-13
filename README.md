@@ -1,5 +1,5 @@
 # spacy-concept-extraction-api
-A simple REST API for extracting dedicated SKOS taxonomy concepts from text
+A simple REST API for extracting dedicated SKOS taxonomy concepts from text, and for searching concepts in the supplied UNBIS/EUROVOC dictionary. 
 
 ## labels.csv vs sample-labels.csv 
 
