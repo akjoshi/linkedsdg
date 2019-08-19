@@ -1,17 +1,19 @@
 
 .linked-concepts-container {
 
+    .grid-container{
+        margin-bottom: 0;
+    }
+
     .link {
         color: #007bff;
         cursor: pointer;
     }
 
     .download-button {
-        
+        margin-top:1rem;
         width:100%;
-        button {
-            margin: 1.5rem 0;
-        }
+         
     }
 
 
@@ -54,13 +56,11 @@ ul {
 }
 
 .keywords-list {
-    height: 450px;
-    max-height: 500px;
+    height: 45vh; 
     overflow-y: hidden;
     overflow-x: hidden;
-    margin-bottom: 0;
+    margin-bottom: 0; 
 }
-
 
 .keywords-list:hover {
     margin-right: -16px;

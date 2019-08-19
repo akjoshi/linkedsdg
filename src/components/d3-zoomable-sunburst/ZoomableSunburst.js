@@ -1,7 +1,9 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
+import ReactJson from 'react-json-view'
+
 import {
     chooseState,
     setSunState,
@@ -48,6 +50,12 @@ class ZoomableSunburst extends Component {
         countrySeriesData: [],
         sunState: "root",
         lastNode: undefined,
+        displayJson: false,
+    }
+
+
+    handleCollapse = async () => {
+        this.setState({ displayJson: !this.state.displayJson })
     }
 
     render() {
@@ -116,15 +124,27 @@ class ZoomableSunburst extends Component {
                 </div>
 
                 {this.state.sunState === "series" ? (
-                    <div className="country-series-info"> 
+                    <div className="country-series-info">
 
                         {/* Need to add columns */}
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name}></DataSeriesTable>
 
-                        <Button variant="primary" onClick={this.getSeriesJsonFromApi} className="series-get-data">
-                            ⤓ Get data
+                        <Button variant="primary" onClick={this.handleCollapse}>
+                            {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                         </Button>
+                        {this.state.displayJson ?
+                            <React.Fragment>
+                                <div className="json-with-data">
+                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} />
+                                </div>
+                                <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
+                                    ⤓ download
+                        </Button>
+                            </React.Fragment>
+                            : <React.Fragment></React.Fragment>
+                        }
                     </div>
+
 
                 ) :
                     (<React.Fragment></React.Fragment>)

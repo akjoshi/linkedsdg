@@ -21,6 +21,27 @@ class ConceptList extends React.Component {
         };
     }
 
+    updateDimensions() {
+        var element = document.getElementById('keywords-list-id');
+        var positionInfo = element.getBoundingClientRect();
+        let width = positionInfo.width;
+        element.style.height  = width + "px";
+      }
+
+    componentDidMount() {
+        this.updateDimensions();
+        window.addEventListener("resize", this.updateDimensions.bind(this));
+      }
+    
+      /**
+       * Remove event listener
+       */
+      componentWillUnmount() {
+        window.removeEventListener("resize", this.updateDimensions.bind(this));
+      }
+    
+    
+
     handleDownload = async () => {
         let dataForJson = [...this.state.data];
         dataForJson = dataForJson.map(x => {
@@ -47,6 +68,7 @@ class ConceptList extends React.Component {
         })
     }
 
+
     render() {
         return (
             <div className="linked-concepts-container">
@@ -55,7 +77,7 @@ class ConceptList extends React.Component {
                 </h3>
                 <div className="grid-container">
                     <div className="grid-item">
-                        <ul className="keywords-list" id="keywords-list-id">
+                        <ul className="keywords-list" id="keywords-list-id" >
                             {this.state.displayData.map((concept, index) => <ConceptItem handlerForOpen={this.handlerForOpen} concept={concept} key={index}></ConceptItem>)}
                         </ul>
                         <Row>

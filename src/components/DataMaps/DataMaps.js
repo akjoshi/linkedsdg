@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
 import Button from 'react-bootstrap/Button';
-
+import ReactJson from 'react-json-view'
 const MAP_CLEARING_PROPS = [
     'height', 'scope', 'setProjection', 'width'
 ];
@@ -17,6 +17,10 @@ const propChangeRequiresMapClear = (oldProps, newProps) => {
 };
 
 export default class Datamap extends React.Component {
+
+    state = {
+        displayJson: false,
+    }
 
     static propTypes = {
         arc: PropTypes.array,
@@ -33,6 +37,9 @@ export default class Datamap extends React.Component {
         width: PropTypes.any
     };
 
+    handleCollapse = async () => {
+        this.setState({ displayJson: !this.state.displayJson })
+    }
 
     componentDidMount() {
         window.addEventListener('resize', this.resizeMap);
@@ -117,7 +124,7 @@ export default class Datamap extends React.Component {
 
     handleDownload = async () => {
         let dataForJson = [];
-        for( let key in this.props.downloadData){
+        for (let key in this.props.downloadData) {
             dataForJson.push(this.props.downloadData[key])
         }
 
@@ -136,7 +143,7 @@ export default class Datamap extends React.Component {
             <div ref="container" id="containerForMap" style={style} >
 
                 <h3 className="Title">
-                Extracted regions
+                    Extracted regions
                 </h3>
 
             </div>
@@ -148,11 +155,23 @@ export default class Datamap extends React.Component {
             </Row>
             <Row>
                 <Col className="download-button">
-                    <Button variant="primary" onClick={this.handleDownload}>
-                        ⤓ Get data
+                    <Button variant="primary" onClick={this.handleCollapse}>
+                        {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                     </Button>
                 </Col>
             </Row>
+
+            {this.state.displayJson ?
+                <React.Fragment>
+                    <div className="json-with-data">
+                        <ReactJson src={this.props.downloadData} collapsed={2} />
+                    </div>
+                    <Button variant="primary" onClick={this.handleDownload}>
+                        ⤓ download
+                        </Button>
+                </React.Fragment>
+                : <React.Fragment></React.Fragment>
+            }
         </div>
     }
 
