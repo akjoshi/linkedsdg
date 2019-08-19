@@ -37,12 +37,12 @@ export function setSunState(deeper = true) {
 
 export function chooseState(p) {
     if (this.state.lastNode === p.parent || this.state.lastNode === undefined) {
-        if(this.state.lastNode === undefined && p.parent !== null && p.parent.parent !== null){
+        if (this.state.lastNode === undefined && p.parent !== null && p.parent.parent !== null) {
             this.setSunState(true)
             this.setState({ lastNode: p })
             this.setSunState(true)
         }
-        else{
+        else {
             this.setSunState(true)
         }
     }
@@ -106,19 +106,20 @@ export function loadConcepts() {
                 linkedConceptsSorted.push(x.linkedConcepts[k])
             }
         }
+        
         return <p key={x.url}>
-            <span>{x.label}</span> concept from {x.source}:
+            <i key={x.url} className="uri-concept">
+                <a href={x.url} target="_blank"> {x.label}</a>
+            </i>
+            concept from {x.source}:
+            <br></br>
             {linkedConceptsSorted.map(y => {
-                if (y.label !== x.label) {
-                    return <span key={y.url} className="uri-link">
-                        <br></br>
-                        <a href={y.url} target="_blank"> {y.label} +</a>
-                    </span>
+                if (y.label === x.label) {
+                    return ""
                 }
                 return <i key={y.url} className="uri-link">
-                    <br></br>
-                    <a href={y.url} target="_blank"> {y.label}</a>
-                </i>
+                             <a href={y.url} target="_blank"> {y.label}</a>
+                        </i>
             })}
         </p>
     })

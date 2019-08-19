@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import React, { Component } from 'react'; 
 import Button from 'react-bootstrap/Button';
+import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
 import {
     chooseState,
@@ -61,47 +60,6 @@ class ZoomableSunburst extends Component {
                     <div>
                         <div id={"ZoomableSunburst"} className="grid-item"></div>
 
-                        {this.state.sunState === "series" ? (
-                            <div className="country-series-info">
-                                <h4>Values</h4>
-                                <Row >
-                                    <Col>Name</Col>
-                                    <Col>Value </Col>
-                                    <Col>Units </Col>
-                                    <Col xs={1} className="series-country-expand-all" onClick={this.expandAllCountryDetailsOnClick}>Expand All</Col>
-                                </Row>
-                                <div className="records-container">
-                                    {this.state.countrySeriesData.map(x => {
-                                        return <div key={x['@id']} id={"Series" + x['@id']} className="series-info" >
-                                            <Row>
-                                                <Col className="uri-link series-country-country" onClick={this.describeCountry(x)}>{x.geoAreaName}</Col>
-                                                <Col>{x.latest_value === undefined ? "No data" : x.latest_value} </Col>
-                                                <Col>{x.Units_description} </Col>
-                                                <Col xs={1} className="series-country-expand" onClick={this.expandCountryDetailsOnClick(x)}>{x.open}</Col>
-                                            </Row>
-                                            <Row className="series-country-json">
-                                                <Col>
-                                                    <ul>
-                                                        {this.getJsonWithImportantFields(x)}
-                                                    </ul>
-                                                </Col>
-                                            </Row>
-                                        </div>
-                                    })}
-                                </div>
-                                {/* <p className="uri-link" onClick={this.getSeriesJsonFromApi}>GET DATA</p> */}
-                                <Row className="download-series">
-                                    <Col className="download-button">
-                                        <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
-                                            ⤓ Get data
-                                        </Button>
-                                    </Col>
-                                </Row>
-
-                            </div>
-                        ) :
-                            (<React.Fragment></React.Fragment>)
-                        }
                     </div>
 
                     <div className="grid-item">
@@ -147,11 +105,32 @@ class ZoomableSunburst extends Component {
 
 
                                     </React.Fragment>
-                                ) : (<React.Fragment></React.Fragment>))}
+                                ) : (
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis justo sit amet eros viverra finibus. Vestibulum erat risus, dapibus sit amet lacus a, porttitor accumsan dui.
+                                        </p>
+                                    ))}
                             </div>
                         </div>
                     </div>
                 </div>
+
+                {this.state.sunState === "series" ? (
+                    <div className="country-series-info"> 
+
+                        {/* Need to add columns */}
+                        <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name}></DataSeriesTable>
+
+                        <Button variant="primary" onClick={this.getSeriesJsonFromApi} className="series-get-data">
+                            ⤓ Get data
+                        </Button>
+                    </div>
+
+                ) :
+                    (<React.Fragment></React.Fragment>)
+                }
+
+
             </React.Fragment>
         )
     }

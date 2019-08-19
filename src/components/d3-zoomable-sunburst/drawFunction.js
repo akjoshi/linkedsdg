@@ -79,6 +79,7 @@ export async function drawChart() {
                 concept: p.data.concept
             }
         })
+        
         if (p.parent === null) {
             this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
         }
@@ -163,7 +164,8 @@ export async function drawChart() {
                 });
                 
                 text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
-                this.setState({ countrySeriesData: text.data['@graph'] })
+                this.setState({ countrySeriesData: text.data['@graph'].filter(x => x.latest_value !== undefined) })
+                console.log(text.data['@graph'])
 
             } catch (error) {
                 console.log("ERROR");

@@ -7,13 +7,17 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BubbleChart from '../BubbleChart/BubbleChart'
 
+import ReactJson from 'react-json-view'
+
+
 
 class ConceptList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             data: props.Concepts,
-            displayData: props.Concepts
+            displayData: props.Concepts,
+            displayJson: false,
         };
     }
 
@@ -26,10 +30,14 @@ class ConceptList extends React.Component {
                 source: x.source
             };
         })
-        
+
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(dataForJson, undefined, 2);
+    }
+
+    handleCollapse = async () => {
+        this.setState({ displayJson: !this.state.displayJson })
     }
 
     handlerForOpen = async (uri) => {
@@ -52,8 +60,9 @@ class ConceptList extends React.Component {
                         </ul>
                         <Row>
                             <Col className="download-button">
-                                <Button variant="primary" onClick={this.handleDownload}>
-                                    ⤓ Get data
+                                <Button variant="primary" onClick={this.handleCollapse}>
+                                    {/* ⤓ Get data */}
+                                    {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                                 </Button>
                             </Col>
                         </Row>
@@ -69,6 +78,17 @@ class ConceptList extends React.Component {
                         </Row>
                     </div>
                 </div>
+                {this.state.displayJson ?
+                    <React.Fragment>
+                        <div className="json-with-data">
+                            <ReactJson src={this.state.data} collapsed={2} />
+                        </div>
+                        <Button variant="primary" onClick={this.handleDownload}>
+                            ⤓ download
+                        </Button>
+                    </React.Fragment>
+                    : <React.Fragment></React.Fragment>
+                }
             </div>
         );
     }
