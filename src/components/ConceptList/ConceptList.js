@@ -6,7 +6,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BubbleChart from '../BubbleChart/BubbleChart'
+import lunr from 'lunr/lunr'
 
+import Form from 'react-bootstrap/Form'
 import ReactJson from 'react-json-view'
 
 
@@ -18,6 +20,8 @@ class ConceptList extends React.Component {
             data: props.Concepts,
             displayData: props.Concepts,
             displayJson: false,
+            searchText: "",
+            idx: undefined,
         };
     }
 
@@ -25,22 +29,43 @@ class ConceptList extends React.Component {
         var element = document.getElementById('keywords-list-id');
         var positionInfo = element.getBoundingClientRect();
         let width = positionInfo.width;
-        element.style.height  = width + "px";
-      }
+        element.style.height = width + "px";
+    }
 
     componentDidMount() {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions.bind(this));
-      }
-    
-      /**
-       * Remove event listener
-       */
-      componentWillUnmount() {
+
+        console.log(this.state.data)
+        const data = this.state.data;
+        
+        let idx = lunr(function () { 
+            this.field('label')
+            this.field('source')
+            this.field('context')
+
+            for( let i in data){
+                this.add({
+                    'id': i,
+                    'label': data[i].label,
+                    'source': data[i].source,
+                })
+            }
+        })
+
+        this.setState({idx: idx});
+
+        
+    }
+
+    /**
+     * Remove event listener
+     */
+    componentWillUnmount() {
         window.removeEventListener("resize", this.updateDimensions.bind(this));
-      }
-    
-    
+    }
+
+
 
     handleDownload = async () => {
         let dataForJson = [...this.state.data];
@@ -68,6 +93,21 @@ class ConceptList extends React.Component {
         })
     }
 
+    handleSearch = async changeEvent => { 
+        await this.setState({
+            searchText: changeEvent.target.value
+        });
+ 
+        let score = this.state.idx.search("*" + this.state.searchText + "*"  ); 
+        
+        let newData = [];
+        for(let elem of score){
+            newData.push(this.state.data[elem.ref])
+        }
+
+        this.setState({displayData: newData});
+    }
+
 
     render() {
         return (
@@ -80,12 +120,21 @@ class ConceptList extends React.Component {
                         <ul className="keywords-list" id="keywords-list-id" >
                             {this.state.displayData.map((concept, index) => <ConceptItem handlerForOpen={this.handlerForOpen} concept={concept} key={index}></ConceptItem>)}
                         </ul>
-                        <Row>
+                        <Row className="linked-concepts-footer">
                             <Col className="download-button">
                                 <Button variant="primary" onClick={this.handleCollapse}>
                                     {/* ⤓ Get data */}
                                     {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                                 </Button>
+                            </Col>
+                            <Col>
+                                <div className="input-box">
+                                    <Form.Control
+                                        type="text"
+                                        className="input-data"
+                                        placeholder="Search.." 
+                                        onChange={(e) => this.handleSearch(e)} />
+                                </div>
                             </Col>
                         </Row>
                     </div>
