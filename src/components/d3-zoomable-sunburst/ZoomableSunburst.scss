@@ -12,7 +12,7 @@
     
 
     .country-series-info{ 
-
+        
  
 
         .big-plus{
@@ -125,12 +125,12 @@
         .uri-link{
             margin: 1rem 0 0 0;
             cursor: pointer;
-            color: #007bff;
+            color: #4d4d4d;
         }
 
         p span {
-            font-weight: 700;
-            color: black;
+            font-weight: 700; 
+            color: #4d4d4d;
         }
     }
  
@@ -196,6 +196,11 @@
     padding: 1rem;
     border-radius: 4px;
     box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.7);
+}
+
+.button-for-table {
+            
+    margin-top: 1.5rem!important;
 }
 
 @media only screen and (max-width: 991px) {

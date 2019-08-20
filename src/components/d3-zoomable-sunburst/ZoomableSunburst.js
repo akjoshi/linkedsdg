@@ -129,7 +129,7 @@ class ZoomableSunburst extends Component {
                         {/* Need to add columns */}
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name}></DataSeriesTable>
 
-                        <Button variant="primary" onClick={this.handleCollapse}>
+                        <Button variant="primary" onClick={this.handleCollapse} className="button-for-table">
                             {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                         </Button>
                         {this.state.displayJson ?
@@ -139,7 +139,7 @@ class ZoomableSunburst extends Component {
                                 </div>
                                 <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
                                     ⤓ download
-                        </Button>
+                                </Button>
                             </React.Fragment>
                             : <React.Fragment></React.Fragment>
                         }

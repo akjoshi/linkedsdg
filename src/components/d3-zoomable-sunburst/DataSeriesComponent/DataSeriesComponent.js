@@ -47,28 +47,7 @@ const columns = [{
   filter: selectFilter({
     options: selectOptions
   })
-}, {
-  dataField: 'quality5',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-}, {
-  dataField: 'quality6',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-}, {
-  dataField: 'quality7',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-}];
+} ];
 
 class DataSeriesComponent extends Component {
   constructor(props) {
@@ -83,7 +62,7 @@ class DataSeriesComponent extends Component {
 
   render() {
     return (
-      <div>
+      <div className="table-series">
 
 
         <BootstrapTable keyField='id' data={[{id: 1, name: "Data", quality:0, quality2:0 },{id: 2, name: "Data",  quality2:0 }]} columns={columns} filter={filterFactory()} />

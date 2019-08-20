@@ -154,7 +154,7 @@ class Upload extends Component {
                 {this.state.isLoading ? (
                     <div className="progress-bar-container">
                         <h4>Progress:</h4>
-                        <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} />
+                        <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} striped={false} />
                     </div>
                 ) : (
                         !this.state.waitForData ? (

@@ -5,3 +5,20 @@
         font-size: 12px;
     }
 }
+
+.table-series{
+    overflow: scroll;
+    overflow-y: hidden;
+    table {
+        table-layout: unset;
+        margin-bottom: 0;
+        thead {
+            tr{
+
+            }
+        }
+        thead tr th {
+            min-width: 10rem!important; 
+        }
+    }
+}

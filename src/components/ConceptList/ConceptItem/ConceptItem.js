@@ -22,11 +22,12 @@ class ConceptItem extends React.Component {
                     <span className="annotation">({this.props.concept.source})</span>
                 </div>
                 <div className="collapse-button">
-                <Button
+                <button
+                    className=""
                     onClick={async () => { await this.props.handlerForOpen(this.props.concept.id)}}
                     aria-expanded={open}>
                     {open ? ( <p>-</p> ) : ( <p>+</p> ) }
-                </Button>
+                </button>
                 </div>
                 <Collapse in={open}>
                     <div id="example-collapse-text">

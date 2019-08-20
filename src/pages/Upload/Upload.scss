@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .Upload {
     display: flex;
     flex-direction: column;
@@ -7,11 +9,13 @@
     overflow: visible;
     width:80%;
     max-width: 1200px;
-    margin: 0 auto; 
-    margin-top:5rem;
+    margin: 0 auto;  
 
     .progress-bar-container{
       width: 100%;
+      .progress-bar{
+        background-color: $mainColor;
+      }
     }
 
     .Title {
@@ -23,21 +27,19 @@
     }
 
     .upload-content{
-      margin:0 auto;
-      margin-top: 30px;
-
+      margin:0 auto; 
       .analyze-button-container{
         margin:0 auto;
-        text-align: center;
-        display: flex; 
+        text-align: center; 
         justify-content: center;
         
 
-        .analyze-button{
-          width: 60%;
-          height: 4rem;
-          padding: 0;
-          margin: 2rem 0;
+        .analyze-button{  
+          float: left;
+          margin-bottom: 1rem;
+          font-size: 13px;
+          margin-top: 0;
+          margin-right: 0;
         }
       }
     }
@@ -49,11 +51,11 @@
         margin-bottom: 0.3rem;
       }
 
-      ul {
-          text-decoration: none;
+      ul { 
           list-style: none;
           li{
             padding: 0.15rem 0;
+
 
             span img{
               height: 1.4rem;
@@ -63,6 +65,10 @@
             span:hover{
               opacity: 0.6;
               cursor: pointer;
+            }
+
+            a:hover { 
+              text-decoration: underline;
             }
 
             

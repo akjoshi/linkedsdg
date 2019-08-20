@@ -15,6 +15,16 @@ html {
 body {
     font-family: 'Roboto', sans-serif; 
 
+    a {
+        color: $darkGrey;
+    }
+
+    a:hover {
+        color: $darkGrey;
+        text-decoration: underline!important;
+        cursor: pointer;
+    }
+
     a:hover {
         text-decoration: none;
     }
