@@ -5,31 +5,35 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 3.5rem;
-    background: $mainColor;
-    padding: 0.2rem 1.2rem;
-    display: flex;
+    height: 32.5px;
+    background: $grey;
+    padding: 0 1.2rem; 
     align-items: center;
     box-shadow: 1px 1px 2px rgba(255,255,255,0.2);
     font-family: 'Roboto', sans-serif;
     z-index: 999;
 
-    .nav-title{
-        width:100%;
-        text-align: right;
+    .nav-title{ 
+        float:right;
+        display: flex;
 
         h2 {
-            font-size: 1.6rem;
+            font-size: 13px;
             color:white;
             font-weight: 300;
             padding: 0;
             margin:0;
+            padding: 9px 4px;
+            text-decoration: none;
+            
         }
-        @media only screen and (max-width: 729px) {
-            h2 {
-                font-size: 1rem;
-            }
-          }
+
+        h2:hover{
+            color:$darkGrey;
+            background:$lightGrey;
+            text-decoration: none;
+        }
+ 
         
     }
 }
@@ -37,13 +41,13 @@
 .main-nav-logo {
     margin: 0;
     color: $white;
-    font-size: 0.75rem;
-    width:60%;
-    
+    font-size: 0.75rem; 
+    float: left;
+
     img {
-       
-        height: 2.0rem;
-        width: 12rem;
+        margin: 8px 0;
+        height: 1.2rem;
+        width: 8rem;
     }
 
     @media only screen and (max-width: 729px) {
