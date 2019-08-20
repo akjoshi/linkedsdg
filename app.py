@@ -60,22 +60,26 @@ SELECT DISTINCT ?id ?label
 """
 
 # SPARQL_COUNTRIES_INDEX = """
-# PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-# PREFIX sdgo: <http://data.un.org/ontology/sdg#>
+#  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+#  PREFIX sdgo: <http://data.un.org/ontology/sdg#>
 
-# SELECT DISTINCT ?id ?label ?name ?source 
-# WHERE {
-#      GRAPH <http://data.un.org/kos/geo> { 
-#         ?id a skos:Concept .
-#         ?id skos:prefLabel ?label .
-#         OPTIONAL {
-#             ?id sdgo:iso3code ?code .
-#             BIND("geo" as ?s)
-#         }
-#         BIND(COALESCE(?code, ?label) as ?name)
-#         BIND(COALESCE(?s, "geo-all") as ?source)
-#     }
-#  } 
+#  SELECT DISTINCT ?id ?label ?name ?source 
+#  WHERE {
+#       GRAPH <http://codes> { 
+        
+#          ?id skos:inScheme <http://data.un.org/codes/sdg/geo> .
+        
+#          ?id skos:prefLabel ?label .
+#         FILTER(?id NOT IN (<http://data.un.org/codes/sdg/geoArea/co>, <http://data.un.org/codes/sdg/geoArea> ))
+#         FILTER(lang(?label)="en")
+#          OPTIONAL {
+#              ?id <http://data.un.org/codes/sdg/geoArea/iso3code> ?code .
+#              BIND("geo" as ?s)
+#          }
+#          BIND(COALESCE(?code, ?label) as ?name)
+#          BIND(COALESCE(?s, "geo-all") as ?source)
+#      }
+#   } 
 # """
 
 
