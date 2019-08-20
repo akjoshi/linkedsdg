@@ -7,6 +7,7 @@ export async function drawChart() {
     let data = this.props.data;
     let width = 932
     let radius = 155.33333333333334
+    let clickEnevtBlock = false;
     let arc = d3.arc()
         .startAngle(d => d.x0)
         .endAngle(d => d.x1)
@@ -126,7 +127,10 @@ export async function drawChart() {
             .filter(function (d) {
                 return +this.getAttribute("fill-opacity") || arcVisible(d.target);
             })
-            .attrTween("d", d => () => arc(d.current));
+            .attrTween("d", d => () => arc(d.current))
+            .on('end', function () { 
+                clickEnevtBlock = false;
+            });
 
 
         if (p.children !== undefined) {
@@ -224,7 +228,10 @@ export async function drawChart() {
         })
         .on("click", d => {
             if (arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))) {
-                clicked(d)
+                if(clickEnevtBlock === false){
+                    clicked(d)
+                    clickEnevtBlock = true;
+                }
                 mouseout(d)
             }
         })

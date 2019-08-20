@@ -135,7 +135,7 @@ class ZoomableSunburst extends Component {
                         {this.state.displayJson ?
                             <React.Fragment>
                                 <div className="json-with-data">
-                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} />
+                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} displayDataTypes={false} name={"Series"}/>
                                 </div>
                                 <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
                                     ⤓ download

@@ -164,7 +164,7 @@ export default class Datamap extends React.Component {
             {this.state.displayJson ?
                 <React.Fragment>
                     <div className="json-with-data">
-                        <ReactJson src={this.props.downloadData} collapsed={2} />
+                        <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Country data"}/>
                     </div>
                     <Button variant="primary" onClick={this.handleDownload}>
                         ⤓ download

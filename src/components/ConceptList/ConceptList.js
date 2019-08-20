@@ -31,7 +31,7 @@ class ConceptList extends React.Component {
         var element = document.getElementById('keywords-list-id');
         var positionInfo = element.getBoundingClientRect();
         let width = positionInfo.width;
-        element.style.height = width + "px";
+        element.style.height = (width-20) + "px";
     }
 
     componentDidMount() {
@@ -54,8 +54,7 @@ class ConceptList extends React.Component {
             }
         })
 
-        this.setState({idx: idx});
-
+        this.setState({idx: idx}); 
         
     }
 
@@ -90,7 +89,7 @@ class ConceptList extends React.Component {
     handlerForOpen = async (uri) => {
         let data = await this.state.data.map(x => { if (x.id === uri) { x.open = !x.open } return x })
         await this.setState({
-            data: data
+            data: data,
         })
     }
 
@@ -156,7 +155,7 @@ class ConceptList extends React.Component {
                 {this.state.displayJson ?
                     <React.Fragment>
                         <div className="json-with-data">
-                            <ReactJson src={this.state.data} collapsed={2} />
+                            <ReactJson src={this.state.data} collapsed={2} displayDataTypes={false} name={"Extracted concepts"}/>
                         </div>
                         <Button variant="primary" onClick={this.handleDownload}>
                             ⤓ download

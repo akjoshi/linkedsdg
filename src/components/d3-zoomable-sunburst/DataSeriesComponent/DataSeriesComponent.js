@@ -86,7 +86,7 @@ class DataSeriesComponent extends Component {
       <div>
 
 
-        <BootstrapTable keyField='id' data={[{id: 1, name: "Data", quality:0, quality2:0 }]} columns={columns} filter={filterFactory()} />
+        <BootstrapTable keyField='id' data={[{id: 1, name: "Data", quality:0, quality2:0 },{id: 2, name: "Data",  quality2:0 }]} columns={columns} filter={filterFactory()} />
       </div>
     );
   }
@@ -94,3 +94,4 @@ class DataSeriesComponent extends Component {
 
 
 export default DataSeriesComponent;
+

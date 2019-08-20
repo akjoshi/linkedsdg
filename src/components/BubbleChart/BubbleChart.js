@@ -85,7 +85,6 @@ class BubbleChart extends React.Component {
                     .append("text").raise()
                     .attr("pointer-events", "none")
                     .attr("y", (d, i, nodes) => {
-
                         return `${(d.r / d.data.name.length) / 2}px`;
                     })
                     .text(d.data.name)
