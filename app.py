@@ -212,7 +212,7 @@ def load_concepts():
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv"), delimiter=",")
+    concept_source_index = csv.DictReader(open("concept-source-index.csv", encoding="utf8"), delimiter=",")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
