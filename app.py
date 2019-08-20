@@ -40,9 +40,9 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?id ?label
     WHERE {
-    GRAPH <http://data.un.org/kos/geo> {
+    GRAPH <http://data.un.org/codes/sdg> {
 
-        ?id a skos:Concept .
+        ?id skos:inScheme <http://data.un.org/codes/sdg/geo> .
         
 	    {
             ?id skos:prefLabel ?prefLabel .
@@ -83,7 +83,7 @@ SELECT DISTINCT ?id ?label
 # """
 
 
-GRAPHDB = "http://34.66.148.181:7200/repositories/sdgs"
+GRAPHDB = "http://34.66.148.181:7200/repositories/sdg-data"
 
 nlp = spacy.load('en_core_web_sm') 
 
