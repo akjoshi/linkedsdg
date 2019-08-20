@@ -104,12 +104,21 @@ class BubbleChart extends React.Component {
         leaf.append("text")
             .attr("x", 0)
             .attr("y", (d, i, nodes) => {
-
-                return `${(d.r / d.data.name.length) / 2}px`;
+                if(d.data.name !== undefined){
+                    return `${(d.r / d.data.name.length) / 2}px`;
+                }
+                else{
+                    return `${(d.r) / 2}px`;
+                }
             })
             .text(d => { return d.data.name })
             .style("font-size", d => {
-                return `${(d.r / d.data.name.length) * 2.2}px`;
+                if(d.data.name !== undefined) {
+                    return `${(d.r / d.data.name.length) * 2.2}px`;
+                }
+                else{
+                    return `${(d.r) * 2.2}px`;
+                }
             })
             .style("fill", "#555555");
 

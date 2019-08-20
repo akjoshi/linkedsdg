@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BubbleChart from '../BubbleChart/BubbleChart'
 import lunr from 'lunr/lunr'
+import {uid} from 'react-uid';
 
 import Form from 'react-bootstrap/Form'
 import ReactJson from 'react-json-view'
@@ -22,6 +23,7 @@ class ConceptList extends React.Component {
             displayJson: false,
             searchText: "",
             idx: undefined,
+            bubbleState: "ready",
         };
     }
 
@@ -35,8 +37,7 @@ class ConceptList extends React.Component {
     componentDidMount() {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions.bind(this));
-
-        console.log(this.state.data)
+ 
         const data = this.state.data;
         
         let idx = lunr(function () { 
@@ -95,17 +96,20 @@ class ConceptList extends React.Component {
 
     handleSearch = async changeEvent => { 
         await this.setState({
-            searchText: changeEvent.target.value
+            searchText: changeEvent.target.value 
         });
  
         let score = this.state.idx.search("*" + this.state.searchText + "*"  ); 
-        
+
         let newData = [];
         for(let elem of score){
             newData.push(this.state.data[elem.ref])
         }
 
-        this.setState({displayData: newData});
+        this.setState({
+            displayData: newData,
+            bubbleState: uid(newData)
+        });
     }
 
 
@@ -139,7 +143,7 @@ class ConceptList extends React.Component {
                         </Row>
                     </div>
                     <div className="grid-item">
-                        <BubbleChart handlerForOpen={this.handlerForOpen} data={this.props.Concepts}></BubbleChart>
+                        <BubbleChart handlerForOpen={this.handlerForOpen} data={this.state.displayData} key={this.state.bubbleState}></BubbleChart>
                         <Row className="BubbleChart-info">
                             <Col>
                                 <i>Source: </i>
