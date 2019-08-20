@@ -43,6 +43,7 @@ SELECT DISTINCT ?id ?label
     GRAPH <http://data.un.org/codes/sdg> {
 
         ?id skos:inScheme <http://data.un.org/codes/sdg/geo> .
+        FILTER(?id NOT IN (<http://data.un.org/codes/sdg/geoArea/co>, <http://data.un.org/codes/sdg/geoArea> ))
         
 	    {
             ?id skos:prefLabel ?prefLabel .
