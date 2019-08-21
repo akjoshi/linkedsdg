@@ -15,6 +15,7 @@ const rgbToHex = (r, g, b) => {
 }
 
 const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
+    let altdataForSeries = [];
     let countryArr = jsonText.data.countries.total;
     let countryAreas = require('./CountryAndArea.json');
     countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
@@ -36,29 +37,30 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 let colorIntens = countryInfo.weight / maxWeight
 
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
-                dataForSeries.push(countryInfo.name);
+                dataForSeries.push(countryInfo.url); 
             }
             else {
                 if(countryArr[top_regions[elem]].url === "http://data.un.org/kos/geo/1" && anyArea){
                     continue;
-                }
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
-
-                for (let key in temp) {
+                } 
+ 
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url) 
+                for (let key in temp) { 
                     if (dataForDataMap[temp[key].code] === undefined) {
-                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" };
+                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" }; 
+                        altdataForSeries.push(temp[key].code)
                     }
-                }
+                } 
             }
         }
     }
     
-    if(dataForSeries.length === 0){
-        for(let key in dataForDataMap){
-            dataForSeries.push(key)
+    if(dataForSeries.length === 0){ 
+        for(let code of altdataForSeries){
+            // TODO code to uri conventer
+            dataForSeries.push(code); // should be uri
         }
-    }
-
+    } 
 
 }
 

@@ -2,6 +2,8 @@
 import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from "react";
 import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+
 
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
@@ -15,39 +17,34 @@ const selectOptions = {
 
 const columns = [{
   dataField: 'id',
-  text: 'Product ID'
+  text: 'ID'
 }, {
-  dataField: 'name',
-  text: 'Product Name'
+  dataField: 'country',
+  text: 'Country'
 }, {
-  dataField: 'quality',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
+  dataField: 'year',
+  text: 'Year'
+}
+  , {
+  dataField: 'value',
+  text: 'value'
+
 }, {
-  dataField: 'quality2',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-}, {
-  dataField: 'quality3',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-}, {
-  dataField: 'quality4',
-  text: 'Product Quailty',
-  formatter: cell => selectOptions[cell],
-  filter: selectFilter({
-    options: selectOptions
-  })
-} ];
+  dataField: 'unit',
+  text: 'Unit'
+}
+  // , {
+  //   dataField: 'name',
+  //   text: 'Product Name'
+  // }, {
+  //   dataField: 'quality',
+  //   text: 'Product Quailty',
+  //   formatter: cell => selectOptions[cell],
+  //   filter: selectFilter({
+  //     options: selectOptions
+  //   })
+  // }
+];
 
 class DataSeriesComponent extends Component {
   constructor(props) {
@@ -55,8 +52,14 @@ class DataSeriesComponent extends Component {
   }
 
 
-  state = ({
 
+  state = ({
+    tableData: [
+      {
+        id: "1",
+        country: "Poland"
+      }
+    ],
   });
 
 
@@ -64,8 +67,20 @@ class DataSeriesComponent extends Component {
     return (
       <div className="table-series">
 
+        {this.props.data['@graph'] ?
+          <BootstrapTable keyField='id'  data={this.props.data['@graph'].map((cube, index) => {
 
-        <BootstrapTable keyField='id' data={[{id: 1, name: "Data", quality:0, quality2:0 },{id: 2, name: "Data",  quality2:0 }]} columns={columns} filter={filterFactory()} />
+            let dataCodes = require('./dataCodes.json'); 
+            
+            return {
+              id: index,
+              country: dataCodes["geoAreaCode"]["codes"][cube.geoAreaCode].label,
+              year: cube.yearCode,
+              value: cube[cube["measureType"]],
+              unit: dataCodes["unitsCode"]["codes"][cube.unitMeasure].label,
+            }
+          })} columns={columns} pagination={ paginationFactory() } filter={filterFactory()} /> : <React.Fragment></React.Fragment>
+        }
       </div>
     );
   }

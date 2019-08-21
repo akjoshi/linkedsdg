@@ -200,20 +200,20 @@ export function getJsonWithImportantFields(x) {
 }
 
 export async function getSeriesJsonFromApi() {
-    try {
+    try { 
         const dataForApi = {
             "countries": this.props.dataForSeries,
             "stat": this.state.clickedData.id
         }
 
-        const text = await axios.post('http://34.66.148.181:5002/stats', dataForApi, {
+        const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         if (text.status !== 200 && text.status !== 201) {
             throw new Error('Failed!');
-        }
+        } 
 
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');

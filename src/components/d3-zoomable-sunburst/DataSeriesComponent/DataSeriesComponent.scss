@@ -7,18 +7,19 @@
 }
 
 .table-series{
-    overflow: scroll;
-    overflow-y: hidden;
     table {
+        overflow-x: scroll; 
         table-layout: unset;
-        margin-bottom: 0;
-        thead {
-            tr{
-
-            }
-        }
+        margin-bottom: 0; 
         thead tr th {
-            min-width: 10rem!important; 
+            min-width: 6rem!important; 
+        }
+    }
+
+    .react-bootstrap-table-pagination{ 
+        margin-top: 10px;
+        ul {
+            float: right;
         }
     }
 }

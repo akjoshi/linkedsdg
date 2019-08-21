@@ -150,26 +150,30 @@ export async function drawChart() {
                 const dataForApi = {
                     "countries": this.props.dataForSeries,
                     "stat": this.state.clickedData.id
-                }
+                } 
 
-                const text = await axios.post('http://34.66.148.181:5002/stats', dataForApi, {
+                const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                });
+                }); 
 
                 if (text.status !== 200 && text.status !== 201) {
                     throw new Error('Failed!');
                 }
-                text.data['@graph'].sort(function (a, b) {
-                    let textA = a.geoAreaName.toUpperCase();
-                    let textB = b.geoAreaName.toUpperCase();
-                    return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-                });
+                // text.data['@graph'].sort(function (a, b) {
+                //     let textA = a.geoAreaName.toUpperCase();
+                //     let textB = b.geoAreaName.toUpperCase();
+                //     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+                // });
                 
-                text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
-                this.setState({ countrySeriesData: text.data['@graph'].filter(x => x.latest_value !== undefined) })
-                console.log(text.data['@graph'])
+                // text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
+                await this.setState({ countrySeriesData: text.data })  
+                console.log(text.data )
+                console.log(text.data )
+                console.log(text.data )
+                console.log(text.data )
+                console.log(text.data )
 
             } catch (error) {
                 console.log("ERROR");
