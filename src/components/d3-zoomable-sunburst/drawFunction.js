@@ -1,6 +1,8 @@
 import * as d3 from "d3";
 import axios from 'axios';
 
+import { textFilter } from 'react-bootstrap-table2-filter';
+
 export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
     const colors = require(`./data/sdgColors.json`)
@@ -168,11 +170,36 @@ export async function drawChart() {
                 // });
                 
                 // text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
+
+                // create columns 
+
+                 
+                this.setState({columns: [{
+                    dataField: 'id',
+                    text: 'ID',
+                    filter: textFilter()
+                  }, {
+                    dataField: 'country',
+                    text: 'Country',
+                    filter: textFilter()
+                  }, {
+                    dataField: 'year',
+                    text: 'Year',
+                    filter: textFilter()
+                  }
+                    , {
+                    dataField: 'value',
+                    text: 'value'
+                  
+                  }, {
+                    dataField: 'unit',
+                    text: 'Unit'
+                  } 
+                  ] });
+
+
+
                 await this.setState({ countrySeriesData: text.data })  
-                console.log(text.data )
-                console.log(text.data )
-                console.log(text.data )
-                console.log(text.data )
                 console.log(text.data )
 
             } catch (error) {
