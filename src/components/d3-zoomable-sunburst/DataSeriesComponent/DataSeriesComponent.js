@@ -14,17 +14,17 @@ class DataSeriesComponent extends Component {
 
 
 
-  state = ({ 
+  state = ({
   });
 
 
   render() {
     return (
       <div className="table-series">
-
+        <h5>{this.props.description}</h5>
         {this.props.data['@graph'] ?
-          <BootstrapTable keyField='id'  data={this.props.data['@graph'].map((cube, index) => {
-            let dataCodes = require('./dataCodes.json'); 
+          <BootstrapTable keyField='id' data={this.props.data['@graph'].map((cube, index) => {
+            let dataCodes = require('./dataCodes.json');
             let returnObject = {
               id: index,
               country: dataCodes["geoAreaCode"]["codes"][cube.geoAreaCode].label,
@@ -33,9 +33,29 @@ class DataSeriesComponent extends Component {
               year: cube.yearCode,
             }
             // need to add dimentions
-            
+            let notRelevantFields = [
+              "@id",
+              "@type",
+              "yearCode",
+              "measureType",
+              "unitMeasure",
+              "geoAreaCode"
+            ]
+
+            for (let key in cube) {
+              if (notRelevantFields.includes(key) || key === cube['measureType']) {
+                continue;
+              }
+              console.log("new key !")
+              console.log(key)
+              console.log(dataCodes[key]["codes"][ cube[key] ].label)
+              returnObject[key] =  cube[key]  ;
+              notRelevantFields.push(key)
+
+            }
+
             return returnObject;
-          })} columns={this.props.columns} pagination={ paginationFactory() } filter={filterFactory()} /> : <React.Fragment></React.Fragment>
+          })} columns={this.props.columns} pagination={paginationFactory()} filter={filterFactory()} /> : <React.Fragment></React.Fragment>
         }
       </div>
     );

@@ -1,6 +1,7 @@
 import * as d3 from "d3";
 import axios from 'axios';
 
+import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter';
 import { textFilter } from 'react-bootstrap-table2-filter';
 
 export async function drawChart() {
@@ -21,8 +22,8 @@ export async function drawChart() {
 
     const mouseover = (p) => {
         let box = document.getElementById("informationFromTheSun");
-        if(box.clientHeight > 0){
-            box.setAttribute("style","height:"+box.clientHeight+"px");
+        if (box.clientHeight > 0) {
+            box.setAttribute("style", "height:" + box.clientHeight + "px");
         }
 
         this.setState({
@@ -55,8 +56,8 @@ export async function drawChart() {
             this.setState({ selectedGoal: undefined, selectedGoalName: 'Sustainable Development Goals' })
         }
         let box = document.getElementById("informationFromTheSun");
-        if(box.clientHeight > 0){
-            box.setAttribute("style","height:auto");
+        if (box.clientHeight > 0) {
+            box.setAttribute("style", "height:auto");
         }
 
     }
@@ -82,7 +83,7 @@ export async function drawChart() {
                 concept: p.data.concept
             }
         })
-        
+
         if (p.parent === null) {
             this.setState({ selectedGoal: p.data.id, selectedGoalName: p.data.name })
         }
@@ -130,7 +131,7 @@ export async function drawChart() {
                 return +this.getAttribute("fill-opacity") || arcVisible(d.target);
             })
             .attrTween("d", d => () => arc(d.current))
-            .on('end', function () { 
+            .on('end', function () {
                 clickEnevtBlock = false;
             });
 
@@ -152,13 +153,13 @@ export async function drawChart() {
                 const dataForApi = {
                     "countries": this.props.dataForSeries,
                     "stat": this.state.clickedData.id
-                } 
+                }
 
                 const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
-                }); 
+                });
 
                 if (text.status !== 200 && text.status !== 201) {
                     throw new Error('Failed!');
@@ -168,39 +169,92 @@ export async function drawChart() {
                 //     let textB = b.geoAreaName.toUpperCase();
                 //     return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
                 // });
-                
+
                 // text.data['@graph'] = text.data['@graph'].map(x => {return {...x , "open": "+"}})
 
                 // create columns 
 
-                 
-                this.setState({columns: [{
-                    dataField: 'id',
-                    text: 'ID',
-                    filter: textFilter()
-                  }, {
-                    dataField: 'country',
-                    text: 'Country',
-                    filter: textFilter()
-                  }, {
-                    dataField: 'year',
-                    text: 'Year',
-                    filter: textFilter()
-                  }
-                    , {
-                    dataField: 'value',
-                    text: 'value'
-                  
-                  }, {
-                    dataField: 'unit',
-                    text: 'Unit'
-                  } 
-                  ] });
+                let columns = [
+                    {
+                        dataField: 'id',
+                        text: 'ID',
+                        filter: textFilter(),
+                        sort: true
+                    }, {
+                        dataField: 'country',
+                        text: 'Country',
+                        filter: textFilter(),
+                        sort: true
+                    }, {
+                        dataField: 'year',
+                        text: 'Year',
+                        filter: textFilter(),
+                        sort: true
+                    }, {
+                        dataField: 'value',
+                        text: 'value',
+                        sort: true,
+                        sortFunc: (a, b, order, dataField) => {
+                            if (order === 'asc') {
+                                return b - a;
+                            }
+                            return a - b; // desc
+                        }
+                    }, {
+                        dataField: 'unit',
+                        text: 'Unit'
+                    }
+                ]
+
+                this.setState({
+                    columns: columns
+                });
+
+                let notRelevantFields = [
+                    "@id",
+                    "@type",
+                    "yearCode",
+                    "measureType",
+                    "unitMeasure",
+                    "geoAreaCode"
+                ]
+                
+                
+            let dataCodes = require('./DataSeriesComponent/dataCodes.json');
+
+                for (let obj of text.data['@graph']) {
+                    for (let key in obj) {
+                        if (notRelevantFields.includes(key) || key === obj['measureType']) {
+                            continue;
+                        }
+                        console.log("new field !")
+                        console.log(key) 
+                        let selectOptions = {}
+                        for(let uri in dataCodes[key].codes){
+                            selectOptions[uri] = dataCodes[key].codes[uri].label
+                        }
+                        console.log(selectOptions)
+                        columns.push({
+                            dataField: key,
+                            text: key,
+                            formatter: cell => selectOptions[cell],
+                            filter: selectFilter({
+                                options: selectOptions
+                            })
+                        })
+
+                        notRelevantFields.push(key)
+
+                    }
+                }
 
 
 
-                await this.setState({ countrySeriesData: text.data })  
-                console.log(text.data )
+                await this.setState({
+                    countrySeriesData: text.data,
+                    columns: columns
+                })
+                console.log(text.data)
 
             } catch (error) {
                 console.log("ERROR");
@@ -259,7 +313,7 @@ export async function drawChart() {
         })
         .on("click", d => {
             if (arcVisible(d.current) || (d.children === undefined && arcVisible(d.current))) {
-                if(clickEnevtBlock === false){
+                if (clickEnevtBlock === false) {
                     clicked(d)
                     clickEnevtBlock = true;
                 }

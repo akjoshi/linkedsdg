@@ -1,3 +1,6 @@
+@import '../../../App.scss';
+
+
 .data-series-title{
     margin-top: 1rem;
 
@@ -7,12 +10,16 @@
 }
 
 .table-series{
-    table {
-        overflow-x: scroll; 
-        table-layout: unset;
-        margin-bottom: 0; 
-        thead tr th {
-            min-width: 6rem!important; 
+    .react-bootstrap-table{
+
+        overflow: scroll; 
+    
+        table {
+            table-layout: unset;
+            margin-bottom: 0; 
+            thead tr th {
+                min-width: 100px!important; 
+            }
         }
     }
 
@@ -20,6 +27,30 @@
         margin-top: 10px;
         ul {
             float: right;
+
+            a{
+                color: $mainColor;
+            }
+
+            .active a {
+                background-color: $mainColor;
+                border-color: $mainColor;
+                color: white!important;
+            }
+
         }
     }
+
+    .text-filter { 
+        font-size:11px;  
+        border:solid 1px #aacfe4; 
+        margin: 0;
+    }
+    
+    .filter-label{
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+
 }
