@@ -11,128 +11,7 @@
 
     
 
-    .country-series-info{ 
-        
- 
-
-        .big-plus{
-            font-size: 1rem;
-        }
-        .download-series .download-button{
-            width: 100%;
-            text-align: left;
-            button {
-                margin: 1.5rem 0;
-            }
-        }
-        .records-container{
-            max-height: 500px;
-            overflow: scroll;
-            overflow-y: hidden;
-            overflow-x: hidden;
-        }
-        
-        .records-container:hover {
-            margin-right: -16px;
-            overflow: scroll;
-            overflow-x: hidden;
-        }
-
-        /* total width */
-        .records-container::-webkit-scrollbar {
-            background-color:#fff;
-            width:16px
-        }
-
-        /* background of the scrollbar except button or resizer */
-        .records-container::-webkit-scrollbar-track {
-            background-color:#fff
-        }
-
-        /* scrollbar itself */
-        .records-container::-webkit-scrollbar-thumb {
-            background-color:#babac0;
-            border-radius:16px;
-            border:4px solid #fff
-        }
-
-        /* total width */
-        body::-webkit-scrollbar {
-            background-color:#fff;
-            width:16px
-        }
-
-        /* background of the scrollbar except button or resizer */
-        body::-webkit-scrollbar-track {
-            background-color:#fff
-        }
-
-        /* scrollbar itself */
-        body::-webkit-scrollbar-thumb {
-            background-color:#babac0;
-            border-radius:16px;
-            border:4px solid #fff
-        }
-
-        /* set button(top and bottom of the scrollbar) */
-        body::-webkit-scrollbar-button {display:none}
-
-        .series-country-expand-all{
-            font-size: 14px;
-            line-height: 16px;
-            margin-right: 5px;
-            text-align: right;
-            max-width: 15%;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .series-country-expand-all:hover{
-            opacity: 0.6;
-        }
-
-        .series-info {
-            border-bottom: 1px #ccc solid;
-            height: 24px;
-            overflow: hidden;
-
-            .series-country-country{
-                margin:0;
-            }
-
-            .series-country-expand{
-                margin-right: 5px;
-                text-align: right;
-                max-width: 15%;
-                cursor: pointer;
-            }
-
-            .series-country-expand:hover{
-                opacity: 0.6;
-            }
-
-            .series-country-json{
-                ul{
-                    padding:0;
-                    margin: 5px 0 5px 20px;
-                    list-style-type: none;
-                    li{
-                        font-size: 12px;
-                    }
-                } 
-            }
-        }
-        .uri-link{
-            margin: 1rem 0 0 0;
-            cursor: pointer;
-            color: #4d4d4d;
-        }
-
-        p span {
-            font-weight: 700; 
-            color: #4d4d4d;
-        }
-    }
+   
  
 
     svg { 
@@ -180,28 +59,149 @@
 
 }
 
-.series-get-data{
-    margin-top: 1rem!important;
+.country-series-info{ 
+         
+    .big-plus{
+        font-size: 1rem;
+    }
+    .download-series .download-button{
+        width: 100%;
+        text-align: left;
+        button {
+            margin: 1.5rem 0;
+        }
+    }
+    .records-container{
+        max-height: 500px;
+        overflow: scroll;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    
+    .records-container:hover {
+        margin-right: -16px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    /* total width */
+    .records-container::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+
+    /* background of the scrollbar except button or resizer */
+    .records-container::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+
+    /* scrollbar itself */
+    .records-container::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+        border:4px solid #fff
+    }
+
+    /* total width */
+    body::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+
+    /* background of the scrollbar except button or resizer */
+    body::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+
+    /* scrollbar itself */
+    body::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+        border:4px solid #fff
+    }
+
+    /* set button(top and bottom of the scrollbar) */
+    body::-webkit-scrollbar-button {display:none}
+
+    .series-country-expand-all{
+        font-size: 14px;
+        line-height: 16px;
+        margin-right: 5px;
+        text-align: right;
+        max-width: 15%;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .series-country-expand-all:hover{
+        opacity: 0.6;
+    }
+
+    .series-info {
+        border-bottom: 1px #ccc solid;
+        height: 24px;
+        overflow: hidden;
+
+        .series-country-country{
+            margin:0;
+        }
+
+        .series-country-expand{
+            margin-right: 5px;
+            text-align: right;
+            max-width: 15%;
+            cursor: pointer;
+        }
+
+        .series-country-expand:hover{
+            opacity: 0.6;
+        }
+
+        .series-country-json{
+            ul{
+                padding:0;
+                margin: 5px 0 5px 20px;
+                list-style-type: none;
+                li{
+                    font-size: 12px;
+                }
+            } 
+        }
+    }
+    .uri-link{
+        margin: 1rem 0 0 0;
+        cursor: pointer;
+        color: #4d4d4d;
+    }
+
+    p span {
+        font-weight: 700; 
+        color: #4d4d4d;
+    }
+    
+    .series-get-data{
+        margin-top: 1rem!important;
+    }
+    
+    .json-with-data{
+        margin-top:1.5rem;
+        max-height: 40vh;
+        overflow: scroll;
+        overflow-x:hidden;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-bottom: 1.5rem;
+        border: 1px solid #dee2e6;
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.7);
+    }
+    
+    .button-for-table { 
+        margin-top: 1.5rem!important;
+    }
 }
 
-.json-with-data{
-    margin-top:1.5rem;
-    max-height: 40vh;
-    overflow: scroll;
-    overflow-x:hidden;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    margin-bottom: 1.5rem;
-    border: 1px solid #dee2e6;
-    padding: 1rem;
-    border-radius: 4px;
-    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.7);
-}
-
-.button-for-table {
-            
-    margin-top: 1.5rem!important;
-}
 
 @media only screen and (max-width: 991px) {
     .grid-container{
