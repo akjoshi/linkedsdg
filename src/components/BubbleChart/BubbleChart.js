@@ -30,11 +30,12 @@ class BubbleChart extends React.Component {
         let width = 932;
         let height = width;
 
-        data = this.props.data.map(x => {
-            x.value = x.weight;
-            x.name = x.label;
-            x.group = x.source;
-            x.title = x.id;
+        data = this.props.data.map(y => {
+            let x = {}
+            x.value = y.weight;
+            x.name = y.label;
+            x.group =y.source;
+            x.title = y.id;
             return x;
         })
 

@@ -4,6 +4,8 @@ import axios from 'axios';
 import Wheel from './img/wheel.png';
 import './ZoomableSunburst.scss'
 
+let config = require('../../config.json');
+
 export function setSunState(deeper = true) {
     if (deeper === true) {
         if (this.state.sunState === "root") {
@@ -206,7 +208,7 @@ export async function getSeriesJsonFromApi() {
             "stat": this.state.clickedData.id
         }
 
-        const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
+        const text = await axios.post(config.statsApiUrl, dataForApi, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -234,7 +236,7 @@ export async function getJsonDescribeOfUri() {
 
 const callDescribeApi = async (dataForApi) => {
     try {
-        const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
+        const text = await axios.post(config.describeApiUrl, dataForApi, {
             headers: {
                 'Content-Type': 'text/plain'
             }

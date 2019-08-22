@@ -1,4 +1,5 @@
 import axios from 'axios';
+let config = require('../../config.json');
 
 function findContext(data, key) {
     var filtered = data.filter(x => { return x['url'] === key });
@@ -26,7 +27,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
         let anyArea = false;
 
         for (let elem in jsonText.data.countries.top_regions) {
-            if(countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/kos/geo/1"){
+            if (countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/kos/geo/1") {
                 anyArea = true;
             }
         }
@@ -37,31 +38,41 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 let colorIntens = countryInfo.weight / maxWeight
 
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
-                dataForSeries.push(countryInfo.url); 
+                dataForSeries.push(countryInfo.url);
             }
             else {
-                if(countryArr[top_regions[elem]].url === "http://data.un.org/kos/geo/1" && anyArea){
+                if (countryArr[top_regions[elem]].url === "http://data.un.org/kos/geo/1" && anyArea) {
                     continue;
-                } 
- 
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url) 
-                for (let key in temp) { 
+                }
+
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
+                for (let key in temp) {
                     if (dataForDataMap[temp[key].code] === undefined) {
-                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" }; 
+                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" };
                         altdataForSeries.push(temp[key].code)
                     }
-                } 
+                }
             }
         }
     }
-    
-    if(dataForSeries.length === 0){ 
-        for(let code of altdataForSeries){
-            // TODO code to uri conventer
-            dataForSeries.push(code); // should be uri
-        }
-    } 
 
+    if (dataForSeries.length === 0) {
+        for (let code of altdataForSeries) {
+            // TODO code to uri conventer
+            dataForSeries.push(codeToUri(code, countryAreas)); // should be uri
+        }
+    }
+
+}
+
+function codeToUri(code, countryAreas) {
+    let arr = countryAreas.results.bindings;
+    for(let obj of arr){
+        if(obj.member_country_code.value === code){
+            return obj.member_country.value; 
+        }
+    }
+    return code
 }
 
 export async function handleUploadFile(file) {
@@ -75,7 +86,7 @@ export async function handleUploadFile(file) {
     data.append('file', file);
 
     try {
-        const json = await axios.post('http://127.0.0.1:5001/api', data, {
+        const json = await axios.post(config.textApiUrl, data, {
 
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -97,7 +108,7 @@ export async function handleUploadFile(file) {
 export async function handleUrlFile(url) {
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
     try {
-        const json = await axios.post('http://127.0.0.1:5001/apiURL', url, {
+        const json = await axios.post(config.textLinkApiUrl, url, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -117,7 +128,7 @@ export async function handleUrlFile(url) {
 export async function processText(data) {
     try {
 
-        const jsonText = await axios.post('http://127.0.0.1:5000/api', {
+        const jsonText = await axios.post(config.spacyApiUrl, {
             text: data.text,
             lang: data.lang,
             headers: {
@@ -171,7 +182,7 @@ export async function processText(data) {
             }
         });
 
-        const linkedDataResponse = await axios.post('http://127.0.0.1:5002/api', match, {
+        const linkedDataResponse = await axios.post(config.graphQueryApiUrl, match, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -182,7 +193,7 @@ export async function processText(data) {
 
         // console.log("linkedDataResponse")
         // console.log(linkedDataResponse)
-        await this.setState({ dataForSun: linkedDataResponse.data });
+        await this.setState({ dataForSun: linkedDataResponse.data }); // Change to sunburst_label
 
 
         await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });

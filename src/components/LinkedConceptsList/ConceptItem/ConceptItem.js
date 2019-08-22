@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import './ConceptItem.scss';
 
+let config = require('../../../config.json');
+
 
 class ConceptItem extends React.Component {
     constructor(props) {
@@ -40,7 +42,7 @@ class ConceptItem extends React.Component {
             }
             console.log(dataForApi)
 
-            const text = await axios.post('http://34.66.148.181:8080/describe', dataForApi, {
+            const text = await axios.post(config.describeApiUrl, dataForApi, {
                 headers: {
                     'Content-Type': 'text/plain' 
                 }

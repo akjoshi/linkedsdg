@@ -95,6 +95,7 @@ class Upload extends Component {
                 <div className="upload-content">
                     <Row>
                         <Col lg={4}>
+                            <h3 className="title">Upload</h3>
                             <p className="Description">
                                 Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can also use some of the example links listed below.
                         </p>
@@ -163,7 +164,7 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts}></ConceptList>
 
-                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true}/>
+                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
 
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 

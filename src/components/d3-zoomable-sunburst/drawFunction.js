@@ -1,8 +1,9 @@
 import * as d3 from "d3";
 import axios from 'axios';
-
 import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter';
 import { textFilter } from 'react-bootstrap-table2-filter';
+
+let config = require('../../config.json');
 
 export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
@@ -155,7 +156,7 @@ export async function drawChart() {
                     "stat": this.state.clickedData.id
                 }
 
-                const text = await axios.post('http://127.0.0.1:5002/stats', dataForApi, {
+                const text = await axios.post(config.statsApiUrl, dataForApi, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -174,81 +175,7 @@ export async function drawChart() {
 
                 // create columns 
 
-                let columns = [
-                    {
-                        dataField: 'id',
-                        text: 'ID',
-                        filter: textFilter(),
-                        sort: true
-                    }, {
-                        dataField: 'country',
-                        text: 'Country',
-                        filter: textFilter(),
-                        sort: true
-                    }, {
-                        dataField: 'year',
-                        text: 'Year',
-                        filter: textFilter(),
-                        sort: true
-                    }, {
-                        dataField: 'value',
-                        text: 'value',
-                        sort: true,
-                        sortFunc: (a, b, order, dataField) => {
-                            if (order === 'asc') {
-                                return b - a;
-                            }
-                            return a - b; // desc
-                        }
-                    }, {
-                        dataField: 'unit',
-                        text: 'Unit'
-                    }
-                ]
-
-                this.setState({
-                    columns: columns
-                });
-
-                let notRelevantFields = [
-                    "@id",
-                    "@type",
-                    "yearCode",
-                    "measureType",
-                    "unitMeasure",
-                    "geoAreaCode"
-                ]
-                
-                
-            let dataCodes = require('./DataSeriesComponent/dataCodes.json');
-
-                for (let obj of text.data['@graph']) {
-                    for (let key in obj) {
-                        if (notRelevantFields.includes(key) || key === obj['measureType']) {
-                            continue;
-                        }
-                        console.log("new field !")
-                        console.log(key) 
-                        let selectOptions = {}
-                        for(let uri in dataCodes[key].codes){
-                            selectOptions[uri] = dataCodes[key].codes[uri].label
-                        }
-                        console.log(selectOptions)
-                        columns.push({
-                            dataField: key,
-                            text: key,
-                            formatter: cell => selectOptions[cell],
-                            filter: selectFilter({
-                                options: selectOptions
-                            })
-                        })
-
-                        notRelevantFields.push(key)
-
-                    }
-                }
-
-
+                let columns = constructColumns(text)
 
                 await this.setState({
                     countrySeriesData: text.data,
@@ -372,3 +299,131 @@ export async function drawChart() {
     return svg.node();
 }
 
+const constructColumns = (text) => {
+
+    let columns = [{
+        dataField: 'value',
+        text: 'value',
+        sort: true,
+        sortFunc: (a, b, order, dataField) => {
+            if (order === 'asc') {
+                return b - a;
+            }
+            return a - b; // desc
+        }
+    },
+    {
+        dataField: 'id',
+        text: 'ID',
+        filter: textFilter(),
+        hidden: true
+    }
+    ]
+
+
+    let notRelevantFields = [
+        "@id",
+        "@type",
+        "measureType",
+        "unitMeasure",
+        "geoAreaCode",
+        "yearCode"
+    ]
+
+
+    let dataCodes = require('./DataSeriesComponent/dataCodes.json');
+
+    let geoArea = new Set();
+    for (let obj of text.data['@graph']) {
+        geoArea.add(dataCodes["geoAreaCode"]["codes"][obj["geoAreaCode"]].label);
+    }
+
+    let geoAreaMap = {};
+    for (let key of geoArea) {
+        geoAreaMap[key] = key;
+    }
+
+    columns.push({
+        dataField: "country",
+        text: "Country",
+        formatter: cell => geoAreaMap[cell],
+        filter: selectFilter({
+            options: geoAreaMap
+        })
+    })
+
+    let years = new Set();
+    for (let obj of text.data['@graph']) {
+        years.add(obj["yearCode"])
+    }
+
+    let yearsMap = {};
+    for (let key of years) {
+        yearsMap[key] = key;
+    }
+
+    columns.push({
+        dataField: "yearCode",
+        text: "Year",
+        formatter: cell => yearsMap[cell],
+        filter: selectFilter({
+            options: yearsMap
+        })
+    })
+
+    let props = [];
+
+    for (let obj of text.data['@graph']) {
+        for (let key in obj) {
+            if (notRelevantFields.includes(key) || key === obj['measureType']) {
+                continue;
+            }
+            props.push(key)
+            // let selectOptions = new Set();
+            // for (let obj of text.data['@graph']) {
+            //     selectOptions.add(obj["yearCode"])
+            // }
+
+            // let selectOptionsMap = {};
+            // for (let key of selectOptions) {
+            //     selectOptionsMap[key] = key;
+            // }
+
+            // columns.push({
+            //     dataField: key,
+            //     text: key,
+            //     formatter: cell => selectOptionsMap[cell],
+            //     filter: selectFilter({
+            //         options: selectOptionsMap
+            //     })
+            // })
+
+            notRelevantFields.push(key)
+
+        }
+    }
+
+    for (let prop of props) {
+        let set = new Set(); 
+
+        for (let obj of text.data['@graph']) {
+            set.add( obj[prop])
+        } 
+
+        let setMap = {};
+        for (let key of set) {
+            setMap[key] = dataCodes[prop]["codes"][key].label; 
+        }
+
+        columns.push({
+            dataField: prop,
+            text: prop,
+            formatter: cell => setMap[cell],
+            filter: selectFilter({
+                options: setMap
+            })
+        })
+    } 
+
+    return columns;
+}

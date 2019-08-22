@@ -155,7 +155,11 @@ class ConceptList extends React.Component {
                 {this.state.displayJson ?
                     <React.Fragment>
                         <div className="json-with-data">
-                            <ReactJson src={this.state.data} collapsed={2} displayDataTypes={false} name={"Extracted concepts"}/>
+                            <ReactJson src={this.state.data.map(x => {
+                                let y = {...x};
+                                delete y.open;
+                                return y
+                            })} collapsed={2} displayDataTypes={false} name={"Extracted concepts"}/>
                         </div>
                         <Button variant="primary" onClick={this.handleDownload}>
                             ⤓ download

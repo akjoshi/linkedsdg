@@ -35,24 +35,27 @@ class DataSeriesComponent extends Component {
             // need to add dimentions
             let notRelevantFields = [
               "@id",
-              "@type",
-              "yearCode",
+              "@type",    
               "measureType",
               "unitMeasure",
               "geoAreaCode"
             ]
+            // console.log("GOT DATA START LOOP")
+            // console.log(new Date().toISOString())
 
             for (let key in cube) {
               if (notRelevantFields.includes(key) || key === cube['measureType']) {
                 continue;
               }
-              console.log("new key !")
-              console.log(key)
-              console.log(dataCodes[key]["codes"][ cube[key] ].label)
+              // console.log("new key !")
+              // console.log(key)
+              // console.log(dataCodes[key]["codes"][ cube[key] ].label)
               returnObject[key] =  cube[key]  ;
               notRelevantFields.push(key)
 
             }
+
+            // console.log(new Date().toISOString())
 
             return returnObject;
           })} columns={this.props.columns} pagination={paginationFactory()} filter={filterFactory()} /> : <React.Fragment></React.Fragment>
