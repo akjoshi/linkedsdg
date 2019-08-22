@@ -13,39 +13,35 @@ class BubbleChart extends React.Component {
         const clicked = async (p) => {
             this.props.handlerForOpen(p.data.id)
 
-            let myElement = document.getElementById(p.data.id);
+            let myElement = document.getElementById(p.data.id); 
             let w = window.innerWidth;
             if (w < 992) {
                 myElement.scrollIntoView(true);
             }
-            else {
+            else { 
                 var topPos = myElement.offsetTop - document.getElementById("keywords-list-id").offsetTop;
                 document.getElementById("keywords-list-id").scrollTop = topPos;
             }
         }
 
         let data = [];
-        let color = d3.scaleOrdinal(data.map(d => d.group), d3.schemePastel1);
+        let color = d3.scaleOrdinal(data.map(d => d.source), d3.schemePastel1);
         let format = d3.format(",d");
         let width = 932;
         let height = width;
 
-        data = this.props.data.map(y => {
-            let x = {}
-            x.value = y.weight;
-            x.name = y.label;
-            x.group =y.source;
-            x.title = y.id;
+        data = this.props.data.map(x => {    
+            x.title = x.id;
             return x;
         })
 
 
-        data.sort((a, b) => (a.value < b.value) ? 1 : -1)
+        data.sort((a, b) => (a.weight < b.weight) ? 1 : -1)
         data = data.slice(0, 30);
 
         const pack = data => d3.pack()
             .size([width - 2, height - 2])
-            .padding(3)(d3.hierarchy({ children: data }).sum(d => d.value))
+            .padding(3)(d3.hierarchy({ children: data }).sum(d => d.weight))
 
         const root = pack(data);
 
@@ -70,10 +66,10 @@ class BubbleChart extends React.Component {
                     .attr("pointer-events", "none")
                     .attr("y", (d, i, nodes) => {
 
-                        return `${(d.r / d.data.name.length) / 2 + 5}px`;
+                        return `${(d.r / d.data.label.length) / 2 + 5}px`;
                     })
-                    .text(d.data.name)
-                    .style("font-size", `${(d.r / d.data.name.length) * 2.2 + 20}px`)
+                    .text(d.data.label)
+                    .style("font-size", `${(d.r / d.data.label.length) * 2.2 + 20}px`)
                     .style("fill", "black");
 
             })
@@ -86,10 +82,10 @@ class BubbleChart extends React.Component {
                     .append("text").raise()
                     .attr("pointer-events", "none")
                     .attr("y", (d, i, nodes) => {
-                        return `${(d.r / d.data.name.length) / 2}px`;
+                        return `${(d.r / d.data.label.length) / 2}px`;
                     })
-                    .text(d.data.name)
-                    .style("font-size", `${(d.r / d.data.name.length) * 2.2}px`)
+                    .text(d.data.label)
+                    .style("font-size", `${(d.r / d.data.label.length) * 2.2}px`)
                     .style("fill", "#555555");
             });
 
@@ -97,26 +93,26 @@ class BubbleChart extends React.Component {
         leaf.append("circle")
             .attr("r", d => d.r)
             .attr("fill-opacity", 0.7)
-            .attr("fill", d => color(d.data.group))
+            .attr("fill", d => color(d.data.source))
             .style("cursor", "pointer")
             .on("click", clicked)
 
         leaf.append("text")
             .attr("x", 0)
             .attr("y", (d, i, nodes) => {
-                if(d.data.name !== undefined){
-                    return `${(d.r / d.data.name.length) / 2}px`;
+                if (d.data.label !== undefined) {
+                    return `${(d.r / d.data.label.length) / 2}px`;
                 }
-                else{
+                else {
                     return `${(d.r) / 2}px`;
                 }
             })
-            .text(d => { return d.data.name })
+            .text(d => { return d.data.label })
             .style("font-size", d => {
-                if(d.data.name !== undefined) {
-                    return `${(d.r / d.data.name.length) * 2.2}px`;
+                if (d.data.label !== undefined) {
+                    return `${(d.r / d.data.label.length) * 2.2}px`;
                 }
-                else{
+                else {
                     return `${(d.r) * 2.2}px`;
                 }
             })
@@ -125,7 +121,7 @@ class BubbleChart extends React.Component {
 
 
         leaf.append("title")
-            .text(d => `${d.data.title}\n${format(d.value)}`);
+            .text(d => `${d.data.title}\n${format(d.weight)}`);
 
         return svg.node();
     }

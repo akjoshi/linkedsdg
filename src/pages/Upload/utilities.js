@@ -172,7 +172,7 @@ export async function processText(data) {
         // console.log(conceptsResponse)
 
 
-        this.setState({ concepts: conceptsResponse })
+        this.setState({ concepts: conceptsResponse, fullConcepts: [...conceptsResponse] })  
 
 
         const match = jsonText['data']['matches'].map(function (x) {
@@ -192,7 +192,7 @@ export async function processText(data) {
         }
 
         // console.log("linkedDataResponse")
-        // console.log(linkedDataResponse)
+        // console.log(linkedDataResponse) 
         await this.setState({ dataForSun: linkedDataResponse.data }); // Change to sunburst_label
 
 

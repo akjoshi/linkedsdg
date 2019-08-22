@@ -15,10 +15,19 @@
         overflow: scroll; 
     
         table {
+            thead tr:first-child th{ 
+                vertical-align: top;
+                margin: 0;
+                padding: 0.8rem;  
+            }
             table-layout: unset;
             margin-bottom: 0; 
             thead tr th {
                 min-width: 100px!important; 
+            }
+            p{
+                padding-bottom: 0.2rem;
+                margin: 0;
             }
         }
     }
@@ -41,16 +50,24 @@
         }
     }
 
-    .text-filter { 
-        font-size:11px;  
-        border:solid 1px #aacfe4; 
-        margin: 0;
-    }
     
     .filter-label{
         width: 100%;
         margin-bottom: 0;
+                .text-filter, select { 
+                    font-size:0.8rem;  
+                    border:solid 1px #aacfe4; 
+                    margin: 0;
+                }
     }
 
+    .series-unit { 
+        font-size:10px;
+    }
 
+    .sort-arrows {
+        font-size:6px; 
+        padding: 8px;
+        line-height: 0;
+    }
 }

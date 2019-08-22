@@ -24,6 +24,7 @@ class Upload extends Component {
     state = {
         plainText: '',
         concepts: [],
+        fullConcepts: [],
         linkedData: {},
         isLoading: false,
         loadedFrom: '',
@@ -162,7 +163,7 @@ class Upload extends Component {
                             <div className="Data-Area" >
                                 <div id="Data-Area-id"></div>
 
-                                <ConceptList Concepts={this.state.concepts}></ConceptList>
+                                <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts}></ConceptList>
 
                                 <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
 

@@ -1,6 +1,7 @@
 import * as d3 from "d3";
+import React from 'react';
 import axios from 'axios';
-import filterFactory, { selectFilter } from 'react-bootstrap-table2-filter';
+import  { selectFilter } from 'react-bootstrap-table2-filter';
 import { textFilter } from 'react-bootstrap-table2-filter';
 
 let config = require('../../config.json');
@@ -269,7 +270,7 @@ export async function drawChart() {
         .attr("fill-opacity", d => +labelVisible(d.current))
         .attr("transform", d => labelTransform(d.current))
         .text(d => {
-            return d.data.label;
+            return d.data.sunburst_label;
         })
         .style("font-size", (d) => {
             if (d.data.label.split(" ")[0] !== 'Series') {
@@ -299,12 +300,31 @@ export async function drawChart() {
     return svg.node();
 }
 
+
 const constructColumns = (text) => {
+
+    let dataCodes = require('./DataSeriesComponent/dataCodes.json');
+
+    console.log(text)
+
 
     let columns = [{
         dataField: 'value',
-        text: 'value',
         sort: true,
+        text: "value",
+        headerFormatter: (column, colIndex, components) => {
+            return <div>
+                        <p>
+                            value
+                            <span className="sort-arrows">
+                                &#x25B2; &#x25BC;
+                            </span>
+                        </p>
+                        <p className="series-unit">
+                            {dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label}
+                        </p>
+                    </div>
+        },
         sortFunc: (a, b, order, dataField) => {
             if (order === 'asc') {
                 return b - a;
@@ -331,7 +351,6 @@ const constructColumns = (text) => {
     ]
 
 
-    let dataCodes = require('./DataSeriesComponent/dataCodes.json');
 
     let geoArea = new Set();
     for (let obj of text.data['@graph']) {
@@ -345,7 +364,7 @@ const constructColumns = (text) => {
 
     columns.push({
         dataField: "country",
-        text: "Country",
+        text: "country",
         formatter: cell => geoAreaMap[cell],
         filter: selectFilter({
             options: geoAreaMap
@@ -364,7 +383,7 @@ const constructColumns = (text) => {
 
     columns.push({
         dataField: "yearCode",
-        text: "Year",
+        text: "year",
         formatter: cell => yearsMap[cell],
         filter: selectFilter({
             options: yearsMap
@@ -404,26 +423,27 @@ const constructColumns = (text) => {
     }
 
     for (let prop of props) {
-        let set = new Set(); 
+        let set = new Set();
 
         for (let obj of text.data['@graph']) {
-            set.add( obj[prop])
-        } 
+            set.add(obj[prop])
+        }
 
         let setMap = {};
         for (let key of set) {
-            setMap[key] = dataCodes[prop]["codes"][key].label; 
+            setMap[key] = dataCodes[prop]["codes"][key].label;
+
         }
 
         columns.push({
             dataField: prop,
-            text: prop,
+            text: dataCodes[prop].label,
             formatter: cell => setMap[cell],
             filter: selectFilter({
                 options: setMap
             })
         })
-    } 
+    }
 
     return columns;
 }
