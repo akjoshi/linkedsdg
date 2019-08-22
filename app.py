@@ -324,6 +324,27 @@ def extract_concepts(input, matcher_id, lang):
         match["contextr"] = context_r
         # match["context"] = context_string
         final_matches.append(match)
+
+        # label = index[match["url"]]["label"]
+        # if label in concepts_all:
+        #     concepts_all[label]["weight"] += 1
+        #     concepts_all[label]["concepts"][match["url"]] = {
+        #                 "uri": match["url"],
+        #                 "source": index[match["url"]]["source"]
+        #             }
+        # else:
+        #     concepts_all[label] = {
+        #         "label": index[match["url"]]["label"],
+        #         "concepts": {
+        #             match["url"]: {
+        #                 "uri": match["url"],
+        #                 "source": index[match["url"]]["source"]
+        #             }
+        #         },
+        #         "weight": 1
+        #     }
+
+
         if match["url"] in concepts_all:
             concepts_all[match["url"]]["weight"] += 1
         else: 
@@ -334,8 +355,47 @@ def extract_concepts(input, matcher_id, lang):
             }
     return final_matches, concepts_all
 
+
+def transform_response(concepts):
+
+    new_concepts = {}
+
+    for uri in concepts:
+        label = concepts[uri]["label"]
+        if label in new_concepts:
+            new_concepts[label]["weight"] = max(int(new_concepts[label]["weight"]), int(concepts[uri]["weight"]))
+            new_concepts[label]["concepts"][uri] = {
+                        "uri": uri,
+                        "source": concepts[uri]["source"]
+                    }
+        else:
+            new_concepts[label] = {
+                "label": label,
+                "weight": concepts[uri]["weight"],
+                "concepts": {
+                    uri: {
+                        "uri": uri,
+                        "source": concepts[uri]["source"]
+                    }
+                }
+            }
+
+
+    new_concepts_array = []
+    for lab in new_concepts:
+        embedded_concepts = []
+        for key in new_concepts[lab]["concepts"]:
+            embedded_concepts.append(new_concepts[lab]["concepts"][key])
+        new_concepts[lab]["concepts"] = embedded_concepts
+        new_concepts_array.append(new_concepts[lab])
+
+    return new_concepts_array
+
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+
+
 
 @app.route("/api", methods=['POST'])
 def concepts():
@@ -347,7 +407,10 @@ def concepts():
         return Response("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.", status=400)
 
     result = {}
-    result["matches"], result["concepts"] = extract_concepts(input_text, 'concept', input_lang)
+    result["matches"], concepts = extract_concepts(input_text, 'concept', input_lang)
+
+    result["concepts"] = transform_response(concepts)
+
     country_res = {}
     country_res["matches"], country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
     top = 0
