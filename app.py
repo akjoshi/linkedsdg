@@ -409,6 +409,8 @@ def concepts():
     result = {}
     result["matches"], concepts = extract_concepts(input_text, 'concept', input_lang)
 
+    result["extracted_concepts"] = concepts
+
     result["concepts"] = transform_response(concepts)
 
     country_res = {}
