@@ -18,8 +18,9 @@ const rgbToHex = (r, g, b) => {
 const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let altdataForSeries = [];
     let countryArr = jsonText.data.countries.total;
-    let countryAreas = require('./CountryAndArea.json');
-    countryAreas = countryAreas.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
+    let countryAreasData = require('./CountryAndArea.json');
+    let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
+
 
     if (countryArr !== undefined) {
         let maxWeight = countryArr[jsonText.data.countries.top_region].weight;
@@ -27,7 +28,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
         let anyArea = false;
 
         for (let elem in jsonText.data.countries.top_regions) {
-            if (countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/kos/geo/1") {
+            if (countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/codes/sdg/geoArea/001") {
                 anyArea = true;
             }
         }
@@ -41,7 +42,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 dataForSeries.push(countryInfo.url);
             }
             else {
-                if (countryArr[top_regions[elem]].url === "http://data.un.org/kos/geo/1" && anyArea) {
+                if (countryArr[top_regions[elem]].url === "http://data.un.org/codes/sdg/geoArea/001" && anyArea) {
                     continue;
                 }
 
@@ -54,19 +55,18 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 }
             }
         }
-    }
+    } 
 
     if (dataForSeries.length === 0) {
-        for (let code of altdataForSeries) {
-            // TODO code to uri conventer
-            dataForSeries.push(codeToUri(code, countryAreas)); // should be uri
+        for (let code of altdataForSeries) { 
+            dataForSeries.push(codeToUri(code, countryAreasData)); // should be uri
         }
     }
 
 }
 
 function codeToUri(code, countryAreas) {
-    let arr = countryAreas.results.bindings;
+    let arr = countryAreas.results.bindings; 
     for(let obj of arr){
         if(obj.member_country_code.value === code){
             return obj.member_country.value; 
@@ -139,7 +139,7 @@ export async function processText(data) {
             throw new Error('Failed!');
         }
         // console.log('Json z spacy')
-        // console.log(jsonText)
+        // console.log(jsonText) 
 
 
         let dataForDataMap = {};
@@ -168,7 +168,6 @@ export async function processText(data) {
                 open: false
             })
         }
-  
 
         conceptsResponse.sort((x, y) => y.weight - x.weight);
 
@@ -180,12 +179,14 @@ export async function processText(data) {
         this.setState({ concepts: conceptsResponse, fullConcepts: [...conceptsResponse] })  
 
 
+        // data for graphQueryApiUrl
         const match = jsonText['data']['matches'].map(function (x) {
             return {
                 "url": x['url'],
                 "weight": 1
             }
         });
+
 
         const linkedDataResponse = await axios.post(config.graphQueryApiUrl, match, {
             headers: {
@@ -198,8 +199,7 @@ export async function processText(data) {
 
         // console.log("linkedDataResponse")
         // console.log(linkedDataResponse) 
-        await this.setState({ dataForSun: linkedDataResponse.data }); // Change to sunburst_label
-
+        await this.setState({ dataForSun: linkedDataResponse.data });  
 
         await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
         window.location.href = '#Data-Area-id';

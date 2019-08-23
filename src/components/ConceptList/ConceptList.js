@@ -29,9 +29,11 @@ class ConceptList extends React.Component {
 
     updateDimensions() {
         var element = document.getElementById('keywords-list-id');
-        var positionInfo = element.getBoundingClientRect();
-        let width = positionInfo.width;
-        element.style.height = (width-20) + "px";
+        if(element !== null){
+            var positionInfo = element.getBoundingClientRect();
+            let width = positionInfo.width;
+            element.style.height = (width-20) + "px";
+        }
     }
 
     componentDidMount() {

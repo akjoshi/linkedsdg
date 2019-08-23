@@ -33,9 +33,10 @@ class ZoomableSunburst extends Component {
         this.getSeriesJsonFromApi = getSeriesJsonFromApi.bind(this);
         this.getJsonDescribeOfUri = getJsonDescribeOfUri.bind(this);
         this.drawChart = drawChart.bind(this);
+
     }
-
-
+    
+    
     componentDidMount() {
         this.drawChart();
     }
@@ -51,13 +52,16 @@ class ZoomableSunburst extends Component {
         sunState: "root",
         lastNode: undefined,
         displayJson: false,
-        columns: []
+        columns: [], 
+        keyWords: [],
     }
 
 
     handleCollapse = async () => {
         this.setState({ displayJson: !this.state.displayJson })
     }
+
+  
 
     render() {
         return (
@@ -109,8 +113,11 @@ class ZoomableSunburst extends Component {
                                             <span>URI: </span>
                                             {this.state.clickedData.id}
                                         </p>
-                                        <p> <span>CONCEPTS: </span> </p>
-                                        {this.loadConcepts()}
+                                        <p> <span>KEYWORDS: </span> </p>
+                                        {/* {this.state.keyWords.map(x => <p>{x}</p>)} */}
+                                        <ul className="linked-concepts-list">
+                                            {this.loadConcepts()}
+                                        </ul>
 
 
                                     </React.Fragment>

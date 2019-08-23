@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import React from 'react';
 import axios from 'axios';
-import  { selectFilter } from 'react-bootstrap-table2-filter';
+import { selectFilter } from 'react-bootstrap-table2-filter';
 import { textFilter } from 'react-bootstrap-table2-filter';
 
 let config = require('../../config.json');
@@ -9,7 +9,7 @@ let config = require('../../config.json');
 export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
     const colors = require(`./data/sdgColors.json`)
-    let data = this.props.data;
+    let data = this.props.data; 
     let width = 932
     let radius = 155.33333333333334
     let clickEnevtBlock = false;
@@ -76,6 +76,35 @@ export async function drawChart() {
             y0: Math.max(0, d.y0 - p.depth),
             y1: Math.max(0, d.y1 - p.depth)
         });
+
+        // TODO Change this to p.data.keywords 
+        // if(p.data.label === undefined){
+        //     p.data.label = ""
+        // }
+        // const dataForApi = {
+        //     "type": p.data.label.split(" ")[0],
+        //     "uri": p.data.id
+        // }
+        // try {
+        //     const text = await axios.post(config.describeApiUrl, dataForApi, {
+        //         headers: {
+        //             'Content-Type': 'text/plain'
+        //         }
+        //     });
+        //     if (text.status !== 200 && text.status !== 201) {
+        //         throw new Error('Failed!');
+        //     }
+
+        //     console.log(text.data.keywords) // find in sun ...   
+        // } catch (error) {
+        //     console.log("ERROR");
+        // }
+        // test only
+        this.setState({keyWords: [
+            {label: "POVERTY", uri: "http://eurovoc.europa.eu/2281", open: false},
+            {label: "POVERTY", uri: "http://metadata.un.org/thesaurus/1005064", open: false},
+            {label: "POVERTY MITIGATION", uri: "http://metadata.un.org/thesaurus/1005065", open: false}
+        ] })
 
         this.setState({
             clickedData: {
@@ -314,16 +343,16 @@ const constructColumns = (text) => {
         text: "value",
         headerFormatter: (column, colIndex, components) => {
             return <div>
-                        <p>
-                            value
+                <p>
+                    value
                             <span className="sort-arrows">
-                                &#x25B2; &#x25BC;
+                        &#x25B2; &#x25BC;
                             </span>
-                        </p>
-                        <p className="series-unit">
-                            {dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label}
-                        </p>
-                    </div>
+                </p>
+                <p className="series-unit">
+                    {dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label}
+                </p>
+            </div>
         },
         sortFunc: (a, b, order, dataField) => {
             if (order === 'asc') {

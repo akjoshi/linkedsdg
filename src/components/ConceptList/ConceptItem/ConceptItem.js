@@ -25,7 +25,7 @@ class ConceptItem extends React.Component {
                         className=""
                         onClick={async () => { await this.props.handlerForOpen(this.props.concept.source[0].uri) }}
                         aria-expanded={open}>
-                        {open ? (<p>-</p>) : (<p>+</p>)}
+                        {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
                     </button>
                 </div>
                 <Collapse in={open}>
@@ -33,7 +33,7 @@ class ConceptItem extends React.Component {
                         <div className="annotation">
                             <p>SOURCES:</p>
                             {
-                                this.props.concept.source.map(x => <p>
+                                this.props.concept.source.map((x,index) => <p key={index} >
                                     <a href={x.uri} target="_blank">{x.source}</a>
                                 </p>)
                             }

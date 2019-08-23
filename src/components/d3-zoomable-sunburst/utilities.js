@@ -2,6 +2,7 @@
 import React from 'react';
 import axios from 'axios';
 import Wheel from './img/wheel.png';
+import Collapse from 'react-bootstrap/Collapse'
 import './ZoomableSunburst.scss'
 
 let config = require('../../config.json');
@@ -76,6 +77,7 @@ export function selectImage() {
 }
 
 export function loadConcepts() {
+
     let data = [];
 
     for (var url in this.state.clickedData.concept) {
@@ -96,35 +98,67 @@ export function loadConcepts() {
         })
     }
 
-    return data.map(x => {
-        let linkedConceptsSorted = []
-        for (let k in x.linkedConcepts) {
-            if (x.linkedConcepts[k].label === x.label) {
-                linkedConceptsSorted.push(x.linkedConcepts[k])
-            }
+    return this.state.keyWords.map(x => {
+        let open = x.open;
+        let isEmpty = true;
+
+        let selectedData = data.filter((t, index) => {
+            return t.url === x.uri
+        })
+
+        selectedData = selectedData[0]
+
+        if (selectedData !== undefined) {
+            isEmpty = false;
         }
-        for (let k in x.linkedConcepts) {
-            if (x.linkedConcepts[k].label !== x.label) {
-                linkedConceptsSorted.push(x.linkedConcepts[k])
-            }
-        }
-        
-        return <p key={x.url}>
-            <i key={x.url} className="uri-concept">
-                <a href={x.url} target="_blank"> {x.label}</a>
-            </i>
-            concept from {x.source}:
-            <br></br>
-            {linkedConceptsSorted.map(y => {
-                if (y.label === x.label) {
-                    return ""
-                }
-                return <i key={y.url} className="uri-link">
-                             <a href={y.url} target="_blank"> {y.label}</a>
-                        </i>
-            })}
-        </p>
+
+        return (
+
+            <li className="event-list-item">
+                <div>
+                    {isEmpty ?
+                        <a className="a-concept-name empty" href={x.uri}>{x.label}</a> :
+                        <a className="a-concept-name" href={x.uri}>{x.label}</a>}
+
+                </div>
+                <div className="collapse-button">
+                    {isEmpty ?
+                        <React.Fragment></React.Fragment> :
+                        <button
+                            className=""
+                            onClick={async () => {
+                                let data = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
+                                await this.setState({
+                                    keyWords: data,
+                                })
+                            }}
+                            aria-expanded={open}>
+
+                            {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
+                        </button>
+                    }
+                </div>
+                <Collapse in={open}>
+                    <div id="example-collapse-text">
+                        <div className="annotation">
+                            <p>Related extracted concepts :</p>
+                        </div>
+
+                        {isEmpty ?
+                            <p>NOT FOUND</p> :
+                            <ul className="concept-list">
+                                {selectedData.linkedConcepts.map((t, index) => {
+                                    return <li key={index} className="collapse-item"><a href={t.url}>{t.label}</a></li>
+                                })}
+                            </ul>
+                        }
+                    </div>
+                </Collapse>
+            </li>
+        )
     })
+
+
 }
 
 export function describeCountry(x) {
@@ -202,7 +236,7 @@ export function getJsonWithImportantFields(x) {
 }
 
 export async function getSeriesJsonFromApi() {
-    try { 
+    try {
         const dataForApi = {
             "countries": this.props.dataForSeries,
             "stat": this.state.clickedData.id
@@ -215,7 +249,7 @@ export async function getSeriesJsonFromApi() {
         });
         if (text.status !== 200 && text.status !== 201) {
             throw new Error('Failed!');
-        } 
+        }
 
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');

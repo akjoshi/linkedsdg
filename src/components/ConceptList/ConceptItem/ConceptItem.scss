@@ -62,6 +62,16 @@
 
     .collapse-button{
         text-align: center;
+        p {     
+             margin-top:10px;
+        }
+
+        .open-arrow{
+
+            margin-top: 0;
+            transform: rotate(-180deg);
+
+        }
     }
 
     .collapse-item{
