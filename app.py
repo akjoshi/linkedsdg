@@ -15,20 +15,26 @@ import json
 SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT DISTINCT ?id ?label where { 
-	?x dct:subject ?target .
-    ?id skos:broader* ?target .
+SELECT DISTINCT ?id ?label ?lang where {
+    GRAPH <http://data.un.org/concepts/sdg> {
+            [] dct:subject ?target .
+            ?id skos:broader* ?target.
+            ?id skos:exactMatch ?source
+        }
+        
     {
         {
-            ?id skos:prefLabel ?prefLabel .
-            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
-            BIND (?prefLabel as ?label)
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
         }
         UNION
         {
-            ?id skos:altLabel ?altLabel .
+            ?source skos:altLabel ?altLabel .
             FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
-            BIND (?altLabel as ?label)
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
         }
     }
 }
@@ -106,7 +112,7 @@ country_matcher = {
    "ar": PhraseMatcher(nlp.vocab)
 }
 
-CONTEXT_SIZE = 5
+CONTEXT_SIZE = 7
 
 concept_ids = {}
 concept_labels = {}
@@ -185,7 +191,7 @@ def load_concepts():
     i = 1
     for concept in concept_list:
         label = concept["label"]["value"].lower()
-        lang = concept["label"]["xml:lang"]
+        lang = concept["lang"]["value"]
         concept_id = concept["id"]["value"]
 
         if len(label) < 30:
@@ -213,14 +219,26 @@ def load_concepts():
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv", encoding="utf8"), delimiter=",")
+    concept_source_index = csv.DictReader(open("concepts-source-index.tsv", encoding="utf8"), delimiter="\t")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
-        source = concept["source"]
+        exact = []
+        exacts = concept["matches"].split(";")
+        for con in exacts:
+            if "metadata" in con:
+                source = "UNBIS"
+            else:
+                source = "EuroVoc"
+            ex = {
+                "uri": con,
+                "source": source
+            }
+            exact.append(ex)
         concept_index[concept_id] = {
             "label": label,
-            "source": source
+            "source": "sdg-links",
+            "sources": exact
         }
 
     print("\n\nLoading countries...")
@@ -322,27 +340,8 @@ def extract_concepts(input, matcher_id, lang):
         match["contextl"] = context_l
         match["phrase"] = phrase
         match["contextr"] = context_r
-        # match["context"] = context_string
         final_matches.append(match)
 
-        # label = index[match["url"]]["label"]
-        # if label in concepts_all:
-        #     concepts_all[label]["weight"] += 1
-        #     concepts_all[label]["concepts"][match["url"]] = {
-        #                 "uri": match["url"],
-        #                 "source": index[match["url"]]["source"]
-        #             }
-        # else:
-        #     concepts_all[label] = {
-        #         "label": index[match["url"]]["label"],
-        #         "concepts": {
-        #             match["url"]: {
-        #                 "uri": match["url"],
-        #                 "source": index[match["url"]]["source"]
-        #             }
-        #         },
-        #         "weight": 1
-        #     }
 
 
         if match["url"] in concepts_all:
@@ -354,42 +353,6 @@ def extract_concepts(input, matcher_id, lang):
                 "weight": 1
             }
     return final_matches, concepts_all
-
-
-def transform_response(concepts):
-
-    new_concepts = {}
-
-    for uri in concepts:
-        label = concepts[uri]["label"]
-        if label in new_concepts:
-            new_concepts[label]["weight"] = max(int(new_concepts[label]["weight"]), int(concepts[uri]["weight"]))
-            new_concepts[label]["concepts"][uri] = {
-                        "uri": uri,
-                        "source": concepts[uri]["source"]
-                    }
-        else:
-            new_concepts[label] = {
-                "label": label,
-                "weight": concepts[uri]["weight"],
-                "concepts": {
-                    uri: {
-                        "uri": uri,
-                        "source": concepts[uri]["source"]
-                    }
-                }
-            }
-
-
-    new_concepts_array = []
-    for lab in new_concepts:
-        embedded_concepts = []
-        for key in new_concepts[lab]["concepts"]:
-            embedded_concepts.append(new_concepts[lab]["concepts"][key])
-        new_concepts[lab]["concepts"] = embedded_concepts
-        new_concepts_array.append(new_concepts[lab])
-
-    return new_concepts_array
 
 
 app = Flask(__name__)
@@ -407,11 +370,26 @@ def concepts():
         return Response("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.", status=400)
 
     result = {}
-    result["matches"], concepts = extract_concepts(input_text, 'concept', input_lang)
+    result["matches"], concept_map = extract_concepts(input_text, 'concept', input_lang)
 
-    result["extracted_concepts"] = concepts
+    new_concepts = []
 
-    result["concepts"] = transform_response(concepts)
+    for uri in concept_map:
+        concept_item = {
+            "uri": uri,
+            "label": concept_map[uri]["label"],
+            "weight": concept_map[uri]["weight"],
+            "sources": concept_index[uri]["sources"]
+        }
+        new_concepts.append(concept_item)
+
+        
+
+    result["concepts"] = concepts
+
+    # result["concepts"] = transform_response(concepts)
+
+    result["concepts"] = new_concepts
 
     country_res = {}
     country_res["matches"], country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
