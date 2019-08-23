@@ -10,10 +10,10 @@ class BubbleChart extends React.Component {
     }
 
     drawChart = async () => {
-        const clicked = async (p) => {
-            this.props.handlerForOpen(p.data.id)
+        const clicked = async (p) => { 
+            this.props.handlerForOpen(p.data.source[0].uri)
 
-            let myElement = document.getElementById(p.data.id); 
+            let myElement = document.getElementById(p.data.source[0].uri); 
             let w = window.innerWidth;
             if (w < 992) {
                 myElement.scrollIntoView(true);
@@ -24,8 +24,7 @@ class BubbleChart extends React.Component {
             }
         }
 
-        let data = [];
-        let color = d3.scaleOrdinal(data.map(d => d.source), d3.schemePastel1);
+        let data = []; 
         let format = d3.format(",d");
         let width = 932;
         let height = width;
@@ -93,7 +92,7 @@ class BubbleChart extends React.Component {
         leaf.append("circle")
             .attr("r", d => d.r)
             .attr("fill-opacity", 0.7)
-            .attr("fill", d => color(d.data.source))
+            .attr("fill", "#B3CDE3")
             .style("cursor", "pointer")
             .on("click", clicked)
 

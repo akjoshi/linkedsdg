@@ -41,15 +41,12 @@ class ConceptList extends React.Component {
         const data = this.state.data;
         
         let idx = lunr(function () { 
-            this.field('label')
-            this.field('source')
-            this.field('context')
+            this.field('label')  
 
             for( let i in data){
                 this.add({
                     'id': i,
-                    'label': data[i].label,
-                    'source': data[i].source,
+                    'label': data[i].label, 
                 })
             }
         })
@@ -87,7 +84,7 @@ class ConceptList extends React.Component {
     }
 
     handlerForOpen = async (uri) => {
-        let data = await this.state.data.map(x => { if (x.id === uri) { x.open = !x.open } return x })
+        let data = await this.state.data.map(x => { console.log(x.id.concepts);if (x.id.concepts[0].uri === uri) { x.open = !x.open } return x })
         await this.setState({
             data: data,
         })
@@ -104,6 +101,10 @@ class ConceptList extends React.Component {
         for(let elem of score){
             newData.push(this.state.data[elem.ref])
         }
+
+
+        newData.sort((x, y) => y.weight - x.weight);
+
 
         this.setState({
             displayData: newData,
@@ -143,13 +144,13 @@ class ConceptList extends React.Component {
                     </div>
                     <div className="grid-item">
                         <BubbleChart handlerForOpen={this.handlerForOpen} data={this.state.displayData} key={this.state.bubbleState}></BubbleChart>
-                        <Row className="BubbleChart-info">
+                        {/* <Row className="BubbleChart-info">
                             <Col>
                                 <i>Source: </i>
                                 <i><a href="http://metadata.un.org/thesaurus/" target="_blank"><span className="UNBIS"></span> UNBIS</a></i>
                                 <i><a href="https://publications.europa.eu/en/web/eu-vocabularies/th-dataset/-/resource/dataset/eurovoc" target="_blank"><span className="EuroVoc"></span> EuroVoc</a></i>
                             </Col>
-                        </Row>
+                        </Row> */}
                     </div>
                 </div>
                 {this.state.displayJson ?

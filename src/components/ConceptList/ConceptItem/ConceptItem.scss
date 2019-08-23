@@ -18,21 +18,26 @@
         margin: 0;
     }
 
-    a {
+    .h6-concept-name {
         display: flex !important;
         float: left;
         margin: 0;
         line-height: 2rem;
+        margin-top: 4px;
     }
 
     .annotation {
-        padding: 0 0.5rem;
-        line-height: 2rem;
-        font-size: 0.6rem;
+        p{
+            // width:100%;
+            padding: 0 0.5rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;
+        }
     }
     
-    a:hover{
-        text-decoration: none;
+    .concept-list{
+        padding-top:2.5rem;
     }
 
     button:hover,
@@ -62,9 +67,10 @@
     .collapse-item{
 
         font-size: 0.9rem;
-        padding: 0.1rem 4rem;
+        padding: 0.1rem 2rem;
         display: block;
     }
+
     @media only screen and (max-width: 720px) {
         .collapse-item{
             padding: 0.1rem 2rem;

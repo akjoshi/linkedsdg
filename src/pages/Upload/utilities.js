@@ -152,18 +152,23 @@ export async function processText(data) {
         const conceptsResponse = [];
 
 
-        for (var key in jsonText['data']['concepts']) {
-            let context = findContext(jsonText['data']['matches'], key)
+        for (var obj of jsonText['data']['concepts']) {
+            let context = [] 
+            for(let source of obj['concepts']){ 
+                let contextTemp = findContext(jsonText['data']['matches'], source.uri)
+                context = [...context, ...contextTemp]
+            }
+
             conceptsResponse.push({
-                id: key,
-                label: jsonText['data']['concepts'][key]['label'],
-                source: jsonText['data']['concepts'][key]['source'],
-                weight: jsonText['data']['concepts'][key]['weight'],
+                id: obj,
+                label:  obj['label'],
+                source: obj["concepts"], //jsonText['data']['concepts'][key]['source'],
+                weight:  obj['weight'],
                 context: context,
                 open: false
             })
         }
-
+  
 
         conceptsResponse.sort((x, y) => y.weight - x.weight);
 
