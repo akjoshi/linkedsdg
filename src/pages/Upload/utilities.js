@@ -160,7 +160,7 @@ export async function processText(data) {
             }
 
             conceptsResponse.push({
-                id: obj,
+                id: obj['concepts'][0].uri,
                 label:  obj['label'],
                 source: obj["concepts"], //jsonText['data']['concepts'][key]['source'],
                 weight:  obj['weight'],

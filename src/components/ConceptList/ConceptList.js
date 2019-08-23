@@ -84,7 +84,7 @@ class ConceptList extends React.Component {
     }
 
     handlerForOpen = async (uri) => {
-        let data = await this.state.data.map(x => { console.log(x.id.concepts);if (x.id.concepts[0].uri === uri) { x.open = !x.open } return x })
+        let data = await this.state.data.map(x => {  if (x.id  === uri) { x.open = !x.open } return x })
         await this.setState({
             data: data,
         })

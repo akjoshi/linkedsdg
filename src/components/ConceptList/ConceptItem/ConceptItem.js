@@ -34,7 +34,7 @@ class ConceptItem extends React.Component {
                             <p>SOURCES:</p>
                             {
                                 this.props.concept.source.map(x => <p>
-                                    <a href={x.uri}>{x.source}</a>
+                                    <a href={x.uri} target="_blank">{x.source}</a>
                                 </p>)
                             }
                         </div> 

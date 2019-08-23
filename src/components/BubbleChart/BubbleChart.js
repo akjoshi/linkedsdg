@@ -29,10 +29,7 @@ class BubbleChart extends React.Component {
         let width = 932;
         let height = width;
 
-        data = this.props.data.map(x => {    
-            x.title = x.id;
-            return x;
-        })
+        data = this.props.data;
 
 
         data.sort((a, b) => (a.weight < b.weight) ? 1 : -1)
@@ -120,7 +117,7 @@ class BubbleChart extends React.Component {
 
 
         leaf.append("title")
-            .text(d => `${d.data.title}\n${format(d.weight)}`);
+            .text(d => `${d.data.id}\n${format(d.weight)}`);
 
         return svg.node();
     }
