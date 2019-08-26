@@ -1,8 +1,8 @@
 import axios from 'axios';
 let config = require('../../config.json');
 
-function findContext(data, key) {
-    var filtered = data.filter(x => { return x['url'] === key });
+function findContext(data, key) { 
+    var filtered = data.filter(x => { return x['url'] === key }); 
     return filtered
 }
 
@@ -141,7 +141,6 @@ export async function processText(data) {
         // console.log('Json z spacy')
         // console.log(jsonText) 
 
-
         let dataForDataMap = {};
         let dataForSeries = [];
         this.setState({ downloadDataAboutCountry: jsonText.data.countries.total })
@@ -151,18 +150,18 @@ export async function processText(data) {
         this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
 
-
+ 
         for (var obj of jsonText['data']['concepts']) {
-            let context = [] 
-            for(let source of obj['concepts']){ 
+            let context = []  
+            for(let source of obj['sources']){  
                 let contextTemp = findContext(jsonText['data']['matches'], source.uri)
                 context = [...context, ...contextTemp]
-            }
+            } 
 
             conceptsResponse.push({
-                id: obj['concepts'][0].uri,
+                id: obj['sources'][0].uri,
                 label:  obj['label'],
-                source: obj["concepts"], //jsonText['data']['concepts'][key]['source'],
+                source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
                 weight:  obj['weight'],
                 context: context,
                 open: false
@@ -182,7 +181,7 @@ export async function processText(data) {
         // data for graphQueryApiUrl
         const match = jsonText['data']['matches'].map(function (x) {
             return {
-                "url": x['url'],
+                "uri": x['url'],
                 "weight": 1
             }
         });
