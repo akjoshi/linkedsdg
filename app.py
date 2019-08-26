@@ -20,9 +20,7 @@ SELECT DISTINCT ?id ?label ?lang where {
             [] dct:subject ?target .
             ?id skos:broader ?target.            
         }
-    GRAPH <http://data.un.org/concepts/sdg> {
         ?id skos:exactMatch ?source
-        }
         
     {
         {
