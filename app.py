@@ -16,10 +16,12 @@ SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT DISTINCT ?id ?label ?lang where {
-    GRAPH <http://data.un.org/concepts/sdg> {
+    GRAPH <http://data.un.org/concepts/sdg/extracted> {
             [] dct:subject ?target .
-            ?id skos:broader* ?target.
-            ?id skos:exactMatch ?source
+            ?id skos:broader ?target.            
+        }
+    GRAPH <http://data.un.org/concepts/sdg> {
+        ?id skos:exactMatch ?source
         }
         
     {
