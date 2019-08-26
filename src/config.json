@@ -4,5 +4,6 @@
     "spacyApiUrl": "http://127.0.0.1:5000/api",
     "graphQueryApiUrl": "http://127.0.0.1:5002/api",
     "statsApiUrl":"http://127.0.0.1:5002/stats",
-    "describeApiUrl":"http://34.66.148.181:8080/describe"
+    "describeApiUrl":"http://127.0.0.1:5002/describe"
 }
+

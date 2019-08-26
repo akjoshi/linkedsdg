@@ -78,48 +78,67 @@ export function selectImage() {
 
 export function loadConcepts() {
 
-    let data = [];
+    // let data = [];
 
-    for (var url in this.state.clickedData.concept) {
-        let linkedConcepts = [];
+    // for (var url in this.state.clickedData.concept) {
+    //     let linkedConcepts = [];
 
-        for (var url2 in this.state.clickedData.concept[url]['subconcepts']) {
-            linkedConcepts.push({
-                url: url2,
-                label: this.state.clickedData.concept[url]['subconcepts'][url2].label,
-            })
-        }
+    //     for (var url2 in this.state.clickedData.concept[url]['subconcepts']) {
+    //         linkedConcepts.push({
+    //             url: url2,
+    //             label: this.state.clickedData.concept[url]['subconcepts'][url2].label,
+    //         })
+    //     }
 
-        data.push({
-            url: url,
-            label: this.state.clickedData.concept[url].label,
-            source: this.state.clickedData.concept[url].source,
-            linkedConcepts: linkedConcepts
-        })
+    //     data.push({
+    //         url: url,
+    //         label: this.state.clickedData.concept[url].label,
+    //         source: this.state.clickedData.concept[url].source,
+    //         linkedConcepts: linkedConcepts
+    //     })
+    // }
+
+    // console.log(this.state.clickedData.keyWords)
+
+    let returnArr = [];
+    for (let key in this.state.clickedData.keyWords) {
+        returnArr.push(this.state.clickedData.keyWords[key])
     }
 
-    return this.state.keyWords.map(x => {
-        let open = x.open;
+    return returnArr.map((x, index) => {
+        let open = this.state.keyWords.filter(y => y.uri === x.uri)
+        open = open[0].open;
+
         let isEmpty = true;
 
-        let selectedData = data.filter((t, index) => {
-            return t.url === x.uri
-        })
+        let data = [];
+        for (let key in x.concepts) {
+            data.push(x.concepts[key])
+        }
 
-        selectedData = selectedData[0]
-
-        if (selectedData !== undefined) {
+        if (data.length > 0) {
             isEmpty = false;
         }
 
+        console.log("TEST")
+        console.log(x)
+
         return (
 
-            <li className="event-list-item">
+            <li key={index} className="event-list-item">
                 <div>
                     {isEmpty ?
-                        <a className="a-concept-name empty" href={x.uri}>{x.label}</a> :
-                        <a className="a-concept-name" href={x.uri}>{x.label}</a>}
+                        <p className="a-concept-name empty">{x.label}</p> :
+                        <p className="a-concept-name">{x.label}</p>}
 
+                    <div className="sources">
+                        {/* <p>Sources:</p> */}
+                        {
+                            x.sources.map((y, index) => {
+                                return <a href={y.uri} key={index}>{y.source}</a>
+                            })
+                        }
+                    </div>
                 </div>
                 <div className="collapse-button">
                     {isEmpty ?
@@ -127,28 +146,37 @@ export function loadConcepts() {
                         <button
                             className=""
                             onClick={async () => {
-                                let data = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
+                                let newkeyWords = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
                                 await this.setState({
-                                    keyWords: data,
+                                    keyWords: newkeyWords,
                                 })
                             }}
                             aria-expanded={open}>
-
                             {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
                         </button>
                     }
                 </div>
                 <Collapse in={open}>
                     <div id="example-collapse-text">
-                        <div className="annotation">
+                        <div className="annotation-sun">
                             <p>Related extracted concepts :</p>
                         </div>
 
                         {isEmpty ?
                             <p>NOT FOUND</p> :
                             <ul className="concept-list">
-                                {selectedData.linkedConcepts.map((t, index) => {
-                                    return <li key={index} className="collapse-item"><a href={t.url}>{t.label}</a></li>
+                                {data.map((t, index) => {
+                                    return <li key={index} className="collapse-item-sun">
+                                        <div className="sources">
+                                        <a href={t.uri} className="key-word-title">{t.label}</a>
+                                            {/* <p>Sources:</p> */}
+                                            {
+                                                t.sources.map((y, index) => {
+                                                    return <a href={y.uri} key={index}>{y.source}</a>
+                                                })
+                                            }
+                                        </div>
+                                    </li>
                                 })}
                             </ul>
                         }
@@ -269,10 +297,11 @@ export async function getJsonDescribeOfUri() {
 }
 
 const callDescribeApi = async (dataForApi) => {
+    console.log(dataForApi)
     try {
         const text = await axios.post(config.describeApiUrl, dataForApi, {
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/json'
             }
         });
         if (text.status !== 200 && text.status !== 201) {

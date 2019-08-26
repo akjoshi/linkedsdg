@@ -37,7 +37,7 @@
     }
     
     .concept-list{
-        padding-top:2.5rem;
+        padding-top: 0.5rem;
     }
 
     button:hover,
@@ -79,6 +79,20 @@
         font-size: 0.9rem;
         padding: 0.1rem 2rem;
         display: block;
+    }
+
+    .sources{ 
+        p{
+            padding:0 !important;
+        }
+        a{
+            // width:100%;
+            float: left; 
+            padding: 0.25rem 0rem 0 1.0rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;  
+        }
     }
 
     @media only screen and (max-width: 720px) {

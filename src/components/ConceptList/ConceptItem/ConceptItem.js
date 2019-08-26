@@ -18,6 +18,15 @@ class ConceptItem extends React.Component {
             <li className="event-list-item" id={this.props.concept.source[0].uri}>
                 <div>
                     <h6 className="h6-concept-name">{this.props.concept.label}</h6>
+                    <div className="sources"> 
+                            {
+                                this.props.concept.source.map((x,index) => <p key={index} >
+                                    <a href={x.uri} target="_blank">{x.source}</a>
+                                </p>)
+                            }
+                        </div> 
+
+                         
                     {/* <span className="annotation">({this.props.concept.source})</span> */}
                 </div>
                 <div className="collapse-button">
@@ -30,14 +39,7 @@ class ConceptItem extends React.Component {
                 </div>
                 <Collapse in={open}>
                     <div id="example-collapse-text">
-                        <div className="annotation">
-                            <p>SOURCES:</p>
-                            {
-                                this.props.concept.source.map((x,index) => <p key={index} >
-                                    <a href={x.uri} target="_blank">{x.source}</a>
-                                </p>)
-                            }
-                        </div> 
+                        
                         <ul className="concept-list">
                             {this.props.concept.context.map((x, index) => <li key={index} className="collapse-item">{index + 1}. {x['contextl']} <strong>{x['phrase']}</strong> {x['contextr']}</li>)}
                         </ul>

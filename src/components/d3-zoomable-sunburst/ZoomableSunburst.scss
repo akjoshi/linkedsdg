@@ -236,6 +236,17 @@
         color: #cccccc;
     }
 
+    .sources{
+        p, a{
+            // width:100%;
+            float: left; 
+            padding: 0.25rem 0rem 0 1.0rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;
+        }
+    }
+
     button {     
         grid-column-start: 2;
         grid-column-end: 3;
@@ -255,10 +266,10 @@
         margin-top: 4px;
     }
 
-    .annotation {
+    .annotation-sun {
         p{
             // width:100%;
-            padding: 0 0.5rem;
+            padding: 0;
             line-height: 2rem;
             font-size: 0.6rem;
             display: block;
@@ -266,7 +277,11 @@
     }
     
     .concept-list{
-        padding-top:2.5rem;
+        padding-top:0.5rem;
+        width: 100%;
+        li {
+            width: 100%;
+        }
     }
 
     button:hover,
@@ -289,36 +304,48 @@
         line-height: 2rem;
     }
 
-    .collapse-button{
-        text-align: center;
-        p {     
-             margin-top:10px;
+    .collapse-button{ 
+        height: 0;
+        text-align: center; 
+
+        button {
+            p {
+                font-size: 1.2rem; 
+            }
         }
-
-        .open-arrow{
-
+        
+        .open-arrow{ 
+            
             margin-top: 0;
             transform: rotate(-180deg);
 
         }
     }
 
-    .collapse-item{
-
+    .collapse-item-sun{
+        max-height: 1.8rem;
         font-size: 0.9rem;
-        padding: 0.1rem 2rem;
-        display: block;
+        padding: 0rem 1rem;  
+        width:100%;
+        display: inline-block;
+         
+        .key-word-title {
+
+            font-size: 0.9rem;
+            padding: 0.3rem 0 0 0 ;  
+        }
+ 
     }
 
     @media only screen and (max-width: 720px) {
-        .collapse-item{
+        .key-word-title {
             padding: 0.1rem 2rem;
             font-size: 0.75rem;
         }
       }
 
       @media only screen and (max-width: 480px) {
-        .collapse-item{
+        .key-word-title {
             padding: 0.1rem 1rem;
             font-size: 0.75rem;
         }

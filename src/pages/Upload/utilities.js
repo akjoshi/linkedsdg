@@ -1,8 +1,8 @@
 import axios from 'axios';
 let config = require('../../config.json');
 
-function findContext(data, key) { 
-    var filtered = data.filter(x => { return x['url'] === key }); 
+function findContext(data, key) {  
+    var filtered = data['matches'].filter(x => { return x['url'] === key }); 
     return filtered
 }
 
@@ -149,14 +149,9 @@ export async function processText(data) {
 
         this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
-
  
-        for (var obj of jsonText['data']['concepts']) {
-            let context = []  
-            for(let source of obj['sources']){  
-                let contextTemp = findContext(jsonText['data']['matches'], source.uri)
-                context = [...context, ...contextTemp]
-            } 
+        for (var obj of jsonText['data']['concepts']) { 
+            let context = findContext(jsonText['data'], obj.uri)  
 
             conceptsResponse.push({
                 id: obj['sources'][0].uri,
@@ -179,10 +174,10 @@ export async function processText(data) {
 
 
         // data for graphQueryApiUrl
-        const match = jsonText['data']['matches'].map(function (x) {
+        const match = jsonText['data']['concepts'].map(function (x) {
             return {
-                "uri": x['url'],
-                "weight": 1
+                "uri": x['uri'],
+                "weight": x.weight
             }
         });
 

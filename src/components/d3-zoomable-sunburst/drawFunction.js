@@ -77,42 +77,22 @@ export async function drawChart() {
             y1: Math.max(0, d.y1 - p.depth)
         });
 
-        // TODO Change this to p.data.keywords 
-        // if(p.data.label === undefined){
-        //     p.data.label = ""
-        // }
-        // const dataForApi = {
-        //     "type": p.data.label.split(" ")[0],
-        //     "uri": p.data.id
-        // }
-        // try {
-        //     const text = await axios.post(config.describeApiUrl, dataForApi, {
-        //         headers: {
-        //             'Content-Type': 'text/plain'
-        //         }
-        //     });
-        //     if (text.status !== 200 && text.status !== 201) {
-        //         throw new Error('Failed!');
-        //     }
-
-        //     console.log(text.data.keywords) // find in sun ...   
-        // } catch (error) {
-        //     console.log("ERROR");
-        // }
-        // test only
-        this.setState({keyWords: [
-            {label: "POVERTY", uri: "http://eurovoc.europa.eu/2281", open: false},
-            {label: "POVERTY", uri: "http://metadata.un.org/thesaurus/1005064", open: false},
-            {label: "POVERTY MITIGATION", uri: "http://metadata.un.org/thesaurus/1005065", open: false}
-        ] })
+        let openKeyWords = [];
+        for(let keywordUri in p.data.keywords){
+            openKeyWords.push({
+                open: false,
+                uri: keywordUri,
+            })
+        }
 
         this.setState({
             clickedData: {
                 id: p.data.id,
                 name: p.data.name,
                 label: p.data.label,
-                concept: p.data.concept
-            }
+                keyWords: p.data.keywords
+            },
+            keyWords: openKeyWords,
         })
 
         if (p.parent === null) {
@@ -350,7 +330,9 @@ const constructColumns = (text) => {
                             </span>
                 </p>
                 <p className="series-unit">
-                    {dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label}
+                    {text.data['@graph'][0] !== undefined ?
+                     dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label :
+                        <React.Fragment>-</React.Fragment> }
                 </p>
             </div>
         },

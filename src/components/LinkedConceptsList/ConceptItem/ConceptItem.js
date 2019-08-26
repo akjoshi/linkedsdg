@@ -44,7 +44,7 @@ class ConceptItem extends React.Component {
 
             const text = await axios.post(config.describeApiUrl, dataForApi, {
                 headers: {
-                    'Content-Type': 'text/plain' 
+                    'Content-Type': 'application/json'
                 }
             });
             if (text.status !== 200 && text.status !== 201) {
