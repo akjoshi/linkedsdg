@@ -1,7 +1,7 @@
 import React from 'react';
 import Upload from './pages/Upload/Upload';
 import Home from './pages/Home/Home';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import Footer from './components/Footer/Footer'
 
@@ -10,7 +10,7 @@ import './App.scss';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <React.Fragment>
         <MainNavigation />
         <main className="main-content">
@@ -21,7 +21,7 @@ function App() {
         </main>
         <Footer />
       </React.Fragment>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

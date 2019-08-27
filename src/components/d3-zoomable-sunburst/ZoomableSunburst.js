@@ -35,8 +35,8 @@ class ZoomableSunburst extends Component {
         this.drawChart = drawChart.bind(this);
 
     }
-    
-    
+
+
     componentDidMount() {
         this.drawChart();
     }
@@ -52,7 +52,7 @@ class ZoomableSunburst extends Component {
         sunState: "root",
         lastNode: undefined,
         displayJson: false,
-        columns: [], 
+        columns: [],
         keyWords: [],
     }
 
@@ -61,7 +61,7 @@ class ZoomableSunburst extends Component {
         this.setState({ displayJson: !this.state.displayJson })
     }
 
-  
+
 
     render() {
         return (
@@ -122,9 +122,12 @@ class ZoomableSunburst extends Component {
 
                                     </React.Fragment>
                                 ) : (
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis justo sit amet eros viverra finibus. Vestibulum erat risus, dapibus sit amet lacus a, porttitor accumsan dui.
-                                        </p>
+                                       <React.Fragment>
+                                           <p>The United Nations Sustainable Development Goals (SDGs) are 17 global goals that all UN Member States have agreed to try to achieve by the year 2030.</p>
+                                           <p>The 17 SDGs are further translated into 169 targets, 230 indicators, and more than 400 statistical series that help to measure the progress towards achieving the SDGs.</p>
+                                           <p>By browsing on the SDG wheel to the left you can find goals, targets, indicators and series that are most relevant to the processed document, based on the extracted concepts and geographical regions.</p>
+                                       </React.Fragment>
+                                        
                                     ))}
                             </div>
                         </div>
@@ -143,7 +146,7 @@ class ZoomableSunburst extends Component {
                         {this.state.displayJson ?
                             <React.Fragment>
                                 <div className="json-with-data">
-                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} displayDataTypes={false} name={"Series"}/>
+                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} displayDataTypes={false} name={"Series"} />
                                 </div>
                                 <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
                                     ⤓ download

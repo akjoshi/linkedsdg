@@ -149,12 +149,19 @@ export async function processText(data) {
 
         this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
+        const conceptsResponseList = [];
  
         for (var obj of jsonText['data']['concepts']) { 
-            let context = findContext(jsonText['data'], obj.uri)  
-
+            let context = findContext(jsonText['data'], obj.uri)   
             conceptsResponse.push({
-                id: obj['sources'][0].uri,
+                id: obj.uri,
+                label:  obj['label'],
+                source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
+                weight:  obj['weight'],
+                context: context, 
+            })
+            conceptsResponseList.push({
+                id: obj.uri,
                 label:  obj['label'],
                 source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
                 weight:  obj['weight'],
@@ -170,7 +177,7 @@ export async function processText(data) {
         // console.log(conceptsResponse)
 
 
-        this.setState({ concepts: conceptsResponse, fullConcepts: [...conceptsResponse] })  
+        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse })   
 
 
         // data for graphQueryApiUrl
@@ -195,8 +202,7 @@ export async function processText(data) {
         // console.log(linkedDataResponse) 
         await this.setState({ dataForSun: linkedDataResponse.data });  
 
-        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
-        window.location.href = '#Data-Area-id';
+        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 }); 
 
     } catch (error) {
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });

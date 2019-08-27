@@ -11,9 +11,9 @@ class BubbleChart extends React.Component {
 
     drawChart = async () => {
         const clicked = async (p) => { 
-            this.props.handlerForOpen(p.data.source[0].uri)
+            this.props.handlerForOpen(p.data.id)
 
-            let myElement = document.getElementById(p.data.source[0].uri); 
+            let myElement = document.getElementById(p.data.id); 
             let w = window.innerWidth;
             if (w < 992) {
                 myElement.scrollIntoView(true);

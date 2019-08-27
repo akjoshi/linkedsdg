@@ -143,10 +143,10 @@ class Upload extends Component {
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank">Voluntary National Review - Canada 2018 (FR)</a>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" })}><img alt="Copy" src={CopyIcon}></img></span>
                                     <a href="https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" target="_blank">Higher Education in Africa: Our continent needs science, not aid</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </Col>
                     </Row>

@@ -66,7 +66,7 @@ export function selectImage() {
     while (index < 18) {
         let indexNr = ""
         index < 10 ? indexNr = "0" + index : indexNr = index;
-        images["http://data.un.org/kos/sdg/" + indexNr] = require(`./img/${indexNr}.png`);
+        images["http://data.un.org/kos/sdg/" + index] = require(`./img/${indexNr}.png`);
         index = index + 1;
     }
 
@@ -119,9 +119,7 @@ export function loadConcepts() {
         if (data.length > 0) {
             isEmpty = false;
         }
-
-        console.log("TEST")
-        console.log(x)
+ 
 
         return (
 
@@ -135,7 +133,7 @@ export function loadConcepts() {
                         {/* <p>Sources:</p> */}
                         {
                             x.sources.map((y, index) => {
-                                return <a href={y.uri} key={index}>{y.source}</a>
+                                return <a href={y.uri} key={index} target="_blank">{y.source}</a>
                             })
                         }
                     </div>
@@ -168,11 +166,11 @@ export function loadConcepts() {
                                 {data.map((t, index) => {
                                     return <li key={index} className="collapse-item-sun">
                                         <div className="sources">
-                                        <a href={t.uri} className="key-word-title">{t.label}</a>
+                                        <p className="key-word-title">{t.label}</p>
                                             {/* <p>Sources:</p> */}
                                             {
                                                 t.sources.map((y, index) => {
-                                                    return <a href={y.uri} key={index}>{y.source}</a>
+                                                    return <a href={y.uri} key={index} target="_blank">{y.source}</a>
                                                 })
                                             }
                                         </div>

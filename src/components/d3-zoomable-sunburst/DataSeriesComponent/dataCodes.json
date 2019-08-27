@@ -150,6 +150,14 @@
             "http://data.un.org/codes/sdg/units/USD_PER_M3": {
                 "code": "USD_PER_M3",
                 "label": "United States dollars per cubic metre"
+            },
+            "http://data.un.org/codes/sdg/units/NUM_U5_M": {
+                "code": "NUM_U5_M",
+                "label": "Millions of children aged 0-59 months"
+            },
+            "http://data.un.org/codes/sdg/units/CON_USD_M": {
+                "code": "CON_USD_M",
+                "label": "Millions of constant 2015 United States dollars"
             }
         }
     },
@@ -391,11 +399,11 @@
             },
             "http://data.un.org/codes/sdg/geoArea/652": {
                 "code": "652",
-                "label": "Saint Barthélemy"
+                "label": "Saint Barth\u00e9lemy"
             },
             "http://data.un.org/codes/sdg/geoArea/531": {
                 "code": "531",
-                "label": "Curaçao"
+                "label": "Cura\u00e7ao"
             },
             "http://data.un.org/codes/sdg/geoArea/422": {
                 "code": "422",
@@ -455,7 +463,7 @@
             },
             "http://data.un.org/codes/sdg/geoArea/384": {
                 "code": "384",
-                "label": "Côte d’Ivoire"
+                "label": "C\u00f4te d\u2019Ivoire"
             },
             "http://data.un.org/codes/sdg/geoArea/740": {
                 "code": "740",
@@ -1079,7 +1087,7 @@
             },
             "http://data.un.org/codes/sdg/geoArea/638": {
                 "code": "638",
-                "label": "Réunion"
+                "label": "R\u00e9union"
             },
             "http://data.un.org/codes/sdg/geoArea/626": {
                 "code": "626",
@@ -1219,7 +1227,7 @@
             },
             "http://data.un.org/codes/sdg/geoArea/248": {
                 "code": "248",
-                "label": "Åland Islands"
+                "label": "\u00c5land Islands"
             },
             "http://data.un.org/codes/sdg/geoArea/018": {
                 "code": "018",
@@ -1647,7 +1655,44 @@
     },
     "yearCode": {
         "uri": "http://data.un.org/codes/sdg/year",
-        "label": "year"        
+        "label": "year",
+        "codes": [
+            "value_1985",
+            "value_1986",
+            "value_1987",
+            "value_1988",
+            "value_1989",
+            "value_1990",
+            "value_1991",
+            "value_1992",
+            "value_1993",
+            "value_1994",
+            "value_1995",
+            "value_1996",
+            "value_1997",
+            "value_1998",
+            "value_1999",
+            "value_2000",
+            "value_2001",
+            "value_2002",
+            "value_2003",
+            "value_2004",
+            "value_2005",
+            "value_2006",
+            "value_2007",
+            "value_2008",
+            "value_2009",
+            "value_2010",
+            "value_2011",
+            "value_2012",
+            "value_2013",
+            "value_2014",
+            "value_2015",
+            "value_2016",
+            "value_2017",
+            "value_2018",
+            "value_2019"
+        ]
     },
     "nameOfInternationalInstitutionCode": {
         "uri": "http://data.un.org/codes/sdg/nameOfInternationalInstitution",
@@ -1802,6 +1847,58 @@
             "http://data.un.org/codes/sdg/ihrCapacity/IHR10": {
                 "code": "IHR10",
                 "label": " Zoonotic events"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR07": {
+                "code": "SPAR07",
+                "label": "Human resources"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR06": {
+                "code": "SPAR06",
+                "label": "Surveillance"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR05": {
+                "code": "SPAR05",
+                "label": "Laboratory"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR04": {
+                "code": "SPAR04",
+                "label": "Food safety"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR03": {
+                "code": "SPAR03",
+                "label": "Zoonotic events and the human\u2013animal interface"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR02": {
+                "code": "SPAR02",
+                "label": "IHR Coordination and National IHR Focal Point Functions"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR01": {
+                "code": "SPAR01",
+                "label": "Legislation and Financing"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR09": {
+                "code": "SPAR09",
+                "label": "Health Service Provision"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR11": {
+                "code": "SPAR11",
+                "label": "Points of entry"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR13": {
+                "code": "SPAR13",
+                "label": "Radiation emergencies"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR12": {
+                "code": "SPAR12",
+                "label": "Chemical events"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR10": {
+                "code": "SPAR10",
+                "label": "Risk Communication"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR08": {
+                "code": "SPAR08",
+                "label": "National Health Emergency Framework"
             }
         }
     },
@@ -2678,6 +2775,138 @@
             "http://data.un.org/codes/sdg/cities/CAIRO": {
                 "code": "CAIRO",
                 "label": "Cairo"
+            },
+            "http://data.un.org/codes/sdg/cities/DHAKA": {
+                "code": "DHAKA",
+                "label": "Dhaka"
+            },
+            "http://data.un.org/codes/sdg/cities/CIGRES": {
+                "code": "CIGRES",
+                "label": "Cigres"
+            },
+            "http://data.un.org/codes/sdg/cities/BELOHORIZONTE": {
+                "code": "BELOHORIZONTE",
+                "label": "Belo Horizonte"
+            },
+            "http://data.un.org/codes/sdg/cities/VARNA": {
+                "code": "VARNA",
+                "label": "Varna"
+            },
+            "http://data.un.org/codes/sdg/cities/SOFIA": {
+                "code": "SOFIA",
+                "label": "Sofia"
+            },
+            "http://data.un.org/codes/sdg/cities/CANET": {
+                "code": "CANET",
+                "label": "Canet"
+            },
+            "http://data.un.org/codes/sdg/cities/KUNMING": {
+                "code": "KUNMING",
+                "label": "Kunming"
+            },
+            "http://data.un.org/codes/sdg/cities/SUZHOU": {
+                "code": "SUZHOU",
+                "label": "Suzhou"
+            },
+            "http://data.un.org/codes/sdg/cities/LANZHOU": {
+                "code": "LANZHOU",
+                "label": "Lanzhou"
+            },
+            "http://data.un.org/codes/sdg/cities/ATHENSGAA": {
+                "code": "ATHENSGAA",
+                "label": "Athens (GAA)"
+            },
+            "http://data.un.org/codes/sdg/cities/DELHI": {
+                "code": "DELHI",
+                "label": "Delhi"
+            },
+            "http://data.un.org/codes/sdg/cities/BANGALORE": {
+                "code": "BANGALORE",
+                "label": "Bangalore"
+            },
+            "http://data.un.org/codes/sdg/cities/WARANGAL": {
+                "code": "WARANGAL",
+                "label": "Warangal"
+            },
+            "http://data.un.org/codes/sdg/cities/SURAT": {
+                "code": "SURAT",
+                "label": "Surat"
+            },
+            "http://data.un.org/codes/sdg/cities/BISHEKEK": {
+                "code": "BISHEKEK",
+                "label": "Bishekek"
+            },
+            "http://data.un.org/codes/sdg/cities/CUREPIPE": {
+                "code": "CUREPIPE",
+                "label": "curepipe"
+            },
+            "http://data.un.org/codes/sdg/cities/HUIXQUILUCAN_MEXICO": {
+                "code": "HUIXQUILUCAN_MEXICO",
+                "label": "Huixquilucan, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/CARDENAST_TABASCO": {
+                "code": "CARDENAST_TABASCO",
+                "label": "Cardenas, Tabasco"
+            },
+            "http://data.un.org/codes/sdg/cities/CANCUN": {
+                "code": "CANCUN",
+                "label": "Cancun, Benito Juarez, Quintana Roo"
+            },
+            "http://data.un.org/codes/sdg/cities/CHALCOMEX": {
+                "code": "CHALCOMEX",
+                "label": "Chalco, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/ACUNACOAHUILA": {
+                "code": "ACUNACOAHUILA",
+                "label": "Acuna, Coahuila"
+            },
+            "http://data.un.org/codes/sdg/cities/ZITACUARO_MICHOACAN": {
+                "code": "ZITACUARO_MICHOACAN",
+                "label": "Zitacuaro, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/MAPUTO": {
+                "code": "MAPUTO",
+                "label": "Maputo"
+            },
+            "http://data.un.org/codes/sdg/cities/GHORAI": {
+                "code": "GHORAI",
+                "label": "Ghorai"
+            },
+            "http://data.un.org/codes/sdg/cities/ROTTERDAM": {
+                "code": "ROTTERDAM",
+                "label": "Rotterdam"
+            },
+            "http://data.un.org/codes/sdg/cities/LAHORE": {
+                "code": "LAHORE",
+                "label": "Lahore"
+            },
+            "http://data.un.org/codes/sdg/cities/CASTRIES": {
+                "code": "CASTRIES",
+                "label": "Castries"
+            },
+            "http://data.un.org/codes/sdg/cities/STEVE_TSHWETE": {
+                "code": "STEVE_TSHWETE",
+                "label": "Steve Tshwete"
+            },
+            "http://data.un.org/codes/sdg/cities/SOUSSE": {
+                "code": "SOUSSE",
+                "label": "Sousse"
+            },
+            "http://data.un.org/codes/sdg/cities/BELFAST": {
+                "code": "BELFAST",
+                "label": "Belfast"
+            },
+            "http://data.un.org/codes/sdg/cities/MOSHI": {
+                "code": "MOSHI",
+                "label": "Moshi"
+            },
+            "http://data.un.org/codes/sdg/cities/SANFRANSCISCO": {
+                "code": "SANFRANSCISCO",
+                "label": "San Franscisco"
+            },
+            "http://data.un.org/codes/sdg/cities/TOMPKINS_COUNTY": {
+                "code": "TOMPKINS_COUNTY",
+                "label": "Tompkins county"
             }
         }
     },
@@ -2708,7 +2937,7 @@
         "label": "freq",
         "codes": {
             "http://data.un.org/codes/sdg/freq/A": {
-                "code": "ANNUAL",
+                "code": "A",
                 "label": "Annual"
             }
         }
@@ -3082,6 +3311,30 @@
             "http://data.un.org/codes/sdg/age/T6T65": {
                 "code": "T6T65",
                 "label": "6 to 65 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T17": {
+                "code": "Y0T17",
+                "label": "under 18 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y65T74": {
+                "code": "Y65T74",
+                "label": "65 to 74 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y75T84": {
+                "code": "Y75T84",
+                "label": "75 to 84 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE85": {
+                "code": "Y_GE85",
+                "label": "85 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y12T14": {
+                "code": "Y12T14",
+                "label": "12 to 14 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y10T14": {
+                "code": "Y10T14",
+                "label": "10 to 14 years old"
             }
         }
     },
@@ -3180,6 +3433,34 @@
             "http://data.un.org/codes/sdg/typeOfProduct/GBO": {
                 "code": "GBO",
                 "label": "Grazed biomass and fodder crops"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/AGR": {
+                "code": "AGR",
+                "label": "Agricultural products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/ALP": {
+                "code": "ALP",
+                "label": "All products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/CLO": {
+                "code": "CLO",
+                "label": "Clothing"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/IND": {
+                "code": "IND",
+                "label": "Industrial products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/TEX": {
+                "code": "TEX",
+                "label": "Textiles"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/ARM": {
+                "code": "ARM",
+                "label": "Arms"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/OIL": {
+                "code": "OIL",
+                "label": "Oil"
             }
         }
     },

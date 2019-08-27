@@ -66,19 +66,11 @@ class ConceptList extends React.Component {
 
 
 
-    handleDownload = async () => {
-        let dataForJson = [...this.state.data];
-        dataForJson = dataForJson.map(x => {
-            return {
-                id: x.id,
-                label: x.label,
-                source: x.source
-            };
-        })
+    handleDownload = async () => { 
 
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');
-        myWindow.document.getElementById("json").innerHTML = JSON.stringify(dataForJson, undefined, 2);
+        myWindow.document.getElementById("json").innerHTML = JSON.stringify(this.props.fullConcepts, undefined, 2);
     }
 
     handleCollapse = async () => {
@@ -97,8 +89,11 @@ class ConceptList extends React.Component {
             searchText: changeEvent.target.value 
         });
  
-        let score = this.state.idx.search("*" + this.state.searchText + "*"  ); 
-
+        let score = this.state.idx.search("*" + this.state.searchText + "*");
+        if(score.length === 0){
+            score = this.state.idx.search(this.state.searchText );
+        }
+          
         let newData = [];
         for(let elem of score){
             newData.push(this.state.data[elem.ref])

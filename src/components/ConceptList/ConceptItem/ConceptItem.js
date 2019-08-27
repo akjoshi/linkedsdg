@@ -15,7 +15,7 @@ class ConceptItem extends React.Component {
     render() {
         let open = this.props.concept.open;
         return (
-            <li className="event-list-item" id={this.props.concept.source[0].uri}>
+            <li className="event-list-item" id={this.props.concept.id}>
                 <div>
                     <h6 className="h6-concept-name">{this.props.concept.label}</h6>
                     <div className="sources"> 
@@ -32,7 +32,7 @@ class ConceptItem extends React.Component {
                 <div className="collapse-button">
                     <button
                         className=""
-                        onClick={async () => { await this.props.handlerForOpen(this.props.concept.source[0].uri) }}
+                        onClick={async () => { await this.props.handlerForOpen(this.props.concept.id) }}
                         aria-expanded={open}>
                         {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
                     </button>
