@@ -90,7 +90,7 @@ SELECT DISTINCT ?id ?label
 # """
 
 
-GRAPHDB = "http://34.66.148.181:7200/repositories/sdg-data"
+GRAPHDB = "http://34.66.148.181:7200/repositories/sdgs-data"
 
 nlp = spacy.load('en_core_web_sm') 
 
