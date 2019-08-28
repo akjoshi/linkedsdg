@@ -42,16 +42,16 @@ class ConceptList extends React.Component {
  
         const data = this.state.data;
         
-        let idx = lunr(function () { 
+        let idx = lunr(function () {  
             this.field('label')  
 
-            for( let i in data){
+            for( let i in data){  
                 this.add({
                     'id': i,
                     'label': data[i].label, 
                 })
             }
-        })
+        }) 
 
         this.setState({idx: idx}); 
         
@@ -84,15 +84,16 @@ class ConceptList extends React.Component {
         })
     }
 
-    handleSearch = async changeEvent => { 
+    handleSearch = async changeEvent => {  
         await this.setState({
             searchText: changeEvent.target.value 
-        });
- 
-        let score = this.state.idx.search("*" + this.state.searchText + "*");
-        if(score.length === 0){
-            score = this.state.idx.search(this.state.searchText );
+        }); 
+
+        let score = await this.state.idx.search("*" + this.state.searchText + "*"); 
+        if(score.length === 0){ 
+            score = this.state.idx.search(this.state.searchText);
         }
+ 
           
         let newData = [];
         for(let elem of score){

@@ -3,14 +3,44 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import React, { Component } from "react";
 import filterFactory from 'react-bootstrap-table2-filter';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+ 
 
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './DataSeriesComponent.scss'
  
 
+const sizePerPageRenderer = ({
+  options,
+  currSizePerPage,
+  onSizePerPageChange
+}) => (
+  <div className="btn-group" role="group">
+    {
+      options.map((option) => {
+        const isSelect = currSizePerPage === `${option.page}`;
+        return (
+          <button
+            key={ option.text }
+            type="button"
+            onClick={ () => onSizePerPageChange(option.page) }
+            className={ `btn page-size-button ${isSelect ? 'btn-primary' : 'page-size-button-not-active'}` }
+          >
+            { option.text }
+          </button>
+        );
+      })
+    }
+  </div>
+);
+
+const options = {
+  sizePerPageRenderer
+};
+
+
 class DataSeriesComponent extends Component {
   state = ({
-
+     
   });
 
   render() {
@@ -55,7 +85,7 @@ class DataSeriesComponent extends Component {
               // console.log(new Date().toISOString())
 
               return returnObject;
-            })} columns={this.props.columns} pagination={paginationFactory()} filter={filterFactory()} />
+            })} columns={this.props.columns} pagination={paginationFactory(options)} filter={filterFactory()} />
 
             </div>
           : <React.Fragment></React.Fragment>
