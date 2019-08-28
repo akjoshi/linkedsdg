@@ -8,10 +8,10 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import './DataSeriesComponent.scss'
  
 
-class DataSeriesComponent extends Component { 
+class DataSeriesComponent extends Component {
   state = ({
-  });
 
+  });
 
   render() {
     return (

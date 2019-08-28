@@ -134,10 +134,9 @@ class ZoomableSunburst extends Component {
                     </div>
                 </div>
 
-                {this.state.sunState === "series" ? (
+                {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0 ) ? (
                     <div className="country-series-info">
-
-                        {/* Need to add columns */}
+ 
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns}></DataSeriesTable>
 
                         <Button variant="primary" onClick={this.handleCollapse} className="button-for-table">

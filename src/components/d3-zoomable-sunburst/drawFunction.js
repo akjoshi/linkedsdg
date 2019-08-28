@@ -190,8 +190,7 @@ export async function drawChart() {
                 await this.setState({
                     countrySeriesData: text.data,
                     columns: columns
-                })
-                console.log(text.data)
+                }) 
 
             } catch (error) {
                 console.log("ERROR");
