@@ -50,6 +50,38 @@
                 font-weight: 700;
                 color: black;
             }
+
+
+            .linked-concepts-list {
+                max-height: 45vh; 
+                overflow-y: hidden;
+                overflow-x: hidden;
+                margin-bottom: 0; 
+            }
+
+            .linked-concepts-list:hover {
+                margin-right: -16px;
+                overflow: scroll;
+                overflow-x: hidden;
+            }
+
+            /* total width */
+            .linked-concepts-list::-webkit-scrollbar {
+                background-color:#fff;
+                width:16px
+            }
+
+            /* background of the scrollbar except button or resizer */
+            .linked-concepts-list::-webkit-scrollbar-track {
+                background-color:#fff
+            }
+
+            /* scrollbar itself */
+            .linked-concepts-list::-webkit-scrollbar-thumb {
+                background-color:#babac0;
+                border-radius:16px;
+                border:4px solid #fff
+            }
         }
 
         .title {
@@ -334,6 +366,8 @@
             font-size: 0.9rem;
             padding: 0.3rem 0 0 0 ;  
         }
+
+
  
     }
 
