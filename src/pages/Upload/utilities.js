@@ -1,8 +1,8 @@
 import axios from 'axios';
 let config = require('../../config.json');
 
-function findContext(data, key) {  
-    var filtered = data['matches'].filter(x => { return x['url'] === key }); 
+function findContext(data, key) {
+    var filtered = data['matches'].filter(x => { return x['url'] === key });
     return filtered
 }
 
@@ -20,19 +20,43 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let countryArr = jsonText.data.countries.total;
     let countryAreasData = require('./CountryAndArea.json');
     let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
+    let areaCounter = {};
 
 
     if (countryArr !== undefined) {
         let maxWeight = countryArr[jsonText.data.countries.top_region].weight;
+        let maxOccArea = 0;
         let top_regions = jsonText.data.countries.top_regions;
-        let anyArea = false;
 
+
+        // selected areas
         for (let elem in jsonText.data.countries.top_regions) {
-            if (countryArr[top_regions[elem]].source !== 'geo' && countryArr[top_regions[elem]].url !== "http://data.un.org/codes/sdg/geoArea/001") {
-                anyArea = true;
+            if (countryArr[top_regions[elem]].source !== 'geo') {
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
+                for (let key in temp) {
+                    if (areaCounter[temp[key].code] === undefined) {
+                        areaCounter[temp[key].code] = 0;
+                    }
+                    areaCounter[temp[key].code] = areaCounter[temp[key].code] + 1;
+                    altdataForSeries.push(temp[key].code)
+
+                    if (maxOccArea < areaCounter[temp[key].code]) {
+                        maxOccArea = areaCounter[temp[key].code]
+                    }
+                }
             }
         }
 
+        for (let key in areaCounter) {
+            dataForDataMap[key] = {
+                fillColor: rgbToHex(
+                227 - Math.round(60 * areaCounter[key] / maxOccArea), // 227 - 60
+                227 -  (Math.round(30 * areaCounter[key] / maxOccArea)),  // 227 - 30
+                227)
+            };
+        }
+
+        // selected country
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source === 'geo') {
                 let countryInfo = countryArr[top_regions[elem]];
@@ -41,24 +65,11 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
                 dataForSeries.push(countryInfo.url);
             }
-            else {
-                if (countryArr[top_regions[elem]].url === "http://data.un.org/codes/sdg/geoArea/001" && anyArea) {
-                    continue;
-                }
-
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
-                for (let key in temp) {
-                    if (dataForDataMap[temp[key].code] === undefined) {
-                        dataForDataMap[temp[key].code] = { fillKey: "areaColor" };
-                        altdataForSeries.push(temp[key].code)
-                    }
-                }
-            }
         }
-    } 
+    }
 
     if (dataForSeries.length === 0) {
-        for (let code of altdataForSeries) { 
+        for (let code of altdataForSeries) {
             dataForSeries.push(codeToUri(code, countryAreasData)); // should be uri
         }
     }
@@ -66,10 +77,10 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
 }
 
 function codeToUri(code, countryAreas) {
-    let arr = countryAreas.results.bindings; 
-    for(let obj of arr){
-        if(obj.member_country_code.value === code){
-            return obj.member_country.value; 
+    let arr = countryAreas.results.bindings;
+    for (let obj of arr) {
+        if (obj.member_country_code.value === code) {
+            return obj.member_country.value;
         }
     }
     return code
@@ -150,21 +161,21 @@ export async function processText(data) {
         this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
         const conceptsResponseList = [];
- 
-        for (var obj of jsonText['data']['concepts']) { 
-            let context = findContext(jsonText['data'], obj.uri)   
+
+        for (var obj of jsonText['data']['concepts']) {
+            let context = findContext(jsonText['data'], obj.uri)
             conceptsResponse.push({
                 id: obj.uri,
-                label:  obj['label'],
+                label: obj['label'],
                 source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
-                weight:  obj['weight'],
-                context: context, 
+                weight: obj['weight'],
+                context: context,
             })
             conceptsResponseList.push({
                 id: obj.uri,
-                label:  obj['label'],
+                label: obj['label'],
                 source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
-                weight:  obj['weight'],
+                weight: obj['weight'],
                 context: context,
                 open: false
             })
@@ -177,7 +188,7 @@ export async function processText(data) {
         // console.log(conceptsResponse)
 
 
-        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse })   
+        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse })
 
 
         // data for graphQueryApiUrl
@@ -200,9 +211,9 @@ export async function processText(data) {
 
         // console.log("linkedDataResponse")
         // console.log(linkedDataResponse) 
-        await this.setState({ dataForSun: linkedDataResponse.data });  
+        await this.setState({ dataForSun: linkedDataResponse.data });
 
-        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 }); 
+        await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
 
     } catch (error) {
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
