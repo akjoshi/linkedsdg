@@ -6624,25 +6624,6 @@
       {
         "member_country_code" : {
           "type" : "literal",
-          "value" : "SDN"
-        },
-        "id" : {
-          "type" : "uri",
-          "value" : "http://data.un.org/codes/sdg/geoArea/001"
-        },
-        "member_country" : {
-          "type" : "uri",
-          "value" : "http://data.un.org/codes/sdg/geoArea/736"
-        },
-        "region" : {
-          "xml:lang" : "en",
-          "type" : "literal",
-          "value" : "World"
-        }
-      },
-      {
-        "member_country_code" : {
-          "type" : "literal",
           "value" : "DZA"
         },
         "id" : {
@@ -11350,25 +11331,6 @@
           "xml:lang" : "en",
           "type" : "literal",
           "value" : "World"
-        }
-      },
-      {
-        "member_country_code" : {
-          "type" : "literal",
-          "value" : "SDN"
-        },
-        "id" : {
-          "type" : "uri",
-          "value" : "http://data.un.org/codes/sdg/geoArea/002"
-        },
-        "member_country" : {
-          "type" : "uri",
-          "value" : "http://data.un.org/codes/sdg/geoArea/736"
-        },
-        "region" : {
-          "xml:lang" : "en",
-          "type" : "literal",
-          "value" : "Africa"
         }
       },
       {
