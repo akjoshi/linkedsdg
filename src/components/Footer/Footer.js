@@ -11,7 +11,7 @@ const Footer = props => (
             <a href=" http://epistemik.co">
                 <img src={logo} alt="Epistemik"></img>
             </a>
-            <a href="https://www.un.org/sustainabledevelopment/sustainable-development-goals/">
+            <a href="http://www.sdg.org/">
                 <img src={sdgLogo} alt="SDG logo"></img>
             </a>
         </div>

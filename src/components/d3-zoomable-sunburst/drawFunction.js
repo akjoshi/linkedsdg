@@ -9,7 +9,7 @@ let config = require('../../config.json');
 export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
     const colors = require(`./data/sdgColors.json`)
-    let data = this.props.data; 
+    let data = this.props.data;
     let width = 932
     let radius = 155.33333333333334
     let clickEnevtBlock = false;
@@ -78,7 +78,7 @@ export async function drawChart() {
         });
 
         let openKeyWords = [];
-        for(let keywordUri in p.data.keywords){
+        for (let keywordUri in p.data.keywords) {
             openKeyWords.push({
                 open: false,
                 uri: keywordUri,
@@ -190,7 +190,7 @@ export async function drawChart() {
                 await this.setState({
                     countrySeriesData: text.data,
                     columns: columns
-                }) 
+                })
 
             } catch (error) {
                 console.log("ERROR");
@@ -312,42 +312,42 @@ export async function drawChart() {
 const constructColumns = (text) => {
 
     let dataCodes = require('./DataSeriesComponent/dataCodes.json');
+ 
 
-    console.log(text)
 
-
-    let columns = [{
-        dataField: 'value',
-        sort: true,
-        text: "value",
-        headerFormatter: (column, colIndex, components) => {
-            return <div>
-                <p>
-                    value
-                            <span className="sort-arrows">
-                        &#x25B2; &#x25BC;
-                            </span>
-                </p>
-                <p className="series-unit">
-                    {text.data['@graph'][0] !== undefined ?
-                     dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label :
-                        <React.Fragment>-</React.Fragment> }
-                </p>
-            </div>
+    let columns = [
+        {
+            dataField: 'id',
+            text: 'ID',
+            filter: textFilter(),
+            hidden: true
         },
-        sortFunc: (a, b, order, dataField) => {
-            if (order === 'asc') {
-                return b - a;
+        {
+            dataField: 'value',
+            sort: true,
+            text: "value",
+            headerFormatter: (column, colIndex, components) => {
+                return <div>
+                    <p>
+                        value
+                            <span className="sort-arrows">
+                            &#x25B2; &#x25BC;
+                            </span>
+                    </p>
+                    <p className="series-unit">
+                        {text.data['@graph'][0] !== undefined ?
+                            dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label :
+                            <React.Fragment>-</React.Fragment>}
+                    </p>
+                </div>
+            },
+            sortFunc: (a, b, order, dataField) => {
+                if (order === 'asc') {
+                    return b - a;
+                }
+                return a - b; // desc
             }
-            return a - b; // desc
         }
-    },
-    {
-        dataField: 'id',
-        text: 'ID',
-        filter: textFilter(),
-        hidden: true
-    }
     ]
 
 

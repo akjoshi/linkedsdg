@@ -10,6 +10,29 @@
 }
 
 .table-series{
+
+    .export-csv-button{
+        background: #00ADEF;
+        background-color: #00adef;
+        border-color: #009bd6;
+        padding: 3px 12px;
+        border-radius: 0;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 1rem; 
+        margin-right: 0;
+        float: right;
+        
+    }
+
+    .export-csv-button:hover {
+        background-color: #0088bc !important;
+        border-color: #006e98 !important;
+        color: white;
+    }
+
     .react-bootstrap-table{
 
         overflow: scroll; 
