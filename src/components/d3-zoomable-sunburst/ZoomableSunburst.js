@@ -122,21 +122,21 @@ class ZoomableSunburst extends Component {
 
                                     </React.Fragment>
                                 ) : (
-                                       <React.Fragment> 
-                                           <p>The United Nations <b>Sustainable Development Goals</b> (SDGs) are 17 global goals that all UN Member States have agreed to try to achieve by the year 2030.</p>
-                                           <p>The 17 SDGs are articulated into 169 <b>targets</b>, 230 <b>indicators</b>, and over 400 <b>data series</b> that help to measure the progress towards achieving the SDGs.</p>
-                                           <p>By browsing on the SDG wheel to the left you can find goals, targets, indicators and data series that are most relevant to the processed document, based on the extracted concepts and geographical regions.</p>
-                                       </React.Fragment>
-                                        
+                                        <React.Fragment>
+                                            <p>The United Nations <b>Sustainable Development Goals</b> (SDGs) are 17 global goals that all UN Member States have agreed to try to achieve by the year 2030.</p>
+                                            <p>The 17 SDGs are articulated into 169 <b>targets</b>, 230 <b>indicators</b>, and over 400 <b>data series</b> that help to measure the progress towards achieving the SDGs.</p>
+                                            <p>By browsing on the SDG wheel to the left you can find goals, targets, indicators and data series that are most relevant to the processed document, based on the extracted concepts and geographical regions.</p>
+                                        </React.Fragment>
+
                                     ))}
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0 ) ? (
+                {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
- 
+
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns}></DataSeriesTable>
 
                         <Button variant="primary" onClick={this.handleCollapse} className="button-for-table">
@@ -157,7 +157,9 @@ class ZoomableSunburst extends Component {
 
 
                 ) :
-                    (<React.Fragment></React.Fragment>)
+                    ((this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length === 0) ?
+                        <React.Fragment><p>No data available.</p></React.Fragment> : <React.Fragment></React.Fragment>
+                    )
                 }
 
 
