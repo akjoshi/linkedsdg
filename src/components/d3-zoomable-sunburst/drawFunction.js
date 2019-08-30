@@ -161,6 +161,7 @@ export async function drawChart() {
 
         if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
             try {
+                console.log(this.props.dataForSeries)
                 const dataForApi = {
                     "countries": this.props.dataForSeries,
                     "stat": this.state.clickedData.id

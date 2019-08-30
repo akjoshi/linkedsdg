@@ -96,12 +96,19 @@ class Upload extends Component {
                 <div className="upload-content">
                     <Row>
                         <Col lg={4}>
-                            <h3 className="title">Upload</h3>
-                            <p className="Description">
-                                Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. You can also use some of the example links listed below.
-                        </p>
+                            <h3 className="title">ANALYZE DOCUMENT</h3>
+                            <p className="Description">Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. </p>
+                            <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
+                            <p className="Description">You can also use some of the example links listed below.</p>
+
+                            <div className="analyze-button-container">
+                                        <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
+                                            {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                                        </Button>
+                                    </div>
+
                         </Col>
-                        <Col lg={8}>
+                        <Col lg={8} className="example-links">
                             <React.Fragment>
                                 <div className="Upload-Content" key={this.context.waitForData}>
                                     <div className="File-Upload-by-form">
@@ -114,40 +121,38 @@ class Upload extends Component {
                                             fileName={this.state.fileName}
                                         ></UploadForm>
                                     </div>
+                                    <div className="analyze-button-container">
+                                        <Button variant="primary" className="analyze-button mobile" onClick={this.analyze}>
+                                            {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                                        </Button>
+                                    </div>
+                                </div>
+                                <div className="example-links-list">
+                                    <p className="small-label">Examples</p>
+                                    <ul>
+                                        <li>
+                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                            <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank">Voluntary National Review - Saudi Arabia 2018 (AR)</a>
+                                        </li>
+                                        <li>
+                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank">Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</a>
+                                        </li>
+                                        <li>
+                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                            <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                                        </li>
+                                        <li>
+                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                            <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank">Voluntary National Review - Canada 2018 (FR)</a>
+                                        </li>
+                                        <li>
+                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" })}><img alt="Copy" src={CopyIcon}></img></span>
+                                            <a href="https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" target="_blank">Linking EU funds to rule of law and “European values”</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </React.Fragment>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col lg={4} className="analyze-button-container">
-                            <Button variant="primary" className="analyze-button" onClick={this.analyze}>
-                                {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
-                            </Button>
-                        </Col>
-                        <Col lg={8} className="example-links">
-                            <p className="small-label">Examples</p>
-                            <ul>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank">Voluntary National Review - Saudi Arabia 2018 (AR)</a>
-                                </li>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank">Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</a>
-                                </li>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
-                                </li>
-                                <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank">Voluntary National Review - Canada 2018 (FR)</a>
-                                </li>
-                                {/* <li>
-                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                    <a href="https://www.theguardian.com/global-development-professionals-network/2015/jul/02/higher-education-in-africa-science-not-aid" target="_blank">Higher Education in Africa: Our continent needs science, not aid</a>
-                                </li> */}
-                            </ul>
                         </Col>
                     </Row>
                 </div>
