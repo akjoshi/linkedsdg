@@ -1,9 +1,24 @@
 {
-    "textApiUrl": "http://127.0.0.1:5001/api",
-    "textLinkApiUrl": "http://127.0.0.1:5001/apiURL",
-    "spacyApiUrl": "http://127.0.0.1:5000/api",
-    "graphQueryApiUrl": "http://127.0.0.1:5002/api",
-    "statsApiUrl":"http://127.0.0.1:5002/stats",
-    "describeApiUrl":"http://127.0.0.1:5002/describe"
+    "textApiUrl": "http://localhost:5001/api",
+    "textLinkApiUrl": "http://localhost:5001/apiURL",
+    "spacyApiUrl": "http://localhost:5000/api",
+    "graphQueryApiUrl": "http://localhost:5002/api",
+    "statsApiUrl": "http://localhost:5002/stats",
+    "describeApiUrl": "http://localhost:5002/describe",
+    "prod": {
+        "textApiUrl": "http://34.66.148.181:5001/api",
+        "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",
+        "spacyApiUrl": "http://34.66.148.181:5000/api",
+        "graphQueryApiUrl": "http://34.66.148.181:5002/api",
+        "statsApiUrl": "http://34.66.148.181:5002/stats",
+        "describeApiUrl": "http://34.66.148.181:5002/describe"
+    },
+    "local": {
+        "textApiUrl": "http://localhost:5001/api",
+        "textLinkApiUrl": "http://localhost:5001/apiURL",
+        "spacyApiUrl": "http://localhost:5000/api",
+        "graphQueryApiUrl": "http://localhost:5002/api",
+        "statsApiUrl": "http://localhost:5002/stats",
+        "describeApiUrl": "http://localhost:5002/describe"
+    }
 }
-

@@ -29,6 +29,16 @@
         grid-column-gap: 10px;
         grid-row-gap: 10px;
 
+        .baner-img{
+
+            grid-column-start: 1; 
+            grid-column-end: 3; 
+            width: 100%;
+            img { 
+                width:100%;
+            }
+        }
+
         .grid-item-text{
             grid-column-start: 1; 
             grid-column-end: 3; 
@@ -53,7 +63,7 @@
 
 
             .linked-concepts-list {
-                max-height: 45vh; 
+                max-height: 35vh; 
                 overflow-y: hidden;
                 overflow-x: hidden;
                 margin-bottom: 0; 
@@ -252,6 +262,11 @@
     
   }
 
+  .no-data-text{
+      text-align: center;
+      padding-top: 1rem;
+      color: $grey; 
+  }
 
 
 

@@ -34,6 +34,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             if (countryArr[top_regions[elem]].source !== 'geo') {
                 let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
                 for (let key in temp) {
+                    
                     if (areaCounter[temp[key].code] === undefined) {
                         areaCounter[temp[key].code] = 0;
                     }

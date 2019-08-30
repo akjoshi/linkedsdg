@@ -143,7 +143,7 @@ export default class Datamap extends React.Component {
             <div ref="container" id="containerForMap" style={style} >
 
                 <h3 className="Title">
-                    Extracted regions
+                    Extracted Countries
                 </h3>
 
             </div>

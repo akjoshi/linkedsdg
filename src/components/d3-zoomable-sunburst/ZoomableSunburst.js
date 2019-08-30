@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
 import ReactJson from 'react-json-view'
+import Baner from './baner.png'
 
 import {
     chooseState,
@@ -77,12 +78,21 @@ class ZoomableSunburst extends Component {
 
                     <div className="grid-item">
                         <div className="grid-container-info">
-                            <div className="goal-image-container">
-                                {this.selectImage()}
-                            </div>
-                            <div>
-                                <h3 className="title">{this.state.selectedGoalName}</h3>
-                            </div>
+                            {this.state.sunState === "root" && this.state.dataForPreview === undefined ?
+                                <div className="baner-img">
+                                    <img src={Baner} alt="Baner"></img>
+                                </div> :
+                                <React.Fragment>
+                                    <div className="goal-image-container">
+
+                                        {this.selectImage()}
+
+                                    </div>
+                                    <div>
+                                        <h3 className="title">{this.state.selectedGoalName}</h3>
+                                    </div>
+                                </React.Fragment>
+                            }
                             <div id="informationFromTheSun" className="grid-item-text">
 
                                 {this.state.dataForPreview ? (
@@ -158,7 +168,7 @@ class ZoomableSunburst extends Component {
 
                 ) :
                     ((this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length === 0) ?
-                        <React.Fragment><p>No data available.</p></React.Fragment> : <React.Fragment></React.Fragment>
+                        <React.Fragment><p className="no-data-text"><span role="img">&#x1f6ab;</span> No data available for the selected regions and series.</p></React.Fragment> : <React.Fragment></React.Fragment>
                     )
                 }
 
