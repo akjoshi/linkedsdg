@@ -4,7 +4,7 @@ import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
 import ReactJson from 'react-json-view'
 import Baner from './baner.png'
-
+import axios from 'axios'; 
 import {
     chooseState,
     setSunState,
@@ -18,7 +18,7 @@ import {
     getJsonDescribeOfUri
 } from './utilities';
 
-import { drawChart } from './drawFunction';
+import { drawChart, constructColumns } from './drawFunction';
 
 class ZoomableSunburst extends Component {
     constructor(props) {
@@ -34,6 +34,7 @@ class ZoomableSunburst extends Component {
         this.getSeriesJsonFromApi = getSeriesJsonFromApi.bind(this);
         this.getJsonDescribeOfUri = getJsonDescribeOfUri.bind(this);
         this.drawChart = drawChart.bind(this);
+        this.constructColumns = constructColumns.bind(this);
 
     }
 
@@ -60,6 +61,44 @@ class ZoomableSunburst extends Component {
 
     handleCollapse = async () => {
         this.setState({ displayJson: !this.state.displayJson })
+    }
+ 
+
+    handleExplore = async () => {
+        console.log("CALL API FOR MORE DATA")
+        if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
+            try { 
+                const dataForApi = { 
+                    "stat": this.state.clickedData.id
+                }
+
+                let config = require('../../config.json');
+                const text = await axios.post(config.statsApiUrl, dataForApi, {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (text.status !== 200 && text.status !== 201) {
+                    throw new Error('Failed!');
+                } 
+
+                let columns = constructColumns(text)
+
+                await this.setState({
+                    countrySeriesData: text.data,
+                    columns: columns
+                })
+
+            } catch (error) {
+                console.log("ERROR");
+            }
+        }
+        else {
+            this.setState({ countrySeriesData: [] })
+        }
+
+
     }
 
 
@@ -151,6 +190,9 @@ class ZoomableSunburst extends Component {
 
                         <Button variant="primary" onClick={this.handleCollapse} className="button-for-table">
                             {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                        </Button>
+                        <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
+                            <React.Fragment>Explore all data</React.Fragment>
                         </Button>
                         {this.state.displayJson ?
                             <React.Fragment>

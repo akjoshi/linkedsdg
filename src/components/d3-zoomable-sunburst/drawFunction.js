@@ -309,8 +309,7 @@ export async function drawChart() {
     return svg.node();
 }
 
-
-const constructColumns = (text) => {
+export function constructColumns(text) { 
 
     let dataCodes = require('./DataSeriesComponent/dataCodes.json');
  
