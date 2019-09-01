@@ -402,14 +402,25 @@ def concepts():
 
     for concept_item in new_concepts:
         show_data.append({
-            "id": concept_item["uri"].replace("http://data.un.org/", ""),
-            "label": concept_item["label"],
-            "matches": concept_item["sources"],
+            "@id": concept_item["uri"].replace("http://data.un.org/", "#"),
+            "prefLabel": concept_item["label"],
+            "exactMatch": concept_item["sources"],
             "weight": concept_item["weight"],
             "contexts": concept_map[concept_item["uri"]]["contexts"]
         })
 
-    result["concepts_show_data"] = show_data
+    result["concepts_show_data"] = {
+        "@context": {
+            "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+            "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+            "exactMatch": {
+                "@id":"http://www.w3.org/2004/02/skos/core#exactMatch",
+                "@type": "@id"
+            },
+            "uri": "@id"
+        },
+        "@graph": show_data
+    }
 
     
 
@@ -456,16 +467,16 @@ def concepts():
     for uri in tops:
         if country_index[uri]["source"] == "geo":
             show_data.append({
-                "id": uri.replace("http://data.un.org/codes/sdg/", ""),
+                "@id": uri.replace("http://data.un.org/", ""),
                 "iso3code": country_index[uri]["name"],
-                "name": country_index[uri]["label"],
+                "prefLabel": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
                 "contexts": all_areas[uri]["contexts"]
             })
         if country_index[uri]["source"] == "geo-all":
             show_data.append({
-                "id": uri.replace("http://data.un.org/codes/sdg/", ""),
-                "name": country_index[uri]["label"],
+                "@id": uri.replace("http://data.un.org/", "#"),
+                "prefLabel": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
                 "contexts": all_areas[uri]["contexts"]
             })
@@ -473,7 +484,14 @@ def concepts():
     result["countries"] = {
         "total": all_areas,
         "top_regions": tops,
-        "show_data": show_data
+        "show_data": {
+            "@context": {
+                "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+                "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "iso3code": "http://data.un.org/ontology/sdg#iso3code"
+            },
+            "@graph": show_data
+        }
     }
     if "url" in top_country:
         result["countries"]["top_country"] = top_country["url"]
