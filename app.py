@@ -25,14 +25,14 @@ SELECT DISTINCT ?id ?label ?lang where {
     {
         {
             ?source skos:prefLabel ?prefLabel .
-            FILTER(lang(?prefLabel) in ("en"))  #, "fr", "es", "ru", "ar", "zh"
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
             BIND (lcase(str(?prefLabel)) as ?label)
             BIND (lang(?prefLabel) as ?lang)
         }
         UNION
         {
             ?source skos:altLabel ?altLabel .
-            FILTER(lang(?altLabel) in ("en")) # , "fr", "es", "ru", "ar", "zh"
+            FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
             BIND (lcase(str(?altLabel)) as ?label)
             BIND (lang(?altLabel) as ?lang)
         }
