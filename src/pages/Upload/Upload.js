@@ -39,6 +39,7 @@ class Upload extends Component {
         dataForSeries: [],
         progress: 0,
         downloadDataAboutCountry: [],
+        conceptsShowData: {}, 
     };
 
     clear = (event) => {
@@ -168,9 +169,9 @@ class Upload extends Component {
                             <div className="Data-Area" >
                                 <div id="Data-Area-id"></div>
 
-                                <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts}></ConceptList>
+                                <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
 
-                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
+                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry}  responsive={true} />
 
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 

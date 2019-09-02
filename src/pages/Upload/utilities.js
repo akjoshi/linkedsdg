@@ -20,7 +20,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let countryArr = jsonText.data.countries.total;
     let countryAreasData = require('./CountryAndArea.json');
     let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
-    let areaCounter = {};
+    
 
 
     if (countryArr !== undefined) {
@@ -150,7 +150,7 @@ export async function processText(data) {
 
         let dataForDataMap = {};
         let dataForSeries = [];
-        this.setState({ downloadDataAboutCountry: jsonText.data.countries.total })
+        this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data  })
 
         handleCountryColors(jsonText, dataForDataMap, dataForSeries)
 
@@ -184,7 +184,7 @@ export async function processText(data) {
         // console.log(conceptsResponse)
 
 
-        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse })
+        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse , conceptsShowData: jsonText['data'].concepts_show_data})
 
 
         // data for graphQueryApiUrl
