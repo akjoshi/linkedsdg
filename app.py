@@ -396,7 +396,10 @@ def concepts():
         new_citation = clean_citation(match)
         if "contexts" not in concept_map[match["url"]]:
             concept_map[match["url"]]["contexts"] = []
-        concept_map[match["url"]]["contexts"].append(new_citation)
+            concept_map[match["url"]]["contexts_list"] = []
+        if new_citation["quote"] not in concept_map[match["url"]]["contexts_list"]:
+            concept_map[match["url"]]["contexts"].append(new_citation)
+            concept_map[match["url"]]["contexts_list"].append(new_citation["quote"])
     
     show_data = []
 
@@ -447,6 +450,7 @@ def concepts():
         country["name"]= country_index[country_url]["name"]
         all_areas[country_url] = country
         all_areas[country_url]["contexts"]=[]
+        all_areas[country_url]["contexts_list"]=[]
         if country["source"]=="geo" and country['weight'] > top_country_score:
             top_country_score = country['weight']
             top_country = country
@@ -461,7 +465,9 @@ def concepts():
             tops.append(country["url"])
     for match in region_matches:
         new_citation = clean_citation(match)
-        all_areas[match["url"]]["contexts"].append(new_citation)
+        if new_citation["quote"] not in all_areas[match["url"]]["contexts_list"]:
+            all_areas[match["url"]]["contexts"].append(new_citation)
+            all_areas[match["url"]]["contexts_list"].append(new_citation["quote"])
 
     show_data = []
 
