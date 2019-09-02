@@ -474,10 +474,11 @@ def concepts():
     for uri in tops:
         if country_index[uri]["source"] == "geo":
             show_data.append({
-                "@id": uri.replace("http://data.un.org/", ""),
+                "id": uri.replace("http://data.un.org/", ""),
                 "iso3code": country_index[uri]["name"],
-                "prefLabel": country_index[uri]["label"],
+                "label": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
+                "type": "country",
                 "contexts": all_areas[uri]["contexts"]
             })
         if country_index[uri]["source"] == "geo-all":
@@ -485,6 +486,7 @@ def concepts():
                 "id": uri.replace("http://data.un.org/", ""),
                 "label": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
+                "type": "region",
                 "contexts": all_areas[uri]["contexts"]
             })
         
