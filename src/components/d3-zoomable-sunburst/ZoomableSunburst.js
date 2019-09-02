@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
-import './ZoomableSunburst.scss'
-import ReactJson from 'react-json-view'
+import './ZoomableSunburst.scss' 
 import Baner from './baner.png'
 import axios from 'axios';
 import {

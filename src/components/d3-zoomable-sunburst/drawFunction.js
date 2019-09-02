@@ -346,10 +346,17 @@ export function constructColumns(text) {
         geoAreaMap[key] = key;
     }
 
+    const ordered = {};
+    Object.keys(geoAreaMap).sort().forEach(function (key) {
+        ordered[key] = geoAreaMap[key];
+    });
+
+    geoAreaMap = ordered
+ 
     columns.push({
         dataField: "country",
         text: "country",
-        formatter: cell => geoAreaMap[cell],
+        formatter: cell => cell,
         filter: selectFilter({
             options: geoAreaMap
         })

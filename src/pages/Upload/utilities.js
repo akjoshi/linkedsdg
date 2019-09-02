@@ -19,39 +19,36 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let altdataForSeries = [];
     let countryArr = jsonText.data.countries.total;
     let countryAreasData = require('./CountryAndArea.json');
-    let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
-    
-
-
-    if (countryArr !== undefined) {
-        let maxWeight = countryArr[jsonText.data.countries.top_country].weight;
-        let regionMaxWeight = countryArr[jsonText.data.countries.top_region].weight;
-        let maxColorForCountry = {}; 
+    let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } }); 
+    if (countryArr !== undefined) { 
+        let maxWeight = countryArr[jsonText.data.countries.top_country] ? countryArr[jsonText.data.countries.top_country].weight : undefined;
+        let regionMaxWeight = countryArr[jsonText.data.countries.top_region] ? countryArr[jsonText.data.countries.top_region].weight : undefined;
+        let maxColorForCountry = {};
         let top_regions = jsonText.data.countries.top_regions;
+
+
 
         // selected areas
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source !== 'geo') {
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
-
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url); 
                 for (let key in temp) {
 
                     let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
-
-                    
-                    if(maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens){
-                        maxColorForCountry[temp[key].code] = colorIntens;
-
+ 
+                    if (maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens) {
+                        maxColorForCountry[temp[key].code] = colorIntens; 
                         dataForDataMap[temp[key].code] = {
                             fillColor: rgbToHex(
                                 227 - Math.round(60 * colorIntens), // 227 - 60
                                 227 - Math.round(30 * colorIntens),  // 227 - 30
                                 227)
                         };
-                    } 
+                    }
                 }
             }
         } 
+
 
         // selected country
         for (let elem in jsonText.data.countries.top_regions) {
@@ -61,7 +58,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
                 dataForSeries.push(countryInfo.url);
             }
-        }
+        } 
     }
 
     if (dataForSeries.length === 0) {
@@ -150,9 +147,10 @@ export async function processText(data) {
 
         let dataForDataMap = {};
         let dataForSeries = [];
-        this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data  })
+        this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data })
 
         handleCountryColors(jsonText, dataForDataMap, dataForSeries)
+        // console.log("mapy")
 
         this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
@@ -184,7 +182,7 @@ export async function processText(data) {
         // console.log(conceptsResponse)
 
 
-        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse , conceptsShowData: jsonText['data'].concepts_show_data})
+        this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse, conceptsShowData: jsonText['data'].concepts_show_data })
 
 
         // data for graphQueryApiUrl

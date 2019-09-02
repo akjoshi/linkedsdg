@@ -24,8 +24,7 @@ class BubbleChart extends React.Component {
             }
         }
 
-        let data = []; 
-        let format = d3.format(",d");
+        let data = [];  
         let width = 932;
         let height = width;
 
