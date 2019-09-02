@@ -402,9 +402,9 @@ def concepts():
 
     for concept_item in new_concepts:
         show_data.append({
-            "@id": concept_item["uri"].replace("http://data.un.org/", "#"),
-            "prefLabel": concept_item["label"],
-            "exactMatch": concept_item["sources"],
+            "id": concept_item["uri"].replace("http://data.un.org/", ""),
+            "label": concept_item["label"],
+            "match": concept_item["sources"],
             "weight": concept_item["weight"],
             "contexts": concept_map[concept_item["uri"]]["contexts"]
         })
@@ -476,8 +476,8 @@ def concepts():
             })
         if country_index[uri]["source"] == "geo-all":
             show_data.append({
-                "@id": uri.replace("http://data.un.org/", "#"),
-                "prefLabel": country_index[uri]["label"],
+                "id": uri.replace("http://data.un.org/", ""),
+                "label": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
                 "contexts": all_areas[uri]["contexts"]
             })
