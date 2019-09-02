@@ -438,6 +438,7 @@ def concepts():
 
     country_res = {}
     region_matches, country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
+    country_res["matches"] = region_matches
     top_country_score = 0
     top_region_score = 0
     top_country = {}
