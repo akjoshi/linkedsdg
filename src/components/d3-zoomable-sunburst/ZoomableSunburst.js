@@ -4,7 +4,7 @@ import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
 import ReactJson from 'react-json-view'
 import Baner from './baner.png'
-import axios from 'axios'; 
+import axios from 'axios';
 import {
     chooseState,
     setSunState,
@@ -56,19 +56,20 @@ class ZoomableSunburst extends Component {
         displayJson: false,
         columns: [],
         keyWords: [],
+        exploreAllLoading: false,
     }
 
 
     handleCollapse = async () => {
         this.setState({ displayJson: !this.state.displayJson })
     }
- 
 
-    handleExplore = async () => {
-        console.log("CALL API FOR MORE DATA")
+
+    handleExplore = async () => { 
         if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
-            try { 
-                const dataForApi = { 
+            try {
+                this.setState({exploreAllLoading: true});
+                const dataForApi = {
                     "stat": this.state.clickedData.id
                 }
 
@@ -81,13 +82,14 @@ class ZoomableSunburst extends Component {
 
                 if (text.status !== 200 && text.status !== 201) {
                     throw new Error('Failed!');
-                } 
+                }
 
                 let columns = constructColumns(text)
 
                 await this.setState({
                     countrySeriesData: text.data,
-                    columns: columns
+                    columns: columns,
+                    exploreAllLoading: false,
                 })
 
             } catch (error) {
@@ -192,7 +194,7 @@ class ZoomableSunburst extends Component {
                             {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                         </Button>
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
-                            <React.Fragment>Explore all data</React.Fragment>
+                            {!this.state.exploreAllLoading ? <React.Fragment>Explore all data</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
                         </Button>
                         {this.state.displayJson ?
                             <React.Fragment>

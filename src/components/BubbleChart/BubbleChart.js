@@ -114,11 +114,6 @@ class BubbleChart extends React.Component {
             })
             .style("fill", "#555555");
 
-
-
-        leaf.append("title")
-            .text(d => `${d.data.id}\n${format(d.weight)}`);
-
         return svg.node();
     }
 
