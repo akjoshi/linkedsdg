@@ -309,10 +309,10 @@ export async function drawChart() {
     return svg.node();
 }
 
-export function constructColumns(text) { 
+export function constructColumns(text) {
 
     let dataCodes = require('./DataSeriesComponent/dataCodes.json');
- 
+
 
 
     let columns = [
@@ -321,32 +321,6 @@ export function constructColumns(text) {
             text: 'ID',
             filter: textFilter(),
             hidden: true
-        },
-        {
-            dataField: 'value',
-            sort: true,
-            text: "value",
-            headerFormatter: (column, colIndex, components) => {
-                return <div>
-                    <p>
-                        value
-                            <span className="sort-arrows">
-                            &#x25B2; &#x25BC;
-                            </span>
-                    </p>
-                    <p className="series-unit">
-                        {text.data['@graph'][0] !== undefined ?
-                            dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label :
-                            <React.Fragment>-</React.Fragment>}
-                    </p>
-                </div>
-            },
-            sortFunc: (a, b, order, dataField) => {
-                if (order === 'asc') {
-                    return b - a;
-                }
-                return a - b; // desc
-            }
         }
     ]
 
@@ -408,27 +382,7 @@ export function constructColumns(text) {
                 continue;
             }
             props.push(key)
-            // let selectOptions = new Set();
-            // for (let obj of text.data['@graph']) {
-            //     selectOptions.add(obj["yearCode"])
-            // }
-
-            // let selectOptionsMap = {};
-            // for (let key of selectOptions) {
-            //     selectOptionsMap[key] = key;
-            // }
-
-            // columns.push({
-            //     dataField: key,
-            //     text: key,
-            //     formatter: cell => selectOptionsMap[cell],
-            //     filter: selectFilter({
-            //         options: selectOptionsMap
-            //     })
-            // })
-
             notRelevantFields.push(key)
-
         }
     }
 
@@ -442,7 +396,6 @@ export function constructColumns(text) {
         let setMap = {};
         for (let key of set) {
             setMap[key] = dataCodes[prop]["codes"][key].label;
-
         }
 
         columns.push({
@@ -454,6 +407,60 @@ export function constructColumns(text) {
             })
         })
     }
+
+
+    columns.push(
+        {
+            dataField: 'value',
+            sort: true,
+            text: "value",
+            headerFormatter: (column, colIndex, components) => {
+                return <div>
+                    <p>
+                        value
+                            <span className="sort-arrows">
+                            &#x25B2; &#x25BC;
+                            </span>
+                    </p>
+                    <p className="series-unit">
+                        {text.data['@graph'][0] !== undefined ?
+                            dataCodes["unitsCode"]["codes"][text.data['@graph'][0].unitMeasure].label :
+                            <React.Fragment>-</React.Fragment>}
+                    </p>
+                </div>
+            },
+            sortFunc: (a, b, order, dataField) => {
+                if (order === 'asc') {
+                    return b - a;
+                }
+                return a - b; // desc
+            }
+        }
+    )
+
+    columns.push(
+        {
+            dataField: 'unit',
+            text: "unit of measurement"
+        }
+    )
+
+    columns.push(
+        {
+            dataField: 'measureType',
+            text: 'measure type',
+            hidden: true
+        }
+    )
+
+    columns.push(
+        {
+            dataField: 'keyWords',
+            text: 'key words',
+            hidden: true
+        }
+    )
+
 
     return columns;
 }

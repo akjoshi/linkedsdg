@@ -41,11 +41,22 @@ const options = {
 };
 
 
-class DataSeriesComponent extends Component {
+class DataSeriesComponent extends Component { 
 
   state = ({
-    csvData: [this.props.columns.filter(x => x.dataField !== 'id').map(x => x.dataField)]
+    csvData: [this.props.columns.filter(x => x.dataField !== 'id').map(x => x.dataField)], 
+    keyWordsString: ""
   });
+
+  componentDidMount() {
+
+    let keyWordsString = "";
+    for(let obj in this.props.keyWords){ 
+      keyWordsString = keyWordsString + this.props.keyWords[obj].label + ", ";
+    }
+
+    this.setState({keyWords: keyWordsString});
+  }
  
 
   render() {
@@ -65,6 +76,8 @@ class DataSeriesComponent extends Component {
                   value: cube[cube["measureType"]],
                   unit: dataCodes["unitsCode"]["codes"][cube.unitMeasure].label,
                   year: cube.yearCode,
+                  measureType: this.props.description,
+                  keyWords:  this.state.keyWords,
                 }
                 // need to add dimentions
                 let notRelevantFields = [

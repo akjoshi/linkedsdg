@@ -24,45 +24,40 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
 
 
     if (countryArr !== undefined) {
-        let maxWeight = countryArr[jsonText.data.countries.top_region].weight;
-        let maxOccArea = 0;
+        let maxWeight = countryArr[jsonText.data.countries.top_country].weight;
+        let regionMaxWeight = countryArr[jsonText.data.countries.top_region].weight;
+        let maxColorForCountry = {}; 
         let top_regions = jsonText.data.countries.top_regions;
-
 
         // selected areas
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source !== 'geo') {
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url)
-                for (let key in temp) {
-                    
-                    if (areaCounter[temp[key].code] === undefined) {
-                        areaCounter[temp[key].code] = 0;
-                    }
-                    areaCounter[temp[key].code] = areaCounter[temp[key].code] + 1;
-                    altdataForSeries.push(temp[key].code)
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
 
-                    if (maxOccArea < areaCounter[temp[key].code]) {
-                        maxOccArea = areaCounter[temp[key].code]
-                    }
+                for (let key in temp) {
+
+                    let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
+
+                    
+                    if(maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens){
+                        maxColorForCountry[temp[key].code] = colorIntens;
+
+                        dataForDataMap[temp[key].code] = {
+                            fillColor: rgbToHex(
+                                227 - Math.round(60 * colorIntens), // 227 - 60
+                                227 - Math.round(30 * colorIntens),  // 227 - 30
+                                227)
+                        };
+                    } 
                 }
             }
-        }
-
-        for (let key in areaCounter) {
-            dataForDataMap[key] = {
-                fillColor: rgbToHex(
-                227 - Math.round(60 * areaCounter[key] / maxOccArea), // 227 - 60
-                227 -  (Math.round(30 * areaCounter[key] / maxOccArea)),  // 227 - 30
-                227)
-            };
-        }
+        } 
 
         // selected country
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source === 'geo') {
                 let countryInfo = countryArr[top_regions[elem]];
-                let colorIntens = countryInfo.weight / maxWeight
-
+                let colorIntens = countryInfo.weight / maxWeight;
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
                 dataForSeries.push(countryInfo.url);
             }

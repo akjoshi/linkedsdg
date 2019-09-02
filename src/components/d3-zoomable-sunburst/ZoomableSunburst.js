@@ -188,25 +188,11 @@ class ZoomableSunburst extends Component {
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
 
-                        <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns}></DataSeriesTable>
-
-                        <Button variant="primary" onClick={this.handleCollapse} className="button-for-table">
-                            {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
-                        </Button>
+                        <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns} keyWords={this.state.clickedData.keyWords}></DataSeriesTable>
+ 
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
                             {!this.state.exploreAllLoading ? <React.Fragment>Explore all data</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
-                        </Button>
-                        {this.state.displayJson ?
-                            <React.Fragment>
-                                <div className="json-with-data">
-                                    <ReactJson src={this.state.countrySeriesData} collapsed={2} displayDataTypes={false} name={"Series"} />
-                                </div>
-                                <Button variant="primary" onClick={this.getSeriesJsonFromApi}>
-                                    ⤓ download
-                                </Button>
-                            </React.Fragment>
-                            : <React.Fragment></React.Fragment>
-                        }
+                        </Button> 
                     </div>
 
 
