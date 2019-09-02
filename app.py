@@ -409,18 +409,19 @@ def concepts():
             "contexts": concept_map[concept_item["uri"]]["contexts"]
         })
 
-    result["concepts_show_data"] = {
-        "@context": {
-            "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
-            "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
-            "exactMatch": {
-                "@id":"http://www.w3.org/2004/02/skos/core#exactMatch",
-                "@type": "@id"
-            },
-            "uri": "@id"
-        },
-        "@graph": show_data
-    }
+    result["concepts_show_data"] = show_data 
+    # {
+    #     "@context": {
+    #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+    #         "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+    #         "exactMatch": {
+    #             "@id":"http://www.w3.org/2004/02/skos/core#exactMatch",
+    #             "@type": "@id"
+    #         },
+    #         "uri": "@id"
+    #     },
+    #     "@graph": 
+    # }
 
     
 
@@ -484,14 +485,15 @@ def concepts():
     result["countries"] = {
         "total": all_areas,
         "top_regions": tops,
-        "show_data": {
-            "@context": {
-                "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
-                "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
-                "iso3code": "http://data.un.org/ontology/sdg#iso3code"
-            },
-            "@graph": show_data
-        }
+        "show_data": show_data
+        # {
+        #     "@context": {
+        #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+        #         "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+        #         "iso3code": "http://data.un.org/ontology/sdg#iso3code"
+        #     },
+        #     "@graph": 
+        # }
     }
     if "url" in top_country:
         result["countries"]["top_country"] = top_country["url"]
