@@ -291,11 +291,11 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
     returned_matches = []
     returned_matches.extend(current_matches)
     if not (label in stops):
-        # for match in current_matches:
-        #     if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label):
-        #        return returned_matches
-        #     if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']):
-        #         returned_matches.remove(match)
+        for match in current_matches:
+            if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label):
+               return returned_matches
+            if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']):
+                returned_matches.remove(match)
         new_match = {'url': ids[match_id], 'label': label, 'start': start, 'end': end}
         returned_matches.append(new_match)
     return returned_matches
