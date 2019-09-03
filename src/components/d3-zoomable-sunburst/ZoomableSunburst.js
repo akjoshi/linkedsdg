@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
-import './ZoomableSunburst.scss' 
+import './ZoomableSunburst.scss'
 import Baner from './baner.png'
 import axios from 'axios';
+
 import {
     chooseState,
     setSunState,
@@ -63,11 +64,17 @@ class ZoomableSunburst extends Component {
         this.setState({ displayJson: !this.state.displayJson })
     }
 
+    handleDownload = async () => {
+        var myWindow = window.open("", "MsgWindow");
+        myWindow.document.write('<pre id="json"></pre>');
+        myWindow.document.getElementById("json").innerHTML = JSON.stringify(this.props.data, undefined, 2);
+    }
 
-    handleExplore = async () => { 
+
+    handleExplore = async () => {
         if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
             try {
-                this.setState({exploreAllLoading: true});
+                this.setState({ exploreAllLoading: true });
                 const dataForApi = {
                     "stat": this.state.clickedData.id
                 }
@@ -113,7 +120,9 @@ class ZoomableSunburst extends Component {
                 <div className="grid-container">
                     <div>
                         <div id={"ZoomableSunburst"} className="grid-item"></div>
-
+                        <Button variant="primary" onClick={this.handleDownload} className="sun-download">
+                        ⤓ download
+                    </Button>
                     </div>
 
                     <div className="grid-item">
@@ -181,17 +190,18 @@ class ZoomableSunburst extends Component {
                                     ))}
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
 
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
 
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns} keyWords={this.state.clickedData.keyWords}></DataSeriesTable>
- 
+
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
                             {!this.state.exploreAllLoading ? <React.Fragment>Explore all data</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
-                        </Button> 
+                        </Button>
+
                     </div>
 
 

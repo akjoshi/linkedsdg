@@ -99,12 +99,15 @@ export async function handleUploadFile(file) {
         if (json.status !== 200 && json.status !== 201) {
             throw new Error('Failed!');
         }
-        // console.log("TEKST Z PLIKU")
-        // console.log(json.data.text)
-        this.processText(json.data);
+        if(!["en", "es", "fr", "zh", "ar", "ru"].includes( json.data.lang ) ){
+            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
+            this.setState({  });    
+        }
+        else{
+            this.processText(json.data);
+        }
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!", progress: 45 });
-        this.setState({ waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!", progress: 45, waitForData: true });
     }
 
 }
@@ -120,12 +123,14 @@ export async function handleUrlFile(url) {
         if (json.status !== 200 && json.status !== 201) {
             throw new Error('Failed!');
         }
-        // console.log("TEKST Z URL")
-        // console.log(json.data.text)
-        this.processText(json.data);
+        if(!["en", "es", "fr", "zh", "ar", "ru"].includes( json.data.lang ) ){
+            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
+        }
+        else{
+            this.processText(json.data);
+        }
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45 });
-        this.setState({ waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
     }
 }
 
