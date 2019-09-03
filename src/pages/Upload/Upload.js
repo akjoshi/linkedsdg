@@ -100,7 +100,7 @@ class Upload extends Component {
                             <h3 className="title">ANALYZE DOCUMENT</h3>
                             <p className="Description">Upload a document (PDF, DOC, DOCX, HTML - max. size: 70K words) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. </p>
                             <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
-                            <p className="Description">You can also use some of the example links listed below.</p>
+                            <p className="Description">You can also use some of the example links provided.</p>
 
                             {/* <div className="analyze-button-container">
                                 <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
