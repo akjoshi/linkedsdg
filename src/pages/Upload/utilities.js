@@ -19,8 +19,8 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let altdataForSeries = [];
     let countryArr = jsonText.data.countries.total;
     let countryAreasData = require('./CountryAndArea.json');
-    let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } }); 
-    if (countryArr !== undefined) { 
+    let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
+    if (countryArr !== undefined) {
         let maxWeight = countryArr[jsonText.data.countries.top_country] ? countryArr[jsonText.data.countries.top_country].weight : undefined;
         let regionMaxWeight = countryArr[jsonText.data.countries.top_region] ? countryArr[jsonText.data.countries.top_region].weight : undefined;
         let maxColorForCountry = {};
@@ -31,13 +31,13 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
         // selected areas
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source !== 'geo') {
-                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url); 
+                let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
                 for (let key in temp) {
 
                     let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
- 
+
                     if (maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens) {
-                        maxColorForCountry[temp[key].code] = colorIntens; 
+                        maxColorForCountry[temp[key].code] = colorIntens;
                         dataForDataMap[temp[key].code] = {
                             fillColor: rgbToHex(
                                 227 - Math.round(60 * colorIntens), // 227 - 60
@@ -47,7 +47,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                     }
                 }
             }
-        } 
+        }
 
 
         // selected country
@@ -58,7 +58,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 dataForDataMap[countryInfo.name] = { fillColor: rgbToHex(255, Math.round(255 - 255 * colorIntens), Math.round(255 - 255 * colorIntens)) };
                 dataForSeries.push(countryInfo.url);
             }
-        } 
+        }
     }
 
     if (dataForSeries.length === 0) {
@@ -77,6 +77,52 @@ function codeToUri(code, countryAreas) {
         }
     }
     return code
+}
+ 
+async function loadExample(url){
+    let example = require('./examples/examples.json');
+    let jsonText = {data:  example[url].spacy };
+    
+    let dataForDataMap = {};
+    let dataForSeries = [];
+    this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data })
+
+    handleCountryColors(jsonText, dataForDataMap, dataForSeries)
+    // console.log("mapy")
+
+    this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
+    const conceptsResponse = [];
+    const conceptsResponseList = [];
+
+    for (var obj of jsonText['data']['concepts']) {
+        let context = findContext(jsonText['data'], obj.uri)
+        conceptsResponse.push({
+            id: obj.uri,
+            label: obj['label'],
+            source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
+            weight: obj['weight'],
+            context: context,
+        })
+        conceptsResponseList.push({
+            id: obj.uri,
+            label: obj['label'],
+            source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
+            weight: obj['weight'],
+            context: context,
+            open: false
+        })
+    }
+
+    conceptsResponse.sort((x, y) => y.weight - x.weight);
+
+    this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse, conceptsShowData: jsonText['data'].concepts_show_data })
+
+    let linkedDataResponse = {data: example[url].query};
+
+    await this.setState({ dataForSun: linkedDataResponse.data });
+
+    await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
+
 }
 
 export async function handleUploadFile(file) {
@@ -99,11 +145,11 @@ export async function handleUploadFile(file) {
         if (json.status !== 200 && json.status !== 201) {
             throw new Error('Failed!');
         }
-        if(!["en", "es", "fr", "zh", "ar", "ru"].includes( json.data.lang ) ){
+        if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
             this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
-            this.setState({  });    
+            this.setState({});
         }
-        else{
+        else {
             this.processText(json.data);
         }
     } catch (error) {
@@ -113,7 +159,13 @@ export async function handleUploadFile(file) {
 }
 
 export async function handleUrlFile(url) {
+
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
+    if (url === "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/") {
+        this.loadExample = loadExample.bind(this);
+        this.loadExample(url);
+        return;
+    }
     try {
         const json = await axios.post(config.textLinkApiUrl, url, {
             headers: {
@@ -123,10 +175,10 @@ export async function handleUrlFile(url) {
         if (json.status !== 200 && json.status !== 201) {
             throw new Error('Failed!');
         }
-        if(!["en", "es", "fr", "zh", "ar", "ru"].includes( json.data.lang ) ){
+        if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
             this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
         }
-        else{
+        else {
             this.processText(json.data);
         }
     } catch (error) {
