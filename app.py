@@ -460,7 +460,7 @@ def concepts():
             top_region = country
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
-        if country["source"]=="geo" and country['weight'] >= (top_country_score / 5):
+        if country["source"]=="geo" and country['weight'] >= (top_country_score / 5) and country['weight'] >= (top_region_score / 5):
             tops.append(country["url"])
         if country["source"]=="geo-all" and country['weight'] >= (top_region_score / 5):
             tops.append(country["url"])
