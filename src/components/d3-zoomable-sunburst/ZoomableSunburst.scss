@@ -119,6 +119,8 @@
     .explore-all-data{
         align-content: center;
     }
+
+
          
     .big-plus{
         font-size: 1rem;
@@ -285,7 +287,10 @@
       color: $grey; 
   }
 
-
+  .explore-all-data-no-data{
+    margin: 0 auto;
+    margin:0 auto; 
+}
 
   .event-list-item { 
     display: grid;
@@ -413,4 +418,5 @@
             font-size: 0.75rem;
         }
       }
+      
 }

@@ -146,7 +146,7 @@ export async function handleUploadFile(file) {
             throw new Error('Failed!');
         }
         if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
-            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
+            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is not supported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
             this.setState({});
         }
         else {
@@ -161,6 +161,7 @@ export async function handleUploadFile(file) {
 export async function handleUrlFile(url) {
 
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
+    // check if example
     if (url === "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/") {
         this.loadExample = loadExample.bind(this);
         this.loadExample(url);
@@ -176,7 +177,7 @@ export async function handleUrlFile(url) {
             throw new Error('Failed!');
         }
         if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
-            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is unsupported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
+            this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is not supported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
         }
         else {
             this.processText(json.data);

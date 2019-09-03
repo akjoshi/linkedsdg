@@ -121,7 +121,7 @@ class ZoomableSunburst extends Component {
                     <div>
                         <div id={"ZoomableSunburst"} className="grid-item"></div>
                         <Button variant="primary" onClick={this.handleDownload} className="sun-download">
-                        ⤓ download
+                            ⤓ download
                     </Button>
                     </div>
 
@@ -190,7 +190,7 @@ class ZoomableSunburst extends Component {
                                     ))}
                             </div>
                         </div>
-                    </div> 
+                    </div>
                 </div>
 
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
@@ -199,7 +199,7 @@ class ZoomableSunburst extends Component {
                         <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns} keyWords={this.state.clickedData.keyWords}></DataSeriesTable>
 
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
-                            {!this.state.exploreAllLoading ? <React.Fragment>Explore all data</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
+                            {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
                         </Button>
 
                     </div>
@@ -207,7 +207,14 @@ class ZoomableSunburst extends Component {
 
                 ) :
                     ((this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length === 0) ?
-                        <React.Fragment><p className="no-data-text"><span role="img">&#x1f6ab;</span> No data available for the selected regions and series.</p></React.Fragment> : <React.Fragment></React.Fragment>
+                        <div className="no-data-text">
+                            <p><span role="img">&#x1f6ab;</span> No data available for the selected regions and series.</p>
+                            {this.state.countrySeriesData["more_data"] ?
+                            <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data-no-data">
+                                {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
+                            </Button> :
+                            <React.Fragment></React.Fragment>}
+                        </div>  : <React.Fragment></React.Fragment>
                     )
                 }
 
