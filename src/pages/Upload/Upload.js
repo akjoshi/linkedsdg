@@ -102,11 +102,11 @@ class Upload extends Component {
                             <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
                             <p className="Description">You can also use some of the example links listed below.</p>
 
-                            <div className="analyze-button-container">
+                            {/* <div className="analyze-button-container">
                                 <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
                                     {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
                                 </Button>
-                            </div>
+                            </div> */}
 
                         </Col>
                         <Col lg={8} className="example-links">
@@ -124,33 +124,49 @@ class Upload extends Component {
                                         ></UploadForm>
                                     </div>
                                     <div className="analyze-button-container">
-                                        <Button variant="primary" className="analyze-button mobile" onClick={this.analyze}>
+                                        <Button variant="primary" className="analyze-button " onClick={this.analyze}>
                                             {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
                                         </Button>
                                     </div>
                                 </div>
+
                                 <div className="example-links-list">
                                     <p className="small-label">Examples</p>
                                     <ul>
                                         <li>
-                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                            <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank">Voluntary National Review - Saudi Arabia 2018 (AR)</a>
+                                            <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
+                                            <div class="tooltip">
+                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" })} >Voluntary National Review - Saudi Arabia 2018 (AR)</span>
+                                                <span class="tooltiptext">Click to copy</span>
+                                            </div>
                                         </li>
                                         <li>
-                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank">Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</a>
+                                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank"> <span><img alt="Copy" src={CopyIcon}></img></span></a>
+                                            <div class="tooltip">
+                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}>Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</span>
+                                                <span class="tooltiptext">Click to copy</span>
+                                            </div>
                                         </li>
                                         <li>
-                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                            <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank">Conserve and sustainably use the oceans, seas and marine resources for sustainable development</a>
+                                            <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
+                                            <div class="tooltip">
+                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}>Conserve and sustainably use the oceans, seas and marine resources for sustainable development</span>
+                                                <span class="tooltiptext">Click to copy</span>
+                                            </div>
                                         </li>
                                         <li>
-                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                            <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank">Voluntary National Review - Canada 2018 (FR)</a>
+                                            <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
+                                            <div class="tooltip">
+                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}>Voluntary National Review - Canada 2018 (FR)</span>
+                                                <span class="tooltiptext">Click to copy</span>
+                                            </div>
                                         </li>
                                         <li>
-                                            <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" })}><img alt="Copy" src={CopyIcon}></img></span>
-                                            <a href="https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" target="_blank">Linking EU funds to rule of law and “European values”</a>
+                                            <a href="https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
+                                            <div class="tooltip">
+                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" })}>Linking EU funds to rule of law and “European values”</span>
+                                                <span class="tooltiptext">Click to copy</span>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
