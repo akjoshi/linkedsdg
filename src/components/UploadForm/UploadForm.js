@@ -21,7 +21,7 @@ class UploadForm extends React.Component {
                                         className="radio-button"
                                         value="fromURL"
                                         checked={this.props.selectedOption === "fromURL"}
-                                        onChange={(e) => this.props.handleOptionChange(e)} />
+                                        onChange={(e) => this.props.handleOptionChange(e)}  />
                                 </div>
                                 <div className="input-box">
                                     <Form.Control
@@ -29,7 +29,8 @@ class UploadForm extends React.Component {
                                         className="input-data"
                                         placeholder="URL"
                                         value={this.props.URL}
-                                        onChange={(e) => this.props.handleURLChange(e)} />
+                                        onChange={(e) => this.props.handleURLChange(e)} 
+                                        onKeyDown={(e) => { if(e.key === 'Enter') { this.props.analyze(e) }}}  />
                                 </div>
                             </div>
 

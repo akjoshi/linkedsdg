@@ -1,0 +1,22 @@
+{
+    "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf": {
+        "spacy": {},
+        "query": {}
+    },
+    "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/": {
+        "spacy": {},
+        "query": {}
+    },
+    "http://www.transforming-tourism.org/goal-14-life-below-water.html": {
+        "spacy": {},
+        "query": {}
+    },
+    "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf": {
+        "spacy": {},
+        "query": {}
+    },
+    "https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/":{
+        "spacy": {},
+        "query": {}
+    }
+}

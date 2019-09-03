@@ -39,7 +39,7 @@ class Upload extends Component {
         dataForSeries: [],
         progress: 0,
         downloadDataAboutCountry: [],
-        conceptsShowData: {}, 
+        conceptsShowData: {},
     };
 
     clear = (event) => {
@@ -98,15 +98,15 @@ class Upload extends Component {
                     <Row>
                         <Col lg={4}>
                             <h3 className="title">ANALYZE DOCUMENT</h3>
-                            <p className="Description">Upload a document (PDF, DOC, DOCX, HTML) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. </p>
+                            <p className="Description">Upload a document (PDF, DOC, DOCX, HTML - max. size: 70K words) related to Sustainable Development Goals (SDGs) or paste its URL in order to analyse it. </p>
                             <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
                             <p className="Description">You can also use some of the example links listed below.</p>
 
                             <div className="analyze-button-container">
-                                        <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
-                                            {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
-                                        </Button>
-                                    </div>
+                                <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
+                                    {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                                </Button>
+                            </div>
 
                         </Col>
                         <Col lg={8} className="example-links">
@@ -120,6 +120,7 @@ class Upload extends Component {
                                             selectedOption={this.state.selectedOption}
                                             URL={this.state.URL}
                                             fileName={this.state.fileName}
+                                            analyze={this.analyze}
                                         ></UploadForm>
                                     </div>
                                     <div className="analyze-button-container">
@@ -171,8 +172,9 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
 
-                                <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry}  responsive={true} />
-
+                                <div className="width50">
+                                    <DataMap data={this.state.dataForDataMap} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
+                                </div>
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 
                             </div>
