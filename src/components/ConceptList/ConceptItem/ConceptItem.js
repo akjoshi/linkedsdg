@@ -15,24 +15,24 @@ class ConceptItem extends React.Component {
     render() {
         let open = this.props.concept.open;
         return (
-            <li className="event-list-item" id={this.props.concept.id}>
+            <li className="event-list-item" id={this.props.concept.id} 
+            onClick={ () => {  this.props.handlerForOpen(this.props.concept.id) }}
+            >
                 <div>
                     <h6 className="h6-concept-name">{this.props.concept.label}</h6>
                     <div className="sources"> 
                             {
-                                this.props.concept.source.map((x,index) => <p key={index} >
+                                this.props.concept.source.map((x,index) => <p key={index} onClick={ (event) => {
+                                    event.stopPropagation();
+                                 }}>
                                     <a href={x.uri} target="_blank">{x.source}</a>
                                 </p>)
                             }
-                        </div> 
-
-                         
-                    {/* <span className="annotation">({this.props.concept.source})</span> */}
+                        </div>  
                 </div>
                 <div className="collapse-button">
                     <button
                         className=""
-                        onClick={async () => { await this.props.handlerForOpen(this.props.concept.id) }}
                         aria-expanded={open}>
                         {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
                     </button>

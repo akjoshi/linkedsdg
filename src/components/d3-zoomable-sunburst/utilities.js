@@ -123,7 +123,14 @@ export function loadConcepts() {
 
         return (
 
-            <li key={index} className="event-list-item">
+            <li key={index} className="event-list-item" 
+            onClick={async () => {
+                let newkeyWords = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
+                await this.setState({
+                    keyWords: newkeyWords,
+                })
+            }}
+            >
                 <div>
                     {isEmpty ?
                         <p className="a-concept-name empty">{x.label}</p> :
@@ -133,7 +140,7 @@ export function loadConcepts() {
                         {/* <p>Sources:</p> */}
                         {
                             x.sources.map((y, index) => {
-                                return <a href={y.uri} key={index} target="_blank">{y.source}</a>
+                                return <a href={y.uri} key={index} target="_blank" onClick={ (event) => { event.stopPropagation(); }}>{y.source}</a>
                             })
                         }
                     </div>
@@ -143,12 +150,6 @@ export function loadConcepts() {
                         <React.Fragment></React.Fragment> :
                         <button
                             className=""
-                            onClick={async () => {
-                                let newkeyWords = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
-                                await this.setState({
-                                    keyWords: newkeyWords,
-                                })
-                            }}
                             aria-expanded={open}>
                             {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
                         </button>
@@ -170,7 +171,7 @@ export function loadConcepts() {
                                             {/* <p>Sources:</p> */}
                                             {
                                                 t.sources.map((y, index) => {
-                                                    return <a href={y.uri} key={index} target="_blank">{y.source}</a>
+                                                    return <a href={y.uri} key={index} target="_blank" onClick={ (event) => { event.stopPropagation(); }}>{y.source}</a>
                                                 })
                                             }
                                         </div>
