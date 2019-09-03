@@ -366,6 +366,7 @@ def extract_concepts(input, matcher_id, lang):
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 
 
@@ -438,7 +439,6 @@ def concepts():
 
     country_res = {}
     region_matches, country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
-    country_res["matches"] = region_matches
     top_country_score = 0
     top_region_score = 0
     top_country = {}
@@ -494,7 +494,8 @@ def concepts():
     result["countries"] = {
         "total": all_areas,
         "top_regions": tops,
-        "show_data": show_data
+        "show_data": show_data,
+        "matches": region_matches
         # {
         #     "@context": {
         #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
