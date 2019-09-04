@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
 import Button from 'react-bootstrap/Button';
 import ReactJson from 'react-json-view'
+import Collapse from 'react-bootstrap/Collapse'
 const MAP_CLEARING_PROPS = [
     'height', 'scope', 'setProjection', 'width'
 ];
@@ -18,8 +19,13 @@ const propChangeRequiresMapClear = (oldProps, newProps) => {
 
 export default class Datamap extends React.Component {
 
+
     state = {
         displayJson: false,
+        countryList: this.props.downloadData.map(x => {
+            x['open'] = false;
+            return x;
+        }),
     }
 
     static propTypes = {
@@ -133,43 +139,109 @@ export default class Datamap extends React.Component {
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(dataForJson, undefined, 2);
     }
 
+    loadLocations = () => { 
+        return this.state.countryList.map((x, index) => {
+            let open = x.open; 
+
+            let data = [];
+            for (let key in x.contexts) {
+                data.push(x.contexts[key])
+            } 
+
+            return (
+
+                <li key={index} className="event-list-item"
+                    onClick={async () => {
+                        let newcountryList = await this.state.countryList.map(y => { if (y.id === x.id) { y.open = !y.open } return y })
+                        await this.setState({
+                            countryList: newcountryList,
+                        })
+                    }}
+                >
+                    <div>
+                        <p className="a-concept-name">{x.label}</p>
+                    </div>
+                    <div className="collapse-button">
+                        <button
+                            className=""
+                            aria-expanded={open}>
+                            {open ? (<p>&#x2303;</p>) : (<p className="open-arrow">&#x2303;</p>)}
+                        </button>
+
+                    </div>
+                    <Collapse in={open}>
+                        <div id="example-collapse-text"> 
+                            <ul className="concept-list">
+                                {data.map((t, index) => <li key={index} className="collapse-item">{index + 1}. {t.quote}</li>
+                                )}
+                            </ul>
+
+                        </div>
+                    </Collapse>
+                </li>
+            )
+        })
+
+
+    }
+
+
     render() {
         const style = {
             display: 'relative',
             ...this.props.style
         };
 
-        return <div className="dataMap">
-            <h3 className="Title">
-                Extracted geographical locations
-            </h3>
-            <div ref="container" id="containerForMap" style={style} > </div>
-            <Row className="Datamap-info">
-                <Col>
-                    <i><span className="areaColor"></span> Regions</i>
-                    <i><span className="countryColor"></span> Countries</i>
-                </Col>
-            </Row>
-            <Row>
-                <Col className="download-button">
-                    <Button variant="primary" onClick={this.handleCollapse}>
-                        {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
-                    </Button>
-                </Col>
-            </Row>
+        return <div className="data-map-grid">
 
-            {this.state.displayJson ?
-                <React.Fragment>
-                    <div className="json-with-data">
-                        <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Country data"} />
+            <div className="dataMap">
+                <h3 className="Title">
+                    Extracted geographical locations
+                </h3>
+                <div className="grid-container">
+                    <div className="grid-item">
+                        <div ref="container" id="containerForMap" style={style} > </div>
+                        <Row className="Datamap-info">
+                            <Col>
+                                <i><span className="areaColor"></span> Regions</i>
+                                <i><span className="countryColor"></span> Countries</i>
+                            </Col>
+                        </Row>
+
                     </div>
-                    <Button variant="primary" onClick={this.handleDownload}>
-                        ⤓ download
+                    <div className="grid-item">
+                        <div className="country-list">
+                            <ul className="linked-concepts-list">
+                                {this.loadLocations()}
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <Row className="download-button-container">
+                        <Col className="download-button">
+                            <Button variant="primary" onClick={this.handleCollapse}>
+                                {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                            </Button>
+                        </Col>
+                    </Row>
+
+                    {this.state.displayJson ?
+                        <React.Fragment>
+                            <div className="json-with-data">
+                                <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Country data"} />
+                            </div>
+                            <Button variant="primary" onClick={this.handleDownload}>
+                                ⤓ download
                         </Button>
-                </React.Fragment>
-                : <React.Fragment></React.Fragment>
-            }
+                        </React.Fragment>
+                        : <React.Fragment></React.Fragment>
+                    }
+                </div>
+            </div>
         </div>
+
     }
 
 }
