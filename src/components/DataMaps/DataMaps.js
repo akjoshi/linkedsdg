@@ -47,10 +47,25 @@ export default class Datamap extends React.Component {
         this.setState({ displayJson: !this.state.displayJson })
     }
 
+    updateDimensions() {
+        var list = document.getElementById('linked-concepts-list');
+        var map = document.getElementById('containerForMap');
+        if(list !== null && map !== null){
+            var positionInfo = map.getBoundingClientRect();
+            let height = positionInfo.height;
+            if(height === 0){
+                height = 300;
+            }
+            list.style.height = (height) + "px";
+            list.style.maxHeight = (height) + "px";
+        }
+    }
+
     componentDidMount() {
-        window.addEventListener('resize', this.resizeMap);
-        console.log(this.props)
+        window.addEventListener('resize', this.resizeMap); 
+        window.addEventListener("resize", this.updateDimensions.bind(this));
         this.drawMap();
+        this.updateDimensions();
     }
 
     componentDidUpdate() {
@@ -141,12 +156,8 @@ export default class Datamap extends React.Component {
 
     loadLocations = () => { 
         return this.state.countryList.map((x, index) => {
-            let open = x.open; 
-
-            let data = [];
-            for (let key in x.contexts) {
-                data.push(x.contexts[key])
-            } 
+            let open = x.open;  
+            let data = this.props.matchQuotes.filter(y => y.url ===  `http://data.un.org/${x.id}`); 
 
             return (
 
@@ -172,8 +183,7 @@ export default class Datamap extends React.Component {
                     <Collapse in={open}>
                         <div id="example-collapse-text"> 
                             <ul className="concept-list">
-                                {data.map((t, index) => <li key={index} className="collapse-item">{index + 1}. {t.quote}</li>
-                                )}
+                                {data.map((t, index) => <li key={index} className="collapse-item">{index + 1}. {t['contextl']} <strong>{t['phrase']}</strong> {t['contextr']}</li> )}
                             </ul>
 
                         </div>
@@ -211,7 +221,7 @@ export default class Datamap extends React.Component {
                     </div>
                     <div className="grid-item">
                         <div className="country-list">
-                            <ul className="linked-concepts-list">
+                            <ul className="linked-concepts-list" id="linked-concepts-list">
                                 {this.loadLocations()}
                             </ul>
                         </div>

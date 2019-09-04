@@ -90,7 +90,7 @@ async function loadExample(url){
     handleCountryColors(jsonText, dataForDataMap, dataForSeries)
     // console.log("mapy")
 
-    this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
+    this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches ,  dataForSeries: dataForSeries, progress: 60 })
     const conceptsResponse = [];
     const conceptsResponseList = [];
 
@@ -162,7 +162,7 @@ export async function handleUrlFile(url) {
 
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
     // check if example
-    if (url === "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/") {
+    if (url === "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/ a") {
         this.loadExample = loadExample.bind(this);
         this.loadExample(url);
         return;
@@ -210,7 +210,7 @@ export async function processText(data) {
         handleCountryColors(jsonText, dataForDataMap, dataForSeries)
         // console.log("mapy")
 
-        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, dataForSeries: dataForSeries, progress: 60 })
+        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches , dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
         const conceptsResponseList = [];
 
