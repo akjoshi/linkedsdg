@@ -129,17 +129,23 @@
     }
 
     @media only screen and (max-width: 720px) {
-        .react-bootstrap-table-pagination .col-md-6{ 
-            margin: 0.2rem 0;
+        .react-bootstrap-table-pagination{
+            margin: 0;
         }
+
+        .react-bootstrap-table-pagination .col-md-6 {
+            padding: 0;
+            
+            ul{ 
+                margin: 0;
+                float: left;
+            }
+        } 
         
         .react-bootstrap-table-pagination .col-md-6:first-child{  
             display: none;
         }
-
-        .react-bootstrap-table-pagination-list  ul{
-            margin: 0.2rem 0;  
-        }
+ 
       }
 
     
