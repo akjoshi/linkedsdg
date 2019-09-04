@@ -12,6 +12,16 @@
 .table-series{
     margin-bottom: 10px;
 
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    @media only screen and (max-width: 720px) {
+        h5 {
+            font-size: 0.8rem;
+        }
+      }
+
     .export-csv-button{
         background: #00ADEF;
         background-color: #00adef;
@@ -118,6 +128,20 @@
         }
     }
 
+    @media only screen and (max-width: 720px) {
+        .react-bootstrap-table-pagination .col-md-6{ 
+            margin: 0.2rem 0;
+        }
+        
+        .react-bootstrap-table-pagination .col-md-6:first-child{  
+            display: none;
+        }
+
+        .react-bootstrap-table-pagination-list  ul{
+            margin: 0.2rem 0;  
+        }
+      }
+
     
     .filter-label{
         width: 100%;
@@ -138,4 +162,8 @@
         padding: 8px;
         line-height: 0;
     }
+}
+
+.add-top-margin { 
+    margin-top: 1rem!important;
 }

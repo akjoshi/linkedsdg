@@ -84,7 +84,7 @@ ul {
     margin-bottom: 0; 
 }
 
-.keywords-list:hover {
+.keywords-list:hover, .keywords-list:active {
     margin-right: -16px;
     overflow: scroll;
     overflow-x: hidden;
@@ -107,6 +107,16 @@ ul {
     border-radius:16px;
     border:4px solid #fff
 }
+
+@media only screen and (max-width: 720px) {
+    .keywords-list {
+        height: 45vh;  
+        margin-bottom: 0;  
+        margin-right: -16px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+  }
 
 .grid-item{
     .BubbleChart-info{

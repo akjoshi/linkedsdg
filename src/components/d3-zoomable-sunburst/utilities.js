@@ -125,6 +125,9 @@ export function loadConcepts() {
 
             <li key={index} className="event-list-item" 
             onClick={async () => {
+                if(isEmpty){
+                    return;
+                }
                 let newkeyWords = await this.state.keyWords.map(y => { if (y.uri === x.uri) { y.open = !y.open } return y })
                 await this.setState({
                     keyWords: newkeyWords,

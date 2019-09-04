@@ -41,86 +41,93 @@ const options = {
 };
 
 
-class DataSeriesComponent extends Component { 
+class DataSeriesComponent extends Component {
 
   state = ({
-    csvData: [this.props.columns.filter(x => x.dataField !== 'id').map(x => x.dataField)], 
+    csvData: [this.props.columns.filter(x => x.dataField !== 'id').map(x => x.dataField)],
     keyWordsString: ""
   });
 
   componentDidMount() {
 
     let keyWordsString = "";
-    for(let obj in this.props.keyWords){ 
+    for (let obj in this.props.keyWords) {
       keyWordsString = keyWordsString + this.props.keyWords[obj].label + ", ";
     }
 
-    this.setState({keyWords: keyWordsString});
+    this.setState({ keyWords: keyWordsString });
   }
- 
+
 
   render() {
     return (
-      <div className="table-series">
-        <h5>{this.props.description}</h5>
-        {this.props.data['@graph'] ?
-          <div>
+      <React.Fragment>
+        <h3 className="Title add-top-margin">
+          DATA SERIES
+      </h3>
+        <div className="table-series">
+          <h5>{this.props.description}</h5>
+          {this.props.data['@graph'] ?
+            <div>
 
-            <ToolkitProvider
-              keyField="id"
-              data={this.props.data['@graph'].map((cube, index) => {
-                let dataCodes = require('./dataCodes.json');
-                let returnObject = {
-                  id: index,
-                  country: dataCodes["geoAreaCode"]["codes"][cube.geoAreaCode].label,
-                  value: cube[cube["measureType"]],
-                  unit: dataCodes["unitsCode"]["codes"][cube.unitMeasure].label,
-                  year: cube.yearCode,
-                  measureType: this.props.description,
-                  keyWords:  this.state.keyWords,
-                }
-                // need to add dimentions
-                let notRelevantFields = [
-                  "@id",
-                  "@type",
-                  "measureType",
-                  "unitMeasure",
-                  "geoAreaCode"
-                ]
-                // console.log("GOT DATA START LOOP")
-                // console.log(new Date().toISOString())
-
-                for (let key in cube) {
-                  if (notRelevantFields.includes(key) || key === cube['measureType']) {
-                    continue;
+              <ToolkitProvider
+                keyField="id"
+                data={this.props.data['@graph'].map((cube, index) => {
+                  let dataCodes = require('./dataCodes.json');
+                  let returnObject = {
+                    id: index,
+                    country: dataCodes["geoAreaCode"]["codes"][cube.geoAreaCode].label,
+                    value: cube[cube["measureType"]],
+                    unit: dataCodes["unitsCode"]["codes"][cube.unitMeasure].label,
+                    year: cube.yearCode,
+                    measureType: this.props.description,
+                    keyWords: this.state.keyWords,
                   }
-                  // console.log("new key !")
-                  // console.log(key)
-                  // console.log(dataCodes[key]["codes"][ cube[key] ].label)
-                  returnObject[key] = cube[key];
-                  notRelevantFields.push(key)
+                  // need to add dimentions
+                  let notRelevantFields = [
+                    "@id",
+                    "@type",
+                    "measureType",
+                    "unitMeasure",
+                    "geoAreaCode"
+                  ]
+                  // console.log("GOT DATA START LOOP")
+                  // console.log(new Date().toISOString())
 
+                  for (let key in cube) {
+                    if (notRelevantFields.includes(key) || key === cube['measureType']) {
+                      continue;
+                    }
+                    // console.log("new key !")
+                    // console.log(key)
+                    // console.log(dataCodes[key]["codes"][ cube[key] ].label)
+                    returnObject[key] = cube[key];
+                    notRelevantFields.push(key)
+
+                  }
+
+                  return returnObject;
+                })}
+                columns={this.props.columns}
+                exportCSV
+              >
+                {
+                  props => (
+                    <div>
+                      <BootstrapTable {...props.baseProps} pagination={paginationFactory(options)} filter={filterFactory()} />
+                      <ExportCSVButton {...props.csvProps} className="export-csv-button">Export CSV</ExportCSVButton>
+                    </div>
+                  )
                 }
+              </ToolkitProvider>
 
-                return returnObject;
-              })}
-              columns={this.props.columns}
-              exportCSV
-            >
-              {
-                props => (
-                  <div>
-                    <BootstrapTable {...props.baseProps} pagination={paginationFactory(options)} filter={filterFactory()} />
-                    <ExportCSVButton {...props.csvProps} className="export-csv-button">Export CSV</ExportCSVButton> 
-                  </div>
-                )
-              }
-            </ToolkitProvider>
+            </div>
+            : <React.Fragment></React.Fragment>
+          }
+        </div>
 
-          </div>
-          : <React.Fragment></React.Fragment>
-        } 
-      </div>
+
+      </React.Fragment>
     );
   }
 }

@@ -23,7 +23,7 @@
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 3rem;
     grid-row-gap: 20px;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 
    
  
@@ -49,6 +49,7 @@
             grid-column-end: 3; 
             width: 100%;
             img { 
+                margin: 1rem 0;
                 width:100%;
             }
         }
@@ -106,6 +107,15 @@
                 border-radius:16px;
                 border:4px solid #fff
             }
+
+            @media only screen and (max-width: 720px) {
+                .linked-concepts-list { 
+                    margin-bottom: 0;  
+                    margin-right: -16px;
+                    overflow: auto;
+                    overflow-x: hidden;
+                }
+              }
         }
 
         .title {

@@ -76,7 +76,11 @@
           li{
             padding: 0.15rem 0;
 
-            a span img{
+            a {
+               display: inline-flex;
+            }
+
+            a span img{ 
               opacity: 0.8;
               height: 1.4rem;
               margin: 0.2rem 0.5rem 0.2rem 0;
@@ -89,7 +93,7 @@
 
             .tooltip {
               position: relative;
-              display: inline-block;
+              display: inline;
               opacity: 1!important; 
               
               span:hover{
