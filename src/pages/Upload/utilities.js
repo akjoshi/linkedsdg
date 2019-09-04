@@ -24,21 +24,39 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
         let maxWeight = countryArr[jsonText.data.countries.top_country] ? countryArr[jsonText.data.countries.top_country].weight : undefined;
         let regionMaxWeight = countryArr[jsonText.data.countries.top_region] ? countryArr[jsonText.data.countries.top_region].weight : undefined;
         let maxColorForCountry = {};
+        let weightsForCountrys = {};
         let top_regions = jsonText.data.countries.top_regions;
-
-
 
         // selected areas
         for (let elem in jsonText.data.countries.top_regions) {
             if (countryArr[top_regions[elem]].source !== 'geo') {
                 let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
                 for (let key in temp) {
+                    console.log(temp[key])
+                    if (weightsForCountrys[temp[key].code] === undefined) {
+                        weightsForCountrys[temp[key].code] = 0;
+                    }
+                    weightsForCountrys[temp[key].code] = weightsForCountrys[temp[key].code] + countryArr[top_regions[elem]].weight;
+                }
+            }
+        }
 
-                    let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
+        let maxCountryWeight = 0;
+        for (let key in weightsForCountrys) {
+            if (maxCountryWeight < weightsForCountrys[key]) {
+                maxCountryWeight = weightsForCountrys[key];
+            }
+        }
+        console.log(maxCountryWeight)
+        console.log(weightsForCountrys)
+         // selected areas
+         for (let key in weightsForCountrys) {
+ 
+                    let colorIntens = weightsForCountrys[key] / maxCountryWeight; 
 
-                    if (maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens) {
-                        maxColorForCountry[temp[key].code] = colorIntens;
-                        dataForDataMap[temp[key].code] = {
+                    if (maxColorForCountry[key] === undefined || maxColorForCountry[key] < colorIntens) {
+                        maxColorForCountry[key] = colorIntens;
+                        dataForDataMap[key] = {
                             fillColor: rgbToHex(
                                 227 - Math.round(60 * colorIntens), // 227 - 60
                                 227 - Math.round(30 * colorIntens),  // 227 - 30
@@ -46,8 +64,32 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                         };
                     }
                 }
-            }
-        }
+                console.log(dataForDataMap)
+        
+
+        // // selected areas
+        // for (let elem in jsonText.data.countries.top_regions) {
+        //     if (countryArr[top_regions[elem]].source !== 'geo') {
+        //         let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
+        //         for (let key in temp) {
+
+        //             let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
+        //             // console.log(colorIntens);
+        //             colorIntens = countryArr[top_regions[elem]].weight / maxCountryWeight;
+        //             // console.log(colorIntens);
+
+        //             if (maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens) {
+        //                 maxColorForCountry[temp[key].code] = colorIntens;
+        //                 dataForDataMap[temp[key].code] = {
+        //                     fillColor: rgbToHex(
+        //                         227 - Math.round(60 * colorIntens), // 227 - 60
+        //                         227 - Math.round(30 * colorIntens),  // 227 - 30
+        //                         227)
+        //                 };
+        //             }
+        //         }
+        //     }
+        // }
 
 
         // selected country
@@ -78,11 +120,11 @@ function codeToUri(code, countryAreas) {
     }
     return code
 }
- 
-async function loadExample(url){
+
+async function loadExample(url) {
     let example = require('./examples/examples.json');
-    let jsonText = {data:  example[url].spacy };
-    
+    let jsonText = { data: example[url].spacy };
+
     let dataForDataMap = {};
     let dataForSeries = [];
     this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data })
@@ -90,7 +132,7 @@ async function loadExample(url){
     handleCountryColors(jsonText, dataForDataMap, dataForSeries)
     // console.log("mapy")
 
-    this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches ,  dataForSeries: dataForSeries, progress: 60 })
+    this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches, dataForSeries: dataForSeries, progress: 60 })
     const conceptsResponse = [];
     const conceptsResponseList = [];
 
@@ -117,7 +159,7 @@ async function loadExample(url){
 
     this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse, conceptsShowData: jsonText['data'].concepts_show_data })
 
-    let linkedDataResponse = {data: example[url].query};
+    let linkedDataResponse = { data: example[url].query };
 
     await this.setState({ dataForSun: linkedDataResponse.data });
 
@@ -210,7 +252,7 @@ export async function processText(data) {
         handleCountryColors(jsonText, dataForDataMap, dataForSeries)
         // console.log("mapy")
 
-        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches , dataForSeries: dataForSeries, progress: 60 })
+        this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches, dataForSeries: dataForSeries, progress: 60 })
         const conceptsResponse = [];
         const conceptsResponseList = [];
 
