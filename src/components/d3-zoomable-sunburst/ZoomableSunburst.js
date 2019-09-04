@@ -4,6 +4,7 @@ import DataSeriesTable from './DataSeriesComponent/DataSeriesComponent'
 import './ZoomableSunburst.scss'
 import Baner from './baner.png'
 import axios from 'axios';
+import ReactJson from 'react-json-view'
 
 import {
     chooseState,
@@ -118,13 +119,6 @@ class ZoomableSunburst extends Component {
                     Most relevant SDGs
                 </h3>
                 <div className="grid-container">
-                    <div>
-                        <div id={"ZoomableSunburst"} className="grid-item"></div>
-                        <Button variant="primary" onClick={this.handleDownload} className="sun-download">
-                            ⤓ download
-                    </Button>
-                    </div>
-
                     <div className="grid-item">
                         <div className="grid-container-info">
                             {this.state.sunState === "root" && this.state.dataForPreview === undefined ?
@@ -191,7 +185,30 @@ class ZoomableSunburst extends Component {
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <div id={"ZoomableSunburst"} className="grid-item"></div>
+                    </div>
+
+
                 </div>
+
+
+                <Button variant="primary" onClick={this.handleCollapse} className="show-data-sun-button"> 
+                    {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                </Button>
+                {this.state.displayJson ?
+                    <React.Fragment>
+                        <div className="json-with-data">
+                            <ReactJson src={this.props.data} collapsed={2} displayDataTypes={false} name={"Extracted concepts"} />
+                        </div>
+                        <Button variant="primary" onClick={this.handleDownload} className="sun-download">
+                            ⤓ download
+                        </Button>
+
+                    </React.Fragment>
+                    : <React.Fragment></React.Fragment>
+                }
+
 
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
@@ -210,11 +227,11 @@ class ZoomableSunburst extends Component {
                         <div className="no-data-text">
                             <p><span role="img">&#x1f6ab;</span> No data available for the selected regions and series.</p>
                             {this.state.countrySeriesData["more_data"] ?
-                            <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data-no-data">
-                                {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
-                            </Button> :
-                            <React.Fragment></React.Fragment>}
-                        </div>  : <React.Fragment></React.Fragment>
+                                <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data-no-data">
+                                    {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
+                                </Button> :
+                                <React.Fragment></React.Fragment>}
+                        </div> : <React.Fragment></React.Fragment>
                     )
                 }
 
