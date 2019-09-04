@@ -260,7 +260,7 @@ def load_concepts():
 
     print("\n\nLoading countries main index...")
 
-    country_source_index = csv.DictReader(open("countries-source-index.tsv"), delimiter="\t")
+    country_source_index = csv.DictReader(open("countries-source-index.tsv", encoding="utf8"), delimiter="\t")
     for country in country_source_index:
         country_id = country["id"]
         label = country["label"]
@@ -460,7 +460,7 @@ def concepts():
             top_region = country
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
-        if country["source"]=="geo" and country['weight'] >= (top_country_score / 6) and country['weight'] >= (top_region_score / 6):
+        if country["source"]=="geo" and country['weight'] >= (top_country_score / 6) and country['weight'] >= (top_region_score / 10):
             tops.append(country["url"])
         if country["source"]=="geo-all" and country['weight'] >= (top_region_score / 5):
             tops.append(country["url"])
