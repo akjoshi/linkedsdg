@@ -112,7 +112,7 @@ country_matcher = {
    "ar": PhraseMatcher(nlp.vocab)
 }
 
-CONTEXT_SIZE = 7
+CONTEXT_SIZE = 5
 
 concept_ids = {}
 concept_labels = {}
