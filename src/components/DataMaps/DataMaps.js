@@ -4,19 +4,12 @@ import Datamaps from 'datamaps';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
-import  Button2 from 'react-bootstrap/Button';
+import Button2 from 'react-bootstrap/Button';
 import ReactJson from 'react-json-view'
 import Collapse from 'react-bootstrap/Collapse'
-import { Tabs, Tab } from 'react-bootstrap-tabs';
 import {
-    Button,
-    Header,
-    Icon,
-    Image,
-    Menu,
-    Segment,
-    Sidebar,
-    Label,
+    Button,     
+    Sidebar, 
 } from 'semantic-ui-react'
 
 const MAP_CLEARING_PROPS = [
@@ -38,7 +31,6 @@ export default class Datamap extends React.Component {
             x['open'] = false;
             return x;
         }),
-        fullWidthMap: false,
         visible: false,
     }
 
@@ -210,8 +202,6 @@ export default class Datamap extends React.Component {
                 </li>
             )
         })
-
-
     }
 
 
@@ -222,141 +212,53 @@ export default class Datamap extends React.Component {
             ...this.props.style
         };
 
-        return <React.Fragment>
-
-            {/* <button onClick={async (e) => {
-                await this.setState({ fullWidthMap: !this.state.fullWidthMap });
-                this.drawMap();
-                this.updateDimensions();
-            }}>CLICK ME TO TOGGLE MAP</button> */}
-
-
-
-
-
-            <div className="data-map-grid">
+        return <div className="data-map-grid">
                 <div className="dataMap">
                     <h3 className="Title">
                         Extracted geographical locations
                     </h3>
-
-                    <div className="">
-                        {/* <Tabs onSelect={(index, label) => console.log(label + ' selected')}>
-                            <Tab label="Tab1">
-
-                                {this.state.fullWidthMap ?
-                                    <div className="grid-item full-grid-item">
-                                        <div ref="container" id="containerForMap" style={style} > </div>
-                                        <Row className="Datamap-info">
-                                            <Col>
-                                                <i><span className="areaColor"></span> Regions</i>
-                                                <i><span className="countryColor"></span> Countries</i>
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                    :
-                                    <div className="grid-item">
-                                        <div ref="container" id="containerForMap" style={style} > </div>
-                                        <Row className="Datamap-info">
-                                            <Col>
-                                                <i><span className="areaColor"></span> Regions</i>
-                                                <i><span className="countryColor"></span> Countries</i>
-                                            </Col>
-                                        </Row>
-
-                                    </div>
-                                }
-                            </Tab>
-                            <Tab label="Tab2">
-                                {this.state.fullWidthMap ?
-                                    <div className="grid-item full-grid-item">
-                                        <div ref="container" id="containerForMap" style={style} > </div>
-                                        <Row className="Datamap-info">
-                                            <Col>
-                                                <i><span className="areaColor"></span> Regions</i>
-                                                <i><span className="countryColor"></span> Countries</i>
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                    :
-                                    <div className="grid-item">
-                                        <div ref="container" id="containerForMap" style={style} > </div>
-                                        <Row className="Datamap-info">
-                                            <Col>
-                                                <i><span className="areaColor"></span> Regions</i>
-                                                <i><span className="countryColor"></span> Countries</i>
-                                            </Col>
-                                        </Row>
-
-                                    </div>
-                                }
-                                {this.state.fullWidthMap ? <React.Fragment></React.Fragment> :
-                                    <div className="grid-item">
-                                        <div className="country-list">
-                                            <ul className="linked-concepts-list" id="linked-concepts-list">
-                                                {this.loadLocations()}
-                                            </ul>
-                                        </div>
-                                    </div>
-                                }
-                            </Tab>
-                        </Tabs>
- */}
-
-
-
-
-                        <div>
-                            <Button.Group>
-                                <Button disabled={visible} onClick={this.handleShowClick}>
-                                    Show list of countries
+                    <div>
+                        <Button.Group>
+                            <Button disabled={visible} onClick={this.handleShowClick}>
+                                Show list of countries
                                 </Button>
-                                <Button disabled={!visible} onClick={this.handleHideClick}>
-                                    Hide list of countries
+                            <Button disabled={!visible} onClick={this.handleHideClick}>
+                                Hide list of countries
                                 </Button>
-                            </Button.Group>
+                        </Button.Group>
 
-                            <Sidebar.Pushable >
-                                <Sidebar
-                                    className="country-list-sidebar"
-                                    animation='overlay'
-                                    icon='labeled'
-                                    inverted
-                                    onHide={this.handleSidebarHide}
-                                    vertical
-                                    visible={visible}
-                                    width='very wide'
-                                >
-                                    <div className="grid-item">
-                                        <div className="country-list">
-                                            <ul className="linked-concepts-list" id="linked-concepts-list">
-                                                {this.loadLocations()}
-                                            </ul>
-                                        </div>
+                        <Sidebar.Pushable >
+                            <Sidebar
+                                className="country-list-sidebar"
+                                animation='overlay'
+                                icon='labeled'
+                                inverted
+                                onHide={this.handleSidebarHide}
+                                vertical
+                                visible={visible}
+                                width='very wide'
+                            >
+                                <div className="grid-item">
+                                    <div className="country-list">
+                                        <ul className="linked-concepts-list" id="linked-concepts-list">
+                                            {this.loadLocations()}
+                                        </ul>
                                     </div>
-                                </Sidebar>
+                                </div>
+                            </Sidebar>
 
-                                <Sidebar.Pusher>
-                                    <div className="grid-item full-grid-item">
-                                        <div ref="container" id="containerForMap" style={style} > </div>
-                                        <Row className="Datamap-info">
-                                            <Col>
-                                                <i><span className="areaColor"></span> Regions</i>
-                                                <i><span className="countryColor"></span> Countries</i>
-                                            </Col>
-                                        </Row>
-                                    </div>
-                                </Sidebar.Pusher>
-                            </Sidebar.Pushable>
-                        </div>
-
-
-
-
-
-
-
-
+                            <Sidebar.Pusher>
+                                <div className="grid-item full-grid-item">
+                                    <div ref="container" id="containerForMap" style={style} > </div>
+                                    <Row className="Datamap-info">
+                                        <Col>
+                                            <i><span className="areaColor"></span> Regions</i>
+                                            <i><span className="countryColor"></span> Countries</i>
+                                        </Col>
+                                    </Row>
+                                </div>
+                            </Sidebar.Pusher>
+                        </Sidebar.Pushable>
                     </div>
                     <div>
                         <Row className="download-button-container">
@@ -381,12 +283,8 @@ export default class Datamap extends React.Component {
                     </div>
                 </div>
             </div>
-
-
-        </React.Fragment>
-
-
-
+ 
+ 
     }
 
 }

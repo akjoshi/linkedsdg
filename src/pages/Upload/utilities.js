@@ -22,7 +22,6 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
     let countryAreas = countryAreasData.results.bindings.map(x => { return { id: x.id.value, code: x.member_country_code.value } });
     if (countryArr !== undefined) {
         let maxWeight = countryArr[jsonText.data.countries.top_country] ? countryArr[jsonText.data.countries.top_country].weight : undefined;
-        let regionMaxWeight = countryArr[jsonText.data.countries.top_region] ? countryArr[jsonText.data.countries.top_region].weight : undefined;
         let maxColorForCountry = {};
         let weightsForCountrys = {};
         let top_regions = jsonText.data.countries.top_regions;
@@ -46,9 +45,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             if (maxCountryWeight < weightsForCountrys[key]) {
                 maxCountryWeight = weightsForCountrys[key];
             }
-        }
-        console.log(maxCountryWeight)
-        console.log(weightsForCountrys)
+        } 
         // selected areas
         for (let key in weightsForCountrys) {
 
@@ -63,34 +60,9 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                         227)
                 };
             }
-        }
-        console.log(dataForDataMap)
+        } 
 
-
-        // // selected areas
-        // for (let elem in jsonText.data.countries.top_regions) {
-        //     if (countryArr[top_regions[elem]].source !== 'geo') {
-        //         let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
-        //         for (let key in temp) {
-
-        //             let colorIntens = countryArr[top_regions[elem]].weight / regionMaxWeight;
-        //             // console.log(colorIntens);
-        //             colorIntens = countryArr[top_regions[elem]].weight / maxCountryWeight;
-        //             // console.log(colorIntens);
-
-        //             if (maxColorForCountry[temp[key].code] === undefined || maxColorForCountry[temp[key].code] < colorIntens) {
-        //                 maxColorForCountry[temp[key].code] = colorIntens;
-        //                 dataForDataMap[temp[key].code] = {
-        //                     fillColor: rgbToHex(
-        //                         227 - Math.round(60 * colorIntens), // 227 - 60
-        //                         227 - Math.round(30 * colorIntens),  // 227 - 30
-        //                         227)
-        //                 };
-        //             }
-        //         }
-        //     }
-        // }
-
+ 
 
         // selected country
         for (let elem in jsonText.data.countries.top_regions) {
