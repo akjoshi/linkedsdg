@@ -365,8 +365,8 @@ def extract_concepts(input, matcher_id, lang):
 
 
 app = Flask(__name__)
-# CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
-CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 
 
