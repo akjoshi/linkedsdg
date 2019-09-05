@@ -365,8 +365,8 @@ def extract_concepts(input, matcher_id, lang):
 
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
-# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+# CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 
 
@@ -393,6 +393,8 @@ def concepts():
         }
         new_concepts.append(concept_item)
 
+    concept_contexts_all = []
+
     for match in result["matches"]:
         new_citation = clean_citation(match)
         if "contexts" not in concept_map[match["url"]]:
@@ -401,7 +403,9 @@ def concepts():
         if new_citation["quote"] not in concept_map[match["url"]]["contexts_list"]:
             concept_map[match["url"]]["contexts"].append(new_citation)
             concept_map[match["url"]]["contexts_list"].append(new_citation["quote"])
+            concept_contexts_all.append(match)
     
+    result["matches"] = concept_contexts_all
     show_data = []
 
     for concept_item in new_concepts:
@@ -445,6 +449,9 @@ def concepts():
     top_region = {}
     all_areas = {}
     tops = []
+
+    region_contexts_all = []
+
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
         country["url"] = country_url
@@ -469,6 +476,7 @@ def concepts():
         if new_citation["quote"] not in all_areas[match["url"]]["contexts_list"]:
             all_areas[match["url"]]["contexts"].append(new_citation)
             all_areas[match["url"]]["contexts_list"].append(new_citation["quote"])
+            region_contexts_all.append(match)
 
     show_data = []
 
@@ -495,7 +503,7 @@ def concepts():
         "total": all_areas,
         "top_regions": tops,
         "show_data": show_data,
-        "matches": region_matches
+        "matches": region_contexts_all
         # {
         #     "@context": {
         #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
