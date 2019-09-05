@@ -469,7 +469,7 @@ def concepts():
         country = country_res["countries"][country_url]
         if country["source"]=="geo" and country['weight'] >= (top_country_score / 6) and country['weight'] >= (top_region_score / 10):
             tops.append(country["url"])
-        if country["source"]=="geo-all" and country['weight'] >= (top_region_score / 5):
+        if country["source"]=="geo-all" and country['weight'] >= (top_region_score / 5) and country['weight'] >= (top_country_score / 10):
             tops.append(country["url"])
     for match in region_matches:
         new_citation = clean_citation(match)
