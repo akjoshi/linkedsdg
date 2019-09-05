@@ -41,6 +41,7 @@ class Upload extends Component {
         downloadDataAboutCountry: [],
         conceptsShowData: {},
         matchQuotesForCounty: [],
+        examples: [],
     };
 
     clear = (event) => {
@@ -52,6 +53,11 @@ class Upload extends Component {
             waitForData: true,
             error: ''
         })
+    }
+
+    componentDidMount() {
+        let examples = require('./exampleArticles.json');
+        this.setState({examples:examples})
     }
 
     handleOptionChange = changeEvent => {
@@ -134,41 +140,15 @@ class Upload extends Component {
                                 <div className="example-links-list">
                                     <p className="small-label">Examples</p>
                                     <ul>
-                                        <li>
-                                            <a href="https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
-                                            <div className="tooltip">
-                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20233SDGs_Arabic_Report_972018_FINAL.pdf" })} >Voluntary National Review - Saudi Arabia 2018 (AR)</span>
-                                                <span className="tooltiptext">Click to copy</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" target="_blank"> <span><img alt="Copy" src={CopyIcon}></img></span></a>
-                                            <div className="tooltip">
-                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/" })}>Tackling the malaria problem in the South-East Asia Region: Need for a change in policy?</span>
-                                                <span className="tooltiptext">Click to copy</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="http://www.transforming-tourism.org/goal-14-life-below-water.html" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
-                                            <div className="tooltip">
-                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "http://www.transforming-tourism.org/goal-14-life-below-water.html" })}>Conserve and sustainably use the oceans, seas and marine resources for sustainable development</span>
-                                                <span className="tooltiptext">Click to copy</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
-                                            <div className="tooltip">
-                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://sustainabledevelopment.un.org/content/documents/20306Canada_FRENCH_18122_Canadas_Voluntary_National_ReviewFRv7.pdf" })}>Voluntary National Review - Canada 2018 (FR)</span>
-                                                <span className="tooltiptext">Click to copy</span>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <a href="https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" target="_blank"><span><img alt="Copy" src={CopyIcon}></img></span></a>
-                                            <div className="tooltip">
-                                                <span onClick={() => this.setState({ selectedOption: "fromURL", URL: "https://visegradpost.com/en/2019/04/18/linking-eu-funds-to-rule-of-law-and-european-values-a-move-against-poland-and-hungary/" })}>Linking EU funds to rule of law and “European values”</span>
-                                                <span className="tooltiptext">Click to copy</span>
-                                            </div>
-                                        </li>
+                                        {this.state.examples.map(x =>
+                                            <li>
+                                                <a href={x.url} target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
+                                                <div className="tooltip">
+                                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: x.url })} >{x.label}</span>
+                                                    <span className="tooltiptext">Click to copy</span>
+                                                </div>
+                                            </li>
+                                        )}
                                     </ul>
                                 </div>
                             </React.Fragment>

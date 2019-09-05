@@ -49,23 +49,23 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
         }
         console.log(maxCountryWeight)
         console.log(weightsForCountrys)
-         // selected areas
-         for (let key in weightsForCountrys) {
- 
-                    let colorIntens = weightsForCountrys[key] / maxCountryWeight; 
+        // selected areas
+        for (let key in weightsForCountrys) {
 
-                    if (maxColorForCountry[key] === undefined || maxColorForCountry[key] < colorIntens) {
-                        maxColorForCountry[key] = colorIntens;
-                        dataForDataMap[key] = {
-                            fillColor: rgbToHex(
-                                227 - Math.round(60 * colorIntens), // 227 - 60
-                                227 - Math.round(30 * colorIntens),  // 227 - 30
-                                227)
-                        };
-                    }
-                }
-                console.log(dataForDataMap)
-        
+            let colorIntens = weightsForCountrys[key] / maxCountryWeight;
+
+            if (maxColorForCountry[key] === undefined || maxColorForCountry[key] < colorIntens) {
+                maxColorForCountry[key] = colorIntens;
+                dataForDataMap[key] = {
+                    fillColor: rgbToHex(
+                        227 - Math.round(60 * colorIntens), // 227 - 60
+                        227 - Math.round(30 * colorIntens),  // 227 - 30
+                        227)
+                };
+            }
+        }
+        console.log(dataForDataMap)
+
 
         // // selected areas
         // for (let elem in jsonText.data.countries.top_regions) {
@@ -121,16 +121,15 @@ function codeToUri(code, countryAreas) {
     return code
 }
 
-async function loadExample(url) {
-    let example = require('./examples/examples.json');
-    let jsonText = { data: example[url].spacy };
+async function loadExample(storedData) { 
+    let example = require("./examples/" + storedData.id + "/data.json");
+    let jsonText = { data: example.spacy };
 
     let dataForDataMap = {};
     let dataForSeries = [];
     this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data })
 
-    handleCountryColors(jsonText, dataForDataMap, dataForSeries)
-    // console.log("mapy")
+    handleCountryColors(jsonText, dataForDataMap, dataForSeries);
 
     this.setState({ plainText: jsonText['data']['clean_text'], dataForDataMap: dataForDataMap, matchQuotesForCounty: jsonText.data.countries.matches, dataForSeries: dataForSeries, progress: 60 })
     const conceptsResponse = [];
@@ -141,7 +140,7 @@ async function loadExample(url) {
         conceptsResponse.push({
             id: obj.uri,
             label: obj['label'],
-            source: obj["sources"], //jsonText['data']['concepts'][key]['source'],
+            source: obj["sources"], 
             weight: obj['weight'],
             context: context,
         })
@@ -159,12 +158,11 @@ async function loadExample(url) {
 
     this.setState({ concepts: conceptsResponseList, fullConcepts: conceptsResponse, conceptsShowData: jsonText['data'].concepts_show_data })
 
-    let linkedDataResponse = { data: example[url].query };
+    let linkedDataResponse = { data: example.query };
 
     await this.setState({ dataForSun: linkedDataResponse.data });
 
     await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
-
 }
 
 export async function handleUploadFile(file) {
@@ -204,9 +202,10 @@ export async function handleUrlFile(url) {
 
     this.setState({ isLoading: true, error: '', loadedFrom: url, progress: 10 });
     // check if example
-    if (url === "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/ a") {
+    let tempArr = this.state.examples.filter(x => x.url === url);
+    if (tempArr.length > 0) {
         this.loadExample = loadExample.bind(this);
-        this.loadExample(url);
+        this.loadExample(tempArr[0]);
         return;
     }
     try {
