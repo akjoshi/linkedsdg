@@ -225,7 +225,7 @@ class ZoomableSunburst extends Component {
                 ) :
                     ((this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length === 0) ?
                         <div className="no-data-text">
-                            <p><span role="img">&#x1f6ab;</span> No data available for the selected regions and series.</p>
+                            <p><span role="img" aria-label="no-data">&#x1f6ab;</span> No data available for the selected regions and series.</p>
                             {this.state.countrySeriesData["more_data"] ?
                                 <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data-no-data">
                                     {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}

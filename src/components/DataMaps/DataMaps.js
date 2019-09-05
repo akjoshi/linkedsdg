@@ -8,8 +8,8 @@ import Button2 from 'react-bootstrap/Button';
 import ReactJson from 'react-json-view'
 import Collapse from 'react-bootstrap/Collapse'
 import {
-    Button,     
-    Sidebar, 
+    Button,
+    Sidebar,
 } from 'semantic-ui-react'
 
 const MAP_CLEARING_PROPS = [
@@ -213,78 +213,76 @@ export default class Datamap extends React.Component {
         };
 
         return <div className="data-map-grid">
-                <div className="dataMap">
-                    <h3 className="Title">
-                        Extracted geographical locations
+            <div className="dataMap">
+                <h3 className="Title">
+                    Extracted geographical locations
                     </h3>
-                    <div>
-                        <Button.Group>
-                            <Button disabled={visible} onClick={this.handleShowClick}>
-                                Show list of countries
-                                </Button>
-                            <Button disabled={!visible} onClick={this.handleHideClick}>
-                                Hide list of countries
-                                </Button>
-                        </Button.Group>
+                <div>
+                    <Button.Group>
+                        <Button disabled={visible} onClick={this.handleShowClick}>
+                            Show list
+                            </Button>
+                        <Button disabled={!visible} onClick={this.handleHideClick}>
+                            Hide list
+                             </Button>
+                    </Button.Group>
 
-                        <Sidebar.Pushable >
-                            <Sidebar
-                                className="country-list-sidebar"
-                                animation='overlay'
-                                icon='labeled'
-                                inverted
-                                onHide={this.handleSidebarHide}
-                                vertical
-                                visible={visible}
-                                width='very wide'
-                            >
-                                <div className="grid-item">
-                                    <div className="country-list">
-                                        <ul className="linked-concepts-list" id="linked-concepts-list">
-                                            {this.loadLocations()}
-                                        </ul>
-                                    </div>
+                    <Sidebar.Pushable >
+                        <Sidebar
+                            className="country-list-sidebar"
+                            animation='overlay'
+                            icon='labeled'
+                            onHide={this.handleSidebarHide}
+                            visible={visible}
+                            width='very wide'
+                        >
+                            <div className="grid-item">
+                                <div className="country-list">
+                                    <ul className="linked-concepts-list" id="linked-concepts-list">
+                                        {this.loadLocations()}
+                                    </ul>
                                 </div>
-                            </Sidebar>
+                            </div>
+                        </Sidebar>
 
-                            <Sidebar.Pusher>
-                                <div className="grid-item full-grid-item">
-                                    <div ref="container" id="containerForMap" style={style} > </div>
-                                    <Row className="Datamap-info">
-                                        <Col>
-                                            <i><span className="areaColor"></span> Regions</i>
-                                            <i><span className="countryColor"></span> Countries</i>
-                                        </Col>
-                                    </Row>
-                                </div>
-                            </Sidebar.Pusher>
-                        </Sidebar.Pushable>
-                    </div>
-                    <div>
-                        <Row className="download-button-container">
-                            <Col className="download-button">
-                                <Button2 variant="primary" onClick={this.handleCollapse}>
-                                    {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                        <Sidebar.Pusher>
+                            <div className="grid-item full-grid-item">
+                                <div ref="container" id="containerForMap" style={style} > </div>
+                                <Row className="Datamap-info">
+                                    <Col>
+                                        <i><span className="areaColor"></span> Regions</i>
+                                        <i><span className="countryColor"></span> Countries</i>
+                                    </Col>
+                                </Row>
+                            </div>
+                        </Sidebar.Pusher>
+                    </Sidebar.Pushable>
+                </div>
+                <div>
+                    <Row className="download-button-container">
+                        <Col className="download-button">
+                            <Button2 variant="primary" onClick={this.handleCollapse}>
+                                {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                            </Button2>
+                        </Col>
+                    </Row>
+
+                    {this.state.displayJson ?
+                        <React.Fragment>
+                            <div className="json-with-data">
+                                <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
+                            </div>
+                            <Button2 variant="primary" onClick={this.handleDownload}>
+                                ⤓ download
                                 </Button2>
-                            </Col>
-                        </Row>
-
-                        {this.state.displayJson ?
-                            <React.Fragment>
-                                <div className="json-with-data">
-                                    <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
-                                </div>
-                                <Button2 variant="primary" onClick={this.handleDownload}>
-                                    ⤓ download
-                                </Button2>
-                            </React.Fragment>
-                            : <React.Fragment></React.Fragment>
-                        }
-                    </div>
+                        </React.Fragment>
+                        : <React.Fragment></React.Fragment>
+                    }
                 </div>
             </div>
- 
- 
+        </div>
+
+
     }
 
 }

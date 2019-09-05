@@ -31,7 +31,6 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             if (countryArr[top_regions[elem]].source !== 'geo') {
                 let temp = countryAreas.filter(x => x.id === countryArr[top_regions[elem]].url);
                 for (let key in temp) {
-                    console.log(temp[key])
                     if (weightsForCountrys[temp[key].code] === undefined) {
                         weightsForCountrys[temp[key].code] = 0;
                     }
@@ -61,7 +60,6 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                 };
             }
         } 
-
  
 
         // selected country

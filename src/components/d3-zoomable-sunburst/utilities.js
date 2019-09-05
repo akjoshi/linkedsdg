@@ -298,8 +298,7 @@ export async function getJsonDescribeOfUri() {
     await callDescribeApi(dataForApi)
 }
 
-const callDescribeApi = async (dataForApi) => {
-    console.log(dataForApi)
+const callDescribeApi = async (dataForApi) => { 
     try {
         const text = await axios.post(config.describeApiUrl, dataForApi, {
             headers: {

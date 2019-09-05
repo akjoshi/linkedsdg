@@ -141,8 +141,8 @@ class Upload extends Component {
                                 <div className="example-links-list">
                                     <p className="small-label">Examples</p>
                                     <ul>
-                                        {this.state.examples.map(x =>
-                                            <li>
+                                        {this.state.examples.map((x,index) =>
+                                            <li key={index}>
                                                 <a href={x.url} target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
                                                 <div className="tooltip">
                                                     <span onClick={() => this.setState({ selectedOption: "fromURL", URL: x.url })} >{x.label}</span>
