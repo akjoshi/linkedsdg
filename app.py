@@ -16,11 +16,22 @@ SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT DISTINCT ?id ?label ?lang where {
+    GRAPH <http://data.un.org/keywords/sdg> {
+        [] dct:subject ?keyword .
+    }
+
+    GRAPH <http://data.un.org/concepts/sdg> {
+        ?target skos:exactMatch ?keyword .
+    }
+    
     GRAPH <http://data.un.org/concepts/sdg/extracted> {
-            [] dct:subject ?target .
-            ?id skos:broader ?target.            
-        }
+        ?id skos:broader ?target.            
+    }
+
+    GRAPH <http://data.un.org/concepts/sdg> {
         ?id skos:exactMatch ?source
+    }
+     
         
     {
         {
@@ -279,12 +290,14 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
 
     if matcher_id=="concept":
         ids = concept_ids
+        main_index = concept_index
         labels = concept_labels
         stops = stopwords
     
     if matcher_id=="country":
         ids = country_ids
         labels = country_labels
+        main_index = country_index
         stops = []
 
     label = labels[match_id].lower()
@@ -292,10 +305,15 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
     returned_matches.extend(current_matches)
     if not (label in stops):
         for match in current_matches:
-            if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label):
-               return returned_matches
-            if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']):
-                returned_matches.remove(match)
+
+            url = ids[match_id]
+            new_main_label = main_index[url]["label"]
+            compared_label = main_index[match["url"]]["label"]
+
+            # if match['start']<=start and match['end']>=end and new_main_label in compared_label and not (compared_label in new_main_label):
+            #    return returned_matches
+            # if match['start']>=start and match['end']<=end and compared_label in new_main_label and not (new_main_label in compared_label):
+            #     returned_matches.remove(match)
         new_match = {'url': ids[match_id], 'label': label, 'start': start, 'end': end}
         returned_matches.append(new_match)
     return returned_matches
