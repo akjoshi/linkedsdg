@@ -222,9 +222,6 @@ export default class Datamap extends React.Component {
                         <Button disabled={visible} onClick={this.handleShowClick}>
                             Show list
                             </Button>
-                        <Button disabled={!visible} onClick={this.handleHideClick}>
-                            Hide list
-                             </Button>
                     </Button.Group>
 
                     <Sidebar.Pushable >

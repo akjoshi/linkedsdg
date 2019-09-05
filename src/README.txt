@@ -28,3 +28,14 @@ sudo unzip build.zip...
 remove zip file.
 
 DONE
+
+
+----------------
+
+To store new responses run command 
+
+node storeExamples.js 
+
+in the root folder 
+
+All examples are stored in json file "./src/pages/upload/exampleArticles.json"
