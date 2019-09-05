@@ -26,6 +26,7 @@ export default class Datamap extends React.Component {
             x['open'] = false;
             return x;
         }),
+        fullWidthMap: true,
     }
 
     static propTypes = {
@@ -50,10 +51,10 @@ export default class Datamap extends React.Component {
     updateDimensions() {
         var list = document.getElementById('linked-concepts-list');
         var map = document.getElementById('containerForMap');
-        if(list !== null && map !== null){
+        if (list !== null && map !== null) {
             var positionInfo = map.getBoundingClientRect();
             let height = positionInfo.height;
-            if(height === 0){
+            if (height === 0) {
                 height = 300;
             }
             list.style.height = (height) + "px";
@@ -62,7 +63,7 @@ export default class Datamap extends React.Component {
     }
 
     componentDidMount() {
-        window.addEventListener('resize', this.resizeMap); 
+        window.addEventListener('resize', this.resizeMap);
         window.addEventListener("resize", this.updateDimensions.bind(this));
         this.drawMap();
         this.updateDimensions();
@@ -154,10 +155,10 @@ export default class Datamap extends React.Component {
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(dataForJson, undefined, 2);
     }
 
-    loadLocations = () => { 
+    loadLocations = () => {
         return this.state.countryList.map((x, index) => {
-            let open = x.open;  
-            let data = this.props.matchQuotes.filter(y => y.url ===  `http://data.un.org/${x.id}`); 
+            let open = x.open;
+            let data = this.props.matchQuotes.filter(y => y.url === `http://data.un.org/${x.id}`);
 
             return (
 
@@ -181,9 +182,9 @@ export default class Datamap extends React.Component {
 
                     </div>
                     <Collapse in={open}>
-                        <div id="example-collapse-text"> 
+                        <div id="example-collapse-text">
                             <ul className="concept-list">
-                                {data.map((t, index) => <li key={index} className="collapse-item">{index + 1}. {t['contextl']} <strong>{t['phrase']}</strong> {t['contextr']}</li> )}
+                                {data.map((t, index) => <li key={index} className="collapse-item">{index + 1}. {t['contextl']} <strong>{t['phrase']}</strong> {t['contextr']}</li>)}
                             </ul>
 
                         </div>
@@ -202,55 +203,88 @@ export default class Datamap extends React.Component {
             ...this.props.style
         };
 
-        return <div className="data-map-grid">
+        return <React.Fragment>
+            <button onClick={async (e) => {
+                await this.setState({ fullWidthMap: !this.state.fullWidthMap });
+                this.drawMap();
+                this.updateDimensions();
+            }}>CLICK ME TO TOGGLE MAP</button>
 
-            <div className="dataMap">
-                <h3 className="Title">
-                    Extracted geographical locations
-                </h3>
-                <div className="grid-container">
-                    <div className="grid-item">
-                        <div ref="container" id="containerForMap" style={style} > </div>
-                        <Row className="Datamap-info">
-                            <Col>
-                                <i><span className="areaColor"></span> Regions</i>
-                                <i><span className="countryColor"></span> Countries</i>
+
+
+
+            <div className="data-map-grid">
+                <div className="dataMap">
+                    <h3 className="Title">
+                        Extracted geographical locations
+                    </h3>
+                    <div className="grid-container">
+                        {this.state.fullWidthMap ?
+                            <div className="grid-item full-grid-item">
+                                <div ref="container" id="containerForMap" style={style} > </div>
+                                <Row className="Datamap-info">
+                                    <Col>
+                                        <i><span className="areaColor"></span> Regions</i>
+                                        <i><span className="countryColor"></span> Countries</i>
+                                    </Col>
+                                </Row>
+                            </div>
+                            :
+                            <div className="grid-item">
+                                <div ref="container" id="containerForMap" style={style} > </div>
+                                <Row className="Datamap-info">
+                                    <Col>
+                                        <i><span className="areaColor"></span> Regions</i>
+                                        <i><span className="countryColor"></span> Countries</i>
+                                    </Col>
+                                </Row>
+
+                            </div>
+                        }
+
+
+
+
+
+                        {this.state.fullWidthMap ? <React.Fragment></React.Fragment> :
+                            <div className="grid-item">
+                                <div className="country-list">
+                                    <ul className="linked-concepts-list" id="linked-concepts-list">
+                                        {this.loadLocations()}
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    <div>
+                        <Row className="download-button-container">
+                            <Col className="download-button">
+                                <Button variant="primary" onClick={this.handleCollapse}>
+                                    {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
+                                </Button>
                             </Col>
                         </Row>
 
+                        {this.state.displayJson ?
+                            <React.Fragment>
+                                <div className="json-with-data">
+                                    <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
+                                </div>
+                                <Button variant="primary" onClick={this.handleDownload}>
+                                    ⤓ download
+            </Button>
+                            </React.Fragment>
+                            : <React.Fragment></React.Fragment>
+                        }
                     </div>
-                    <div className="grid-item">
-                        <div className="country-list">
-                            <ul className="linked-concepts-list" id="linked-concepts-list">
-                                {this.loadLocations()}
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div>
-                    <Row className="download-button-container">
-                        <Col className="download-button">
-                            <Button variant="primary" onClick={this.handleCollapse}>
-                                {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
-                            </Button>
-                        </Col>
-                    </Row>
-
-                    {this.state.displayJson ?
-                        <React.Fragment>
-                            <div className="json-with-data">
-                                <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
-                            </div>
-                            <Button variant="primary" onClick={this.handleDownload}>
-                                ⤓ download
-                        </Button>
-                        </React.Fragment>
-                        : <React.Fragment></React.Fragment>
-                    }
                 </div>
             </div>
-        </div>
+
+
+        </React.Fragment>
+
+
 
     }
 

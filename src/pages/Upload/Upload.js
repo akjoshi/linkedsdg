@@ -169,9 +169,9 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
 
-                                <div className="width50">
-                                    <DataMap data={this.state.dataForDataMap} matchQuotes={this.state.matchQuotesForCounty} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
-                                </div>
+                                
+                                <DataMap data={this.state.dataForDataMap} matchQuotes={this.state.matchQuotesForCounty} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
+                                
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
 
                             </div>
