@@ -57,7 +57,8 @@ class Upload extends Component {
 
     componentDidMount() {
         let examples = require('./exampleArticles.json');
-        this.setState({examples:examples})
+        this.setState({examples:examples})  
+        
     }
 
     handleOptionChange = changeEvent => {
@@ -169,7 +170,6 @@ class Upload extends Component {
 
                                 <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
 
-                                
                                 <DataMap data={this.state.dataForDataMap} matchQuotes={this.state.matchQuotesForCounty} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
                                 
                                 <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />

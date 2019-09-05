@@ -128,7 +128,7 @@ export async function drawChart() {
         }
         else {
             g.select("text#middleTitle")
-                .text(function (d) { return "Explore the SDG wheel" })
+                .text(function (d) { return "" })
                 .attr("x", 0)
                 .attr("y", 0)
         }
@@ -305,11 +305,7 @@ export async function drawChart() {
         .attr("pointer-events", "all")
         .on("click", clicked);
 
-    
-        g.select("text#middleTitle")
-        .text(function (d) { return "Explore the SDG wheel" })
-        .attr("x", 0)
-        .attr("y", 0)
+     
 
 
     return svg.node();

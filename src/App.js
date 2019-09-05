@@ -5,8 +5,11 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import Footer from './components/Footer/Footer'
 
+import 'semantic-ui-css/semantic.min.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
+
+
 
 function App() {
   return (

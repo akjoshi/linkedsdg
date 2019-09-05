@@ -7,20 +7,23 @@ $lightGrey: #F2F2F2;
 $darkGrey: #333333;
 
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,700&display=swap');
-
+ 
 html {
-    scroll-behavior: smooth;
+    height: 0!important;
+    scroll-behavior: smooth!important;
+    font-size:14px!important;
 }
 
 body {
-    font-family: 'Roboto', sans-serif; 
+    height: 0!important;
+    font-family: 'Roboto', sans-serif!important; 
 
     a {
         color: $darkGrey;
     }
 
     a:hover {
-        color: $darkGrey;
+        color: $darkGrey!important;
         text-decoration: underline!important;
         cursor: pointer;
     }
