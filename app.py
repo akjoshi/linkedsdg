@@ -16,16 +16,16 @@ SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT DISTINCT ?id ?label ?lang where {
-    GRAPH <http://data.un.org/keywords/sdg> {
+    
         [] dct:subject ?keyword .
-    }
+    
 
     GRAPH <http://data.un.org/concepts/sdg> {
         ?target skos:exactMatch ?keyword .
     }
     
     GRAPH <http://data.un.org/concepts/sdg/extracted> {
-        ?id skos:broader ?target.            
+        ?id skos:broader* ?target.            
     }
 
     GRAPH <http://data.un.org/concepts/sdg> {
@@ -287,6 +287,7 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
     ids = {}
     labels = {}
     stops = []
+    main_index = {}
 
     if matcher_id=="concept":
         ids = concept_ids
@@ -301,6 +302,7 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
         stops = []
 
     label = labels[match_id].lower()
+
     returned_matches = []
     returned_matches.extend(current_matches)
     if not (label in stops):
@@ -309,12 +311,12 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
             url = ids[match_id]
             new_main_label = main_index[url]["label"]
             compared_label = main_index[match["url"]]["label"]
-
-            # if match['start']<=start and match['end']>=end and new_main_label in compared_label and not (compared_label in new_main_label):
-            #    return returned_matches
-            # if match['start']>=start and match['end']<=end and compared_label in new_main_label and not (new_main_label in compared_label):
-            #     returned_matches.remove(match)
+            if match['start']<=start and match['end']>=end and new_main_label in compared_label and not (compared_label in new_main_label):
+               return returned_matches
+            if match['start']>=start and match['end']<=end and compared_label in new_main_label and not (new_main_label in compared_label):
+                returned_matches.remove(match)
         new_match = {'url': ids[match_id], 'label': label, 'start': start, 'end': end}
+
         returned_matches.append(new_match)
     return returned_matches
 
