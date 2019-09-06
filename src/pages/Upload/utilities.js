@@ -44,7 +44,7 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
             if (maxCountryWeight < weightsForCountrys[key]) {
                 maxCountryWeight = weightsForCountrys[key];
             }
-        } 
+        }
         // selected areas
         for (let key in weightsForCountrys) {
 
@@ -59,8 +59,8 @@ const handleCountryColors = (jsonText, dataForDataMap, dataForSeries) => {
                         227)
                 };
             }
-        } 
- 
+        }
+
 
         // selected country
         for (let elem in jsonText.data.countries.top_regions) {
@@ -91,10 +91,31 @@ function codeToUri(code, countryAreas) {
     return code
 }
 
-async function loadExample(storedData) { 
-    let example = require("./examples/" + storedData.id + "/data.json");
+async function loadExample(storedData) {
+
+    let dir = "./examples/" + storedData.id + "/data.json";
+    let example = {};
+    try {
+        const json = await axios.post(config.textLinkApiUrlcashed, dir, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+        if (json.status !== 200 && json.status !== 201) {
+            throw new Error('Failed!');
+        }
+        // console.log(json)
+        example = json.data;
+    } catch (error) { 
+        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
+        return;
+    }
+    // console.log(example)
+    // let example = json; 
+    // let example = require("./examples/" + storedData.id + "/data.json");
     let jsonText = { data: example.spacy };
 
+    // console.log(jsonText)
     let dataForDataMap = {};
     let dataForSeries = [];
     this.setState({ downloadDataAboutCountry: jsonText.data.countries.show_data })
@@ -110,7 +131,7 @@ async function loadExample(storedData) {
         conceptsResponse.push({
             id: obj.uri,
             label: obj['label'],
-            source: obj["sources"], 
+            source: obj["sources"],
             weight: obj['weight'],
             context: context,
         })

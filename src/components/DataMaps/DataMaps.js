@@ -4,11 +4,10 @@ import Datamaps from 'datamaps';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import './DataMaps.scss';
-import Button2 from 'react-bootstrap/Button';
+import Button from 'react-bootstrap/Button';
 import ReactJson from 'react-json-view'
 import Collapse from 'react-bootstrap/Collapse'
 import {
-    Button,
     Sidebar,
 } from 'semantic-ui-react'
 
@@ -218,11 +217,9 @@ export default class Datamap extends React.Component {
                     Extracted geographical locations
                     </h3>
                 <div>
-                    <Button.Group>
-                        <Button disabled={visible} onClick={this.handleShowClick}>
-                            Show list
-                            </Button>
-                    </Button.Group>
+                    <Button variant="primary" onClick={this.handleShowClick}>
+                        Show list
+                    </Button>
 
                     <Sidebar.Pushable >
                         <Sidebar
@@ -258,9 +255,9 @@ export default class Datamap extends React.Component {
                 <div>
                     <Row className="download-button-container">
                         <Col className="download-button">
-                            <Button2 variant="primary" onClick={this.handleCollapse}>
+                            <Button variant="primary" onClick={this.handleCollapse}>
                                 {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
-                            </Button2>
+                            </Button>
                         </Col>
                     </Row>
 
@@ -269,9 +266,9 @@ export default class Datamap extends React.Component {
                             <div className="json-with-data">
                                 <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
                             </div>
-                            <Button2 variant="primary" onClick={this.handleDownload}>
+                            <Button variant="primary" onClick={this.handleDownload}>
                                 ⤓ download
-                                </Button2>
+                                </Button>
                         </React.Fragment>
                         : <React.Fragment></React.Fragment>
                     }

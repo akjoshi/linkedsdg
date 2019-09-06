@@ -16,9 +16,14 @@
         font-size: 1.1rem;
     }
 
-    @media only screen and (max-width: 720px) {
+    @media only screen and (max-width: 440px) {
         h5 {
             font-size: 0.8rem;
+        }
+
+        .export-csv-button{ 
+            float: left !important; 
+            display: block;
         }
       }
 

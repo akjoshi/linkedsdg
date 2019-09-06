@@ -7,7 +7,8 @@
     margin: 4em 0;
 
     .download-button{
-        margin: 0;
+        margin: 0.5rem 0 0 0;
+
     }
     
     .dataMap{
@@ -89,6 +90,7 @@
 
         .linked-concepts-list {
             // max-height: 35vh; 
+            max-width: 100%;
             overflow-y: hidden;
             overflow-x: hidden;
             margin-bottom: 0; 
@@ -140,3 +142,13 @@
     background:white;
     padding: 0 1rem;
 }
+
+@media only screen and (max-width: 720px) {
+    .country-list-sidebar {
+        overflow-x: hidden;
+        background:white;
+        max-width: 100%;
+        padding: 0;
+        margin: 0.5rem 0;
+    }
+  }
