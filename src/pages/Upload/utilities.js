@@ -180,6 +180,10 @@ export async function handleUploadFile(file) {
             this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is not supported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
             this.setState({});
         }
+        if (json.data.size === false) {
+            this.setState({ contentLoaded: false, isLoading: false, error: `Uploaded document is too large.`, progress: 45, waitForData: true });
+            this.setState({});
+        }
         else {
             this.processText(json.data);
         }
