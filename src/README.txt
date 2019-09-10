@@ -39,3 +39,5 @@ node storeExamples.js
 in the root folder 
 
 All examples are stored in json file "./src/pages/upload/exampleArticles.json"
+
+Copy the examples folder into the text extraction api root folder and remove it from the react application before running build command

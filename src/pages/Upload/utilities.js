@@ -199,6 +199,8 @@ export async function handleUrlFile(url) {
     // check if example
     let tempArr = this.state.examples.filter(x => x.url === url);
     if (tempArr.length > 0) {
+
+    this.setState({  progress: 50 });
         this.loadExample = loadExample.bind(this);
         this.loadExample(tempArr[0]);
         return;
