@@ -60,14 +60,14 @@ def get_task():
         text = parser.from_buffer(file.read())
 
 
-        if(text['content'].__len__() > 70000):
-            abort(400)
-            return 'Sorry, the file is too big!'
-
         result = {
             "lang": detect(text['content']),
-            "text": text['content']
+            "text": text['content'],
+            "size": True
         }
+
+        if(text['content'].__len__() > 70000):
+            result["size"] = False
 
         return Response(json.dumps(result), mimetype='application/json')
 
@@ -82,14 +82,15 @@ def get_task_url():
     if response.status_code == 200:
 
         text = parser.from_buffer(response.content)
-        if(text['content'].__len__() > 70000):
-            abort(400)
-            return 'Sorry, the file is too big!'
-
+        
         result = {
             "lang": detect(text['content']),
-            "text": text['content']
+            "text": text['content'],
+            "size": True
         }
+
+        if(text['content'].__len__() > 70000):
+            result["size"] = False
 
         return Response(json.dumps(result), mimetype='application/json')
 
