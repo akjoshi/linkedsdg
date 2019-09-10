@@ -7,6 +7,7 @@ from flask_cors import CORS, cross_origin
 import requests
 import json
 from os.path import join, dirname, realpath
+import time
 import re
 import string
 
@@ -16,6 +17,8 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 app = Flask(__name__)
 CORS(app)
+
+# CORS(app, resources={r"/*": {"origins": ["http://34.66.148.181:3000","http://sdg-links.org"]}})
 
 # def normalise_white_space(text):
 #     text = re.sub(' +',' ', text)
@@ -56,7 +59,11 @@ def get_task():
     if file and allowed_file(file.filename):
         text = parser.from_buffer(file.read())
 
-        print(text['metadata'])
+
+        if(text['content'].__len__() > 70000):
+            abort(400)
+            return 'Sorry, the file is too big!'
+
         result = {
             "lang": detect(text['content']),
             "text": text['content']
@@ -70,16 +77,15 @@ def get_task():
 
 @app.route('/apiURL', methods=['POST'])
 def get_task_url():
-    response = requests.get(request.data)
-
-    # h = requests.head(request.data, allow_redirects=True)
-    # header = h.headers
-    # content_type = header.get('content-type')
-
+    response = requests.get(request.data, stream=True)
     response.raw.decode_content = True
     if response.status_code == 200:
-        
+
         text = parser.from_buffer(response.content)
+        if(text['content'].__len__() > 70000):
+            abort(400)
+            return 'Sorry, the file is too big!'
+
         result = {
             "lang": detect(text['content']),
             "text": text['content']
@@ -90,6 +96,21 @@ def get_task_url():
     abort(400)
     return 'Something went wrong, try again!'
 
+@app.route('/apiURLcashed', methods=['POST'])
+def get_task_url_cashed():
+
+    result = {
+        "spacy": "",
+        "query": ""
+    }
+
+    with open(request.data) as json_file:
+        result = json.load(json_file)
+
+    print(result)
+
+    return Response(json.dumps(result), mimetype='application/json')
+
 
 if __name__ == '__main__':
-    app.run(port=5001, debug=False)
+    app.run(host="0.0.0.0", port=5001, debug=False)
