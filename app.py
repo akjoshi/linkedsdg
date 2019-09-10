@@ -15,20 +15,37 @@ import json
 SPARQL_QUERY = """
 PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-SELECT DISTINCT ?id ?label where { 
-	?x dct:subject ?target .
-    ?id skos:broader* ?target .
+SELECT DISTINCT ?id ?label ?lang where {
+    
+        [] dct:subject ?keyword .
+    
+
+    GRAPH <http://data.un.org/concepts/sdg> {
+        ?target skos:exactMatch ?keyword .
+    }
+    
+    GRAPH <http://data.un.org/concepts/sdg/extracted> {
+        ?id skos:broader* ?target.            
+    }
+
+    GRAPH <http://data.un.org/concepts/sdg> {
+        ?id skos:exactMatch ?source
+    }
+     
+        
     {
         {
-            ?id skos:prefLabel ?prefLabel .
-            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
-            BIND (?prefLabel as ?label)
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
         }
         UNION
         {
-            ?id skos:altLabel ?altLabel .
+            ?source skos:altLabel ?altLabel .
             FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
-            BIND (?altLabel as ?label)
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
         }
     }
 }
@@ -40,9 +57,10 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT DISTINCT ?id ?label
     WHERE {
-    GRAPH <http://data.un.org/kos/geo> {
+    GRAPH <http://data.un.org/codes/sdg> {
 
-        ?id a skos:Concept .
+        ?id skos:inScheme <http://data.un.org/codes/sdg/geo> .
+        FILTER(?id NOT IN (<http://data.un.org/codes/sdg/geoArea/co>, <http://data.un.org/codes/sdg/geoArea>, <http://data.un.org/codes/sdg/geoArea/001> ))
         
 	    {
             ?id skos:prefLabel ?prefLabel .
@@ -60,26 +78,30 @@ SELECT DISTINCT ?id ?label
 """
 
 # SPARQL_COUNTRIES_INDEX = """
-# PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-# PREFIX sdgo: <http://data.un.org/ontology/sdg#>
+#  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+#  PREFIX sdgo: <http://data.un.org/ontology/sdg#>
 
-# SELECT DISTINCT ?id ?label ?name ?source 
-# WHERE {
-#      GRAPH <http://data.un.org/kos/geo> { 
-#         ?id a skos:Concept .
-#         ?id skos:prefLabel ?label .
-#         OPTIONAL {
-#             ?id sdgo:iso3code ?code .
-#             BIND("geo" as ?s)
-#         }
-#         BIND(COALESCE(?code, ?label) as ?name)
-#         BIND(COALESCE(?s, "geo-all") as ?source)
-#     }
-#  } 
+#  SELECT DISTINCT ?id ?label ?name ?source 
+#  WHERE {
+#       GRAPH <http://codes> { 
+        
+#          ?id skos:inScheme <http://data.un.org/codes/sdg/geo> .
+        
+#          ?id skos:prefLabel ?label .
+#         FILTER(?id NOT IN (<http://data.un.org/codes/sdg/geoArea/co>, <http://data.un.org/codes/sdg/geoArea> ))
+#         FILTER(lang(?label)="en")
+#          OPTIONAL {
+#              ?id <http://data.un.org/codes/sdg/geoArea/iso3code> ?code .
+#              BIND("geo" as ?s)
+#          }
+#          BIND(COALESCE(?code, ?label) as ?name)
+#          BIND(COALESCE(?s, "geo-all") as ?source)
+#      }
+#   } 
 # """
 
 
-GRAPHDB = "http://34.66.148.181:7200/repositories/sdgs"
+GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 
 nlp = spacy.load('en_core_web_sm') 
 
@@ -180,7 +202,7 @@ def load_concepts():
     i = 1
     for concept in concept_list:
         label = concept["label"]["value"].lower()
-        lang = concept["label"]["xml:lang"]
+        lang = concept["lang"]["value"]
         concept_id = concept["id"]["value"]
 
         if len(label) < 30:
@@ -208,14 +230,26 @@ def load_concepts():
         stopwords.append(word['label'])
 
     print("\n\nLoading main index...")
-    concept_source_index = csv.DictReader(open("concept-source-index.csv"), delimiter=",")
+    concept_source_index = csv.DictReader(open("concepts-source-index.tsv", encoding="utf8"), delimiter="\t")
     for concept in concept_source_index:
         concept_id = concept["id"]
         label = concept["label"].upper()
-        source = concept["source"]
+        exact = []
+        exacts = concept["matches"].split(";")
+        for con in exacts:
+            if "metadata" in con:
+                source = "UNBIS"
+            else:
+                source = "EuroVoc"
+            ex = {
+                "uri": con,
+                "source": source
+            }
+            exact.append(ex)
         concept_index[concept_id] = {
             "label": label,
-            "source": source
+            "source": "sdg-links",
+            "sources": exact
         }
 
     print("\n\nLoading countries...")
@@ -235,7 +269,9 @@ def load_concepts():
             country_source[i] = "geo"
         i += 1
 
-    country_source_index = csv.DictReader(open("countries-source-index.tsv"), delimiter="\t")
+    print("\n\nLoading countries main index...")
+
+    country_source_index = csv.DictReader(open("countries-source-index.tsv", encoding="utf8"), delimiter="\t")
     for country in country_source_index:
         country_id = country["id"]
         label = country["label"]
@@ -251,29 +287,45 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
     ids = {}
     labels = {}
     stops = []
+    main_index = {}
 
     if matcher_id=="concept":
         ids = concept_ids
+        main_index = concept_index
         labels = concept_labels
         stops = stopwords
     
     if matcher_id=="country":
         ids = country_ids
         labels = country_labels
+        main_index = country_index
         stops = []
 
     label = labels[match_id].lower()
+
     returned_matches = []
     returned_matches.extend(current_matches)
     if not (label in stops):
-        # for match in current_matches:
-        #     if match['start']<=start and match['end']>=end and label in match['label'] and not (match['label'] in label) and concept_source[match_id] in match['url']:
-        #        return returned_matches
-        #     if match['start']>=start and match['end']<=end and match['label'] in label and not (label in match['label']) and concept_source[match_id] in match['url']:
-        #         returned_matches.remove(match)
+        for match in current_matches:
+
+            url = ids[match_id]
+            new_main_label = main_index[url]["label"]
+            compared_label = main_index[match["url"]]["label"]
+            if match['start']<=start and match['end']>=end and new_main_label in compared_label and not (compared_label in new_main_label):
+               return returned_matches
+            if match['start']>=start and match['end']<=end and compared_label in new_main_label and not (new_main_label in compared_label):
+                returned_matches.remove(match)
         new_match = {'url': ids[match_id], 'label': label, 'start': start, 'end': end}
+
         returned_matches.append(new_match)
     return returned_matches
+
+def clean_citation(citation):
+    new_citation = {
+        "matched_phrase": citation["phrase"],
+        "quote": citation["contextl"].replace("[...] ", "") + " " + citation["phrase"] + " " + citation["contextr"].replace(" [...]", "")
+    }    
+    return new_citation
 
 def extract_concepts(input, matcher_id, lang):
     labels = {}
@@ -317,8 +369,10 @@ def extract_concepts(input, matcher_id, lang):
         match["contextl"] = context_l
         match["phrase"] = phrase
         match["contextr"] = context_r
-        # match["context"] = context_string
         final_matches.append(match)
+
+
+
         if match["url"] in concepts_all:
             concepts_all[match["url"]]["weight"] += 1
         else: 
@@ -329,8 +383,12 @@ def extract_concepts(input, matcher_id, lang):
             }
     return final_matches, concepts_all
 
+
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
+# CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+
+
 
 @app.route("/api", methods=['POST'])
 def concepts():
@@ -342,32 +400,146 @@ def concepts():
         return Response("The language of the document has been identified as \"" + input_lang + "\". This language is not supported.", status=400)
 
     result = {}
-    result["matches"], result["concepts"] = extract_concepts(input_text, 'concept', input_lang)
+    result["matches"], concept_map = extract_concepts(input_text, 'concept', input_lang)
+
+    new_concepts = []
+
+    for uri in concept_map:
+        concept_item = {
+            "uri": uri,
+            "label": concept_map[uri]["label"],
+            "weight": concept_map[uri]["weight"],
+            "sources": concept_index[uri]["sources"]
+        }
+        new_concepts.append(concept_item)
+
+    concept_contexts_all = []
+
+    for match in result["matches"]:
+        new_citation = clean_citation(match)
+        if "contexts" not in concept_map[match["url"]]:
+            concept_map[match["url"]]["contexts"] = []
+            concept_map[match["url"]]["contexts_list"] = []
+        if new_citation["quote"] not in concept_map[match["url"]]["contexts_list"]:
+            concept_map[match["url"]]["contexts"].append(new_citation)
+            concept_map[match["url"]]["contexts_list"].append(new_citation["quote"])
+            concept_contexts_all.append(match)
+    
+    result["matches"] = concept_contexts_all
+    show_data = []
+
+    for concept_item in new_concepts:
+        show_data.append({
+            "id": concept_item["uri"].replace("http://data.un.org/", ""),
+            "label": concept_item["label"],
+            "match": concept_item["sources"],
+            "weight": concept_item["weight"],
+            "contexts": concept_map[concept_item["uri"]]["contexts"]
+        })
+
+    result["concepts_show_data"] = show_data 
+    # {
+    #     "@context": {
+    #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+    #         "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+    #         "exactMatch": {
+    #             "@id":"http://www.w3.org/2004/02/skos/core#exactMatch",
+    #             "@type": "@id"
+    #         },
+    #         "uri": "@id"
+    #     },
+    #     "@graph": 
+    # }
+
+    
+
+        
+
+    # result["concepts"] = concepts
+
+    # result["concepts"] = transform_response(concepts)
+
+    result["concepts"] = new_concepts
+
     country_res = {}
-    country_res["matches"], country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
-    top = 0
+    region_matches, country_res["countries"] = extract_concepts(input_text, 'country', input_lang)
+    top_country_score = 0
+    top_region_score = 0
     top_country = {}
-    all_countries = {}
+    top_region = {}
+    all_areas = {}
     tops = []
+
+    region_contexts_all = []
+
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
         country["url"] = country_url
         country["name"]= country_index[country_url]["name"]
-        all_countries[country_url] = country
-        if country['weight'] > top:
-            top = country['weight']
+        all_areas[country_url] = country
+        all_areas[country_url]["contexts"]=[]
+        all_areas[country_url]["contexts_list"]=[]
+        if country["source"]=="geo" and country['weight'] > top_country_score:
+            top_country_score = country['weight']
             top_country = country
+        if country["source"]=="geo-all" and country['weight'] > top_region_score:
+            top_region_score = country['weight']
+            top_region = country
     for country_url in country_res["countries"]: 
         country = country_res["countries"][country_url]
-        if country['weight'] >= (top / 5):
+        if country["source"]=="geo" and country['weight'] >= (top_country_score / 6) and country['weight'] >= (top_region_score / 10):
             tops.append(country["url"])
+        if country["source"]=="geo-all" and country['weight'] >= (top_region_score / 5) and country['weight'] >= (top_country_score / 10):
+            tops.append(country["url"])
+    for match in region_matches:
+        new_citation = clean_citation(match)
+        if new_citation["quote"] not in all_areas[match["url"]]["contexts_list"]:
+            all_areas[match["url"]]["contexts"].append(new_citation)
+            all_areas[match["url"]]["contexts_list"].append(new_citation["quote"])
+            region_contexts_all.append(match)
+
+    show_data = []
+
+    for uri in tops:
+        if country_index[uri]["source"] == "geo":
+            show_data.append({
+                "id": uri.replace("http://data.un.org/", ""),
+                "iso3code": country_index[uri]["name"],
+                "label": country_index[uri]["label"],
+                "weight": all_areas[uri]["weight"],
+                "type": "country",
+                "contexts": all_areas[uri]["contexts"]
+            })
+        if country_index[uri]["source"] == "geo-all":
+            show_data.append({
+                "id": uri.replace("http://data.un.org/", ""),
+                "label": country_index[uri]["label"],
+                "weight": all_areas[uri]["weight"],
+                "type": "region",
+                "contexts": all_areas[uri]["contexts"]
+            })
+        
     result["countries"] = {
-        "matches": country_res["matches"],
-        "total": all_countries,
-        "top_region": top_country["url"],
-        "top_regions": tops
+        "total": all_areas,
+        "top_regions": tops,
+        "show_data": show_data,
+        "matches": region_contexts_all
+        # {
+        #     "@context": {
+        #         "@base": "https://github.com/UNStats/LOD4Stats/tree/master/sdg-data",
+        #         "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+        #         "iso3code": "http://data.un.org/ontology/sdg#iso3code"
+        #     },
+        #     "@graph": 
+        # }
     }
+    if "url" in top_country:
+        result["countries"]["top_country"] = top_country["url"]
+    if "url" in top_region:
+        result["countries"]["top_region"] = top_region["url"]
     resp = Response(json.dumps(result), mimetype='application/json')
+
+
     return resp
 
 # app.run(host="0.0.0.0", port=5000)
