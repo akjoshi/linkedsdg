@@ -295,7 +295,7 @@ export async function drawChart() {
                 return "25px"
             }
             if (type === 'Series') {
-                return "16px"
+                return "14px"
             }
         })
 
