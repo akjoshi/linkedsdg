@@ -278,13 +278,25 @@ export async function drawChart() {
         .attr("fill-opacity", d => +labelVisible(d.current))
         .attr("transform", d => labelTransform(d.current))
         .text(d => {
-            return d.data.sunburst_label;
+            return d.data.code;
         })
+        .style("font-family", "sans-serif")
+        .style("font-weight", "700")
+        .style("fill", "white")
         .style("font-size", (d) => {
-            if (d.data.label.split(" ")[0] !== 'Series') {
+            var type = d.data.label.split(" ")[0]
+            if (type === 'Goal') {
+                return "25px"
+            }
+            if (type === 'Target') {
+                return "25px"
+            }
+            if (type === 'Indicator') {
+                return "25px"
+            }
+            if (type === 'Series') {
                 return "16px"
             }
-            return "12px"
         })
 
     let parent = g.append("circle")
