@@ -214,7 +214,7 @@ export default class Datamap extends React.Component {
         return <div className="data-map-grid">
             <div className="dataMap">
                 <h3 className="Title">
-                    Extracted geographical locations
+                    Extracted geographical areas
                     </h3>
                 <div>
                     <Button variant="primary" onClick={this.handleShowClick}>
@@ -264,7 +264,7 @@ export default class Datamap extends React.Component {
                     {this.state.displayJson ?
                         <React.Fragment>
                             <div className="json-with-data">
-                                <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted locations"} />
+                                <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted areas"} />
                             </div>
                             <Button variant="primary" onClick={this.handleDownload}>
                                 ⤓ download
