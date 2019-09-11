@@ -102,7 +102,15 @@ export function loadConcepts() {
 
     let returnArr = [];
     for (let key in this.state.clickedData.keyWords) {
-        returnArr.push(this.state.clickedData.keyWords[key])
+        if ("concepts" in this.state.clickedData.keyWords[key]) {
+            returnArr.push(this.state.clickedData.keyWords[key])
+        }
+    }
+
+    for (let key in this.state.clickedData.keyWords) {
+        if (!("concepts" in this.state.clickedData.keyWords[key])) {
+            returnArr.push(this.state.clickedData.keyWords[key])
+        }
     }
 
     return returnArr.map((x, index) => {
