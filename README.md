@@ -8,6 +8,7 @@ An API for extracting text from different file types (PDF, DOC, HTML, etc.) (par
 ### Example requests & responses
 
 #### /api
+Request:
 ```
 POST /api HTTP/1.1
 Host: localhost:5001
@@ -27,6 +28,7 @@ Response
 ```
 
 #### /apiURL
+Request:
 ```
 POST /apiURLcashed HTTP/1.1
 Host: localhost:5001
