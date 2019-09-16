@@ -3,11 +3,11 @@ A prototype app for linking unstructured data with relevant SDG entities via sub
 
 ![AppImage](https://raw.githubusercontent.com/epistemik-co/sdg-links-webapp/master/src/pages/Home/rdiDvaws2.png)
 
-# Running the app
+### Running the app
 
 > yarn start
 
-# Building cache
+### Building cache
 
 The webapp uses cached data for several examples presented to the user. That cache data has to be initially created using an accompanying script. Once all related APIs are running and available you need to execute the following command in the root folder:
 
