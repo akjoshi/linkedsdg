@@ -3,7 +3,7 @@ A prototype app for linking unstructured data with relevant SDG entities via sub
 
 ![AppImage](https://raw.githubusercontent.com/epistemik-co/sdg-links-webapp/master/src/pages/Home/rdiDvaws2.png)
 
-### Running the app
+### Running
 
 > yarn start
 
