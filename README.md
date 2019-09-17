@@ -1,53 +1,141 @@
-# spacy-concept-extraction-api
-A simple REST API for extracting dedicated SKOS taxonomy concepts from text, and for searching concepts in the supplied UNBIS/EUROVOC dictionary. 
+# SDG-Links concept extraction API
+A simple REST API for extracting dedicated SKOS taxonomy concepts from text (part of SDG-Links app). 
 
-## labels.csv vs sample-labels.csv 
+### Running
+> python app.py
 
-Note that the initial upload of all concepts is a time-consuming task. For testing replace the reference to `labels.csv` with `sample-labels.csv` in the code. 
+### Example request & response
 
-## Example request & response:
-
+Request:
 ```
-curl -X POST \
-  http://localhost:5000/api \
-  -H 'Content-Type: application/json' \
-  -H 'Postman-Token: a63466c2-ae02-46f3-98b3-c09076692f10' \
-  -H 'cache-control: no-cache' \
-  -d '{
-	"text": "According to the Miriam-Webster dictionary, immunology is the science of how organisms defend themselves against diseases or other illnesses"
-}'
+POST /api HTTP/1.1
+Host: localhost:5000
+Content-Type: application/json
 ```
 
+Body:
+```
+{
+    "lang": "en",
+    "text": "Pesticides and insecticides used in Eastern Europe."
+}
+```
+
+Response: 
 ```
 {
     "matches": [
         {
-            "url": "http://metadata.un.org/thesaurus#1003063",
-            "label": "immunology",
-            "start": 6,
-            "end": 7,
-            "context": "[...] to the miriam webster dictionary immunology is the science of how [...]"
+            "url": "http://data.un.org/concepts/sdg/cd7de5296a84b9dfb827f4d78b68307c",
+            "label": "pesticide",
+            "start": 0,
+            "end": 1,
+            "contextl": "[...] ",
+            "phrase": "pesticides",
+            "contextr": "and insecticides used in eastern [...]"
         },
         {
-            "url": "http://metadata.un.org/thesaurus#1001705",
-            "label": "diseases",
-            "start": 16,
-            "end": 17,
-            "context": "[...] how organisms defend themselves against diseases or other illnesses [...]"
+            "url": "http://data.un.org/concepts/sdg/cd7de5296a84b9dfb827f4d78b68307c",
+            "label": "insecticides",
+            "start": 2,
+            "end": 3,
+            "contextl": "[...] pesticides and",
+            "phrase": "insecticides",
+            "contextr": "used in eastern europe [...]"
         }
     ],
-    "concepts": {
-        "http://metadata.un.org/thesaurus#1003063": {
-            "label": "IMMUNOLOGY",
-            "source": "UNBIS",
-            "weight": 1
-        },
-        "http://metadata.un.org/thesaurus#1001705": {
-            "label": "DISEASES",
-            "source": "UNBIS",
-            "weight": 1
+    "concepts_show_data": [
+        {
+            "id": "concepts/sdg/cd7de5296a84b9dfb827f4d78b68307c",
+            "label": "PESTICIDE",
+            "match": [
+                {
+                    "uri": "http://eurovoc.europa.eu/2357",
+                    "source": "EuroVoc"
+                },
+                {
+                    "uri": "http://metadata.un.org/thesaurus/1004839",
+                    "source": "UNBIS"
+                }
+            ],
+            "weight": 2,
+            "contexts": [
+                {
+                    "matched_phrase": "pesticides",
+                    "quote": " pesticides and insecticides used in eastern"
+                },
+                {
+                    "matched_phrase": "insecticides",
+                    "quote": "pesticides and insecticides used in eastern europe"
+                }
+            ]
         }
-    },
-    "clean_text": "according to the miriam webster dictionary immunology is the science of how organisms defend themselves against diseases or other illnesses"
+    ],
+    "concepts": [
+        {
+            "uri": "http://data.un.org/concepts/sdg/cd7de5296a84b9dfb827f4d78b68307c",
+            "label": "PESTICIDE",
+            "weight": 2,
+            "sources": [
+                {
+                    "uri": "http://eurovoc.europa.eu/2357",
+                    "source": "EuroVoc"
+                },
+                {
+                    "uri": "http://metadata.un.org/thesaurus/1004839",
+                    "source": "UNBIS"
+                }
+            ]
+        }
+    ],
+    "countries": {
+        "total": {
+            "http://data.un.org/codes/sdg/geoArea/151": {
+                "label": "Eastern Europe",
+                "source": "geo-all",
+                "weight": 1,
+                "url": "http://data.un.org/codes/sdg/geoArea/151",
+                "name": "Eastern Europe",
+                "contexts": [
+                    {
+                        "matched_phrase": "eastern europe",
+                        "quote": "pesticides and insecticides used in eastern europe "
+                    }
+                ],
+                "contexts_list": [
+                    "pesticides and insecticides used in eastern europe "
+                ]
+            }
+        },
+        "top_regions": [
+            "http://data.un.org/codes/sdg/geoArea/151"
+        ],
+        "show_data": [
+            {
+                "id": "codes/sdg/geoArea/151",
+                "label": "Eastern Europe",
+                "weight": 1,
+                "type": "region",
+                "contexts": [
+                    {
+                        "matched_phrase": "eastern europe",
+                        "quote": "pesticides and insecticides used in eastern europe "
+                    }
+                ]
+            }
+        ],
+        "matches": [
+            {
+                "url": "http://data.un.org/codes/sdg/geoArea/151",
+                "label": "eastern europe",
+                "start": 5,
+                "end": 7,
+                "contextl": "[...] pesticides and insecticides used in",
+                "phrase": "eastern europe",
+                "contextr": " [...]"
+            }
+        ],
+        "top_region": "http://data.un.org/codes/sdg/geoArea/151"
+    }
 }
 ```
