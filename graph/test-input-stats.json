@@ -1,0 +1,7 @@
+{
+    "countries": [
+        "http://data.un.org/codes/sdg/geoArea/064",
+        "http://data.un.org/codes/sdg/geoArea/068"
+    ],
+    "stat": "http://data.un.org/kos/sdg/SI_POV_DAY1"
+}

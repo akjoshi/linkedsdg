@@ -1,0 +1,18 @@
+[
+    {
+        "uri": "http://data.un.org/concepts/sdg/b24a918e896b25b53eae5232e68d8722",
+        "weight": 2
+    },
+    {
+        "uri": "http://data.un.org/concepts/sdg/183fdaa6b491ec70289516a19d8bc468",
+        "weight": 3
+    },
+    {
+        "uri": "http://data.un.org/concepts/sdg/86601675138015edb458866e7d879118",
+        "weight": 4
+    },
+    {
+        "uri": "http://data.un.org/concepts/sdg/e3c4abbfc5d65cdf8512e782752d889d",
+        "weight": 5
+    }
+]
