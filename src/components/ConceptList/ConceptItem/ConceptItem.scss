@@ -1,0 +1,112 @@
+@import '../../../App.scss';
+
+
+.event-list-item {
+    display: grid;
+    grid-template-columns: 95% 5%;
+    border-bottom: 1px $grey solid;
+    padding: 0.3rem 0;
+    cursor: pointer;
+
+    button {     
+        grid-column-start: 2;
+        grid-column-end: 3;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: $grey;
+        padding: 0;
+        margin: 0;
+    }
+
+    .h6-concept-name {
+        display: flex !important;
+        float: left;
+        margin: 0;
+        line-height: 2rem;
+        margin-top: 4px;
+    }
+
+    .annotation {
+        p{
+            // width:100%;
+            padding: 0 0.5rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;
+        }
+    }
+    
+    .concept-list{
+        padding-top: 0.5rem;
+    }
+
+    button:hover,
+    button:after,
+    button:active,
+    button:active:after,
+    button:visited,
+    button:focus {
+        background: none !important;
+        color: $grey !important;
+        outline: none !important;
+        border:none !important;
+        box-shadow: none !important;
+    }
+
+    p {
+        float: left;
+        vertical-align: middle;
+        margin: 0;
+        line-height: 2rem;
+    }
+
+    .collapse-button{
+        text-align: center;
+        p {     
+             margin-top:10px;
+        }
+
+        .open-arrow{
+
+            margin-top: 0;
+            transform: rotate(-180deg);
+
+        }
+    }
+
+    .collapse-item{
+
+        font-size: 0.9rem;
+        padding: 0.1rem 2rem;
+        display: block;
+    }
+
+    .sources{ 
+        p{
+            padding:0 !important;
+        }
+        a{
+            // width:100%;
+            float: left; 
+            padding: 0.25rem 0rem 0 1.0rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;  
+        }
+    }
+
+    @media only screen and (max-width: 720px) {
+        .collapse-item{
+            padding: 0.1rem 2rem;
+            font-size: 0.75rem;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .collapse-item{
+            padding: 0.1rem 1rem;
+            font-size: 0.75rem;
+        }
+      }
+}

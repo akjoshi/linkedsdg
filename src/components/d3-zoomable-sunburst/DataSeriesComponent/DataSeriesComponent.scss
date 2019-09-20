@@ -1,0 +1,177 @@
+@import '../../../App.scss';
+
+
+.data-series-title{
+    margin-top: 1rem;
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.table-series{
+    margin-bottom: 10px;
+
+    h5 {
+        font-size: 1.1rem;
+    }
+
+    @media only screen and (max-width: 440px) {
+        h5 {
+            font-size: 0.8rem;
+        }
+
+        .export-csv-button{ 
+            float: left !important; 
+            display: block;
+        }
+      }
+
+    .export-csv-button{
+        background: #00ADEF;
+        background-color: #00adef;
+        border-color: #009bd6;
+        padding: 3px 12px;
+        border-radius: 0;
+        border: 1px solid transparent;
+        cursor: pointer;
+        font-weight: 400;
+        color: white;
+        margin-bottom: 1rem; 
+        margin-right: 0;
+        float: right;
+        margin-top: 10px;
+        
+    }
+
+    .export-csv-button:hover {
+        background-color: #0088bc !important;
+        border-color: #006e98 !important;
+        color: white;
+    }
+
+    .react-bootstrap-table{
+        margin-right: -16px; 
+        margin-bottom: 0; 
+        overflow: scroll; 
+    
+        table {
+
+            thead tr:first-child th{ 
+                vertical-align: top;
+                margin: 0;
+                padding: 0.8rem;  
+            }
+            table-layout: unset;
+            margin-bottom: 0; 
+            thead tr th {
+                min-width: 100px!important; 
+            }
+            p{
+                padding-bottom: 0.2rem;
+                margin: 0;
+            }
+        }
+    }
+ 
+    
+    .react-bootstrap-table:hover { 
+        overflow: scroll; 
+    }
+    
+    /* total width */
+    .react-bootstrap-table::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+    
+    /* background of the scrollbar except button or resizer */
+    .react-bootstrap-table::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+    
+    /* scrollbar itself */
+    .react-bootstrap-table::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+        border:4px solid #fff
+    }
+
+    .react-bootstrap-table-pagination{ 
+        margin-top: 10px;
+        ul {
+            float: right;
+
+            a{
+                color: $mainColor;
+            }
+
+            .active a {
+                background-color: $mainColor;
+                border-color: $mainColor;
+                color: white!important;
+            }
+
+        }
+
+        .page-size-button{
+            margin-right:0;
+            border-radius: 10%;
+        }
+
+        .page-size-button-not-active{
+            position: relative;
+            display: block;
+            padding: .5rem .75rem;
+            margin-left: -1px;
+            line-height: 1.25;
+            color: #007bff;
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            font-size: 1rem;
+            color:#00ADEF;
+        }
+    }
+
+    @media only screen and (max-width: 720px) {
+        .react-bootstrap-table-pagination{
+            margin: 0;
+        }
+
+        .react-bootstrap-table-pagination .col-md-6 {
+            padding: 0;
+            
+            ul{ 
+                margin: 0;
+                float: left;
+            }
+        } 
+        
+        .react-bootstrap-table-pagination .col-md-6:first-child{  
+            display: none;
+        }
+ 
+      }
+
+    
+    .filter-label{
+        width: 100%;
+        margin-bottom: 0;
+        .text-filter, select { 
+            font-size:0.8rem;  
+            border:solid 1px #aacfe4; 
+            margin: 0;
+        }
+    }
+
+    .series-unit { 
+        font-size:10px;
+    }
+
+    .sort-arrows {
+        font-size:6px; 
+        padding: 8px;
+        line-height: 0;
+    }
+}
+ 

@@ -1,0 +1,3515 @@
+{
+    "unitsCode": {
+        "uri": "http://data.un.org/codes/sdg/units",
+        "label": "units",
+        "codes": {
+            "http://data.un.org/codes/sdg/units/CON_10USD": {
+                "code": "CON_10USD",
+                "label": "Constant 2010 United States dollars"
+            },
+            "http://data.un.org/codes/sdg/units/CON_USD": {
+                "code": "CON_USD",
+                "label": "Constant USD"
+            },
+            "http://data.un.org/codes/sdg/units/CUR_LCU": {
+                "code": "CUR_LCU",
+                "label": "Current local currency"
+            },
+            "http://data.un.org/codes/sdg/units/CU_USD_B": {
+                "code": "CU_USD_B",
+                "label": "Billions of current United States dollars"
+            },
+            "http://data.un.org/codes/sdg/units/CU_USD_M": {
+                "code": "CU_USD_M",
+                "label": "Millions of current United States dollars"
+            },
+            "http://data.un.org/codes/sdg/units/GPERM3": {
+                "code": "GPERM3",
+                "label": "Micrograms per cubic meter"
+            },
+            "http://data.un.org/codes/sdg/units/HA_TH": {
+                "code": "HA_TH",
+                "label": "Thousands of hectares"
+            },
+            "http://data.un.org/codes/sdg/units/INDEX": {
+                "code": "INDEX",
+                "label": "Index"
+            },
+            "http://data.un.org/codes/sdg/units/KG_PER_CON_USD": {
+                "code": "KG_PER_CON_USD",
+                "label": "Kilograms per constant USD"
+            },
+            "http://data.un.org/codes/sdg/units/KM2": {
+                "code": "KM2",
+                "label": "Square kilometers"
+            },
+            "http://data.un.org/codes/sdg/units/LITRES_PURE_ALCOHOL": {
+                "code": "LITRES_PURE_ALCOHOL",
+                "label": "Litres pure alcohol"
+            },
+            "http://data.un.org/codes/sdg/units/MJ_PER_GDP_CON_PPP_USD": {
+                "code": "MJ_PER_GDP_CON_PPP_USD",
+                "label": "Megajoules per USD constant 2011 PPP GDP"
+            },
+            "http://data.un.org/codes/sdg/units/M_M3_PER_YR": {
+                "code": "M_M3_PER_YR",
+                "label": "Million of cubic metres per annum"
+            },
+            "http://data.un.org/codes/sdg/units/NA": {
+                "code": "NA",
+                "label": "Not applicable"
+            },
+            "http://data.un.org/codes/sdg/units/NUMBER": {
+                "code": "NUMBER",
+                "label": "Number"
+            },
+            "http://data.un.org/codes/sdg/units/NUM_M": {
+                "code": "NUM_M",
+                "label": "Millions"
+            },
+            "http://data.un.org/codes/sdg/units/NUM_TH": {
+                "code": "NUM_TH",
+                "label": "Thousands"
+            },
+            "http://data.un.org/codes/sdg/units/PERCENT": {
+                "code": "PERCENT",
+                "label": "Percentage"
+            },
+            "http://data.un.org/codes/sdg/units/PER_1000000_POP": {
+                "code": "PER_1000000_POP",
+                "label": "Per million population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_100000_EMP": {
+                "code": "PER_100000_EMP",
+                "label": "Per 100,000 employees"
+            },
+            "http://data.un.org/codes/sdg/units/PER_100000_LIVE_BIRTHS": {
+                "code": "PER_100000_LIVE_BIRTHS",
+                "label": "Per 100,000 live births"
+            },
+            "http://data.un.org/codes/sdg/units/PER_100000_POP": {
+                "code": "PER_100000_POP",
+                "label": "Per 100,000 population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_10000_POP": {
+                "code": "PER_10000_POP",
+                "label": "Per 10,000 population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_1000_LIVE_BIRTHS": {
+                "code": "PER_1000_LIVE_BIRTHS",
+                "label": "Per 1,000 live births"
+            },
+            "http://data.un.org/codes/sdg/units/PER_1000_POP": {
+                "code": "PER_1000_POP",
+                "label": "Per 1,000 population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_1000_UNINFECTED_POP": {
+                "code": "PER_1000_UNINFECTED_POP",
+                "label": "Per 1,000 uninfected population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_100_POP": {
+                "code": "PER_100_POP",
+                "label": "Per 100 population"
+            },
+            "http://data.un.org/codes/sdg/units/PER_MARW_20T24Y": {
+                "code": "PER_MARW_20T24Y",
+                "label": "% of married women aged 20-24 years"
+            },
+            "http://data.un.org/codes/sdg/units/PER_POP_U5": {
+                "code": "PER_POP_U5",
+                "label": "% of children aged 0-59 months"
+            },
+            "http://data.un.org/codes/sdg/units/P_KM": {
+                "code": "P_KM",
+                "label": "Passenger kilometres"
+            },
+            "http://data.un.org/codes/sdg/units/RATIO": {
+                "code": "RATIO",
+                "label": "Ratio"
+            },
+            "http://data.un.org/codes/sdg/units/TONNES": {
+                "code": "TONNES",
+                "label": "Tonnes"
+            },
+            "http://data.un.org/codes/sdg/units/TONNES_M": {
+                "code": "TONNES_M",
+                "label": "Millions of tonnes"
+            },
+            "http://data.un.org/codes/sdg/units/T_KM": {
+                "code": "T_KM",
+                "label": "Tonne kilometres"
+            },
+            "http://data.un.org/codes/sdg/units/T_PER_HA": {
+                "code": "T_PER_HA",
+                "label": "Tonnes per hectare"
+            },
+            "http://data.un.org/codes/sdg/units/USD": {
+                "code": "USD",
+                "label": "USD"
+            },
+            "http://data.un.org/codes/sdg/units/USD_PER_M3": {
+                "code": "USD_PER_M3",
+                "label": "United States dollars per cubic metre"
+            },
+            "http://data.un.org/codes/sdg/units/NUM_U5_M": {
+                "code": "NUM_U5_M",
+                "label": "Millions of children aged 0-59 months"
+            },
+            "http://data.un.org/codes/sdg/units/CON_USD_M": {
+                "code": "CON_USD_M",
+                "label": "Millions of constant 2015 United States dollars"
+            }
+        }
+    },
+    "geoAreaCode": {
+        "uri": "http://data.un.org/codes/sdg/geoArea",
+        "label": "geographical area",
+        "codes": {
+            "http://data.un.org/codes/sdg/geoArea/162": {
+                "code": "162",
+                "label": "Christmas Island"
+            },
+            "http://data.un.org/codes/sdg/geoArea/392": {
+                "code": "392",
+                "label": "Japan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/150": {
+                "code": "150",
+                "label": "Europe"
+            },
+            "http://data.un.org/codes/sdg/geoArea/380": {
+                "code": "380",
+                "label": "Italy"
+            },
+            "http://data.un.org/codes/sdg/geoArea/174": {
+                "code": "174",
+                "label": "Comoros"
+            },
+            "http://data.un.org/codes/sdg/geoArea/760": {
+                "code": "760",
+                "label": "Syrian Arab Republic"
+            },
+            "http://data.un.org/codes/sdg/geoArea/704": {
+                "code": "704",
+                "label": "Viet Nam"
+            },
+            "http://data.un.org/codes/sdg/geoArea/716": {
+                "code": "716",
+                "label": "Zimbabwe"
+            },
+            "http://data.un.org/codes/sdg/geoArea/728": {
+                "code": "728",
+                "label": "South Sudan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/203": {
+                "code": "203",
+                "label": "Czechia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/772": {
+                "code": "772",
+                "label": "Tokelau"
+            },
+            "http://data.un.org/codes/sdg/geoArea/663": {
+                "code": "663",
+                "label": "Saint Martin (French Part)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/312": {
+                "code": "312",
+                "label": "Guadeloupe"
+            },
+            "http://data.un.org/codes/sdg/geoArea/784": {
+                "code": "784",
+                "label": "United Arab Emirates"
+            },
+            "http://data.un.org/codes/sdg/geoArea/530": {
+                "code": "530",
+                "label": "Netherlands Antilles (pre-2011)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/324": {
+                "code": "324",
+                "label": "Guinea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/796": {
+                "code": "796",
+                "label": "Turks and Caicos Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/566": {
+                "code": "566",
+                "label": "Nigeria"
+            },
+            "http://data.un.org/codes/sdg/geoArea/300": {
+                "code": "300",
+                "label": "Greece"
+            },
+            "http://data.un.org/codes/sdg/geoArea/554": {
+                "code": "554",
+                "label": "New Zealand"
+            },
+            "http://data.un.org/codes/sdg/geoArea/239": {
+                "code": "239",
+                "label": "South Georgia and the South Sandwich Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/009": {
+                "code": "009",
+                "label": "Oceania"
+            },
+            "http://data.un.org/codes/sdg/geoArea/578": {
+                "code": "578",
+                "label": "Norway"
+            },
+            "http://data.un.org/codes/sdg/geoArea/336": {
+                "code": "336",
+                "label": "Holy See"
+            },
+            "http://data.un.org/codes/sdg/geoArea/348": {
+                "code": "348",
+                "label": "Hungary"
+            },
+            "http://data.un.org/codes/sdg/geoArea/052": {
+                "code": "052",
+                "label": "Barbados"
+            },
+            "http://data.un.org/codes/sdg/geoArea/040": {
+                "code": "040",
+                "label": "Austria"
+            },
+            "http://data.un.org/codes/sdg/geoArea/270": {
+                "code": "270",
+                "label": "Gambia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/076": {
+                "code": "076",
+                "label": "Brazil"
+            },
+            "http://data.un.org/codes/sdg/geoArea/064": {
+                "code": "064",
+                "label": "Bhutan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/703": {
+                "code": "703",
+                "label": "Slovakia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/674": {
+                "code": "674",
+                "label": "San Marino"
+            },
+            "http://data.un.org/codes/sdg/geoArea/214": {
+                "code": "214",
+                "label": "Dominican Republic"
+            },
+            "http://data.un.org/codes/sdg/geoArea/202": {
+                "code": "202",
+                "label": "Sub-Saharan Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/795": {
+                "code": "795",
+                "label": "Turkmenistan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/662": {
+                "code": "662",
+                "label": "Saint Lucia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/686": {
+                "code": "686",
+                "label": "Senegal"
+            },
+            "http://data.un.org/codes/sdg/geoArea/008": {
+                "code": "008",
+                "label": "Albania"
+            },
+            "http://data.un.org/codes/sdg/geoArea/800": {
+                "code": "800",
+                "label": "Uganda"
+            },
+            "http://data.un.org/codes/sdg/geoArea/226": {
+                "code": "226",
+                "label": "Equatorial Guinea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/238": {
+                "code": "238",
+                "label": "Falkland Islands (Malvinas)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/140": {
+                "code": "140",
+                "label": "Central African Republic"
+            },
+            "http://data.un.org/codes/sdg/geoArea/188": {
+                "code": "188",
+                "label": "Costa Rica"
+            },
+            "http://data.un.org/codes/sdg/geoArea/152": {
+                "code": "152",
+                "label": "Chile"
+            },
+            "http://data.un.org/codes/sdg/geoArea/031": {
+                "code": "031",
+                "label": "Azerbaijan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/706": {
+                "code": "706",
+                "label": "Somalia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/520": {
+                "code": "520",
+                "label": "Nauru"
+            },
+            "http://data.un.org/codes/sdg/geoArea/762": {
+                "code": "762",
+                "label": "Tajikistan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/798": {
+                "code": "798",
+                "label": "Tuvalu"
+            },
+            "http://data.un.org/codes/sdg/geoArea/108": {
+                "code": "108",
+                "label": "Burundi"
+            },
+            "http://data.un.org/codes/sdg/geoArea/260": {
+                "code": "260",
+                "label": "French Southern Territories"
+            },
+            "http://data.un.org/codes/sdg/geoArea/175": {
+                "code": "175",
+                "label": "Mayotte"
+            },
+            "http://data.un.org/codes/sdg/geoArea/296": {
+                "code": "296",
+                "label": "Kiribati"
+            },
+            "http://data.un.org/codes/sdg/geoArea/826": {
+                "code": "826",
+                "label": "United Kingdom of Great Britain and Northern Ireland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/705": {
+                "code": "705",
+                "label": "Slovenia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/729": {
+                "code": "729",
+                "label": "Sudan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/608": {
+                "code": "608",
+                "label": "Philippines"
+            },
+            "http://data.un.org/codes/sdg/geoArea/882": {
+                "code": "882",
+                "label": "Samoa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/652": {
+                "code": "652",
+                "label": "Saint Barth\u00e9lemy"
+            },
+            "http://data.un.org/codes/sdg/geoArea/531": {
+                "code": "531",
+                "label": "Cura\u00e7ao"
+            },
+            "http://data.un.org/codes/sdg/geoArea/422": {
+                "code": "422",
+                "label": "Lebanon"
+            },
+            "http://data.un.org/codes/sdg/geoArea/894": {
+                "code": "894",
+                "label": "Zambia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/434": {
+                "code": "434",
+                "label": "Libya"
+            },
+            "http://data.un.org/codes/sdg/geoArea/410": {
+                "code": "410",
+                "label": "Republic of Korea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/688": {
+                "code": "688",
+                "label": "Serbia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/446": {
+                "code": "446",
+                "label": "China, Macao Special Administrative Region"
+            },
+            "http://data.un.org/codes/sdg/geoArea/458": {
+                "code": "458",
+                "label": "Malaysia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/204": {
+                "code": "204",
+                "label": "Benin"
+            },
+            "http://data.un.org/codes/sdg/geoArea/360": {
+                "code": "360",
+                "label": "Indonesia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/275": {
+                "code": "275",
+                "label": "State of Palestine"
+            },
+            "http://data.un.org/codes/sdg/geoArea/166": {
+                "code": "166",
+                "label": "Cocos (Keeling) Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/154": {
+                "code": "154",
+                "label": "Northern Europe"
+            },
+            "http://data.un.org/codes/sdg/geoArea/142": {
+                "code": "142",
+                "label": "Asia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/372": {
+                "code": "372",
+                "label": "Ireland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/384": {
+                "code": "384",
+                "label": "C\u00f4te d\u2019Ivoire"
+            },
+            "http://data.un.org/codes/sdg/geoArea/740": {
+                "code": "740",
+                "label": "Suriname"
+            },
+            "http://data.un.org/codes/sdg/geoArea/752": {
+                "code": "752",
+                "label": "Sweden"
+            },
+            "http://data.un.org/codes/sdg/geoArea/643": {
+                "code": "643",
+                "label": "Russian Federation"
+            },
+            "http://data.un.org/codes/sdg/geoArea/178": {
+                "code": "178",
+                "label": "Congo"
+            },
+            "http://data.un.org/codes/sdg/geoArea/764": {
+                "code": "764",
+                "label": "Thailand"
+            },
+            "http://data.un.org/codes/sdg/geoArea/776": {
+                "code": "776",
+                "label": "Tonga"
+            },
+            "http://data.un.org/codes/sdg/geoArea/316": {
+                "code": "316",
+                "label": "Guam"
+            },
+            "http://data.un.org/codes/sdg/geoArea/328": {
+                "code": "328",
+                "label": "Guyana"
+            },
+            "http://data.un.org/codes/sdg/geoArea/788": {
+                "code": "788",
+                "label": "Tunisia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/534": {
+                "code": "534",
+                "label": "Sint Maarten (Dutch part)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/304": {
+                "code": "304",
+                "label": "Greenland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/558": {
+                "code": "558",
+                "label": "Nicaragua"
+            },
+            "http://data.un.org/codes/sdg/geoArea/480": {
+                "code": "480",
+                "label": "Mauritius"
+            },
+            "http://data.un.org/codes/sdg/geoArea/250": {
+                "code": "250",
+                "label": "France"
+            },
+            "http://data.un.org/codes/sdg/geoArea/492": {
+                "code": "492",
+                "label": "Monaco"
+            },
+            "http://data.un.org/codes/sdg/geoArea/056": {
+                "code": "056",
+                "label": "Belgium"
+            },
+            "http://data.un.org/codes/sdg/geoArea/044": {
+                "code": "044",
+                "label": "Bahamas"
+            },
+            "http://data.un.org/codes/sdg/geoArea/262": {
+                "code": "262",
+                "label": "Djibouti"
+            },
+            "http://data.un.org/codes/sdg/geoArea/032": {
+                "code": "032",
+                "label": "Argentina"
+            },
+            "http://data.un.org/codes/sdg/geoArea/020": {
+                "code": "020",
+                "label": "Andorra"
+            },
+            "http://data.un.org/codes/sdg/geoArea/804": {
+                "code": "804",
+                "label": "Ukraine"
+            },
+            "http://data.un.org/codes/sdg/geoArea/860": {
+                "code": "860",
+                "label": "Uzbekistan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/630": {
+                "code": "630",
+                "label": "Puerto Rico"
+            },
+            "http://data.un.org/codes/sdg/geoArea/400": {
+                "code": "400",
+                "label": "Jordan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/654": {
+                "code": "654",
+                "label": "Saint Helena"
+            },
+            "http://data.un.org/codes/sdg/geoArea/533": {
+                "code": "533",
+                "label": "Aruba"
+            },
+            "http://data.un.org/codes/sdg/geoArea/068": {
+                "code": "068",
+                "label": "Bolivia (Plurinational State of)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/642": {
+                "code": "642",
+                "label": "Romania"
+            },
+            "http://data.un.org/codes/sdg/geoArea/678": {
+                "code": "678",
+                "label": "Sao Tome and Principe"
+            },
+            "http://data.un.org/codes/sdg/geoArea/218": {
+                "code": "218",
+                "label": "Ecuador"
+            },
+            "http://data.un.org/codes/sdg/geoArea/666": {
+                "code": "666",
+                "label": "Saint Pierre and Miquelon"
+            },
+            "http://data.un.org/codes/sdg/geoArea/580": {
+                "code": "580",
+                "label": "Northern Mariana Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/144": {
+                "code": "144",
+                "label": "Sri Lanka"
+            },
+            "http://data.un.org/codes/sdg/geoArea/132": {
+                "code": "132",
+                "label": "Cabo Verde"
+            },
+            "http://data.un.org/codes/sdg/geoArea/011": {
+                "code": "011",
+                "label": "Western Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/120": {
+                "code": "120",
+                "label": "Cameroon"
+            },
+            "http://data.un.org/codes/sdg/geoArea/807": {
+                "code": "807",
+                "label": "North Macedonia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/398": {
+                "code": "398",
+                "label": "Kazakhstan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/500": {
+                "code": "500",
+                "label": "Montserrat"
+            },
+            "http://data.un.org/codes/sdg/geoArea/156": {
+                "code": "156",
+                "label": "China"
+            },
+            "http://data.un.org/codes/sdg/geoArea/524": {
+                "code": "524",
+                "label": "Nepal"
+            },
+            "http://data.un.org/codes/sdg/geoArea/512": {
+                "code": "512",
+                "label": "Oman"
+            },
+            "http://data.un.org/codes/sdg/geoArea/887": {
+                "code": "887",
+                "label": "Yemen"
+            },
+            "http://data.un.org/codes/sdg/geoArea/548": {
+                "code": "548",
+                "label": "Vanuatu"
+            },
+            "http://data.un.org/codes/sdg/geoArea/470": {
+                "code": "470",
+                "label": "Malta"
+            },
+            "http://data.un.org/codes/sdg/geoArea/591": {
+                "code": "591",
+                "label": "Panama"
+            },
+            "http://data.un.org/codes/sdg/geoArea/276": {
+                "code": "276",
+                "label": "Germany"
+            },
+            "http://data.un.org/codes/sdg/geoArea/010": {
+                "code": "010",
+                "label": "Antarctica"
+            },
+            "http://data.un.org/codes/sdg/geoArea/090": {
+                "code": "090",
+                "label": "Solomon Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/208": {
+                "code": "208",
+                "label": "Denmark"
+            },
+            "http://data.un.org/codes/sdg/geoArea/818": {
+                "code": "818",
+                "label": "Egypt"
+            },
+            "http://data.un.org/codes/sdg/geoArea/850": {
+                "code": "850",
+                "label": "United States Virgin Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/288": {
+                "code": "288",
+                "label": "Ghana"
+            },
+            "http://data.un.org/codes/sdg/geoArea/862": {
+                "code": "862",
+                "label": "Venezuela (Bolivarian Republic of)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/620": {
+                "code": "620",
+                "label": "Portugal"
+            },
+            "http://data.un.org/codes/sdg/geoArea/535": {
+                "code": "535",
+                "label": "Bonaire, Sint Eustatius and Saba"
+            },
+            "http://data.un.org/codes/sdg/geoArea/426": {
+                "code": "426",
+                "label": "Lesotho"
+            },
+            "http://data.un.org/codes/sdg/geoArea/438": {
+                "code": "438",
+                "label": "Liechtenstein"
+            },
+            "http://data.un.org/codes/sdg/geoArea/414": {
+                "code": "414",
+                "label": "Kuwait"
+            },
+            "http://data.un.org/codes/sdg/geoArea/352": {
+                "code": "352",
+                "label": "Iceland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/231": {
+                "code": "231",
+                "label": "Ethiopia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/001": {
+                "code": "001",
+                "label": "World"
+            },
+            "http://data.un.org/codes/sdg/geoArea/364": {
+                "code": "364",
+                "label": "Iran (Islamic Republic of)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/570": {
+                "code": "570",
+                "label": "Niue"
+            },
+            "http://data.un.org/codes/sdg/geoArea/340": {
+                "code": "340",
+                "label": "Honduras"
+            },
+            "http://data.un.org/codes/sdg/geoArea/659": {
+                "code": "659",
+                "label": "Saint Kitts and Nevis"
+            },
+            "http://data.un.org/codes/sdg/geoArea/417": {
+                "code": "417",
+                "label": "Kyrgyzstan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/308": {
+                "code": "308",
+                "label": "Grenada"
+            },
+            "http://data.un.org/codes/sdg/geoArea/376": {
+                "code": "376",
+                "label": "Israel"
+            },
+            "http://data.un.org/codes/sdg/geoArea/388": {
+                "code": "388",
+                "label": "Jamaica"
+            },
+            "http://data.un.org/codes/sdg/geoArea/013": {
+                "code": "013",
+                "label": "Central America"
+            },
+            "http://data.un.org/codes/sdg/geoArea/732": {
+                "code": "732",
+                "label": "Western Sahara"
+            },
+            "http://data.un.org/codes/sdg/geoArea/744": {
+                "code": "744",
+                "label": "Svalbard and Jan Mayen Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/756": {
+                "code": "756",
+                "label": "Switzerland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/768": {
+                "code": "768",
+                "label": "Togo"
+            },
+            "http://data.un.org/codes/sdg/geoArea/690": {
+                "code": "690",
+                "label": "Seychelles"
+            },
+            "http://data.un.org/codes/sdg/geoArea/242": {
+                "code": "242",
+                "label": "Fiji"
+            },
+            "http://data.un.org/codes/sdg/geoArea/484": {
+                "code": "484",
+                "label": "Mexico"
+            },
+            "http://data.un.org/codes/sdg/geoArea/012": {
+                "code": "012",
+                "label": "Algeria"
+            },
+            "http://data.un.org/codes/sdg/geoArea/254": {
+                "code": "254",
+                "label": "French Guiana"
+            },
+            "http://data.un.org/codes/sdg/geoArea/581": {
+                "code": "581",
+                "label": "United States Minor Outlying Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/496": {
+                "code": "496",
+                "label": "Mongolia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/092": {
+                "code": "092",
+                "label": "British Virgin Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/428": {
+                "code": "428",
+                "label": "Latvia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/048": {
+                "code": "048",
+                "label": "Bahrain"
+            },
+            "http://data.un.org/codes/sdg/geoArea/036": {
+                "code": "036",
+                "label": "Australia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/840": {
+                "code": "840",
+                "label": "United States of America"
+            },
+            "http://data.un.org/codes/sdg/geoArea/266": {
+                "code": "266",
+                "label": "Gabon"
+            },
+            "http://data.un.org/codes/sdg/geoArea/024": {
+                "code": "024",
+                "label": "Angola"
+            },
+            "http://data.un.org/codes/sdg/geoArea/404": {
+                "code": "404",
+                "label": "Kenya"
+            },
+            "http://data.un.org/codes/sdg/geoArea/634": {
+                "code": "634",
+                "label": "Qatar"
+            },
+            "http://data.un.org/codes/sdg/geoArea/876": {
+                "code": "876",
+                "label": "Wallis and Futuna Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/646": {
+                "code": "646",
+                "label": "Rwanda"
+            },
+            "http://data.un.org/codes/sdg/geoArea/192": {
+                "code": "192",
+                "label": "Cuba"
+            },
+            "http://data.un.org/codes/sdg/geoArea/100": {
+                "code": "100",
+                "label": "Bulgaria"
+            },
+            "http://data.un.org/codes/sdg/geoArea/584": {
+                "code": "584",
+                "label": "Marshall Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/180": {
+                "code": "180",
+                "label": "Democratic Republic of the Congo"
+            },
+            "http://data.un.org/codes/sdg/geoArea/528": {
+                "code": "528",
+                "label": "Netherlands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/419": {
+                "code": "419",
+                "label": "Latin America and the Caribbean"
+            },
+            "http://data.un.org/codes/sdg/geoArea/516": {
+                "code": "516",
+                "label": "Namibia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/148": {
+                "code": "148",
+                "label": "Chad"
+            },
+            "http://data.un.org/codes/sdg/geoArea/136": {
+                "code": "136",
+                "label": "Cayman Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/124": {
+                "code": "124",
+                "label": "Canada"
+            },
+            "http://data.un.org/codes/sdg/geoArea/233": {
+                "code": "233",
+                "label": "Estonia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/112": {
+                "code": "112",
+                "label": "Belarus"
+            },
+            "http://data.un.org/codes/sdg/geoArea/499": {
+                "code": "499",
+                "label": "Montenegro"
+            },
+            "http://data.un.org/codes/sdg/geoArea/831": {
+                "code": "831",
+                "label": "Guernsey"
+            },
+            "http://data.un.org/codes/sdg/geoArea/710": {
+                "code": "710",
+                "label": "South Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/504": {
+                "code": "504",
+                "label": "Morocco"
+            },
+            "http://data.un.org/codes/sdg/geoArea/462": {
+                "code": "462",
+                "label": "Maldives"
+            },
+            "http://data.un.org/codes/sdg/geoArea/474": {
+                "code": "474",
+                "label": "Martinique"
+            },
+            "http://data.un.org/codes/sdg/geoArea/232": {
+                "code": "232",
+                "label": "Eritrea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/680": {
+                "code": "680",
+                "label": "Sark"
+            },
+            "http://data.un.org/codes/sdg/geoArea/450": {
+                "code": "450",
+                "label": "Madagascar"
+            },
+            "http://data.un.org/codes/sdg/geoArea/583": {
+                "code": "583",
+                "label": "Micronesia (Federated States of)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/191": {
+                "code": "191",
+                "label": "Croatia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/070": {
+                "code": "070",
+                "label": "Bosnia and Herzegovina"
+            },
+            "http://data.un.org/codes/sdg/geoArea/418": {
+                "code": "418",
+                "label": "Lao People's Democratic Republic"
+            },
+            "http://data.un.org/codes/sdg/geoArea/498": {
+                "code": "498",
+                "label": "Republic of Moldova"
+            },
+            "http://data.un.org/codes/sdg/geoArea/268": {
+                "code": "268",
+                "label": "Georgia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/014": {
+                "code": "014",
+                "label": "Eastern Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/830": {
+                "code": "830",
+                "label": "Channel Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/002": {
+                "code": "002",
+                "label": "Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/612": {
+                "code": "612",
+                "label": "Pitcairn"
+            },
+            "http://data.un.org/codes/sdg/geoArea/854": {
+                "code": "854",
+                "label": "Burkina Faso"
+            },
+            "http://data.un.org/codes/sdg/geoArea/600": {
+                "code": "600",
+                "label": "Paraguay"
+            },
+            "http://data.un.org/codes/sdg/geoArea/624": {
+                "code": "624",
+                "label": "Guinea-Bissau"
+            },
+            "http://data.un.org/codes/sdg/geoArea/170": {
+                "code": "170",
+                "label": "Colombia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/780": {
+                "code": "780",
+                "label": "Trinidad and Tobago"
+            },
+            "http://data.un.org/codes/sdg/geoArea/320": {
+                "code": "320",
+                "label": "Guatemala"
+            },
+            "http://data.un.org/codes/sdg/geoArea/792": {
+                "code": "792",
+                "label": "Turkey"
+            },
+            "http://data.un.org/codes/sdg/geoArea/562": {
+                "code": "562",
+                "label": "Niger"
+            },
+            "http://data.un.org/codes/sdg/geoArea/736": {
+                "code": "736",
+                "label": "Sudan (pre-2011)"
+            },
+            "http://data.un.org/codes/sdg/geoArea/748": {
+                "code": "748",
+                "label": "Eswatini"
+            },
+            "http://data.un.org/codes/sdg/geoArea/586": {
+                "code": "586",
+                "label": "Pakistan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/356": {
+                "code": "356",
+                "label": "India"
+            },
+            "http://data.un.org/codes/sdg/geoArea/005": {
+                "code": "005",
+                "label": "South America"
+            },
+            "http://data.un.org/codes/sdg/geoArea/574": {
+                "code": "574",
+                "label": "Norfolk Island"
+            },
+            "http://data.un.org/codes/sdg/geoArea/368": {
+                "code": "368",
+                "label": "Iraq"
+            },
+            "http://data.un.org/codes/sdg/geoArea/332": {
+                "code": "332",
+                "label": "Haiti"
+            },
+            "http://data.un.org/codes/sdg/geoArea/344": {
+                "code": "344",
+                "label": "China, Hong Kong Special Administrative Region"
+            },
+            "http://data.un.org/codes/sdg/geoArea/598": {
+                "code": "598",
+                "label": "Papua New Guinea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/833": {
+                "code": "833",
+                "label": "Isle of Man"
+            },
+            "http://data.un.org/codes/sdg/geoArea/029": {
+                "code": "029",
+                "label": "Caribbean"
+            },
+            "http://data.un.org/codes/sdg/geoArea/724": {
+                "code": "724",
+                "label": "Spain"
+            },
+            "http://data.un.org/codes/sdg/geoArea/017": {
+                "code": "017",
+                "label": "Middle Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/096": {
+                "code": "096",
+                "label": "Brunei Darussalam"
+            },
+            "http://data.un.org/codes/sdg/geoArea/084": {
+                "code": "084",
+                "label": "Belize"
+            },
+            "http://data.un.org/codes/sdg/geoArea/072": {
+                "code": "072",
+                "label": "Botswana"
+            },
+            "http://data.un.org/codes/sdg/geoArea/060": {
+                "code": "060",
+                "label": "Bermuda"
+            },
+            "http://data.un.org/codes/sdg/geoArea/670": {
+                "code": "670",
+                "label": "Saint Vincent and the Grenadines"
+            },
+            "http://data.un.org/codes/sdg/geoArea/440": {
+                "code": "440",
+                "label": "Lithuania"
+            },
+            "http://data.un.org/codes/sdg/geoArea/694": {
+                "code": "694",
+                "label": "Sierra Leone"
+            },
+            "http://data.un.org/codes/sdg/geoArea/682": {
+                "code": "682",
+                "label": "Saudi Arabia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/408": {
+                "code": "408",
+                "label": "Democratic People's Republic of Korea"
+            },
+            "http://data.un.org/codes/sdg/geoArea/638": {
+                "code": "638",
+                "label": "R\u00e9union"
+            },
+            "http://data.un.org/codes/sdg/geoArea/626": {
+                "code": "626",
+                "label": "Timor-Leste"
+            },
+            "http://data.un.org/codes/sdg/geoArea/246": {
+                "code": "246",
+                "label": "Finland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/016": {
+                "code": "016",
+                "label": "American Samoa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/258": {
+                "code": "258",
+                "label": "French Polynesia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/004": {
+                "code": "004",
+                "label": "Afghanistan"
+            },
+            "http://data.un.org/codes/sdg/geoArea/585": {
+                "code": "585",
+                "label": "Palau"
+            },
+            "http://data.un.org/codes/sdg/geoArea/234": {
+                "code": "234",
+                "label": "Faroe Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/222": {
+                "code": "222",
+                "label": "El Salvador"
+            },
+            "http://data.un.org/codes/sdg/geoArea/832": {
+                "code": "832",
+                "label": "Jersey"
+            },
+            "http://data.un.org/codes/sdg/geoArea/028": {
+                "code": "028",
+                "label": "Antigua and Barbuda"
+            },
+            "http://data.un.org/codes/sdg/geoArea/184": {
+                "code": "184",
+                "label": "Cook Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/051": {
+                "code": "051",
+                "label": "Armenia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/540": {
+                "code": "540",
+                "label": "New Caledonia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/196": {
+                "code": "196",
+                "label": "Cyprus"
+            },
+            "http://data.un.org/codes/sdg/geoArea/508": {
+                "code": "508",
+                "label": "Mozambique"
+            },
+            "http://data.un.org/codes/sdg/geoArea/104": {
+                "code": "104",
+                "label": "Myanmar"
+            },
+            "http://data.un.org/codes/sdg/geoArea/334": {
+                "code": "334",
+                "label": "Heard Island and McDonald Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/019": {
+                "code": "019",
+                "label": "Americas"
+            },
+            "http://data.un.org/codes/sdg/geoArea/116": {
+                "code": "116",
+                "label": "Cambodia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/702": {
+                "code": "702",
+                "label": "Singapore"
+            },
+            "http://data.un.org/codes/sdg/geoArea/074": {
+                "code": "074",
+                "label": "Bouvet Island"
+            },
+            "http://data.un.org/codes/sdg/geoArea/050": {
+                "code": "050",
+                "label": "Bangladesh"
+            },
+            "http://data.un.org/codes/sdg/geoArea/292": {
+                "code": "292",
+                "label": "Gibraltar"
+            },
+            "http://data.un.org/codes/sdg/geoArea/430": {
+                "code": "430",
+                "label": "Liberia"
+            },
+            "http://data.un.org/codes/sdg/geoArea/086": {
+                "code": "086",
+                "label": "British Indian Ocean Territory"
+            },
+            "http://data.un.org/codes/sdg/geoArea/660": {
+                "code": "660",
+                "label": "Anguilla"
+            },
+            "http://data.un.org/codes/sdg/geoArea/616": {
+                "code": "616",
+                "label": "Poland"
+            },
+            "http://data.un.org/codes/sdg/geoArea/858": {
+                "code": "858",
+                "label": "Uruguay"
+            },
+            "http://data.un.org/codes/sdg/geoArea/604": {
+                "code": "604",
+                "label": "Peru"
+            },
+            "http://data.un.org/codes/sdg/geoArea/466": {
+                "code": "466",
+                "label": "Mali"
+            },
+            "http://data.un.org/codes/sdg/geoArea/478": {
+                "code": "478",
+                "label": "Mauritania"
+            },
+            "http://data.un.org/codes/sdg/geoArea/442": {
+                "code": "442",
+                "label": "Luxembourg"
+            },
+            "http://data.un.org/codes/sdg/geoArea/212": {
+                "code": "212",
+                "label": "Dominica"
+            },
+            "http://data.un.org/codes/sdg/geoArea/454": {
+                "code": "454",
+                "label": "Malawi"
+            },
+            "http://data.un.org/codes/sdg/geoArea/248": {
+                "code": "248",
+                "label": "\u00c5land Islands"
+            },
+            "http://data.un.org/codes/sdg/geoArea/018": {
+                "code": "018",
+                "label": "Southern Africa"
+            },
+            "http://data.un.org/codes/sdg/geoArea/834": {
+                "code": "834",
+                "label": "United Republic of Tanzania"
+            }
+        }
+    },
+    "disabilityStatusCode": {
+        "uri": "http://data.un.org/codes/sdg/disabilityStatus",
+        "label": "disability status",
+        "codes": {
+            "http://data.un.org/codes/sdg/disabilityStatus/_T": {
+                "code": "_T",
+                "label": "No breakdown by disability"
+            },
+            "http://data.un.org/codes/sdg/disabilityStatus/PD": {
+                "code": "PD",
+                "label": "Persons with disability"
+            },
+            "http://data.un.org/codes/sdg/disabilityStatus/PWD": {
+                "code": "PWD",
+                "label": "Persons without disability"
+            }
+        }
+    },
+    "boundCode": {
+        "uri": "http://data.un.org/codes/sdg/bound",
+        "label": "bound",
+        "codes": {
+            "http://data.un.org/codes/sdg/bound/LB": {
+                "code": "LB",
+                "label": "Lower bound"
+            },
+            "http://data.un.org/codes/sdg/bound/_T": {
+                "code": "_T",
+                "label": "Mid-point"
+            },
+            "http://data.un.org/codes/sdg/bound/UB": {
+                "code": "UB",
+                "label": "Upper bound"
+            }
+        }
+    },
+    "modeOfTransportationCode": {
+        "uri": "http://data.un.org/codes/sdg/modeOfTransportation",
+        "label": "mode of transportation",
+        "codes": {
+            "http://data.un.org/codes/sdg/modeOfTransportation/RAI": {
+                "code": "RAI",
+                "label": "Rail transport"
+            },
+            "http://data.un.org/codes/sdg/modeOfTransportation/AIR": {
+                "code": "AIR",
+                "label": "Air transport"
+            },
+            "http://data.un.org/codes/sdg/modeOfTransportation/ROA": {
+                "code": "ROA",
+                "label": "Road transport"
+            }
+        }
+    },
+    "hazardTypeCode": {
+        "uri": "http://data.un.org/codes/sdg/hazardType",
+        "label": "hazard type",
+        "codes": {
+            "http://data.un.org/codes/sdg/hazardType/FROST": {
+                "code": "FROST",
+                "label": "Frost"
+            },
+            "http://data.un.org/codes/sdg/hazardType/NUCIN": {
+                "code": "NUCIN",
+                "label": "Nuclear Incident"
+            },
+            "http://data.un.org/codes/sdg/hazardType/SNSTM": {
+                "code": "SNSTM",
+                "label": "Snowstorm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/CSOLD": {
+                "code": "CSOLD",
+                "label": "Consolidate"
+            },
+            "http://data.un.org/codes/sdg/hazardType/GLCFL": {
+                "code": "GLCFL",
+                "label": "Glacial Lake Outburst Flood"
+            },
+            "http://data.un.org/codes/sdg/hazardType/FOGXX": {
+                "code": "FOGXX",
+                "label": "Fog"
+            },
+            "http://data.un.org/codes/sdg/hazardType/SANDS": {
+                "code": "SANDS",
+                "label": "Sand Storm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/CYCLN": {
+                "code": "CYCLN",
+                "label": "Cyclone"
+            },
+            "http://data.un.org/codes/sdg/hazardType/PANIC": {
+                "code": "PANIC",
+                "label": "Panic"
+            },
+            "http://data.un.org/codes/sdg/hazardType/HETWA": {
+                "code": "HETWA",
+                "label": "Heat Wave"
+            },
+            "http://data.un.org/codes/sdg/hazardType/PESTX": {
+                "code": "PESTX",
+                "label": "Pest"
+            },
+            "http://data.un.org/codes/sdg/hazardType/DFRST": {
+                "code": "DFRST",
+                "label": "Deforestation"
+            },
+            "http://data.un.org/codes/sdg/hazardType/LAHAR": {
+                "code": "LAHAR",
+                "label": "Lahar"
+            },
+            "http://data.un.org/codes/sdg/hazardType/COSER": {
+                "code": "COSER",
+                "label": "Coastal Erosion"
+            },
+            "http://data.un.org/codes/sdg/hazardType/AVALE": {
+                "code": "AVALE",
+                "label": "Avalanche"
+            },
+            "http://data.un.org/codes/sdg/hazardType/PEATX": {
+                "code": "PEATX",
+                "label": "Peat"
+            },
+            "http://data.un.org/codes/sdg/hazardType/HAILS": {
+                "code": "HAILS",
+                "label": "Hailstorm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/HEVRN": {
+                "code": "HEVRN",
+                "label": "Heavy Rain"
+            },
+            "http://data.un.org/codes/sdg/hazardType/FIREX": {
+                "code": "FIREX",
+                "label": "Fire"
+            },
+            "http://data.un.org/codes/sdg/hazardType/COSFL": {
+                "code": "COSFL",
+                "label": "Coastal Flood"
+            },
+            "http://data.un.org/codes/sdg/hazardType/FLOOD": {
+                "code": "FLOOD",
+                "label": "Flood"
+            },
+            "http://data.un.org/codes/sdg/hazardType/DZUD": {
+                "code": "DZUD",
+                "label": "Dzud"
+            },
+            "http://data.un.org/codes/sdg/hazardType/CHESP": {
+                "code": "CHESP",
+                "label": "Chemical Spill"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ACIDR": {
+                "code": "ACIDR",
+                "label": "Acid rain"
+            },
+            "http://data.un.org/codes/sdg/hazardType/TECHH": {
+                "code": "TECHH",
+                "label": "Technological Hazard"
+            },
+            "http://data.un.org/codes/sdg/hazardType/LNDSL": {
+                "code": "LNDSL",
+                "label": "Landslide"
+            },
+            "http://data.un.org/codes/sdg/hazardType/FRZRN": {
+                "code": "FRZRN",
+                "label": "Freezing Rain"
+            },
+            "http://data.un.org/codes/sdg/hazardType/EPIDM": {
+                "code": "EPIDM",
+                "label": "Epidemics"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ALLUV": {
+                "code": "ALLUV",
+                "label": "Alluvion"
+            },
+            "http://data.un.org/codes/sdg/hazardType/PLGUE": {
+                "code": "PLGUE",
+                "label": "Plague"
+            },
+            "http://data.un.org/codes/sdg/hazardType/SUBSD": {
+                "code": "SUBSD",
+                "label": "Subsidence"
+            },
+            "http://data.un.org/codes/sdg/hazardType/LIQFN": {
+                "code": "LIQFN",
+                "label": "Liquefaction"
+            },
+            "http://data.un.org/codes/sdg/hazardType/SEDMN": {
+                "code": "SEDMN",
+                "label": "Sedimentation"
+            },
+            "http://data.un.org/codes/sdg/hazardType/VOLER": {
+                "code": "VOLER",
+                "label": "Volcanic Eruption"
+            },
+            "http://data.un.org/codes/sdg/hazardType/BIOGL": {
+                "code": "BIOGL",
+                "label": "Biological"
+            },
+            "http://data.un.org/codes/sdg/hazardType/EPIZT": {
+                "code": "EPIZT",
+                "label": "Epizootic"
+            },
+            "http://data.un.org/codes/sdg/hazardType/OTHER": {
+                "code": "OTHER",
+                "label": "Other"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ANIAK": {
+                "code": "ANIAK",
+                "label": "Animal Attack"
+            },
+            "http://data.un.org/codes/sdg/hazardType/EXTEM": {
+                "code": "EXTEM",
+                "label": "Extreme Temperature"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ELEST": {
+                "code": "ELEST",
+                "label": "Electric Storm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/WLDFR": {
+                "code": "WLDFR",
+                "label": "Wild Fire"
+            },
+            "http://data.un.org/codes/sdg/hazardType/INTOX": {
+                "code": "INTOX",
+                "label": "Intoxication"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ERQAK": {
+                "code": "ERQAK",
+                "label": "Earthquake"
+            },
+            "http://data.un.org/codes/sdg/hazardType/WNDST": {
+                "code": "WNDST",
+                "label": "Windstorm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/LNDRG": {
+                "code": "LNDRG",
+                "label": "Land Degradation"
+            },
+            "http://data.un.org/codes/sdg/hazardType/POLUT": {
+                "code": "POLUT",
+                "label": "Pollution"
+            },
+            "http://data.un.org/codes/sdg/hazardType/STORM": {
+                "code": "STORM",
+                "label": "Storm"
+            },
+            "http://data.un.org/codes/sdg/hazardType/TSUNM": {
+                "code": "TSUNM",
+                "label": "Tsunami"
+            },
+            "http://data.un.org/codes/sdg/hazardType/TORND": {
+                "code": "TORND",
+                "label": "Tornado"
+            },
+            "http://data.un.org/codes/sdg/hazardType/COLDW": {
+                "code": "COLDW",
+                "label": "Cold Wave"
+            },
+            "http://data.un.org/codes/sdg/hazardType/EROSN": {
+                "code": "EROSN",
+                "label": "Erosion"
+            },
+            "http://data.un.org/codes/sdg/hazardType/DROUG": {
+                "code": "DROUG",
+                "label": "Drought"
+            },
+            "http://data.un.org/codes/sdg/hazardType/STCOL": {
+                "code": "STCOL",
+                "label": "Structural Collapse"
+            },
+            "http://data.un.org/codes/sdg/hazardType/STUCK": {
+                "code": "STUCK",
+                "label": "Stuck"
+            },
+            "http://data.un.org/codes/sdg/hazardType/INFET": {
+                "code": "INFET",
+                "label": "Insect Infestation"
+            },
+            "http://data.un.org/codes/sdg/hazardType/ACIDT": {
+                "code": "ACIDT",
+                "label": "Accident"
+            },
+            "http://data.un.org/codes/sdg/hazardType/EXPLN": {
+                "code": "EXPLN",
+                "label": "Explosion"
+            },
+            "http://data.un.org/codes/sdg/hazardType/FLSFL": {
+                "code": "FLSFL",
+                "label": "Flash Flood"
+            },
+            "http://data.un.org/codes/sdg/hazardType/CONTM": {
+                "code": "CONTM",
+                "label": "Contamination"
+            }
+        }
+    },
+    "typeOfOccupationCode": {
+        "uri": "http://data.un.org/codes/sdg/typeOfOccupation",
+        "label": "type of occupation",
+        "codes": {
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-8": {
+                "code": "isco88-8",
+                "label": "Plant and machine operators and assemblers (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-6": {
+                "code": "isco88-6",
+                "label": "Skilled agricultural and fishery workers (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88": {
+                "code": "isco88",
+                "label": "All occupations (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-3": {
+                "code": "isco08-3",
+                "label": "Technicians and associate professionals (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-1": {
+                "code": "isco08-1",
+                "label": "Managers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-7": {
+                "code": "isco08-7",
+                "label": "Craft and related trades workers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-X": {
+                "code": "isco08-X",
+                "label": "Not elsewhere classified (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-5": {
+                "code": "isco08-5",
+                "label": "Service and sales workers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-3": {
+                "code": "isco88-3",
+                "label": "Technicians and associate professionals (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-9": {
+                "code": "isco08-9",
+                "label": "Elementary occupations (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-1": {
+                "code": "isco88-1",
+                "label": "Legislators, senior officials and managers (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-7": {
+                "code": "isco88-7",
+                "label": "Craft and related trades workers (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-X": {
+                "code": "isco88-X",
+                "label": "Not elsewhere classified (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-5": {
+                "code": "isco88-5",
+                "label": "Service workers and shop and market sales workers (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/DENT": {
+                "code": "DENT",
+                "label": "Dentists"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-9": {
+                "code": "isco88-9",
+                "label": "Elementary occupations (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/PHAR": {
+                "code": "PHAR",
+                "label": "Pharmacists"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-0": {
+                "code": "isco08-0",
+                "label": "Armed forces occupations (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/PHYS": {
+                "code": "PHYS",
+                "label": "Medical doctors"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-4": {
+                "code": "isco08-4",
+                "label": "Clerical support workers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-2": {
+                "code": "isco08-2",
+                "label": "Professionals (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08": {
+                "code": "isco08",
+                "label": "All occupations (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-8": {
+                "code": "isco08-8",
+                "label": "Plant and machine operators, and assemblers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-0": {
+                "code": "isco88-0",
+                "label": "Armed forces (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco08-6": {
+                "code": "isco08-6",
+                "label": "Skilled agricultural, forestry and fishery workers (isco-08)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-4": {
+                "code": "isco88-4",
+                "label": "Clerks (isco-88)"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/NURS": {
+                "code": "NURS",
+                "label": "Nursing and midwifery personnel"
+            },
+            "http://data.un.org/codes/sdg/typeOfOccupation/isco88-2": {
+                "code": "isco88-2",
+                "label": "Professionals (isco-88)"
+            }
+        }
+    },
+    "yearCode": {
+        "uri": "http://data.un.org/codes/sdg/year",
+        "label": "year",
+        "codes": [
+            "value_1985",
+            "value_1986",
+            "value_1987",
+            "value_1988",
+            "value_1989",
+            "value_1990",
+            "value_1991",
+            "value_1992",
+            "value_1993",
+            "value_1994",
+            "value_1995",
+            "value_1996",
+            "value_1997",
+            "value_1998",
+            "value_1999",
+            "value_2000",
+            "value_2001",
+            "value_2002",
+            "value_2003",
+            "value_2004",
+            "value_2005",
+            "value_2006",
+            "value_2007",
+            "value_2008",
+            "value_2009",
+            "value_2010",
+            "value_2011",
+            "value_2012",
+            "value_2013",
+            "value_2014",
+            "value_2015",
+            "value_2016",
+            "value_2017",
+            "value_2018",
+            "value_2019"
+        ]
+    },
+    "nameOfInternationalInstitutionCode": {
+        "uri": "http://data.un.org/codes/sdg/nameOfInternationalInstitution",
+        "label": "name of international institution",
+        "codes": {
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/IMF": {
+                "code": "IMF",
+                "label": "International Monetary Fund"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/UNGA": {
+                "code": "UNGA",
+                "label": "UN General Assembly"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/WTO": {
+                "code": "WTO",
+                "label": "World Trade Organisation"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/ADB": {
+                "code": "ADB",
+                "label": "Asian Development Bank"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/UNSC": {
+                "code": "UNSC",
+                "label": "UN Security Council"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/AFDB": {
+                "code": "AFDB",
+                "label": "African Development Bank"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/IFC": {
+                "code": "IFC",
+                "label": "International Finance Corporation"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/IBRD": {
+                "code": "IBRD",
+                "label": "International Bank for Reconstruction and Development"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/IABD": {
+                "code": "IABD",
+                "label": "Inter-American Development Bank"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/FSB": {
+                "code": "FSB",
+                "label": "Financial Stability Board"
+            },
+            "http://data.un.org/codes/sdg/nameOfInternationalInstitution/ECOSOC": {
+                "code": "ECOSOC",
+                "label": "UN Economic and Social Council"
+            }
+        }
+    },
+    "educationLevelCode": {
+        "uri": "http://data.un.org/codes/sdg/educationLevel",
+        "label": "education level",
+        "codes": {
+            "http://data.un.org/codes/sdg/educationLevel/PRIMAR": {
+                "code": "PRIMAR",
+                "label": "Primary"
+            },
+            "http://data.un.org/codes/sdg/educationLevel/LOWSEC": {
+                "code": "LOWSEC",
+                "label": "Lower secondary"
+            },
+            "http://data.un.org/codes/sdg/educationLevel/PREPRI": {
+                "code": "PREPRI",
+                "label": "Pre-primary"
+            },
+            "http://data.un.org/codes/sdg/educationLevel/GRAD23": {
+                "code": "GRAD23",
+                "label": "Grades 2/3"
+            },
+            "http://data.un.org/codes/sdg/educationLevel/SECOND": {
+                "code": "SECOND",
+                "label": "Secondary"
+            },
+            "http://data.un.org/codes/sdg/educationLevel/UPPSEC": {
+                "code": "UPPSEC",
+                "label": "Upper secondary"
+            }
+        }
+    },
+    "locationCode": {
+        "uri": "http://data.un.org/codes/sdg/location",
+        "label": "location",
+        "codes": {
+            "http://data.un.org/codes/sdg/location/U": {
+                "code": "U",
+                "label": "Urban"
+            },
+            "http://data.un.org/codes/sdg/location/R": {
+                "code": "R",
+                "label": "Rural"
+            },
+            "http://data.un.org/codes/sdg/location/_T": {
+                "code": "_T",
+                "label": "All areas"
+            }
+        }
+    },
+    "ihrCapacityCode": {
+        "uri": "http://data.un.org/codes/sdg/ihrCapacity",
+        "label": "IHR capacity",
+        "codes": {
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR08": {
+                "code": "IHR08",
+                "label": "Laboratory"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR09": {
+                "code": "IHR09",
+                "label": "Points of entry"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR02": {
+                "code": "IHR02",
+                "label": "Coordination and National Focal Point communications"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR13": {
+                "code": "IHR13",
+                "label": "Radionuclear emergencies"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR03": {
+                "code": "IHR03",
+                "label": "Surveillance"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR11": {
+                "code": "IHR11",
+                "label": "Food safety"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR12": {
+                "code": "IHR12",
+                "label": "Chemical events"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR01": {
+                "code": "IHR01",
+                "label": "National legislation, policy and financing"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR06": {
+                "code": "IHR06",
+                "label": "Risk communication"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR07": {
+                "code": "IHR07",
+                "label": "Human resources"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR04": {
+                "code": "IHR04",
+                "label": "Response"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR05": {
+                "code": "IHR05",
+                "label": "Preparedness"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/IHR10": {
+                "code": "IHR10",
+                "label": " Zoonotic events"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR07": {
+                "code": "SPAR07",
+                "label": "Human resources"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR06": {
+                "code": "SPAR06",
+                "label": "Surveillance"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR05": {
+                "code": "SPAR05",
+                "label": "Laboratory"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR04": {
+                "code": "SPAR04",
+                "label": "Food safety"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR03": {
+                "code": "SPAR03",
+                "label": "Zoonotic events and the human\u2013animal interface"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR02": {
+                "code": "SPAR02",
+                "label": "IHR Coordination and National IHR Focal Point Functions"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR01": {
+                "code": "SPAR01",
+                "label": "Legislation and Financing"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR09": {
+                "code": "SPAR09",
+                "label": "Health Service Provision"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR11": {
+                "code": "SPAR11",
+                "label": "Points of entry"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR13": {
+                "code": "SPAR13",
+                "label": "Radiation emergencies"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR12": {
+                "code": "SPAR12",
+                "label": "Chemical events"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR10": {
+                "code": "SPAR10",
+                "label": "Risk Communication"
+            },
+            "http://data.un.org/codes/sdg/ihrCapacity/SPAR08": {
+                "code": "SPAR08",
+                "label": "National Health Emergency Framework"
+            }
+        }
+    },
+    "typeOfSkillCode": {
+        "uri": "http://data.un.org/codes/sdg/typeOfSkill",
+        "label": "type of skill",
+        "codes": {
+            "http://data.un.org/codes/sdg/typeOfSkill/EMAIL": {
+                "code": "EMAIL",
+                "label": "Sending e-mails with attached files"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/LITE": {
+                "code": "LITE",
+                "label": "Literacy"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/INST": {
+                "code": "INST",
+                "label": "Connecting and installing new devices"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/COPA": {
+                "code": "COPA",
+                "label": "Using copy and paste tools to duplicate or move information within a document"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/PCPR": {
+                "code": "PCPR",
+                "label": "Writing a computer program using a specialized programming language"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/NUME": {
+                "code": "NUME",
+                "label": "Numeracy"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/EPRS": {
+                "code": "EPRS",
+                "label": "Creating electronic presentations with presentation software"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/CMFL": {
+                "code": "CMFL",
+                "label": "Copying or moving a file or folder"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/TRAF": {
+                "code": "TRAF",
+                "label": "Transferring files between a computer and other devices"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/SOFT": {
+                "code": "SOFT",
+                "label": "Finding, downloading, installing and configuring software"
+            },
+            "http://data.un.org/codes/sdg/typeOfSkill/ARSP": {
+                "code": "ARSP",
+                "label": "Using basic arithmetic formula in a spreadsheet"
+            }
+        }
+    },
+    "citiesCode": {
+        "uri": "http://data.un.org/codes/sdg/cities",
+        "label": "cities",
+        "codes": {
+            "http://data.un.org/codes/sdg/cities/CALLAO_CALLAOCERCADO": {
+                "code": "CALLAO_CALLAOCERCADO",
+                "label": "Callao, Callao Cercado"
+            },
+            "http://data.un.org/codes/sdg/cities/PARIS": {
+                "code": "PARIS",
+                "label": "Paris"
+            },
+            "http://data.un.org/codes/sdg/cities/NIAMEY": {
+                "code": "NIAMEY",
+                "label": "Niamey"
+            },
+            "http://data.un.org/codes/sdg/cities/SANTODOMINGODELOSCOLORADOS": {
+                "code": "SANTODOMINGODELOSCOLORADOS",
+                "label": "Santo Domingo de los Colorados"
+            },
+            "http://data.un.org/codes/sdg/cities/MILAN": {
+                "code": "MILAN",
+                "label": "Milan"
+            },
+            "http://data.un.org/codes/sdg/cities/RIYADH": {
+                "code": "RIYADH",
+                "label": "Riyadh"
+            },
+            "http://data.un.org/codes/sdg/cities/BUDAPEST": {
+                "code": "BUDAPEST",
+                "label": "Budapest"
+            },
+            "http://data.un.org/codes/sdg/cities/CONAKRY": {
+                "code": "CONAKRY",
+                "label": "Conakry"
+            },
+            "http://data.un.org/codes/sdg/cities/MINSK": {
+                "code": "MINSK",
+                "label": "Minsk"
+            },
+            "http://data.un.org/codes/sdg/cities/CUAUHTEMOC_CHIHUAHUA": {
+                "code": "CUAUHTEMOC_CHIHUAHUA",
+                "label": "Cuauhtemoc, Chihuahua"
+            },
+            "http://data.un.org/codes/sdg/cities/KATHMANDU": {
+                "code": "KATHMANDU",
+                "label": "Kathmandu"
+            },
+            "http://data.un.org/codes/sdg/cities/CHIHUAHUA_CHIHUAHUA": {
+                "code": "CHIHUAHUA_CHIHUAHUA",
+                "label": "Chihuahua, Chihuahua"
+            },
+            "http://data.un.org/codes/sdg/cities/SANSALVADOR_APOPA": {
+                "code": "SANSALVADOR_APOPA",
+                "label": "San Salvador - Apopa"
+            },
+            "http://data.un.org/codes/sdg/cities/SINGAPORE": {
+                "code": "SINGAPORE",
+                "label": "Singapore"
+            },
+            "http://data.un.org/codes/sdg/cities/COATZACOALCOS_VERACRUZ": {
+                "code": "COATZACOALCOS_VERACRUZ",
+                "label": "Coatzacoalcos, Veracruz"
+            },
+            "http://data.un.org/codes/sdg/cities/GUADALUPE_ZACATECAS": {
+                "code": "GUADALUPE_ZACATECAS",
+                "label": "Guadalupe, Zacatecas"
+            },
+            "http://data.un.org/codes/sdg/cities/BOGOTA": {
+                "code": "BOGOTA",
+                "label": "Bogota"
+            },
+            "http://data.un.org/codes/sdg/cities/MANCHESTER": {
+                "code": "MANCHESTER",
+                "label": "Manchester"
+            },
+            "http://data.un.org/codes/sdg/cities/SANSALVADOR_ILOPANGO": {
+                "code": "SANSALVADOR_ILOPANGO",
+                "label": "San Salvador - Ilopango,"
+            },
+            "http://data.un.org/codes/sdg/cities/CHETUMAL_OTHONP_BLANCO_QUINTANAROO": {
+                "code": "CHETUMAL_OTHONP_BLANCO_QUINTANAROO",
+                "label": "Chetumal, Othon P. Blanco, Quintana Roo"
+            },
+            "http://data.un.org/codes/sdg/cities/GABORONE": {
+                "code": "GABORONE",
+                "label": "Gaborone"
+            },
+            "http://data.un.org/codes/sdg/cities/LOSLAGOS_PUERTOMONTT": {
+                "code": "LOSLAGOS_PUERTOMONTT",
+                "label": "Los Lagos, Puerto Montt"
+            },
+            "http://data.un.org/codes/sdg/cities/MASERU": {
+                "code": "MASERU",
+                "label": "Maseru"
+            },
+            "http://data.un.org/codes/sdg/cities/PRAIA": {
+                "code": "PRAIA",
+                "label": "Praia"
+            },
+            "http://data.un.org/codes/sdg/cities/KUWAIT": {
+                "code": "KUWAIT",
+                "label": "Kuwait"
+            },
+            "http://data.un.org/codes/sdg/cities/VIENNA": {
+                "code": "VIENNA",
+                "label": "Vienna"
+            },
+            "http://data.un.org/codes/sdg/cities/PARAKOU": {
+                "code": "PARAKOU",
+                "label": "Parakou "
+            },
+            "http://data.un.org/codes/sdg/cities/ZAPOPAN_JALISCO": {
+                "code": "ZAPOPAN_JALISCO",
+                "label": "Zapopan, Jalisco"
+            },
+            "http://data.un.org/codes/sdg/cities/BERLIN": {
+                "code": "BERLIN",
+                "label": "Berlin"
+            },
+            "http://data.un.org/codes/sdg/cities/MEXICOCITY": {
+                "code": "MEXICOCITY",
+                "label": "Mexico City"
+            },
+            "http://data.un.org/codes/sdg/cities/IGUALA_GUERRERO": {
+                "code": "IGUALA_GUERRERO",
+                "label": "Iguala, Guerrero"
+            },
+            "http://data.un.org/codes/sdg/cities/DEHIWALA-MOUNTLAVINIA": {
+                "code": "DEHIWALA-MOUNTLAVINIA",
+                "label": "Dehiwala-Mount Lavinia"
+            },
+            "http://data.un.org/codes/sdg/cities/BUCARAMANGA": {
+                "code": "BUCARAMANGA",
+                "label": "Bucaramanga"
+            },
+            "http://data.un.org/codes/sdg/cities/ZACATECAS_ZACATECAS": {
+                "code": "ZACATECAS_ZACATECAS",
+                "label": "Zacatecas, Zacatecas"
+            },
+            "http://data.un.org/codes/sdg/cities/ITAGUI": {
+                "code": "ITAGUI",
+                "label": "Itagui"
+            },
+            "http://data.un.org/codes/sdg/cities/BELMOPAN": {
+                "code": "BELMOPAN",
+                "label": "Belmopan"
+            },
+            "http://data.un.org/codes/sdg/cities/PANAMACITY": {
+                "code": "PANAMACITY",
+                "label": "Panama City"
+            },
+            "http://data.un.org/codes/sdg/cities/PERTH": {
+                "code": "PERTH",
+                "label": "Perth"
+            },
+            "http://data.un.org/codes/sdg/cities/OSLO": {
+                "code": "OSLO",
+                "label": "Oslo"
+            },
+            "http://data.un.org/codes/sdg/cities/UCAYALI_CALLERIA": {
+                "code": "UCAYALI_CALLERIA",
+                "label": "Ucayali, Calleria"
+            },
+            "http://data.un.org/codes/sdg/cities/APATZINGAN_MICHOACAN": {
+                "code": "APATZINGAN_MICHOACAN",
+                "label": "Apatzingan, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/VICTORIA_TAMAULIPAS": {
+                "code": "VICTORIA_TAMAULIPAS",
+                "label": "Victoria, Tamaulipas"
+            },
+            "http://data.un.org/codes/sdg/cities/GOLDCOAST": {
+                "code": "GOLDCOAST",
+                "label": "Gold Coast"
+            },
+            "http://data.un.org/codes/sdg/cities/BUENAVENTURA": {
+                "code": "BUENAVENTURA",
+                "label": "Buenaventura"
+            },
+            "http://data.un.org/codes/sdg/cities/DAKAR": {
+                "code": "DAKAR",
+                "label": "Dakar"
+            },
+            "http://data.un.org/codes/sdg/cities/VILLAHERMOSA_CENTRO_TABASCO": {
+                "code": "VILLAHERMOSA_CENTRO_TABASCO",
+                "label": "Villahermosa, Centro, Tabasco"
+            },
+            "http://data.un.org/codes/sdg/cities/SANTIAGO_SANTIAGO": {
+                "code": "SANTIAGO_SANTIAGO",
+                "label": "Santiago, Santiago"
+            },
+            "http://data.un.org/codes/sdg/cities/ABIDJAN": {
+                "code": "ABIDJAN",
+                "label": "Abidjan"
+            },
+            "http://data.un.org/codes/sdg/cities/CHALCO": {
+                "code": "CHALCO",
+                "label": "Chalco, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/HIDALGODELPARRAL_CHIHUAHUA": {
+                "code": "HIDALGODELPARRAL_CHIHUAHUA",
+                "label": "Hidalgo del Parral, Chihuahua"
+            },
+            "http://data.un.org/codes/sdg/cities/BELLO": {
+                "code": "BELLO",
+                "label": "Bello"
+            },
+            "http://data.un.org/codes/sdg/cities/TARAPACA_ARICA": {
+                "code": "TARAPACA_ARICA",
+                "label": "Tarapaca, Arica"
+            },
+            "http://data.un.org/codes/sdg/cities/DAMASCUS": {
+                "code": "DAMASCUS",
+                "label": "Damascus"
+            },
+            "http://data.un.org/codes/sdg/cities/ACUNA_COAHUILA": {
+                "code": "ACUNA_COAHUILA",
+                "label": "Acuna, Coahuila"
+            },
+            "http://data.un.org/codes/sdg/cities/DARESSALAAM": {
+                "code": "DARESSALAAM",
+                "label": "Dar es Salaam"
+            },
+            "http://data.un.org/codes/sdg/cities/NEWYORK": {
+                "code": "NEWYORK",
+                "label": "New York"
+            },
+            "http://data.un.org/codes/sdg/cities/SANMIGUEL_SANMIGUEL": {
+                "code": "SANMIGUEL_SANMIGUEL",
+                "label": "San Miguel, San Miguel"
+            },
+            "http://data.un.org/codes/sdg/cities/ANGUILLA": {
+                "code": "ANGUILLA",
+                "label": "Anguilla"
+            },
+            "http://data.un.org/codes/sdg/cities/HAVANA": {
+                "code": "HAVANA",
+                "label": "Havana"
+            },
+            "http://data.un.org/codes/sdg/cities/CORDOBA_VERACRUZ": {
+                "code": "CORDOBA_VERACRUZ",
+                "label": "Cordoba, Veracruz"
+            },
+            "http://data.un.org/codes/sdg/cities/SANSALVADOR_MEJICANOS": {
+                "code": "SANSALVADOR_MEJICANOS",
+                "label": "San Salvador - Mejicanos"
+            },
+            "http://data.un.org/codes/sdg/cities/LAPAZ": {
+                "code": "LAPAZ",
+                "label": "La Paz "
+            },
+            "http://data.un.org/codes/sdg/cities/LISBON": {
+                "code": "LISBON",
+                "label": "Lisbon"
+            },
+            "http://data.un.org/codes/sdg/cities/SANTAANA_SANTAANA": {
+                "code": "SANTAANA_SANTAANA",
+                "label": "Santa Ana, Santa Ana"
+            },
+            "http://data.un.org/codes/sdg/cities/ADDIS": {
+                "code": "ADDIS",
+                "label": "Addis"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_LOSOLIVOS": {
+                "code": "LIMA_LOSOLIVOS",
+                "label": "Lima, Los Olivos"
+            },
+            "http://data.un.org/codes/sdg/cities/CARDENAS_TABASCO": {
+                "code": "CARDENAS_TABASCO",
+                "label": "Cardenas, Tabasco"
+            },
+            "http://data.un.org/codes/sdg/cities/MONTREAL": {
+                "code": "MONTREAL",
+                "label": "Montreal"
+            },
+            "http://data.un.org/codes/sdg/cities/CUCUTA": {
+                "code": "CUCUTA",
+                "label": "Cucuta"
+            },
+            "http://data.un.org/codes/sdg/cities/ULAANBAATAR": {
+                "code": "ULAANBAATAR",
+                "label": "Ulaanbaatar"
+            },
+            "http://data.un.org/codes/sdg/cities/COQUIMBO_COQUIMBO": {
+                "code": "COQUIMBO_COQUIMBO",
+                "label": "Coquimbo, Coquimbo"
+            },
+            "http://data.un.org/codes/sdg/cities/KAMPALA": {
+                "code": "KAMPALA",
+                "label": "Kampala"
+            },
+            "http://data.un.org/codes/sdg/cities/QUITO": {
+                "code": "QUITO",
+                "label": "Quito"
+            },
+            "http://data.un.org/codes/sdg/cities/MEDELLIN": {
+                "code": "MEDELLIN",
+                "label": "Medellin"
+            },
+            "http://data.un.org/codes/sdg/cities/ANTIGUA": {
+                "code": "ANTIGUA",
+                "label": "Antigua"
+            },
+            "http://data.un.org/codes/sdg/cities/CUAUTLA_MORELOS": {
+                "code": "CUAUTLA_MORELOS",
+                "label": "Cuautla, Morelos"
+            },
+            "http://data.un.org/codes/sdg/cities/ANTANANARIVO": {
+                "code": "ANTANANARIVO",
+                "label": "Antananarivo"
+            },
+            "http://data.un.org/codes/sdg/cities/STOCKHOLM": {
+                "code": "STOCKHOLM",
+                "label": "Stockholm"
+            },
+            "http://data.un.org/codes/sdg/cities/HUIXQUILUCAN": {
+                "code": "HUIXQUILUCAN",
+                "label": "Huixquilucan, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/MALDIVES": {
+                "code": "MALDIVES",
+                "label": "Maldives"
+            },
+            "http://data.un.org/codes/sdg/cities/GEORGETOWN": {
+                "code": "GEORGETOWN",
+                "label": "Georgetown"
+            },
+            "http://data.un.org/codes/sdg/cities/AMSTERDAM-UTRECHT": {
+                "code": "AMSTERDAM-UTRECHT",
+                "label": "Amsterdam-Utrecht"
+            },
+            "http://data.un.org/codes/sdg/cities/DUBLIN": {
+                "code": "DUBLIN",
+                "label": "Dublin"
+            },
+            "http://data.un.org/codes/sdg/cities/ZAGREB": {
+                "code": "ZAGREB",
+                "label": "Zagreb"
+            },
+            "http://data.un.org/codes/sdg/cities/SANSALVADOR_SANSALVADOR": {
+                "code": "SANSALVADOR_SANSALVADOR",
+                "label": "San Salvador, San Salvador"
+            },
+            "http://data.un.org/codes/sdg/cities/BANGKOK": {
+                "code": "BANGKOK",
+                "label": "Bangkok"
+            },
+            "http://data.un.org/codes/sdg/cities/OSAKA": {
+                "code": "OSAKA",
+                "label": "Osaka"
+            },
+            "http://data.un.org/codes/sdg/cities/MONROVIA": {
+                "code": "MONROVIA",
+                "label": "Monrovia"
+            },
+            "http://data.un.org/codes/sdg/cities/NEIVA": {
+                "code": "NEIVA",
+                "label": "Neiva"
+            },
+            "http://data.un.org/codes/sdg/cities/PORT-AU-PRINCE": {
+                "code": "PORT-AU-PRINCE",
+                "label": "Port-au-Prince"
+            },
+            "http://data.un.org/codes/sdg/cities/GUADALAJARA": {
+                "code": "GUADALAJARA",
+                "label": "Guadalajara"
+            },
+            "http://data.un.org/codes/sdg/cities/MAGALLANES_PUNTAARENAS": {
+                "code": "MAGALLANES_PUNTAARENAS",
+                "label": "Magallanes, Punta Arenas"
+            },
+            "http://data.un.org/codes/sdg/cities/TORONTO": {
+                "code": "TORONTO",
+                "label": "Toronto"
+            },
+            "http://data.un.org/codes/sdg/cities/BAYAMO": {
+                "code": "BAYAMO",
+                "label": "Bayamo"
+            },
+            "http://data.un.org/codes/sdg/cities/CIEGODEAVILA": {
+                "code": "CIEGODEAVILA",
+                "label": "Ciego de avila"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_CARABAYLLO": {
+                "code": "LIMA_CARABAYLLO",
+                "label": "Lima, Carabayllo"
+            },
+            "http://data.un.org/codes/sdg/cities/HELSINKI": {
+                "code": "HELSINKI",
+                "label": "Helsinki"
+            },
+            "http://data.un.org/codes/sdg/cities/WINDHOEK": {
+                "code": "WINDHOEK",
+                "label": "Windhoek"
+            },
+            "http://data.un.org/codes/sdg/cities/JAKARTA": {
+                "code": "JAKARTA",
+                "label": "Jakarta"
+            },
+            "http://data.un.org/codes/sdg/cities/CANBERRA": {
+                "code": "CANBERRA",
+                "label": "Canberra"
+            },
+            "http://data.un.org/codes/sdg/cities/MANILA": {
+                "code": "MANILA",
+                "label": "Manila"
+            },
+            "http://data.un.org/codes/sdg/cities/CANCUN_BENITOJUAREZ_QUINTANAROO": {
+                "code": "CANCUN_BENITOJUAREZ_QUINTANAROO",
+                "label": "Cancun, Benito Juarez, Quintana Roo"
+            },
+            "http://data.un.org/codes/sdg/cities/TBILISI": {
+                "code": "TBILISI",
+                "label": "Tbilisi"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_VILLAMARIADELTRIUNFO": {
+                "code": "LIMA_VILLAMARIADELTRIUNFO",
+                "label": "Lima, Villa Maria del Triunfo"
+            },
+            "http://data.un.org/codes/sdg/cities/CAPETOWN": {
+                "code": "CAPETOWN",
+                "label": "Cape Town"
+            },
+            "http://data.un.org/codes/sdg/cities/ADELAIDE": {
+                "code": "ADELAIDE",
+                "label": "Adelaide"
+            },
+            "http://data.un.org/codes/sdg/cities/VALPARAISO_VALPARAISO": {
+                "code": "VALPARAISO_VALPARAISO",
+                "label": "Valparaiso, Valparaiso"
+            },
+            "http://data.un.org/codes/sdg/cities/SANTIAGO_PROVIDENCIA": {
+                "code": "SANTIAGO_PROVIDENCIA",
+                "label": "Santiago, Providencia"
+            },
+            "http://data.un.org/codes/sdg/cities/AGUASCALIENTES": {
+                "code": "AGUASCALIENTES",
+                "label": "Aguascalientes, Aguascalientes"
+            },
+            "http://data.un.org/codes/sdg/cities/THIMPHU": {
+                "code": "THIMPHU",
+                "label": "Thimphu"
+            },
+            "http://data.un.org/codes/sdg/cities/TOKYO": {
+                "code": "TOKYO",
+                "label": "Tokyo"
+            },
+            "http://data.un.org/codes/sdg/cities/BATUMI": {
+                "code": "BATUMI",
+                "label": "Batumi"
+            },
+            "http://data.un.org/codes/sdg/cities/CAMAGUEY": {
+                "code": "CAMAGUEY",
+                "label": "Camaguey"
+            },
+            "http://data.un.org/codes/sdg/cities/MADRID": {
+                "code": "MADRID",
+                "label": "Madrid"
+            },
+            "http://data.un.org/codes/sdg/cities/SANAA": {
+                "code": "SANAA",
+                "label": "Sanaa"
+            },
+            "http://data.un.org/codes/sdg/cities/HERMOSILLO_SONORA": {
+                "code": "HERMOSILLO_SONORA",
+                "label": "Hermosillo, Sonora"
+            },
+            "http://data.un.org/codes/sdg/cities/CALI": {
+                "code": "CALI",
+                "label": "Cali"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_SANJUANDELURIGANCHO": {
+                "code": "LIMA_SANJUANDELURIGANCHO",
+                "label": "Lima, San Juan de Lurigancho"
+            },
+            "http://data.un.org/codes/sdg/cities/IRAPUATO_GUANAJUATO": {
+                "code": "IRAPUATO_GUANAJUATO",
+                "label": "Irapuato, Guanajuato"
+            },
+            "http://data.un.org/codes/sdg/cities/XALAPA_VERACRUZ": {
+                "code": "XALAPA_VERACRUZ",
+                "label": "Xalapa, Veracruz"
+            },
+            "http://data.un.org/codes/sdg/cities/ALTAMIRA_TAMAULIPAS": {
+                "code": "ALTAMIRA_TAMAULIPAS",
+                "label": "Altamira, Tamaulipas"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_LURIGANCHO": {
+                "code": "LIMA_LURIGANCHO",
+                "label": "Lima, Lurigancho"
+            },
+            "http://data.un.org/codes/sdg/cities/CORREGIDORA": {
+                "code": "CORREGIDORA",
+                "label": "Corregidora"
+            },
+            "http://data.un.org/codes/sdg/cities/CARMEN_CAMPECHE": {
+                "code": "CARMEN_CAMPECHE",
+                "label": "Carmen, Campeche"
+            },
+            "http://data.un.org/codes/sdg/cities/ALGIERS": {
+                "code": "ALGIERS",
+                "label": "Algiers"
+            },
+            "http://data.un.org/codes/sdg/cities/ZURICH": {
+                "code": "ZURICH",
+                "label": "Zurich"
+            },
+            "http://data.un.org/codes/sdg/cities/BARCELONA": {
+                "code": "BARCELONA",
+                "label": "Barcelona"
+            },
+            "http://data.un.org/codes/sdg/cities/BUENOSAIRES": {
+                "code": "BUENOSAIRES",
+                "label": "Buenos Aires"
+            },
+            "http://data.un.org/codes/sdg/cities/PEREIRA": {
+                "code": "PEREIRA",
+                "label": "Pereira"
+            },
+            "http://data.un.org/codes/sdg/cities/TUNIS": {
+                "code": "TUNIS",
+                "label": "Tunis"
+            },
+            "http://data.un.org/codes/sdg/cities/BRISBANE": {
+                "code": "BRISBANE",
+                "label": "Brisbane"
+            },
+            "http://data.un.org/codes/sdg/cities/BUGA": {
+                "code": "BUGA",
+                "label": "Buga"
+            },
+            "http://data.un.org/codes/sdg/cities/DOSQUEBRADAS": {
+                "code": "DOSQUEBRADAS",
+                "label": "Dosquebradas"
+            },
+            "http://data.un.org/codes/sdg/cities/ZITACUARO_MICHOACN": {
+                "code": "ZITACUARO_MICHOACN",
+                "label": "Zitacuaro, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/OUAGADOUGOU": {
+                "code": "OUAGADOUGOU",
+                "label": "Ouagadougou"
+            },
+            "http://data.un.org/codes/sdg/cities/GUASAVE_SINALOA": {
+                "code": "GUASAVE_SINALOA",
+                "label": "Guasave, Sinaloa"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_ATE": {
+                "code": "LIMA_ATE",
+                "label": "Lima, Ate"
+            },
+            "http://data.un.org/codes/sdg/cities/HIDALGO_MICHOACAN": {
+                "code": "HIDALGO_MICHOACAN",
+                "label": "Hidalgo, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/DUNEDIN": {
+                "code": "DUNEDIN",
+                "label": "Dunedin"
+            },
+            "http://data.un.org/codes/sdg/cities/COTONOU": {
+                "code": "COTONOU",
+                "label": "Cotonou"
+            },
+            "http://data.un.org/codes/sdg/cities/COMITANDEDOMINGUEZ_CHIAPAS": {
+                "code": "COMITANDEDOMINGUEZ_CHIAPAS",
+                "label": "Comitan de Dominguez, Chiapas"
+            },
+            "http://data.un.org/codes/sdg/cities/TIRANA": {
+                "code": "TIRANA",
+                "label": "Tirana"
+            },
+            "http://data.un.org/codes/sdg/cities/ACCRA": {
+                "code": "ACCRA",
+                "label": "Accra"
+            },
+            "http://data.un.org/codes/sdg/cities/BAMAKO": {
+                "code": "BAMAKO",
+                "label": "Bamako"
+            },
+            "http://data.un.org/codes/sdg/cities/BAGHDAD": {
+                "code": "BAGHDAD",
+                "label": "Baghdad"
+            },
+            "http://data.un.org/codes/sdg/cities/YAOUNDE": {
+                "code": "YAOUNDE",
+                "label": "Yaounde"
+            },
+            "http://data.un.org/codes/sdg/cities/BERMUDA": {
+                "code": "BERMUDA",
+                "label": "Bermuda"
+            },
+            "http://data.un.org/codes/sdg/cities/DARWIN": {
+                "code": "DARWIN",
+                "label": "Darwin"
+            },
+            "http://data.un.org/codes/sdg/cities/ACAPULCO_GUERRERO": {
+                "code": "ACAPULCO_GUERRERO",
+                "label": "Acapulco, Guerrero"
+            },
+            "http://data.un.org/codes/sdg/cities/SAINTMARC": {
+                "code": "SAINTMARC",
+                "label": "Saint Marc"
+            },
+            "http://data.un.org/codes/sdg/cities/COLIMA": {
+                "code": "COLIMA",
+                "label": "Colima, Colima"
+            },
+            "http://data.un.org/codes/sdg/cities/NOUAKCHOTT": {
+                "code": "NOUAKCHOTT",
+                "label": "Nouakchott"
+            },
+            "http://data.un.org/codes/sdg/cities/SYDNEY": {
+                "code": "SYDNEY",
+                "label": "Sydney"
+            },
+            "http://data.un.org/codes/sdg/cities/CIUDADOBREGON": {
+                "code": "CIUDADOBREGON",
+                "label": "Ciudad Obregon"
+            },
+            "http://data.un.org/codes/sdg/cities/JOHANNESBURG": {
+                "code": "JOHANNESBURG",
+                "label": "Johannesburg"
+            },
+            "http://data.un.org/codes/sdg/cities/CARTAGENA": {
+                "code": "CARTAGENA",
+                "label": "Cartagena"
+            },
+            "http://data.un.org/codes/sdg/cities/CAMPECHE_CAMPECHE": {
+                "code": "CAMPECHE_CAMPECHE",
+                "label": "Campeche, Campeche"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_PUENTEPIEDRA": {
+                "code": "LIMA_PUENTEPIEDRA",
+                "label": "Lima, Puente Piedra"
+            },
+            "http://data.un.org/codes/sdg/cities/ANTOFAGASTA_ANTOFAGASTA": {
+                "code": "ANTOFAGASTA_ANTOFAGASTA",
+                "label": "Antofagasta, Antofagasta"
+            },
+            "http://data.un.org/codes/sdg/cities/HARARE": {
+                "code": "HARARE",
+                "label": "Harare"
+            },
+            "http://data.un.org/codes/sdg/cities/LAGOS": {
+                "code": "LAGOS",
+                "label": "Lagos"
+            },
+            "http://data.un.org/codes/sdg/cities/KUTAISI": {
+                "code": "KUTAISI",
+                "label": "Kutaisi"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_CHORRILLOS": {
+                "code": "LIMA_CHORRILLOS",
+                "label": "Lima, Chorrillos"
+            },
+            "http://data.un.org/codes/sdg/cities/NOCITI": {
+                "code": "NOCITI",
+                "label": "All areas or breakdown by cities not available"
+            },
+            "http://data.un.org/codes/sdg/cities/MARSHALLISLANDS": {
+                "code": "MARSHALLISLANDS",
+                "label": "Marshall islands"
+            },
+            "http://data.un.org/codes/sdg/cities/ZINDER": {
+                "code": "ZINDER",
+                "label": "Zinder"
+            },
+            "http://data.un.org/codes/sdg/cities/JUNIN_ELTAMBO": {
+                "code": "JUNIN_ELTAMBO",
+                "label": "Junin, El Tambo"
+            },
+            "http://data.un.org/codes/sdg/cities/MORATUWA": {
+                "code": "MORATUWA",
+                "label": "Moratuwa"
+            },
+            "http://data.un.org/codes/sdg/cities/PETIONVILLE": {
+                "code": "PETIONVILLE",
+                "label": "Petion Ville"
+            },
+            "http://data.un.org/codes/sdg/cities/MELBOURNE": {
+                "code": "MELBOURNE",
+                "label": "Melbourne"
+            },
+            "http://data.un.org/codes/sdg/cities/WARSAW": {
+                "code": "WARSAW",
+                "label": "Warsaw"
+            },
+            "http://data.un.org/codes/sdg/cities/BRUSSELS": {
+                "code": "BRUSSELS",
+                "label": "Brussels"
+            },
+            "http://data.un.org/codes/sdg/cities/CELAYA_GUANAJUATO": {
+                "code": "CELAYA_GUANAJUATO",
+                "label": "Celaya, Guanajuato"
+            },
+            "http://data.un.org/codes/sdg/cities/LOME": {
+                "code": "LOME",
+                "label": "Lome"
+            },
+            "http://data.un.org/codes/sdg/cities/LONDON": {
+                "code": "LONDON",
+                "label": "London"
+            },
+            "http://data.un.org/codes/sdg/cities/LUSAKA": {
+                "code": "LUSAKA",
+                "label": "Lusaka"
+            },
+            "http://data.un.org/codes/sdg/cities/PIURA_CASTILLA": {
+                "code": "PIURA_CASTILLA",
+                "label": "Piura, Castilla"
+            },
+            "http://data.un.org/codes/sdg/cities/GUADALAJARA_JALISCO": {
+                "code": "GUADALAJARA_JALISCO",
+                "label": "Guadalajara, Jalisco"
+            },
+            "http://data.un.org/codes/sdg/cities/LESCAYES": {
+                "code": "LESCAYES",
+                "label": "Les Cayes"
+            },
+            "http://data.un.org/codes/sdg/cities/GUANAJUATO_GUANAJUATO": {
+                "code": "GUANAJUATO_GUANAJUATO",
+                "label": "Guanajuato, Guanajuato"
+            },
+            "http://data.un.org/codes/sdg/cities/KIGALI": {
+                "code": "KIGALI",
+                "label": "Kigali"
+            },
+            "http://data.un.org/codes/sdg/cities/SANJOSE": {
+                "code": "SANJOSE",
+                "label": "San Jose"
+            },
+            "http://data.un.org/codes/sdg/cities/SAOPAULO": {
+                "code": "SAOPAULO",
+                "label": "Sao Paulo"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_COMAS": {
+                "code": "LIMA_COMAS",
+                "label": "Lima, Comas"
+            },
+            "http://data.un.org/codes/sdg/cities/PRAGUE": {
+                "code": "PRAGUE",
+                "label": "Prague"
+            },
+            "http://data.un.org/codes/sdg/cities/LALIBERTAD_NUEVASANSALVADOR": {
+                "code": "LALIBERTAD_NUEVASANSALVADOR",
+                "label": "La Libertad - Nueva San Salvador"
+            },
+            "http://data.un.org/codes/sdg/cities/WELLINGTON": {
+                "code": "WELLINGTON",
+                "label": "Wellington"
+            },
+            "http://data.un.org/codes/sdg/cities/CHILPANCINGO_GUERRERO": {
+                "code": "CHILPANCINGO_GUERRERO",
+                "label": "Chilpancingo, Guerrero"
+            },
+            "http://data.un.org/codes/sdg/cities/PORTLOUIS": {
+                "code": "PORTLOUIS",
+                "label": "Port Louis"
+            },
+            "http://data.un.org/codes/sdg/cities/TEGUCIGALPA": {
+                "code": "TEGUCIGALPA",
+                "label": "Tegucigalpa"
+            },
+            "http://data.un.org/codes/sdg/cities/MANAGUA": {
+                "code": "MANAGUA",
+                "label": "Managua"
+            },
+            "http://data.un.org/codes/sdg/cities/LIMA_SANBORJA": {
+                "code": "LIMA_SANBORJA",
+                "label": "Lima, San Borja"
+            },
+            "http://data.un.org/codes/sdg/cities/COPENHAGEN": {
+                "code": "COPENHAGEN",
+                "label": "Copenhagen"
+            },
+            "http://data.un.org/codes/sdg/cities/ZAMORA_MICHOACAN": {
+                "code": "ZAMORA_MICHOACAN",
+                "label": "Zamora, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/SANSALVADOR_SOYAPANGO": {
+                "code": "SANSALVADOR_SOYAPANGO",
+                "label": "San Salvador - Soyapango"
+            },
+            "http://data.un.org/codes/sdg/cities/HOBART": {
+                "code": "HOBART",
+                "label": "Hobart"
+            },
+            "http://data.un.org/codes/sdg/cities/GUAYMAS_SONORA": {
+                "code": "GUAYMAS_SONORA",
+                "label": "Guaymas, Sonora"
+            },
+            "http://data.un.org/codes/sdg/cities/GUADALUPE_NUEVOLEON": {
+                "code": "GUADALUPE_NUEVOLEON",
+                "label": "Guadalupe, Nuevo Leon"
+            },
+            "http://data.un.org/codes/sdg/cities/SANTADOMINGO": {
+                "code": "SANTADOMINGO",
+                "label": "Santa Domingo"
+            },
+            "http://data.un.org/codes/sdg/cities/DOHA": {
+                "code": "DOHA",
+                "label": "Doha"
+            },
+            "http://data.un.org/codes/sdg/cities/LOSLAGOS_OSORNO": {
+                "code": "LOSLAGOS_OSORNO",
+                "label": "Los Lagos, Osorno"
+            },
+            "http://data.un.org/codes/sdg/cities/NAIROBI": {
+                "code": "NAIROBI",
+                "label": "Nairobi"
+            },
+            "http://data.un.org/codes/sdg/cities/DURBAN": {
+                "code": "DURBAN",
+                "label": "Durban"
+            },
+            "http://data.un.org/codes/sdg/cities/CHRISTCHURCH": {
+                "code": "CHRISTCHURCH",
+                "label": "Christchurch"
+            },
+            "http://data.un.org/codes/sdg/cities/CAIRO": {
+                "code": "CAIRO",
+                "label": "Cairo"
+            },
+            "http://data.un.org/codes/sdg/cities/DHAKA": {
+                "code": "DHAKA",
+                "label": "Dhaka"
+            },
+            "http://data.un.org/codes/sdg/cities/CIGRES": {
+                "code": "CIGRES",
+                "label": "Cigres"
+            },
+            "http://data.un.org/codes/sdg/cities/BELOHORIZONTE": {
+                "code": "BELOHORIZONTE",
+                "label": "Belo Horizonte"
+            },
+            "http://data.un.org/codes/sdg/cities/VARNA": {
+                "code": "VARNA",
+                "label": "Varna"
+            },
+            "http://data.un.org/codes/sdg/cities/SOFIA": {
+                "code": "SOFIA",
+                "label": "Sofia"
+            },
+            "http://data.un.org/codes/sdg/cities/CANET": {
+                "code": "CANET",
+                "label": "Canet"
+            },
+            "http://data.un.org/codes/sdg/cities/KUNMING": {
+                "code": "KUNMING",
+                "label": "Kunming"
+            },
+            "http://data.un.org/codes/sdg/cities/SUZHOU": {
+                "code": "SUZHOU",
+                "label": "Suzhou"
+            },
+            "http://data.un.org/codes/sdg/cities/LANZHOU": {
+                "code": "LANZHOU",
+                "label": "Lanzhou"
+            },
+            "http://data.un.org/codes/sdg/cities/ATHENSGAA": {
+                "code": "ATHENSGAA",
+                "label": "Athens (GAA)"
+            },
+            "http://data.un.org/codes/sdg/cities/DELHI": {
+                "code": "DELHI",
+                "label": "Delhi"
+            },
+            "http://data.un.org/codes/sdg/cities/BANGALORE": {
+                "code": "BANGALORE",
+                "label": "Bangalore"
+            },
+            "http://data.un.org/codes/sdg/cities/WARANGAL": {
+                "code": "WARANGAL",
+                "label": "Warangal"
+            },
+            "http://data.un.org/codes/sdg/cities/SURAT": {
+                "code": "SURAT",
+                "label": "Surat"
+            },
+            "http://data.un.org/codes/sdg/cities/BISHEKEK": {
+                "code": "BISHEKEK",
+                "label": "Bishekek"
+            },
+            "http://data.un.org/codes/sdg/cities/CUREPIPE": {
+                "code": "CUREPIPE",
+                "label": "curepipe"
+            },
+            "http://data.un.org/codes/sdg/cities/HUIXQUILUCAN_MEXICO": {
+                "code": "HUIXQUILUCAN_MEXICO",
+                "label": "Huixquilucan, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/CARDENAST_TABASCO": {
+                "code": "CARDENAST_TABASCO",
+                "label": "Cardenas, Tabasco"
+            },
+            "http://data.un.org/codes/sdg/cities/CANCUN": {
+                "code": "CANCUN",
+                "label": "Cancun, Benito Juarez, Quintana Roo"
+            },
+            "http://data.un.org/codes/sdg/cities/CHALCOMEX": {
+                "code": "CHALCOMEX",
+                "label": "Chalco, Mexico"
+            },
+            "http://data.un.org/codes/sdg/cities/ACUNACOAHUILA": {
+                "code": "ACUNACOAHUILA",
+                "label": "Acuna, Coahuila"
+            },
+            "http://data.un.org/codes/sdg/cities/ZITACUARO_MICHOACAN": {
+                "code": "ZITACUARO_MICHOACAN",
+                "label": "Zitacuaro, Michoacan"
+            },
+            "http://data.un.org/codes/sdg/cities/MAPUTO": {
+                "code": "MAPUTO",
+                "label": "Maputo"
+            },
+            "http://data.un.org/codes/sdg/cities/GHORAI": {
+                "code": "GHORAI",
+                "label": "Ghorai"
+            },
+            "http://data.un.org/codes/sdg/cities/ROTTERDAM": {
+                "code": "ROTTERDAM",
+                "label": "Rotterdam"
+            },
+            "http://data.un.org/codes/sdg/cities/LAHORE": {
+                "code": "LAHORE",
+                "label": "Lahore"
+            },
+            "http://data.un.org/codes/sdg/cities/CASTRIES": {
+                "code": "CASTRIES",
+                "label": "Castries"
+            },
+            "http://data.un.org/codes/sdg/cities/STEVE_TSHWETE": {
+                "code": "STEVE_TSHWETE",
+                "label": "Steve Tshwete"
+            },
+            "http://data.un.org/codes/sdg/cities/SOUSSE": {
+                "code": "SOUSSE",
+                "label": "Sousse"
+            },
+            "http://data.un.org/codes/sdg/cities/BELFAST": {
+                "code": "BELFAST",
+                "label": "Belfast"
+            },
+            "http://data.un.org/codes/sdg/cities/MOSHI": {
+                "code": "MOSHI",
+                "label": "Moshi"
+            },
+            "http://data.un.org/codes/sdg/cities/SANFRANSCISCO": {
+                "code": "SANFRANSCISCO",
+                "label": "San Franscisco"
+            },
+            "http://data.un.org/codes/sdg/cities/TOMPKINS_COUNTY": {
+                "code": "TOMPKINS_COUNTY",
+                "label": "Tompkins county"
+            }
+        }
+    },
+    "nameOfNonCommunicableDiseaseCode": {
+        "uri": "http://data.un.org/codes/sdg/nameOfNonCommunicableDisease",
+        "label": "name of non-communicable disease",
+        "codes": {
+            "http://data.un.org/codes/sdg/nameOfNonCommunicableDisease/RES": {
+                "code": "RES",
+                "label": "Chronic respiratory disease"
+            },
+            "http://data.un.org/codes/sdg/nameOfNonCommunicableDisease/DIA": {
+                "code": "DIA",
+                "label": "Diabetes"
+            },
+            "http://data.un.org/codes/sdg/nameOfNonCommunicableDisease/CAR": {
+                "code": "CAR",
+                "label": "Cardiovascular disease"
+            },
+            "http://data.un.org/codes/sdg/nameOfNonCommunicableDisease/CAN": {
+                "code": "CAN",
+                "label": "Cancer"
+            }
+        }
+    },
+    "freqCode": {
+        "uri": "http://data.un.org/codes/sdg/freq",
+        "label": "freq",
+        "codes": {
+            "http://data.un.org/codes/sdg/freq/A": {
+                "code": "A",
+                "label": "Annual"
+            }
+        }
+    },
+    "sexCode": {
+        "uri": "http://data.un.org/codes/sdg/sex",
+        "label": "sex",
+        "codes": {
+            "http://data.un.org/codes/sdg/sex/_T": {
+                "code": "_T",
+                "label": "Both sexes"
+            },
+            "http://data.un.org/codes/sdg/sex/M": {
+                "code": "M",
+                "label": "Male"
+            },
+            "http://data.un.org/codes/sdg/sex/F": {
+                "code": "F",
+                "label": "Female"
+            }
+        }
+    },
+    "typeOfMobileTechnologyCode": {
+        "uri": "http://data.un.org/codes/sdg/typeOfMobileTechnology",
+        "label": "type of mobile technology",
+        "codes": {
+            "http://data.un.org/codes/sdg/typeOfMobileTechnology/AL4G": {
+                "code": "AL4G",
+                "label": "At least 4G mobile network"
+            },
+            "http://data.un.org/codes/sdg/typeOfMobileTechnology/AL3G": {
+                "code": "AL3G",
+                "label": "At least 3G mobile network"
+            },
+            "http://data.un.org/codes/sdg/typeOfMobileTechnology/AL2G": {
+                "code": "AL2G",
+                "label": "At least 2G mobile network"
+            }
+        }
+    },
+    "levelStatusCode": {
+        "uri": "http://data.un.org/codes/sdg/levelStatus",
+        "label": "level status",
+        "codes": {
+            "http://data.un.org/codes/sdg/levelStatus/LOWIMP": {
+                "code": "LOWIMP",
+                "label": "Low level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/VHIGIMP": {
+                "code": "VHIGIMP",
+                "label": "Very high level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/MOPAR": {
+                "code": "MOPAR",
+                "label": "Moderate level of participation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/NA": {
+                "code": "NA",
+                "label": "Not applicable"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/CLDPR": {
+                "code": "CLDPR",
+                "label": "Clearly defined procedures"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/HIPAR": {
+                "code": "HIPAR",
+                "label": "High level of participation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/NODATA": {
+                "code": "NODATA",
+                "label": "No data available"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/MHIGIMP": {
+                "code": "MHIGIMP",
+                "label": "Medium-high level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/NCDPR": {
+                "code": "NCDPR",
+                "label": "Not clearly defined procedures"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/HIGIMP": {
+                "code": "HIGIMP",
+                "label": "High level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/VLOWIMP": {
+                "code": "VLOWIMP",
+                "label": "Very low level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/MLOWIMP": {
+                "code": "MLOWIMP",
+                "label": "Medium-low level of implementation"
+            },
+            "http://data.un.org/codes/sdg/levelStatus/LOPAR": {
+                "code": "LOPAR",
+                "label": "Low level of participation"
+            }
+        }
+    },
+    "ageCode": {
+        "uri": "http://data.un.org/codes/sdg/age",
+        "label": "age",
+        "codes": {
+            "http://data.un.org/codes/sdg/age/Y16T65": {
+                "code": "Y16T65",
+                "label": "16 to 65 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y2T14": {
+                "code": "Y2T14",
+                "label": "2 to 14 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y0": {
+                "code": "Y0",
+                "label": "under 1 year old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE16": {
+                "code": "Y_GE16",
+                "label": "16 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T4": {
+                "code": "Y0T4",
+                "label": "under 5 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T74": {
+                "code": "Y18T74",
+                "label": "18 to 74 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE12": {
+                "code": "Y_GE12",
+                "label": "12 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/M6T59": {
+                "code": "M6T59",
+                "label": "6 to 59 months old"
+            },
+            "http://data.un.org/codes/sdg/age/Y40T49": {
+                "code": "Y40T49",
+                "label": "40 to 49 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE20": {
+                "code": "Y_GE20",
+                "label": "20 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y14T28": {
+                "code": "Y14T28",
+                "label": "14 to 28 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T64": {
+                "code": "Y15T64",
+                "label": "15 to 64 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y25T29": {
+                "code": "Y25T29",
+                "label": "25 to 29 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y40T44": {
+                "code": "Y40T44",
+                "label": "40 to 44 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T44": {
+                "code": "Y15T44",
+                "label": "15 to 44 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T50": {
+                "code": "Y18T50",
+                "label": "18 to 50 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T28": {
+                "code": "Y15T28",
+                "label": "15 to 28 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T24": {
+                "code": "Y15T24",
+                "label": "15 to 24 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y45T54": {
+                "code": "Y45T54",
+                "label": "45 to 54 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y30T35": {
+                "code": "Y30T35",
+                "label": "30 to 35 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y16T24": {
+                "code": "Y16T24",
+                "label": "16 to 24 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T19": {
+                "code": "Y18T19",
+                "label": "18 to 19 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y30T39": {
+                "code": "Y30T39",
+                "label": "30 to 39 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y35T39": {
+                "code": "Y35T39",
+                "label": "35 to 39 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T7": {
+                "code": "Y0T7",
+                "label": "under 8 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y1T4": {
+                "code": "Y1T4",
+                "label": "1 to 4 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE25": {
+                "code": "Y_GE25",
+                "label": "25 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y20T24": {
+                "code": "Y20T24",
+                "label": "20 to 24 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y7T17": {
+                "code": "Y7T17",
+                "label": "7 to 17 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE65": {
+                "code": "Y_GE65",
+                "label": "65 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y5T14": {
+                "code": "Y5T14",
+                "label": "5 to 14 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y20T64": {
+                "code": "Y20T64",
+                "label": "20 to 64 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y20T29": {
+                "code": "Y20T29",
+                "label": "20 to 29 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y30T70": {
+                "code": "Y30T70",
+                "label": "30 to 70 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y25T34": {
+                "code": "Y25T34",
+                "label": "25 to 34 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T29": {
+                "code": "Y15T29",
+                "label": "15 to 29 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y45T49": {
+                "code": "Y45T49",
+                "label": "45 to 49 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T49": {
+                "code": "Y15T49",
+                "label": "15 to 49 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y30T34": {
+                "code": "Y30T34",
+                "label": "30 to 34 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y35T44": {
+                "code": "Y35T44",
+                "label": "35 to 44 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE18": {
+                "code": "Y_GE18",
+                "label": "18 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE14": {
+                "code": "Y_GE14",
+                "label": "14 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y10T17": {
+                "code": "Y10T17",
+                "label": "10 to 17 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE10": {
+                "code": "Y_GE10",
+                "label": "10 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y5T17": {
+                "code": "Y5T17",
+                "label": "5 to 17 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T24": {
+                "code": "Y18T24",
+                "label": "18 to 24 years old"
+            },
+            "http://data.un.org/codes/sdg/age/M36T59": {
+                "code": "M36T59",
+                "label": "36 to 59 months old"
+            },
+            "http://data.un.org/codes/sdg/age/M36T47": {
+                "code": "M36T47",
+                "label": "36 to 47 months old"
+            },
+            "http://data.un.org/codes/sdg/age/Y45T64": {
+                "code": "Y45T64",
+                "label": "45 to 64 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE6": {
+                "code": "Y_GE6",
+                "label": "6 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y6T17": {
+                "code": "Y6T17",
+                "label": "6 to 17 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T29": {
+                "code": "Y18T29",
+                "label": "18 to 29 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y18T49": {
+                "code": "Y18T49",
+                "label": "18 to 49 years old"
+            },
+            "http://data.un.org/codes/sdg/age/_T": {
+                "code": "_T",
+                "label": "All age ranges or no breaks by age"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T14": {
+                "code": "Y0T14",
+                "label": "under 15 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T5": {
+                "code": "Y0T5",
+                "label": "under 6 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y55T64": {
+                "code": "Y55T64",
+                "label": "55 to 64 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE15": {
+                "code": "Y_GE15",
+                "label": "15 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y20T74": {
+                "code": "Y20T74",
+                "label": "20 to 74 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE50": {
+                "code": "Y_GE50",
+                "label": "50 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y1T14": {
+                "code": "Y1T14",
+                "label": "1 to 14 years old"
+            },
+            "http://data.un.org/codes/sdg/age/M0": {
+                "code": "M0",
+                "label": "under 1 month old"
+            },
+            "http://data.un.org/codes/sdg/age/Y12T24": {
+                "code": "Y12T24",
+                "label": "12 to 24 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y25T44": {
+                "code": "Y25T44",
+                "label": "25 to 44 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y45T59": {
+                "code": "Y45T59",
+                "label": "45 to 59 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE5": {
+                "code": "Y_GE5",
+                "label": "5 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y15T19": {
+                "code": "Y15T19",
+                "label": "15 to 19 years old"
+            },
+            "http://data.un.org/codes/sdg/age/T6T65": {
+                "code": "T6T65",
+                "label": "6 to 65 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y0T17": {
+                "code": "Y0T17",
+                "label": "under 18 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y65T74": {
+                "code": "Y65T74",
+                "label": "65 to 74 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y75T84": {
+                "code": "Y75T84",
+                "label": "75 to 84 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y_GE85": {
+                "code": "Y_GE85",
+                "label": "85 years old and over"
+            },
+            "http://data.un.org/codes/sdg/age/Y12T14": {
+                "code": "Y12T14",
+                "label": "12 to 14 years old"
+            },
+            "http://data.un.org/codes/sdg/age/Y10T14": {
+                "code": "Y10T14",
+                "label": "10 to 14 years old"
+            }
+        }
+    },
+    "typeOfProductCode": {
+        "uri": "http://data.un.org/codes/sdg/typeOfProduct",
+        "label": "type of product",
+        "codes": {
+            "http://data.un.org/codes/sdg/typeOfProduct/RIC": {
+                "code": "RIC",
+                "label": "Rice"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/FEO": {
+                "code": "FEO",
+                "label": "Ferrous ores"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/MIL": {
+                "code": "MIL",
+                "label": "Millet"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/NMM": {
+                "code": "NMM",
+                "label": "Non-metallic minerals"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/NMC": {
+                "code": "NMC",
+                "label": "Non-metallic minerals - construction dominant"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/NMA": {
+                "code": "NMA",
+                "label": "Non-metallic minerals - industrial or agricultural dominant"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/BIM": {
+                "code": "BIM",
+                "label": "Biomass"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/CPR": {
+                "code": "CPR",
+                "label": "Crop residues"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/WOD": {
+                "code": "WOD",
+                "label": "Wood"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/RAW": {
+                "code": "RAW",
+                "label": "All raw materials"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/MAZ": {
+                "code": "MAZ",
+                "label": "Maize"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/CRO": {
+                "code": "CRO",
+                "label": "Crops"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/COL": {
+                "code": "COL",
+                "label": "Coal"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/SOR": {
+                "code": "SOR",
+                "label": "Sorghum"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/PET": {
+                "code": "PET",
+                "label": "Petroleum"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/WHE": {
+                "code": "WHE",
+                "label": "Wheat"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/FOF": {
+                "code": "FOF",
+                "label": "Fossil fuels"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/GAS": {
+                "code": "GAS",
+                "label": "Natural gas"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/ONT": {
+                "code": "ONT",
+                "label": "Oil shale and tar sands"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/WCH": {
+                "code": "WCH",
+                "label": "Wild catch and harvest"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/NFO": {
+                "code": "NFO",
+                "label": "Non-ferrous ores"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/MEO": {
+                "code": "MEO",
+                "label": "Metal ores"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/GBO": {
+                "code": "GBO",
+                "label": "Grazed biomass and fodder crops"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/AGR": {
+                "code": "AGR",
+                "label": "Agricultural products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/ALP": {
+                "code": "ALP",
+                "label": "All products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/CLO": {
+                "code": "CLO",
+                "label": "Clothing"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/IND": {
+                "code": "IND",
+                "label": "Industrial products"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/TEX": {
+                "code": "TEX",
+                "label": "Textiles"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/ARM": {
+                "code": "ARM",
+                "label": "Arms"
+            },
+            "http://data.un.org/codes/sdg/typeOfProduct/OIL": {
+                "code": "OIL",
+                "label": "Oil"
+            }
+        }
+    },
+    "migratoryStatusCode": {
+        "uri": "http://data.un.org/codes/sdg/migratoryStatus",
+        "label": "migratory status",
+        "codes": {
+            "http://data.un.org/codes/sdg/migratoryStatus/MS_EUMIGRANT": {
+                "code": "MS_EUMIGRANT",
+                "label": "EU Migrants"
+            },
+            "http://data.un.org/codes/sdg/migratoryStatus/MS_NONEUMIGRANT": {
+                "code": "MS_NONEUMIGRANT",
+                "label": "Non-EU Migrants"
+            },
+            "http://data.un.org/codes/sdg/migratoryStatus/NONMIG": {
+                "code": "NONMIG",
+                "label": "Non-migrant"
+            },
+            "http://data.un.org/codes/sdg/migratoryStatus/_T": {
+                "code": "_T",
+                "label": "No breakdown"
+            },
+            "http://data.un.org/codes/sdg/migratoryStatus/MIGPER": {
+                "code": "MIGPER",
+                "label": "Migrants"
+            }
+        }
+    },
+    "typeOfSpeedCode": {
+        "uri": "http://data.un.org/codes/sdg/typeOfSpeed",
+        "label": "type of speed",
+        "codes": {
+            "http://data.un.org/codes/sdg/typeOfSpeed/256KT2MBPS": {
+                "code": "256KT2MBPS",
+                "label": "Between 256 kbps and 2 mbps"
+            },
+            "http://data.un.org/codes/sdg/typeOfSpeed/10MBPS": {
+                "code": "10MBPS",
+                "label": "10 mbps and over"
+            },
+            "http://data.un.org/codes/sdg/typeOfSpeed/2MT10MBPS": {
+                "code": "2MT10MBPS",
+                "label": "Between 2 mbps and 10 mbps"
+            },
+            "http://data.un.org/codes/sdg/typeOfSpeed/ANYS": {
+                "code": "ANYS",
+                "label": "Any speed"
+            }
+        }
+    }
+}

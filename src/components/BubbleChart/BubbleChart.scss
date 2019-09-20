@@ -1,0 +1,10 @@
+@import '../../App.scss';
+
+
+#BubbleChart {
+    width: 100%;
+    margin:0 auto;
+    svg{
+        overflow: visible;
+    }
+}

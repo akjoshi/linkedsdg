@@ -1,0 +1,220 @@
+@import '../../App.scss';
+
+.Upload {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    overflow: visible;
+    width:80%;
+    max-width: 1200px;
+    margin: 0 auto;  
+
+    .progress-bar-container{
+      width: 100%;
+      .progress-bar{
+        background-color: $mainColor;
+      }
+    }
+
+    .Title {
+      margin:0 0 2rem 0;
+      margin-bottom: 1rem;
+      color: #555;
+      font-size: 2rem;
+    
+    }
+
+    .upload-content{
+      margin:0 auto; 
+      
+      .title { 
+        display: inline-flex;
+        color: $grey;
+        border-bottom: $mainColor solid 3px;
+        line-height: 0.9;
+        padding-bottom: 10px;
+        margin-bottom: 1.5rem;     
+        font-size: 1.3rem;
+        text-transform: uppercase;
+        margin-top: 0;
+        letter-spacing: .03em; 
+      }
+
+      .analyze-button-container{
+        margin:0 auto;
+        text-align: center; 
+        justify-content: center;
+        width:100%;
+        padding:0 0 0.8rem 0;
+        
+
+        .analyze-button{  
+          float: left;
+          margin-bottom: 1rem;
+          font-size: 13px;
+          margin-top: 0;
+          margin-right: 0;
+        }
+      }
+    }
+
+    .example-links {
+      .small-label {
+        font-size: 0.7rem;
+        color: grey;
+        margin-bottom: 0.3rem;
+      }
+
+      .example-links-list{
+        margin-top: 3rem;
+      }
+
+      ul { 
+          list-style: none;
+          li{
+            padding: 0.15rem 0;
+
+            a {
+               display: inline-flex;
+            }
+
+            a span img{ 
+              opacity: 0.8;
+              height: 1.4rem;
+              margin: 0.2rem 0.5rem 0.2rem 0;
+            }
+
+            a span:hover{
+              opacity: 0.6;
+              cursor: pointer;
+            }
+
+            .tooltip {
+              position: relative;
+              display: inline;
+              opacity: 1!important; 
+              
+              span:hover{
+                opacity: 0.6;
+                cursor: pointer;
+                text-decoration: underline;
+              }
+  
+              a:hover { 
+                text-decoration: underline;
+              }
+  
+              p:hover { 
+                text-decoration: underline;
+              }
+
+            }
+            
+            .tooltip .tooltiptext {
+              visibility: hidden;
+              width: 120px;
+              background-color: #555;
+              color: #fff;
+              text-align: center;
+              border-radius: 6px;
+              padding: 5px 0;
+              position: absolute;
+              z-index: 1;
+              bottom: 125%;
+              left: 50%;
+              margin-left: -60px;
+              opacity: 0;
+              transition: opacity 0.3s;
+            }
+            
+            .tooltip .tooltiptext::after {
+              content: "";
+              position: absolute;
+              top: 100%;
+              left: 50%;
+              margin-left: -5px;
+              border-width: 5px;
+              border-style: solid;
+              border-color: #555 transparent transparent transparent;
+            }
+            
+            .tooltip:hover .tooltiptext {
+              visibility: visible;
+              opacity: 1;
+            }
+
+           
+
+            
+          }
+          @media only screen and (max-width: 720px) {
+            li a, li a{
+                font-size: 0.75rem;
+            }
+          }
+      }
+    }
+  }
+  
+  .Content {
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .Data-Area {
+    margin-top: 40px;
+    font-size: 1rem;
+    width:100%;
+
+    #Data-Area-id {
+      margin-top: -60px;
+      position: absolute;
+    }
+
+    .information-source{
+      overflow: hidden;
+      color:grey;
+    }
+    @media only screen and (max-width: 720px) {
+      .information-source{
+          font-size: 0.75rem;
+      }
+    }
+  }
+
+  .clear-button{
+    padding: 2rem 0;
+    width:100%;
+    text-align: center;
+    button {
+      padding: 0.4rem 2rem;
+    }
+  }
+
+  .File-Upload-by-form {
+    .input-container {
+      grid-template-columns: 30px auto;
+      display: grid;
+
+      .radio-box, .input-box{
+        padding: 3px;
+
+        .radio-button {
+          margin-top: 8px;
+        }
+      }
+    }
+    margin-bottom: 1.2rem;
+  }
+ 
+
+  .width50{
+    width:100%;
+  }
+
+ 

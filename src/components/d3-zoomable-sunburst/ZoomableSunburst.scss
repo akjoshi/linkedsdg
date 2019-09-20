@@ -1,0 +1,449 @@
+@import '../../App.scss';
+
+.Title {
+    display: inline-flex;
+    color: $grey;
+    border-bottom: $mainColor solid 3px;
+    line-height: 0.9;
+    padding-bottom: 10px;
+    font-size: 1.3rem!important;
+    text-transform: uppercase;
+    margin-top: 0;
+    letter-spacing: .03em; 
+  }
+
+  .sun-download{
+    margin:20px 0;
+}
+
+.grid-container {
+    margin-top: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 3rem;
+    grid-row-gap: 20px;
+    margin-bottom: 1.5rem;
+
+   
+ 
+
+    svg { 
+        width: 100%;
+    }
+    
+    .goal-image{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .grid-container-info {
+        display: grid;
+        grid-template-columns:  30% auto;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+
+        .baner-img{
+
+            grid-column-start: 1; 
+            grid-column-end: 3; 
+            width: 100%;
+            img { 
+                margin: 1rem 0;
+                width:100%;
+            }
+        }
+
+        .grid-item-text{
+            grid-column-start: 1; 
+            grid-column-end: 3; 
+            .uri-link{
+                margin-right: 1.2rem;
+
+                cursor: pointer;
+                color: #007bff;
+            }
+
+            .uri-concept{
+                font-weight: 700;
+                margin-right: 0.5rem; 
+                cursor: pointer;
+                color: #007bff;
+            }
+
+            p span {
+                font-weight: 700;
+                color: black;
+            }
+
+
+            .linked-concepts-list {
+                max-height: 35vh; 
+                overflow-y: hidden;
+                overflow-x: hidden;
+                margin-bottom: 0; 
+            }
+
+            .linked-concepts-list:hover {
+                margin-right: -16px;
+                overflow: scroll;
+                overflow-x: hidden;
+            }
+
+            /* total width */
+            .linked-concepts-list::-webkit-scrollbar {
+                background-color:#fff;
+                width:16px
+            }
+
+            /* background of the scrollbar except button or resizer */
+            .linked-concepts-list::-webkit-scrollbar-track {
+                background-color:#fff
+            }
+
+            /* scrollbar itself */
+            .linked-concepts-list::-webkit-scrollbar-thumb {
+                background-color:#babac0;
+                border-radius:16px;
+                border:4px solid #fff
+            }
+
+            @media only screen and (max-width: 720px) {
+                .linked-concepts-list { 
+                    margin-bottom: 0;  
+                    margin-right: -16px;
+                    overflow: auto;
+                    overflow-x: hidden;
+                }
+              }
+        }
+
+        .title {
+            font-size: 1.2rem;
+        }
+    }
+
+}
+
+.country-series-info{ 
+    .explore-all-data{
+        align-content: center;
+    }
+
+
+         
+    .big-plus{
+        font-size: 1rem;
+    }
+    .download-series .download-button{
+        width: 100%;
+        text-align: left;
+        button {
+            margin: 1.5rem 0;
+        }
+    }
+    .records-container{
+        max-height: 500px;
+        overflow: scroll;
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    
+    .records-container:hover {
+        margin-right: -16px;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
+
+    /* total width */
+    .records-container::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+
+    /* background of the scrollbar except button or resizer */
+    .records-container::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+
+    /* scrollbar itself */
+    .records-container::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+        border:4px solid #fff
+    }
+
+    /* total width */
+    body::-webkit-scrollbar {
+        background-color:#fff;
+        width:16px
+    }
+
+    /* background of the scrollbar except button or resizer */
+    body::-webkit-scrollbar-track {
+        background-color:#fff
+    }
+
+    /* scrollbar itself */
+    body::-webkit-scrollbar-thumb {
+        background-color:#babac0;
+        border-radius:16px;
+        border:4px solid #fff
+    }
+
+    /* set button(top and bottom of the scrollbar) */
+    body::-webkit-scrollbar-button {display:none}
+
+    .series-country-expand-all{
+        font-size: 14px;
+        line-height: 16px;
+        margin-right: 5px;
+        text-align: right;
+        max-width: 15%;
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+    .series-country-expand-all:hover{
+        opacity: 0.6;
+    }
+
+    .series-info {
+        border-bottom: 1px #ccc solid;
+        height: 24px;
+        overflow: hidden;
+
+        .series-country-country{
+            margin:0;
+        }
+
+        .series-country-expand{
+            margin-right: 5px;
+            text-align: right;
+            max-width: 15%;
+            cursor: pointer;
+        }
+
+        .series-country-expand:hover{
+            opacity: 0.6;
+        }
+
+        .series-country-json{
+            ul{
+                padding:0;
+                margin: 5px 0 5px 20px;
+                list-style-type: none;
+                li{
+                    font-size: 12px;
+                }
+            } 
+        }
+    }
+    .uri-link{
+        margin: 1rem 0 0 0;
+        cursor: pointer;
+        color: #4d4d4d;
+    }
+
+    p span {
+        font-weight: 700; 
+        color: #4d4d4d;
+    }
+    
+    .series-get-data{
+        margin-top: 1rem!important;
+    }
+    
+    .json-with-data{
+        margin-top:1.5rem;
+        max-height: 40vh;
+        overflow: scroll;
+        overflow-x:hidden;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-bottom: 1.5rem;
+        border: 1px solid #dee2e6;
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.7);
+    }
+     
+
+    
+}
+
+
+
+@media only screen and (max-width: 991px) {
+    .grid-container{
+        grid-template-columns: 100%;
+
+        .goal-image-container{
+            margin:0 auto;
+            text-align: center;
+        }
+        .goal-image{
+            width: 70%;
+            margin: 0 auto;
+        }
+    }
+    
+    
+  }
+
+  .no-data-text{
+      text-align: center;
+      padding-top: 1rem;
+      color: $grey; 
+  }
+
+  .explore-all-data-no-data{
+    margin: 0 auto;
+    margin:0 auto; 
+}
+
+  .event-list-item { 
+    display: grid;
+    grid-template-columns: 95% 5%;
+    border-bottom: 1px $grey solid;
+    padding: 0.3rem 0;
+
+    .empty {
+        color: #cccccc;
+    }
+
+    .sources{
+        p, a{
+            // width:100%;
+            float: left; 
+            padding: 0.25rem 0rem 0 1.0rem;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;
+        }
+    }
+
+    button {     
+        grid-column-start: 2;
+        grid-column-end: 3;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: $grey;
+        padding: 0;
+        margin: 0;
+    }
+
+    .a-concept-name {
+        display: flex !important;
+        float: left;
+        margin: 0;
+        line-height: 2rem;
+        margin-top: 4px;
+    }
+
+    .annotation-sun {
+        p{
+            // width:100%;
+            padding: 0;
+            line-height: 2rem;
+            font-size: 0.6rem;
+            display: block;
+        }
+    }
+    
+    .concept-list{
+        padding-top:0.5rem;
+        width: 100%;
+        li {
+            width: 100%;
+        }
+    }
+
+    button:hover,
+    button:after,
+    button:active,
+    button:active:after,
+    button:visited,
+    button:focus {
+        background: none !important;
+        color: $grey !important;
+        outline: none !important;
+        border:none !important;
+        box-shadow: none !important;
+    }
+
+    p {
+        float: left;
+        vertical-align: middle;
+        margin: 0;
+        line-height: 2rem;
+    }
+
+    .collapse-button{ 
+        height: 0;
+        text-align: center; 
+
+        button {
+            p {
+                font-size: 1.2rem; 
+            }
+        }
+        
+        .open-arrow{ 
+            
+            margin-top: 0;
+            transform: rotate(-180deg);
+
+        }
+    }
+
+    .collapse-item-sun{
+        max-height: 1.8rem;
+        font-size: 0.9rem;
+        padding: 0rem 1rem;  
+        width:100%;
+        display: inline-block;
+         
+        .key-word-title {
+
+            font-size: 0.9rem;
+            padding: 0.3rem 0 0 0 ;  
+        }
+
+
+ 
+    }
+
+    @media only screen and (max-width: 720px) {
+        .key-word-title {
+            padding: 0.1rem 2rem;
+            font-size: 0.75rem;
+        }
+      }
+
+      @media only screen and (max-width: 480px) {
+        .key-word-title {
+            padding: 0.1rem 1rem;
+            font-size: 0.75rem;
+        }
+      }
+      
+}
+
+.json-with-data{
+    max-height: 40vh;
+    overflow: scroll;
+    overflow-x:hidden;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-bottom: 1.5rem;
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 1px #FFFFFF inset, 0 1px 3px rgba(34, 25, 25, 0.7);
+}
+
+.show-data-sun-button {
+    margin-bottom: 4rem;
+}

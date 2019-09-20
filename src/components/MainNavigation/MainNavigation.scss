@@ -1,0 +1,116 @@
+@import '../../App.scss';
+
+.main-nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 32.5px;
+    background: $grey;
+    padding: 0 1.2rem; 
+    align-items: center;
+    box-shadow: 1px 1px 2px rgba(255,255,255,0.2);
+    font-family: 'Roboto', sans-serif;
+    z-index: 999;
+
+    .nav-title{ 
+        float:left;
+        display: flex;
+
+        h2 {
+            font-size: 13px;
+            color:white;
+            font-weight: 300;
+            padding: 0;
+            margin:0;
+            padding: 9px 4px;
+            text-decoration: none;
+            
+        }
+
+        h2:hover{
+            color:$darkGrey;
+            background:$lightGrey;
+            text-decoration: none;
+        }
+
+        a { 
+            text-decoration: none !important;
+        }
+ 
+        
+    }
+}
+
+.main-nav-logo {
+    margin: 0;
+    color: $white;
+    font-size: 0.75rem; 
+    float: left;
+
+    img {
+        margin: 8px 0;
+        height: 1.2rem;
+        width: 8rem;
+    }
+
+    @media only screen and (max-width: 729px) {
+        img {
+          display: none;
+        }
+      }
+
+    a,button {
+        text-decoration: none;
+        color: $white;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 729px) {
+    .main-nav-logo  {
+      display: none;
+    }
+  }
+
+.main-nav-item {
+    margin: 0 0 0 1.5rem;
+    float: right;
+    width: 100%;
+
+    ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0 !important;
+        float: right;
+        margin-right: 2rem;
+
+        li {
+            padding: 0 1rem;
+            margin: 0;
+
+            a,button {
+                text-decoration: none;
+                color: $white;
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 1rem;
+                padding: 0;
+            }
+
+            a:hover,button:hover 
+            a:active,button:active 
+            a.active,button:focus  {
+                outline: 0;
+                text-decoration: none;
+                border: none;
+                color: $activeWhite;
+            }
+        }
+    }
+}
+
