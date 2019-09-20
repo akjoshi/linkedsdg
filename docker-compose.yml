@@ -1,0 +1,32 @@
+version: '3.0'
+services: 
+  graph:
+    build:
+      context: ./graph
+      dockerfile: Dockerfile
+    expose:
+      - "5002"
+    #ports:
+    #  - "5002:5002"
+  concept:
+    build:
+      context: ./concept
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+    #ports:
+    #  - "5000:5000"
+  text:
+    build:
+      context: ./text-extraction
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+    #ports:
+    #  - "5001:5001"
+  webapp:
+    build:
+      context: ./webapp
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
