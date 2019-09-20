@@ -8,9 +8,9 @@ services:
       - "5002"
     #ports:
     #  - "5002:5002"
-  concept:
+  concepts:
     build:
-      context: ./concept
+      context: ./concepts
       dockerfile: Dockerfile
     expose:
       - "5000"
