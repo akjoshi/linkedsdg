@@ -10,6 +10,12 @@ from os.path import join, dirname, realpath
 import time
 import re
 import string
+import os
+
+graphdb_url = os.environ['GRAPHDB_URL']
+graphdb_repo = os.environ['GRAPHDB_REPO']
+graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
+graphdb_port = os.environ['GRAPHDB_PORT']
 
 UPLOADS_PATH = join(dirname(realpath(__file__)), 'static/uploads/..')
 ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
@@ -79,23 +85,23 @@ def get_task():
 def get_task_url():
     response = requests.get(request.data, stream=True)
     response.raw.decode_content = True
-    if response.status_code == 200:
+    #if response.status_code == 200:
 
-        text = parser.from_buffer(response.content)
-        
-        result = {
-            "lang": detect(text['content']),
-            "text": text['content'],
-            "size": True
-        }
+    text = parser.from_buffer(response.content)
+    
+    result = {
+        "lang": detect(text['content']),
+        "text": text['content'],
+        "size": True
+    }
 
-        if(text['content'].__len__() > 70000):
-            result["size"] = False
+    if(text['content'].__len__() > 70000):
+        result["size"] = False
 
-        return Response(json.dumps(result), mimetype='application/json')
+    return Response(json.dumps(result), mimetype='application/json')
 
-    abort(400)
-    return 'Something went wrong, try again!'
+    #abort(400)
+    #return 'Something went wrong, try again!'
 
 @app.route('/apiURLcashed', methods=['POST'])
 def get_task_url_cashed():
@@ -104,8 +110,12 @@ def get_task_url_cashed():
         "spacy": "",
         "query": ""
     }
-
-    with open(request.data) as json_file:
+    print(request.data)
+    print(dir(request))
+    
+    with open(request.data, encoding='utf-8') as json_file:
+        
+        #print(type(request.data))
         result = json.load(json_file)
 
     print(result)

@@ -1,7 +1,7 @@
 FROM python:3.6-alpine3.9
-COPY . /app
 WORKDIR /app
-RUN unzip cubes.zip -n
+COPY ./requirements.txt /app/requirements.txt
 RUN pip install -r requirements.txt
-#ENTRYPOINT ["python"]
+COPY . /app
+RUN unzip /app/cubes.zip -n
 CMD ["python", "-u", "app.py"]

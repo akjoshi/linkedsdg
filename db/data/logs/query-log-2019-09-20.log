@@ -1,0 +1,4 @@
+[INFO ] 2019-09-20 15:25:49,292 [import-task-sdgs-data-1 | c.o.t.m.MonitorRepositoryConnection] Parallel mode requested but it is disabled globally. Using serial mode instead.
+[INFO ] 2019-09-20 15:40:16,297 [repositories/sdgs-data | c.o.t.m.MonitorRepositoryConnection] Incoming update:
+CLEAR ALL
+[INFO ] 2019-09-20 15:41:18,198 [import-task-sdgs-data-1 | c.o.t.m.MonitorRepositoryConnection] Parallel mode requested but it is disabled globally. Using serial mode instead.

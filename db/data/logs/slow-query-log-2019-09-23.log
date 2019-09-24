@@ -1,0 +1,172 @@
+[INFO ] 2019-09-23 15:09:55,553 [repositories/sdgs-data | slow-queries] Query executed successfully: 308957ms
+<?xml version='1.0'?>
+<query includeInferred='true' maxExecutionTime='0'>
+	<body>
+PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT DISTINCT ?id ?label ?lang where {
+    
+        [] dct:subject ?keyword .
+    
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?target skos:exactMatch ?keyword .
+    }
+    
+    GRAPH &lt;http://data.un.org/concepts/sdg/extracted&gt; {
+        ?id skos:broader* ?target.            
+    }
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?id skos:exactMatch ?source
+    }
+     
+        
+    {
+        {
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
+        }
+        UNION
+        {
+            ?source skos:altLabel ?altLabel .
+            FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
+        }
+    }
+}
+</body>
+</query>
+
+[INFO ] 2019-09-23 18:51:50,092 [repositories/sdgs-data | slow-queries] Query executed successfully: 423650ms
+<?xml version='1.0'?>
+<query includeInferred='true' maxExecutionTime='0'>
+	<body>
+PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT DISTINCT ?id ?label ?lang where {
+    
+        [] dct:subject ?keyword .
+    
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?target skos:exactMatch ?keyword .
+    }
+    
+    GRAPH &lt;http://data.un.org/concepts/sdg/extracted&gt; {
+        ?id skos:broader* ?target.            
+    }
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?id skos:exactMatch ?source
+    }
+     
+        
+    {
+        {
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
+        }
+        UNION
+        {
+            ?source skos:altLabel ?altLabel .
+            FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
+        }
+    }
+}
+</body>
+</query>
+
+[INFO ] 2019-09-23 20:03:41,698 [repositories/sdgs-data | slow-queries] Query executed successfully: 406941ms
+<?xml version='1.0'?>
+<query includeInferred='true' maxExecutionTime='0'>
+	<body>
+PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT DISTINCT ?id ?label ?lang where {
+    
+        [] dct:subject ?keyword .
+    
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?target skos:exactMatch ?keyword .
+    }
+    
+    GRAPH &lt;http://data.un.org/concepts/sdg/extracted&gt; {
+        ?id skos:broader* ?target.            
+    }
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?id skos:exactMatch ?source
+    }
+     
+        
+    {
+        {
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
+        }
+        UNION
+        {
+            ?source skos:altLabel ?altLabel .
+            FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
+        }
+    }
+}
+</body>
+</query>
+
+[INFO ] 2019-09-23 21:14:53,678 [repositories/sdgs-data | slow-queries] Query executed successfully: 207833ms
+<?xml version='1.0'?>
+<query includeInferred='true' maxExecutionTime='0'>
+	<body>
+PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+SELECT DISTINCT ?id ?label ?lang where {
+    
+        [] dct:subject ?keyword .
+    
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?target skos:exactMatch ?keyword .
+    }
+    
+    GRAPH &lt;http://data.un.org/concepts/sdg/extracted&gt; {
+        ?id skos:broader* ?target.            
+    }
+
+    GRAPH &lt;http://data.un.org/concepts/sdg&gt; {
+        ?id skos:exactMatch ?source
+    }
+     
+        
+    {
+        {
+            ?source skos:prefLabel ?prefLabel .
+            FILTER(lang(?prefLabel) in ("en", "fr", "es", "ru", "ar", "zh")) 
+            BIND (lcase(str(?prefLabel)) as ?label)
+            BIND (lang(?prefLabel) as ?lang)
+        }
+        UNION
+        {
+            ?source skos:altLabel ?altLabel .
+            FILTER(lang(?altLabel) in ("en", "fr", "es", "ru", "ar", "zh"))
+            BIND (lcase(str(?altLabel)) as ?label)
+            BIND (lang(?altLabel) as ?lang)
+        }
+    }
+}
+</body>
+</query>
+

@@ -1,32 +1,97 @@
-version: '3.0'
+version: '3'
 services: 
+  proxy: 
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - graphdb
+      - text
+      - webapp
+      - concepts
+      - graph
+    environment:
+      - GRAPHDB_REPO=${GRAPHDB_REPO}
+      - GRAPHDB_URL=${GRAPHDB_URL}
+      - GRAPHDB_PORT=${GRAPHDB_PORT}
+      - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
+      - NGINX_HOST=${HOST}
+      - NGINX_PORT=${DEV_PORT}
+    command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+  graphdb:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    restart: always
+    volumes: 
+      - ./db/data:/opt/graphdb/home
+    expose:
+      - "7200"
+    ports:
+      - "7200:7200"
   graph:
     build:
       context: ./graph
       dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - graphdb
+    environment: 
+      - GRAPHDB_REPO=${GRAPHDB_REPO}
+      - GRAPHDB_URL=${GRAPHDB_URL}
+      - GRAPHDB_PORT=${GRAPHDB_PORT}
+      - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5002"
-    #ports:
-    #  - "5002:5002"
+    ports:
+      - "5002:5002"
   concepts:
     build:
       context: ./concepts
       dockerfile: Dockerfile
+    depends_on:
+      - graphdb
+    restart: always
+    environment: 
+      - GRAPHDB_REPO=${GRAPHDB_REPO}
+      - GRAPHDB_URL=${GRAPHDB_URL}
+      - GRAPHDB_PORT=${GRAPHDB_PORT}
+      - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5000"
-    #ports:
-    #  - "5000:5000"
+    ports:
+      - "5000:5000"
   text:
     build:
-      context: ./text-extraction
+      context: ./text
       dockerfile: Dockerfile
+    restart: always
+    volumes: 
+      - ./text:/app
+    environment: 
+      - GRAPHDB_REPO=${GRAPHDB_REPO}
+      - GRAPHDB_URL=${GRAPHDB_URL}
+      - GRAPHDB_PORT=${GRAPHDB_PORT}
+      - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
-      - "5000"
-    #ports:
-    #  - "5001:5001"
+      - "5001"
+    ports:
+      - "5001:5001"
   webapp:
     build:
       context: ./webapp
       dockerfile: Dockerfile
-    ports:
-      - "80:80"
+    depends_on:
+      - text
+      - concepts
+      - graphdb
+    restart: always
+    environment: 
+      - GRAPHDB_REPO=${GRAPHDB_REPO}
+      - GRAPHDB_URL=${GRAPHDB_URL}
+      - GRAPHDB_PORT=${GRAPHDB_PORT}
+      - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
+    expose:
+      - "8080"

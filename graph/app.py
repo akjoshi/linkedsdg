@@ -7,12 +7,20 @@ import requests
 from requests.auth import HTTPBasicAuth
 from flask_cors import CORS, cross_origin
 from pyld import jsonld
+import os
 
+
+graphdb_url = os.environ['GRAPHDB_URL']
+graphdb_repo = os.environ['GRAPHDB_REPO']
+graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
+graphdb_port = os.environ['GRAPHDB_PORT']
 
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 
-GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
+GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
+#GRAPHDB = "http://"+graphdb_url+":7200/repositories/" + graphdb_repo
+# GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 # GRAPHDB = "http://localhost:7200/repositories/sdg-stats"
 QUERY = """
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>

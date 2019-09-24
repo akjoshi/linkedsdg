@@ -1,0 +1,268 @@
+[INFO ] 2019-09-20 15:23:47,118 [main | c.o.g.Config] Using 'jar:file:/opt/graphdb/dist/lib/graphdb-application-common-8.9.0.jar!/com/ontotext/graphdb/logback.xml' as logback's configuration file for graphdb
+[INFO ] 2019-09-20 15:23:47,830 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2019-09-20 15:23:59,802 [main | c.o.g.Config] GraphDB Home directory: /opt/graphdb/home
+[INFO ] 2019-09-20 15:23:59,805 [main | c.o.g.Config] GraphDB Config directory: /opt/graphdb/home/conf
+[INFO ] 2019-09-20 15:23:59,810 [main | c.o.g.Config] GraphDB Data directory: /opt/graphdb/home/data
+[INFO ] 2019-09-20 15:23:59,812 [main | c.o.g.Config] GraphDB Work directory: /opt/graphdb/home/work
+[INFO ] 2019-09-20 15:23:59,815 [main | c.o.g.Config] GraphDB Logs directory: /opt/graphdb/home/logs
+[INFO ] 2019-09-20 15:24:10,766 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[INFO ] 2019-09-20 15:25:14,107 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Version: 8.9, revision: 459529247
+[INFO ] 2019-09-20 15:25:14,108 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Build date: Thu Mar 28 01:01:17 UTC 2019
+[INFO ] 2019-09-20 15:25:14,128 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Started repository sdgs-data in READ/WRITE mode.
+[INFO ] 2019-09-20 15:25:14,129 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'partialRDFS' to default value 'false'
+[INFO ] 2019-09-20 15:25:14,130 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'transaction-isolation' to default value 'true'
+[INFO ] 2019-09-20 15:25:14,139 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'checkForValidPropertiesAndClasses' to default value 'false'
+[INFO ] 2019-09-20 15:25:14,140 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'transaction-mode' to default value 'safe'
+[INFO ] 2019-09-20 15:25:14,141 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'entity-pool-implementation' to default value 'transactional'
+[INFO ] 2019-09-20 15:25:14,142 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'useShutdownHooks' to default value 'true'
+[INFO ] 2019-09-20 15:25:14,148 [http-nio-7200-exec-2 | c.o.GraphDBConfigParameters] Cache pages for tuples: 7829
+[INFO ] 2019-09-20 15:25:14,148 [http-nio-7200-exec-2 | c.o.GraphDBConfigParameters] Cache pages for predicates: 1118
+[INFO ] 2019-09-20 15:25:14,149 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-20 15:25:14,164 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Storage folder do not exists and is created: /opt/graphdb/home/data/repositories/sdgs-data/storage
+[INFO ] 2019-09-20 15:25:14,198 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-20 15:25:14,202 [http-nio-7200-exec-2 | c.o.t.e.EntityPoolFactory] Using entity pool implementation: transactional-disk
+[INFO ] 2019-09-20 15:25:14,206 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'epool.connection.cache.size' to default value '2000'
+[INFO ] 2019-09-20 15:25:14,224 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-20 15:25:14,405 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'allow-system-entities-as-data' to default value 'false'
+[INFO ] 2019-09-20 15:25:14,416 [http-nio-7200-exec-2 | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2019-09-20 15:25:14,418 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'enable-pool-reversecache' to default value 'true'
+[INFO ] 2019-09-20 15:25:14,433 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'cache-ratio-so-os-cso-cos' to default value '[50, 50, 50]'
+[INFO ] 2019-09-20 15:25:14,449 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-20 15:25:14,452 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '856.0M'
+[INFO ] 2019-09-20 15:25:14,973 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'enable-debug-rules' to default value 'false'
+[INFO ] 2019-09-20 15:25:15,037 [http-nio-7200-exec-2 | c.o.t.InferencerFactory] ruleSet=owl2-rl, partialRdfs=false
+[INFO ] 2019-09-20 15:25:15,037 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'virtual.repository.mode' to default value 'false'
+[INFO ] 2019-09-20 15:25:15,049 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'filter.obj.only.hint' to default value 'true'
+[INFO ] 2019-09-20 15:25:15,106 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'epool.journal.buffer.size' to default value '1024'
+[INFO ] 2019-09-20 15:25:15,218 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'check.pred.stats' to default value 'false'
+[INFO ] 2019-09-20 15:25:15,949 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'nonInterpretablePredicates' to default value 'null'
+[INFO ] 2019-09-20 15:25:15,950 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'disable-plugins' to default value '[]'
+[INFO ] 2019-09-20 15:25:15,950 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'skip-default-plugins' to default value 'false'
+[INFO ] 2019-09-20 15:25:15,950 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Searching for plugins available in the classpath...
+[INFO ] 2019-09-20 15:25:15,987 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin rdfrank
+[INFO ] 2019-09-20 15:25:15,988 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin direct
+[INFO ] 2019-09-20 15:25:15,988 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin geospatial
+[INFO ] 2019-09-20 15:25:15,988 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin notifications
+[INFO ] 2019-09-20 15:25:15,988 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin expose-entity
+[INFO ] 2019-09-20 15:25:15,989 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin literals-index
+[INFO ] 2019-09-20 15:25:15,989 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin script
+[INFO ] 2019-09-20 15:25:16,005 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin plugincontrol
+[INFO ] 2019-09-20 15:25:16,006 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin magic-predicates
+[INFO ] 2019-09-20 15:25:16,007 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin mongodb
+[INFO ] 2019-09-20 15:25:16,013 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'register-plugins' to default value '[]'
+[INFO ] 2019-09-20 15:25:16,017 [http-nio-7200-exec-2 | c.o.GraphDBConfigParameters] Reading external plugins from /opt/graphdb/dist/lib/plugins
+[INFO ] 2019-09-20 15:25:16,018 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'register-external-plugins' to default value '[/opt/graphdb/dist/lib/plugins]'
+[INFO ] 2019-09-20 15:25:16,018 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Registering external plugins...
+[INFO ] 2019-09-20 15:25:16,019 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-connector for plugins
+[INFO ] 2019-09-20 15:25:16,065 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin lucene-connector
+[INFO ] 2019-09-20 15:25:16,066 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/similarity-plugin for plugins
+[INFO ] 2019-09-20 15:25:16,077 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin similarity
+[INFO ] 2019-09-20 15:25:16,077 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-fts-plugin for plugins
+[INFO ] 2019-09-20 15:25:16,097 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin lucene
+[INFO ] 2019-09-20 15:25:16,097 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/dependencies-plugin for plugins
+[INFO ] 2019-09-20 15:25:16,106 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin dependencies-plugin
+[INFO ] 2019-09-20 15:25:16,107 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/autocomplete-plugin for plugins
+[INFO ] 2019-09-20 15:25:16,120 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin autocomplete
+[INFO ] 2019-09-20 15:25:16,121 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/graphdb-geosparql-plugin for plugins
+[INFO ] 2019-09-20 15:25:16,186 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin GeoSPARQL
+[INFO ] 2019-09-20 15:25:16,186 [http-nio-7200-exec-2 | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/sparql-mm for plugins
+[INFO ] 2019-09-20 15:25:16,188 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Registering plugin sparql-mm
+[INFO ] 2019-09-20 15:25:16,188 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugins... (DEFAULT)
+[INFO ] 2019-09-20 15:25:16,188 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'expose-entity'
+[INFO ] 2019-09-20 15:25:16,307 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'autocomplete'
+[INFO ] 2019-09-20 15:25:16,318 [http-nio-7200-exec-2 | c.o.t.p.a.AutocompletePluginUtils] >>>>>>>> AutocompletePlugin: No configuration file found at /opt/graphdb/home/data/repositories/sdgs-data/storage/autocomplete/config.properties. Assuming default options for plugin.
+[INFO ] 2019-09-20 15:25:16,329 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'direct'
+[INFO ] 2019-09-20 15:25:16,330 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'lucene'
+[INFO ] 2019-09-20 15:25:16,335 [http-nio-7200-exec-2 | c.o.p.lucene] No Lucene indices were found
+[INFO ] 2019-09-20 15:25:16,335 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'plugincontrol'
+[INFO ] 2019-09-20 15:25:16,336 [http-nio-7200-exec-2 | c.o.t.p.p.PluginControlPlugin] Plugin:plugincontrol initialized
+[INFO ] 2019-09-20 15:25:16,336 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'script'
+[INFO ] 2019-09-20 15:25:16,337 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'magic-predicates'
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#foreach
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#length
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#concat
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#for
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#split
+[INFO ] 2019-09-20 15:25:16,338 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#member
+[INFO ] 2019-09-20 15:25:16,339 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#index
+[INFO ] 2019-09-20 15:25:16,343 [http-nio-7200-exec-2 | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#strSplit
+[INFO ] 2019-09-20 15:25:16,343 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'literals-index'
+[WARN ] 2019-09-20 15:25:16,389 [http-nio-7200-exec-2 | c.o.p.literals-index] Rebuilding literals indexes. Starting from id:1
+[WARN ] 2019-09-20 15:25:16,477 [http-nio-7200-exec-2 | c.o.p.literals-index] Complete in 0.088, num entries indexed:2
+[INFO ] 2019-09-20 15:25:16,478 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'geospatial'
+[INFO ] 2019-09-20 15:25:16,480 [http-nio-7200-exec-2 | c.o.t.p.g.GeoSpatialPlugin] Plugin:geospatial initialized
+[INFO ] 2019-09-20 15:25:16,480 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'sparql-mm'
+[INFO ] 2019-09-20 15:25:16,534 [http-nio-7200-exec-2 | c.o.g.s.FunctionLoader] Registered 58 functions from package com.github.tkurz.sparqlmm.function.
+[INFO ] 2019-09-20 15:25:16,534 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'dependencies-plugin'
+[INFO ] 2019-09-20 15:25:16,545 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'similarity'
+[INFO ] 2019-09-20 15:25:16,551 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'GeoSPARQL'
+[INFO ] 2019-09-20 15:25:18,972 [http-nio-7200-exec-2 | c.o.t.g.FunctionLoader] Registered 50 functions from package com.useekm.geosparql.
+[INFO ] 2019-09-20 15:25:18,976 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'lucene-connector'
+[INFO ] 2019-09-20 15:25:19,162 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'rdfrank'
+[INFO ] 2019-09-20 15:25:19,241 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'mongodb'
+[INFO ] 2019-09-20 15:25:19,241 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Initializing plugin 'notifications'
+[INFO ] 2019-09-20 15:25:19,246 [http-nio-7200-exec-2 | c.o.t.s.i.PluginManager] Finished initializing plugins
+[INFO ] 2019-09-20 15:25:19,253 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '856.0M'
+[INFO ] 2019-09-20 15:25:19,720 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'do.resolve.entities' to default value 'true'
+[INFO ] 2019-09-20 15:25:19,722 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'do.load.data' to default value 'true'
+[INFO ] 2019-09-20 15:25:19,723 [http-nio-7200-exec-2 | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2019-09-20 15:25:19,723 [http-nio-7200-exec-2 | c.o.c.AbstractParameter] Configured parameter 'graphdb.persistent.parallel.inferencers' to default value 'false'
+[INFO ] 2019-09-20 15:25:19,772 [http-nio-7200-exec-2 | c.o.r.p.ParallelLoader] Using 4 threads for inference
+[INFO ] 2019-09-20 15:25:49,241 [import-task-sdgs-data-1 | c.o.c.AbstractParameter] Configured parameter 'use.parallel.file.inserts' to default value 'true'
+[INFO ] 2019-09-20 15:25:49,276 [import-task-sdgs-data-1 | c.o.c.AbstractParameter] Configured parameter 'custom.validation.queries.file' to default value 'null'
+[INFO ] 2019-09-20 15:31:53,010 [repositories/sdgs-data | o.e.r.h.s.r.TupleQueryResultView] Request for query 3392903 is finished
+[INFO ] 2019-09-20 15:40:16,206 [repositories/sdgs-data | c.o.g.s.StatementsController] POST SPARQL update request to repository
+[INFO ] 2019-09-20 15:40:16,515 [repositories/sdgs-data | c.o.t.InferencerFactory] ruleSet=owl2-rl, partialRdfs=false
+[INFO ] 2019-09-20 15:40:17,331 [repositories/sdgs-data | o.e.r.h.s.r.TupleQueryResultView] Request for query 3392903 is finished
+[INFO ] 2019-09-20 15:50:21,825 [Thread-3 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2019-09-20 15:50:21,904 [Thread-3 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2019-09-20 15:50:22,506 [Thread-10 | c.o.t.s.i.PluginManager] Shutting down plugins (DEFAULT)...
+[INFO ] 2019-09-20 15:50:22,635 [Thread-10 | c.o.t.b.AVLRepository] NumberOfStatements = 1968932
+[INFO ] 2019-09-20 15:50:22,636 [Thread-10 | c.o.t.b.AVLRepository] NumberOfExplicitStatements = 578518
+[INFO ] 2019-09-20 15:50:22,668 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Shutting down entity pool
+[INFO ] 2019-09-20 15:50:24,266 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Entity pool was shut down
+[INFO ] 2019-09-20 16:07:16,138 [main | c.o.g.Config] Using 'jar:file:/opt/graphdb/dist/lib/graphdb-application-common-8.9.0.jar!/com/ontotext/graphdb/logback.xml' as logback's configuration file for graphdb
+[INFO ] 2019-09-20 16:07:16,700 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2019-09-20 16:07:28,028 [main | c.o.g.Config] GraphDB Home directory: /opt/graphdb/home
+[INFO ] 2019-09-20 16:07:28,030 [main | c.o.g.Config] GraphDB Config directory: /opt/graphdb/home/conf
+[INFO ] 2019-09-20 16:07:28,034 [main | c.o.g.Config] GraphDB Data directory: /opt/graphdb/home/data
+[INFO ] 2019-09-20 16:07:28,035 [main | c.o.g.Config] GraphDB Work directory: /opt/graphdb/home/work
+[INFO ] 2019-09-20 16:07:28,046 [main | c.o.g.Config] GraphDB Logs directory: /opt/graphdb/home/logs
+[INFO ] 2019-09-20 16:07:40,688 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[INFO ] 2019-09-20 16:09:19,923 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Version: 8.9, revision: 459529247
+[INFO ] 2019-09-20 16:09:19,936 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Build date: Thu Mar 28 01:01:17 UTC 2019
+[INFO ] 2019-09-20 16:09:19,997 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Started repository sdgs-data in READ/WRITE mode.
+[INFO ] 2019-09-20 16:09:19,997 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'partialRDFS' to default value 'false'
+[INFO ] 2019-09-20 16:09:19,998 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-isolation' to default value 'true'
+[INFO ] 2019-09-20 16:09:19,998 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'checkForValidPropertiesAndClasses' to default value 'false'
+[INFO ] 2019-09-20 16:09:20,025 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-mode' to default value 'safe'
+[INFO ] 2019-09-20 16:09:20,026 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'entity-pool-implementation' to default value 'transactional'
+[INFO ] 2019-09-20 16:09:20,031 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'useShutdownHooks' to default value 'true'
+[INFO ] 2019-09-20 16:09:20,033 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for tuples: 7829
+[INFO ] 2019-09-20 16:09:20,039 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for predicates: 1118
+[INFO ] 2019-09-20 16:09:20,040 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-20 16:09:20,119 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-20 16:09:20,120 [repositories/sdgs-data | c.o.t.e.EntityPoolFactory] Using entity pool implementation: transactional-disk
+[INFO ] 2019-09-20 16:09:20,124 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.connection.cache.size' to default value '2000'
+[INFO ] 2019-09-20 16:09:20,158 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-20 16:09:20,203 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restoring entity hash table...
+[INFO ] 2019-09-20 16:09:20,987 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restored 428415 entities allocating 12.0 MB
+[INFO ] 2019-09-20 16:09:20,987 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Done in 772 ms.
+[INFO ] 2019-09-20 16:09:21,136 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'allow-system-entities-as-data' to default value 'false'
+[INFO ] 2019-09-20 16:09:21,143 [repositories/sdgs-data | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2019-09-20 16:09:21,166 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-pool-reversecache' to default value 'true'
+[INFO ] 2019-09-20 16:09:21,174 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'cache-ratio-so-os-cso-cos' to default value '[50, 50, 50]'
+[INFO ] 2019-09-20 16:09:21,237 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-20 16:09:21,246 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '856.0M'
+[WARN ] 2019-09-20 16:09:22,685 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Rule list configuration present, it will override all other rule sets parameters!
+[INFO ] 2019-09-20 16:09:22,692 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'virtual.repository.mode' to default value 'false'
+[INFO ] 2019-09-20 16:09:23,017 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.journal.buffer.size' to default value '1024'
+[INFO ] 2019-09-20 16:09:23,082 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-debug-rules' to default value 'false'
+[INFO ] 2019-09-20 16:09:23,216 [repositories/sdgs-data | c.o.t.InferencerFactory] ruleSet=owl2-rl, partialRdfs=false
+[INFO ] 2019-09-20 16:09:23,230 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'filter.obj.only.hint' to default value 'true'
+[INFO ] 2019-09-20 16:09:23,389 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'check.pred.stats' to default value 'false'
+[INFO ] 2019-09-20 16:09:24,582 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'nonInterpretablePredicates' to default value 'null'
+[INFO ] 2019-09-20 16:09:24,583 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'disable-plugins' to default value '[]'
+[INFO ] 2019-09-20 16:09:24,583 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'skip-default-plugins' to default value 'false'
+[INFO ] 2019-09-20 16:09:24,586 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Searching for plugins available in the classpath...
+[INFO ] 2019-09-20 16:09:24,648 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin rdfrank
+[INFO ] 2019-09-20 16:09:24,649 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin direct
+[INFO ] 2019-09-20 16:09:24,657 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin geospatial
+[INFO ] 2019-09-20 16:09:24,658 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin notifications
+[INFO ] 2019-09-20 16:09:24,659 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin expose-entity
+[INFO ] 2019-09-20 16:09:24,659 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin literals-index
+[INFO ] 2019-09-20 16:09:24,659 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin script
+[INFO ] 2019-09-20 16:09:24,660 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin plugincontrol
+[INFO ] 2019-09-20 16:09:24,661 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin magic-predicates
+[INFO ] 2019-09-20 16:09:24,661 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin mongodb
+[INFO ] 2019-09-20 16:09:24,662 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-plugins' to default value '[]'
+[INFO ] 2019-09-20 16:09:24,667 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Reading external plugins from /opt/graphdb/dist/lib/plugins
+[INFO ] 2019-09-20 16:09:24,667 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-external-plugins' to default value '[/opt/graphdb/dist/lib/plugins]'
+[INFO ] 2019-09-20 16:09:24,668 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Registering external plugins...
+[INFO ] 2019-09-20 16:09:24,668 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-connector for plugins
+[INFO ] 2019-09-20 16:09:24,737 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene-connector
+[INFO ] 2019-09-20 16:09:24,739 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/similarity-plugin for plugins
+[INFO ] 2019-09-20 16:09:24,759 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin similarity
+[INFO ] 2019-09-20 16:09:24,764 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-fts-plugin for plugins
+[INFO ] 2019-09-20 16:09:24,783 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene
+[INFO ] 2019-09-20 16:09:24,785 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/dependencies-plugin for plugins
+[INFO ] 2019-09-20 16:09:24,793 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin dependencies-plugin
+[INFO ] 2019-09-20 16:09:24,794 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/autocomplete-plugin for plugins
+[INFO ] 2019-09-20 16:09:24,800 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin autocomplete
+[INFO ] 2019-09-20 16:09:24,800 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/graphdb-geosparql-plugin for plugins
+[INFO ] 2019-09-20 16:09:24,865 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin GeoSPARQL
+[INFO ] 2019-09-20 16:09:24,865 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/sparql-mm for plugins
+[INFO ] 2019-09-20 16:09:24,874 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin sparql-mm
+[INFO ] 2019-09-20 16:09:24,874 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugins... (DEFAULT)
+[INFO ] 2019-09-20 16:09:24,875 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'expose-entity'
+[INFO ] 2019-09-20 16:09:25,009 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'autocomplete'
+[INFO ] 2019-09-20 16:09:25,011 [repositories/sdgs-data | c.o.t.p.a.AutocompletePluginUtils] >>>>>>>> AutocompletePlugin: No configuration file found at /opt/graphdb/home/data/repositories/sdgs-data/storage/autocomplete/config.properties. Assuming default options for plugin.
+[INFO ] 2019-09-20 16:09:25,016 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'direct'
+[INFO ] 2019-09-20 16:09:25,021 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene'
+[INFO ] 2019-09-20 16:09:25,022 [repositories/sdgs-data | c.o.p.lucene] No Lucene indices were found
+[INFO ] 2019-09-20 16:09:25,023 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'plugincontrol'
+[INFO ] 2019-09-20 16:09:25,023 [repositories/sdgs-data | c.o.t.p.p.PluginControlPlugin] Plugin:plugincontrol initialized
+[INFO ] 2019-09-20 16:09:25,023 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'script'
+[INFO ] 2019-09-20 16:09:25,024 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'magic-predicates'
+[INFO ] 2019-09-20 16:09:25,024 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#foreach
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#length
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#concat
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#for
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#split
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#member
+[INFO ] 2019-09-20 16:09:25,025 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#index
+[INFO ] 2019-09-20 16:09:25,034 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#strSplit
+[INFO ] 2019-09-20 16:09:25,035 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'literals-index'
+[INFO ] 2019-09-20 16:09:25,073 [repositories/sdgs-data | c.o.p.literals-index] Literals indices restored.
+[INFO ] 2019-09-20 16:09:25,073 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'geospatial'
+[INFO ] 2019-09-20 16:09:25,074 [repositories/sdgs-data | c.o.t.p.g.GeoSpatialPlugin] Plugin:geospatial initialized
+[INFO ] 2019-09-20 16:09:25,074 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'sparql-mm'
+[INFO ] 2019-09-20 16:09:25,119 [repositories/sdgs-data | c.o.g.s.FunctionLoader] Registered 58 functions from package com.github.tkurz.sparqlmm.function.
+[INFO ] 2019-09-20 16:09:25,119 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'dependencies-plugin'
+[INFO ] 2019-09-20 16:09:25,121 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'similarity'
+[INFO ] 2019-09-20 16:09:25,130 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'GeoSPARQL'
+[INFO ] 2019-09-20 16:09:27,774 [repositories/sdgs-data | c.o.t.g.FunctionLoader] Registered 50 functions from package com.useekm.geosparql.
+[INFO ] 2019-09-20 16:09:27,774 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene-connector'
+[INFO ] 2019-09-20 16:09:27,803 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'rdfrank'
+[INFO ] 2019-09-20 16:09:27,816 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'mongodb'
+[INFO ] 2019-09-20 16:09:27,818 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'notifications'
+[INFO ] 2019-09-20 16:09:27,826 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Finished initializing plugins
+[INFO ] 2019-09-20 16:09:27,828 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '856.0M'
+[INFO ] 2019-09-20 16:09:28,129 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.resolve.entities' to default value 'true'
+[INFO ] 2019-09-20 16:09:28,129 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.load.data' to default value 'true'
+[INFO ] 2019-09-20 16:09:28,130 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2019-09-20 16:09:28,131 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.persistent.parallel.inferencers' to default value 'false'
+[INFO ] 2019-09-20 16:09:28,155 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Using 4 threads for inference
+[INFO ] 2019-09-20 16:09:29,157 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 1275344259
+[INFO ] 2019-09-20 16:09:29,157 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query -553800129
+[INFO ] 2019-09-20 16:09:29,163 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'use.parallel.file.inserts' to default value 'true'
+[INFO ] 2019-09-20 16:09:29,178 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'custom.validation.queries.file' to default value 'null'
+[INFO ] 2019-09-20 16:09:29,390 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'deduplicate.construct' to default value 'true'
+[INFO ] 2019-09-20 16:09:29,452 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'reuse.vars.in.subselects' to default value 'false'
+[INFO ] 2019-09-20 16:09:29,517 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'in-clause-max-members' to default value '16'
+[INFO ] 2019-09-20 16:09:29,517 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'query.convert.values.clause' to default value 'true'
+[INFO ] 2019-09-20 16:09:29,568 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'hash.join' to default value 'false'
+[INFO ] 2019-09-20 16:09:29,585 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'merge.join' to default value 'false'
+[INFO ] 2019-09-20 16:09:29,596 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'PTO' to default value '2'
+[INFO ] 2019-09-20 16:09:29,596 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'FSIPC' to default value '2'
+[INFO ] 2019-09-20 16:09:29,609 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'default.min.distinct.threshold' to default value '250.0M'
+[INFO ] 2019-09-20 16:09:29,694 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.engine.function.concat.max-length' to default value '10485760'
+[INFO ] 2019-09-20 16:09:36,135 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query -553800129 is finished
+[INFO ] 2019-09-20 16:12:11,045 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 1275344259 is finished
+[INFO ] 2019-09-20 16:12:14,785 [repositories/sdgs-data | o.e.r.h.s.r.n.NamespacesController] GET namespace list
+[INFO ] 2019-09-20 16:12:14,868 [repositories/sdgs-data | o.e.r.h.s.r.TupleQueryResultView] Request for query 3392903 is finished
+[INFO ] 2019-09-20 16:18:47,050 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 162014776
+[INFO ] 2019-09-20 16:18:47,773 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 162014776 is finished
+[INFO ] 2019-09-20 16:26:44,079 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 1275344259
+[INFO ] 2019-09-20 16:26:49,301 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query -553800129
+[INFO ] 2019-09-20 16:26:53,665 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query -553800129 is finished
+[INFO ] 2019-09-20 16:29:21,460 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 1275344259 is finished
+[INFO ] 2019-09-20 16:35:18,586 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 162014776
+[INFO ] 2019-09-20 16:35:18,934 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 162014776 is finished
+[INFO ] 2019-09-20 18:46:14,959 [Thread-3 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2019-09-20 18:46:15,016 [Thread-3 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2019-09-20 18:46:15,714 [Thread-10 | c.o.t.s.i.PluginManager] Shutting down plugins (DEFAULT)...
+[INFO ] 2019-09-20 18:46:15,828 [Thread-10 | c.o.t.b.AVLRepository] NumberOfStatements = 1968932
+[INFO ] 2019-09-20 18:46:15,829 [Thread-10 | c.o.t.b.AVLRepository] NumberOfExplicitStatements = 578518
+[INFO ] 2019-09-20 18:46:15,860 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Shutting down entity pool
+[INFO ] 2019-09-20 18:46:15,945 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Entity pool was shut down

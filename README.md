@@ -14,6 +14,10 @@ https://github.com/epistemik-co/sdg-links-text-extraction-api
 
 To start:
 
+First, you need to copy .env.example to .env, and make sure the parameters are correct.
+
+Then:
+
 `docker-compose up`
 
 Add the `-d` flag to run in the background as a daemon.

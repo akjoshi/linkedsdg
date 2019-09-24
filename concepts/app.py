@@ -10,6 +10,13 @@ from flask import Response
 from flask import request
 from flask_cors import CORS
 import json
+import os
+import requests, time
+
+graphdb_url = os.environ['GRAPHDB_URL']
+graphdb_repo = os.environ['GRAPHDB_REPO']
+graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
+graphdb_port = os.environ['GRAPHDB_PORT']
 
 
 SPARQL_QUERY = """
@@ -100,8 +107,20 @@ SELECT DISTINCT ?id ?label
 #   } 
 # """
 
+GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
 
-GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
+while True:
+    try:
+        response = requests.get(GRAPHDB + '/health')
+        assert(int(response.status_code)<400)
+        break
+    except:
+        time.sleep(5)
+        continue
+
+#GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
+
+
 
 nlp = spacy.load('en_core_web_sm') 
 
