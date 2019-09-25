@@ -6,12 +6,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    depends_on:
-      - graphdb
-      - text
-      - webapp
-      - concepts
-      - graph
+    # depends_on:
+    #   - graphdb
+    #   - text
+    #   - webapp
+    #   - concepts
+    #   - graph
     environment:
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
@@ -83,10 +83,10 @@ services:
     build:
       context: ./webapp
       dockerfile: Dockerfile
-    depends_on:
-      - text
-      - concepts
-      - graphdb
+    # depends_on:
+    #   - text
+    #   - concepts
+    #   - graphdb
     restart: always
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
@@ -94,4 +94,6 @@ services:
       - GRAPHDB_PORT=${GRAPHDB_PORT}
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
-      - "8080"
+      - "80"
+    ports:
+      - "8080:80"

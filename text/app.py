@@ -83,7 +83,9 @@ def get_task():
 
 @app.route('/apiURL', methods=['POST'])
 def get_task_url():
-    response = requests.get(request.data, stream=True)
+    print(request.data)
+    response = requests.get(request.data, stream=True, verify=False)
+    print(response)
     response.raw.decode_content = True
     #if response.status_code == 200:
 
@@ -110,15 +112,16 @@ def get_task_url_cashed():
         "spacy": "",
         "query": ""
     }
-    print(request.data)
-    print(dir(request))
-    
-    with open(request.data, encoding='utf-8') as json_file:
-        
-        #print(type(request.data))
-        result = json.load(json_file)
 
-    print(result)
+    new_url = str(request.data, 'utf-8')
+    path = '/app' + str(str(request.data, 'utf-8')[1:])
+
+    with open(str(path), encoding='utf-8')  as json_file:
+        
+        result = json.load(json_file)
+        print('Correct.')
+
+    #print(dict(result,'utf-8'))
 
     return Response(json.dumps(result), mimetype='application/json')
 

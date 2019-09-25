@@ -1,0 +1,1046 @@
+[INFO ] 2019-09-25 13:01:16,636 [main | c.o.g.Config] Using 'jar:file:/opt/graphdb/dist/lib/graphdb-application-common-8.9.0.jar!/com/ontotext/graphdb/logback.xml' as logback's configuration file for graphdb
+[INFO ] 2019-09-25 13:01:18,299 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2019-09-25 13:01:40,144 [main | c.o.g.Config] GraphDB Home directory: /opt/graphdb/home
+[INFO ] 2019-09-25 13:01:40,147 [main | c.o.g.Config] GraphDB Config directory: /opt/graphdb/home/conf
+[INFO ] 2019-09-25 13:01:40,148 [main | c.o.g.Config] GraphDB Data directory: /opt/graphdb/home/data
+[INFO ] 2019-09-25 13:01:40,149 [main | c.o.g.Config] GraphDB Work directory: /opt/graphdb/home/work
+[INFO ] 2019-09-25 13:01:40,151 [main | c.o.g.Config] GraphDB Logs directory: /opt/graphdb/home/logs
+[INFO ] 2019-09-25 13:02:08,951 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[WARN ] 2019-09-25 13:02:09,510 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:02:09,533 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 13:02:09,730 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Version: 8.9, revision: 459529247
+[INFO ] 2019-09-25 13:02:09,730 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Build date: Thu Mar 28 01:01:17 UTC 2019
+[INFO ] 2019-09-25 13:02:09,743 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Started repository sdgs-data in READ/WRITE mode.
+[INFO ] 2019-09-25 13:02:09,743 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'partialRDFS' to default value 'false'
+[INFO ] 2019-09-25 13:02:09,744 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-isolation' to default value 'true'
+[INFO ] 2019-09-25 13:02:09,744 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'checkForValidPropertiesAndClasses' to default value 'false'
+[INFO ] 2019-09-25 13:02:09,744 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-mode' to default value 'safe'
+[INFO ] 2019-09-25 13:02:09,744 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'entity-pool-implementation' to default value 'transactional'
+[INFO ] 2019-09-25 13:02:09,744 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'useShutdownHooks' to default value 'true'
+[INFO ] 2019-09-25 13:02:09,746 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for tuples: 7829
+[INFO ] 2019-09-25 13:02:09,746 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for predicates: 1118
+[INFO ] 2019-09-25 13:02:09,747 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-25 13:02:09,771 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Detected unclean shutdown
+[INFO ] 2019-09-25 13:02:09,771 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-25 13:02:09,771 [repositories/sdgs-data | c.o.t.e.EntityPoolFactory] Using entity pool implementation: transactional-disk
+[INFO ] 2019-09-25 13:02:09,773 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.connection.cache.size' to default value '2000'
+[INFO ] 2019-09-25 13:02:09,779 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-25 13:02:09,797 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restoring entity hash table...
+[INFO ] 2019-09-25 13:02:10,193 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restored 428415 entities allocating 12.0 MB
+[INFO ] 2019-09-25 13:02:10,193 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Done in 396 ms.
+[INFO ] 2019-09-25 13:02:10,252 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'allow-system-entities-as-data' to default value 'false'
+[INFO ] 2019-09-25 13:02:10,254 [repositories/sdgs-data | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2019-09-25 13:02:10,260 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-pool-reversecache' to default value 'true'
+[INFO ] 2019-09-25 13:02:10,270 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'cache-ratio-so-os-cso-cos' to default value '[50, 50, 50]'
+[INFO ] 2019-09-25 13:02:10,285 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-25 13:02:10,287 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '884.5M'
+[WARN ] 2019-09-25 13:02:10,831 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Rule list configuration present, it will override all other rule sets parameters!
+[INFO ] 2019-09-25 13:02:10,833 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'virtual.repository.mode' to default value 'false'
+[INFO ] 2019-09-25 13:02:10,921 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.journal.buffer.size' to default value '1024'
+[INFO ] 2019-09-25 13:02:10,940 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-debug-rules' to default value 'false'
+[INFO ] 2019-09-25 13:02:10,993 [repositories/sdgs-data | c.o.t.InferencerFactory] ruleSet=owl2-rl, partialRdfs=false
+[INFO ] 2019-09-25 13:02:11,007 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'filter.obj.only.hint' to default value 'true'
+[INFO ] 2019-09-25 13:02:11,049 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'check.pred.stats' to default value 'false'
+[INFO ] 2019-09-25 13:02:11,291 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'nonInterpretablePredicates' to default value 'null'
+[INFO ] 2019-09-25 13:02:11,291 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'disable-plugins' to default value '[]'
+[INFO ] 2019-09-25 13:02:11,292 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'skip-default-plugins' to default value 'false'
+[INFO ] 2019-09-25 13:02:11,292 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Searching for plugins available in the classpath...
+[INFO ] 2019-09-25 13:02:11,323 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin rdfrank
+[INFO ] 2019-09-25 13:02:11,323 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin direct
+[INFO ] 2019-09-25 13:02:11,323 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin geospatial
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin notifications
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin expose-entity
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin literals-index
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin script
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin plugincontrol
+[INFO ] 2019-09-25 13:02:11,324 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin magic-predicates
+[INFO ] 2019-09-25 13:02:11,325 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin mongodb
+[INFO ] 2019-09-25 13:02:11,325 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-plugins' to default value '[]'
+[INFO ] 2019-09-25 13:02:11,326 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Reading external plugins from /opt/graphdb/dist/lib/plugins
+[INFO ] 2019-09-25 13:02:11,327 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-external-plugins' to default value '[/opt/graphdb/dist/lib/plugins]'
+[INFO ] 2019-09-25 13:02:11,328 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Registering external plugins...
+[INFO ] 2019-09-25 13:02:11,328 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-fts-plugin for plugins
+[INFO ] 2019-09-25 13:02:11,345 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene
+[INFO ] 2019-09-25 13:02:11,346 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/graphdb-geosparql-plugin for plugins
+[INFO ] 2019-09-25 13:02:11,419 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin GeoSPARQL
+[INFO ] 2019-09-25 13:02:11,419 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-connector for plugins
+[INFO ] 2019-09-25 13:02:11,715 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene-connector
+[INFO ] 2019-09-25 13:02:11,716 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/sparql-mm for plugins
+[INFO ] 2019-09-25 13:02:11,724 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin sparql-mm
+[INFO ] 2019-09-25 13:02:11,724 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/dependencies-plugin for plugins
+[INFO ] 2019-09-25 13:02:11,729 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin dependencies-plugin
+[INFO ] 2019-09-25 13:02:11,730 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/autocomplete-plugin for plugins
+[INFO ] 2019-09-25 13:02:11,741 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin autocomplete
+[INFO ] 2019-09-25 13:02:11,741 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/similarity-plugin for plugins
+[INFO ] 2019-09-25 13:02:11,753 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin similarity
+[INFO ] 2019-09-25 13:02:11,754 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugins... (DEFAULT)
+[INFO ] 2019-09-25 13:02:11,754 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'expose-entity'
+[INFO ] 2019-09-25 13:02:11,828 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'autocomplete'
+[INFO ] 2019-09-25 13:02:11,834 [repositories/sdgs-data | c.o.t.p.a.AutocompletePluginUtils] >>>>>>>> AutocompletePlugin: No configuration file found at /opt/graphdb/home/data/repositories/sdgs-data/storage/autocomplete/config.properties. Assuming default options for plugin.
+[INFO ] 2019-09-25 13:02:11,838 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'direct'
+[INFO ] 2019-09-25 13:02:11,839 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene'
+[INFO ] 2019-09-25 13:02:11,842 [repositories/sdgs-data | c.o.p.lucene] No Lucene indices were found
+[INFO ] 2019-09-25 13:02:11,844 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'plugincontrol'
+[INFO ] 2019-09-25 13:02:11,845 [repositories/sdgs-data | c.o.t.p.p.PluginControlPlugin] Plugin:plugincontrol initialized
+[INFO ] 2019-09-25 13:02:11,845 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'script'
+[INFO ] 2019-09-25 13:02:11,845 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'magic-predicates'
+[INFO ] 2019-09-25 13:02:11,846 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#foreach
+[INFO ] 2019-09-25 13:02:11,846 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#length
+[INFO ] 2019-09-25 13:02:11,847 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#concat
+[INFO ] 2019-09-25 13:02:11,847 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#for
+[INFO ] 2019-09-25 13:02:11,847 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#split
+[INFO ] 2019-09-25 13:02:11,847 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#member
+[INFO ] 2019-09-25 13:02:11,847 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#index
+[INFO ] 2019-09-25 13:02:11,848 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#strSplit
+[INFO ] 2019-09-25 13:02:11,848 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'literals-index'
+[INFO ] 2019-09-25 13:02:11,875 [repositories/sdgs-data | c.o.p.literals-index] Literals indices restored.
+[INFO ] 2019-09-25 13:02:11,875 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'geospatial'
+[INFO ] 2019-09-25 13:02:11,876 [repositories/sdgs-data | c.o.t.p.g.GeoSpatialPlugin] Plugin:geospatial initialized
+[INFO ] 2019-09-25 13:02:11,877 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'sparql-mm'
+[INFO ] 2019-09-25 13:02:11,919 [repositories/sdgs-data | c.o.g.s.FunctionLoader] Registered 58 functions from package com.github.tkurz.sparqlmm.function.
+[INFO ] 2019-09-25 13:02:11,924 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'dependencies-plugin'
+[INFO ] 2019-09-25 13:02:11,927 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'similarity'
+[INFO ] 2019-09-25 13:02:11,942 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'GeoSPARQL'
+[INFO ] 2019-09-25 13:02:13,771 [repositories/sdgs-data | c.o.t.g.FunctionLoader] Registered 50 functions from package com.useekm.geosparql.
+[INFO ] 2019-09-25 13:02:13,772 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene-connector'
+[INFO ] 2019-09-25 13:02:13,784 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'rdfrank'
+[INFO ] 2019-09-25 13:02:13,791 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'mongodb'
+[INFO ] 2019-09-25 13:02:13,792 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'notifications'
+[INFO ] 2019-09-25 13:02:13,794 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Finished initializing plugins
+[INFO ] 2019-09-25 13:02:13,795 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '884.5M'
+[INFO ] 2019-09-25 13:02:14,003 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.resolve.entities' to default value 'true'
+[INFO ] 2019-09-25 13:02:14,003 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.load.data' to default value 'true'
+[INFO ] 2019-09-25 13:02:14,004 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2019-09-25 13:02:14,004 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.persistent.parallel.inferencers' to default value 'false'
+[INFO ] 2019-09-25 13:02:14,024 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Using 4 threads for inference
+[INFO ] 2019-09-25 13:02:14,802 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query -553800129
+[INFO ] 2019-09-25 13:02:14,806 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'use.parallel.file.inserts' to default value 'true'
+[INFO ] 2019-09-25 13:02:14,819 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'custom.validation.queries.file' to default value 'null'
+[INFO ] 2019-09-25 13:02:14,830 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'deduplicate.construct' to default value 'true'
+[INFO ] 2019-09-25 13:02:14,855 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'reuse.vars.in.subselects' to default value 'false'
+[INFO ] 2019-09-25 13:02:14,900 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'in-clause-max-members' to default value '16'
+[INFO ] 2019-09-25 13:02:14,900 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'query.convert.values.clause' to default value 'true'
+[INFO ] 2019-09-25 13:02:14,934 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'hash.join' to default value 'false'
+[INFO ] 2019-09-25 13:02:14,936 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'merge.join' to default value 'false'
+[INFO ] 2019-09-25 13:02:14,936 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'PTO' to default value '2'
+[INFO ] 2019-09-25 13:02:14,936 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'FSIPC' to default value '2'
+[INFO ] 2019-09-25 13:02:14,996 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'health.minimal.free.storage' to default value '20.0M'
+[INFO ] 2019-09-25 13:02:15,001 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'health.max.query.time.seconds' to default value '20'
+[INFO ] 2019-09-25 13:02:15,144 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'default.min.distinct.threshold' to default value '250.0M'
+[INFO ] 2019-09-25 13:02:15,171 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.engine.function.concat.max-length' to default value '10485760'
+[INFO ] 2019-09-25 13:02:15,893 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 1275344259
+[INFO ] 2019-09-25 13:02:19,077 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query -553800129 is finished
+[WARN ] 2019-09-25 13:02:39,820 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:02:39,820 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:03:10,147 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:03:10,147 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:03:40,530 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:03:40,530 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:04:10,859 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:04:10,862 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 13:04:32,202 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 1275344259 is finished
+[WARN ] 2019-09-25 13:04:41,085 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:04:41,087 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:05:11,300 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:05:11,301 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:05:41,469 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:05:41,477 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:06:11,667 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:06:11,667 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:06:41,888 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:06:41,893 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:07:12,074 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:07:12,074 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:07:42,256 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:07:42,256 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:08:12,430 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:08:12,431 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:08:42,619 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:08:42,619 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 13:08:58,741 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 162014776
+[INFO ] 2019-09-25 13:08:59,217 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 162014776 is finished
+[WARN ] 2019-09-25 13:09:12,802 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:09:12,807 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:09:43,105 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:09:43,105 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:10:13,378 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:10:13,378 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:10:43,515 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:10:43,516 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:11:13,681 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:11:13,681 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:11:43,912 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:11:43,912 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:12:14,192 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:12:14,192 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:12:44,547 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:12:44,547 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:13:14,838 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:13:14,838 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:13:45,105 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:13:45,105 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:14:15,313 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:14:15,313 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:14:45,521 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:14:45,522 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:15:15,586 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:15:15,586 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:15:45,649 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:15:45,650 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:16:15,679 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:16:15,680 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:16:45,729 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:16:45,729 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:17:15,740 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:17:15,740 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:17:45,755 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:17:45,756 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:18:15,806 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:18:15,806 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:18:45,823 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:18:45,824 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:19:15,984 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:19:15,984 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:19:46,152 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:19:46,152 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:20:16,315 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:20:16,315 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:20:46,455 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:20:46,455 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:21:16,620 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:21:16,620 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:21:46,833 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:21:46,833 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:22:17,050 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:22:17,050 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:22:47,205 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:22:47,205 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:23:17,378 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:23:17,378 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:23:47,536 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:23:47,536 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:24:17,688 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:24:17,689 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:24:47,825 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:24:47,825 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:25:17,970 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:25:17,970 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:25:48,138 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:25:48,138 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:26:18,319 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:26:18,319 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:26:48,509 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:26:48,509 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:27:18,669 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:27:18,671 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:27:48,812 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:27:48,812 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:28:18,958 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:28:18,958 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:28:49,097 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:28:49,098 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:29:19,255 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:29:19,255 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:29:49,442 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:29:49,442 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:30:19,605 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:30:19,605 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:30:49,820 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:30:49,820 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:31:19,971 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:31:19,971 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:31:50,131 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:31:50,131 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:32:20,280 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:32:20,281 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:32:50,437 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:32:50,437 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:33:20,593 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:33:20,593 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:33:50,729 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:33:50,729 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:34:20,887 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:34:20,888 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:34:51,043 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:34:51,043 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:35:21,211 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:35:21,211 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:35:51,386 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:35:51,387 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:36:21,533 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:36:21,533 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:36:51,689 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:36:51,689 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:37:21,877 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:37:21,878 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:37:52,175 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:37:52,178 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:38:22,670 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:38:22,670 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:38:52,974 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:38:52,974 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:39:23,227 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:39:23,229 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:39:53,389 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:39:53,389 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:40:23,556 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:40:23,556 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:40:53,782 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:40:53,782 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:41:24,052 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:41:24,052 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:41:54,267 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:41:54,267 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:42:24,415 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:42:24,415 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:42:54,586 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:42:54,588 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:43:24,822 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:43:24,822 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:43:54,977 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:43:54,979 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:44:25,132 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:44:25,133 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:44:55,338 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:44:55,339 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:45:25,507 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:45:25,507 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:45:55,690 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:45:55,690 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:46:25,916 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:46:25,916 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:46:56,116 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:46:56,116 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:47:26,266 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:47:26,266 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:47:56,435 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:47:56,435 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:48:26,625 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:48:26,628 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:48:56,803 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:48:56,804 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:49:26,946 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:49:26,946 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:49:57,119 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:49:57,119 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:50:27,291 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:50:27,291 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:50:57,484 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:50:57,484 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:51:27,663 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:51:27,663 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:51:57,795 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:51:57,795 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:52:27,960 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:52:27,960 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:52:58,087 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:52:58,087 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:53:28,281 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:53:28,282 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:53:58,440 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:53:58,440 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:54:28,584 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:54:28,584 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:54:58,749 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:54:58,749 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:55:28,925 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:55:28,926 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:55:59,187 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:55:59,188 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:56:29,334 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:56:29,334 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:56:59,627 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:56:59,627 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:57:29,798 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:57:29,798 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:57:59,933 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:57:59,933 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:58:30,102 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:58:30,102 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:59:00,276 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:59:00,276 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 13:59:30,450 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 13:59:30,450 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:00:00,630 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:00:00,630 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:00:30,798 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:00:30,798 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:01:00,956 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:01:00,956 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:01:31,104 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:01:31,104 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:02:01,308 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:02:01,308 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:02:31,556 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:02:31,556 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:03:01,749 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:03:01,749 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:03:31,921 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:03:31,921 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:04:02,138 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:04:02,138 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:04:32,298 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:04:32,299 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:05:02,470 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:05:02,470 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:05:32,649 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:05:32,649 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:06:02,832 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:06:02,832 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:06:33,034 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:06:33,034 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:07:03,220 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:07:03,220 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:07:33,394 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:07:33,394 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:08:03,557 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:08:03,557 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:08:33,707 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:08:33,707 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:09:03,921 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:09:03,921 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:09:34,118 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:09:34,118 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:10:04,293 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:10:04,294 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:10:34,439 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:10:34,439 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:11:04,629 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:11:04,629 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:11:34,800 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:11:34,801 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:12:04,945 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:12:04,945 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:12:35,144 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:12:35,144 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:13:05,320 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:13:05,320 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:13:35,474 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:13:35,474 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:14:05,660 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:14:05,660 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:14:35,808 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:14:35,808 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:15:06,007 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:15:06,007 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:15:36,152 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:15:36,152 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:16:06,333 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:16:06,333 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:16:36,468 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:16:36,468 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:17:06,612 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:17:06,612 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:17:36,756 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:17:36,756 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:18:06,906 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:18:06,906 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:18:37,052 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:18:37,052 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:19:07,285 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:19:07,285 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:19:37,437 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:19:37,437 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:20:07,618 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:20:07,618 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:20:37,802 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:20:37,802 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:21:07,979 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:21:07,980 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:21:38,166 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:21:38,166 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:22:08,318 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:22:08,318 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:22:38,502 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:22:38,502 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:23:08,668 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:23:08,669 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:23:38,805 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:23:38,805 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:24:08,959 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:24:08,959 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:24:39,107 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:24:39,107 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:25:09,316 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:25:09,316 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:25:39,446 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:25:39,446 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:26:09,625 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:26:09,625 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:26:39,813 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:26:39,813 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:27:10,015 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:27:10,015 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:27:40,183 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:27:40,189 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:28:10,362 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:28:10,362 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:28:40,566 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:28:40,566 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:29:10,724 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:29:10,724 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:29:40,885 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:29:40,886 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:30:11,048 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:30:11,048 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:30:41,221 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:30:41,221 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:31:11,373 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:31:11,373 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:31:41,520 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:31:41,520 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:32:11,665 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:32:11,665 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:32:41,822 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:32:41,823 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:33:11,975 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:33:11,976 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:33:42,126 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:33:42,126 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:34:12,274 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:34:12,274 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:34:42,454 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:34:42,454 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:35:12,598 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:35:12,598 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:35:42,747 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:35:42,747 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:36:12,954 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:36:12,955 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:36:43,111 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:36:43,112 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:37:13,310 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:37:13,310 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:37:43,476 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:37:43,476 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:38:13,605 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:38:13,611 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:38:43,774 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:38:43,774 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:39:13,936 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:39:13,936 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:39:44,186 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:39:44,186 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:40:14,404 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:40:14,404 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:40:44,526 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:40:44,526 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:41:14,672 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:41:14,672 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:41:44,810 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:41:44,810 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:42:14,978 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:42:14,978 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:42:45,137 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:42:45,137 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:43:15,338 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:43:15,338 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:43:45,498 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:43:45,499 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:44:15,630 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:44:15,630 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:44:45,780 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:44:45,780 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:45:15,944 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:45:15,945 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:45:46,108 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:45:46,108 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:46:16,266 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:46:16,266 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:46:46,394 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:46:46,395 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:47:16,578 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:47:16,578 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:47:46,727 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:47:46,728 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:48:16,886 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:48:16,886 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:48:47,057 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:48:47,057 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:49:17,240 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:49:17,240 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:49:47,429 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:49:47,429 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:50:17,606 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:50:17,606 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:50:47,744 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:50:47,744 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:51:17,871 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:51:17,872 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:51:48,065 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:51:48,066 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:52:18,214 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:52:18,214 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:52:48,373 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:52:48,374 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:53:18,540 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:53:18,540 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:53:48,766 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:53:48,766 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:54:18,929 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:54:18,929 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:54:49,103 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:54:49,103 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:55:19,261 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:55:19,262 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:55:49,446 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:55:49,446 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:56:19,582 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:56:19,583 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:56:49,746 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:56:49,747 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:57:20,006 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:57:20,006 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:57:50,555 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:57:50,555 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:58:21,105 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:58:21,105 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:58:51,785 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:58:51,785 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:59:22,106 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:59:22,106 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 14:59:52,417 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 14:59:52,417 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:00:22,746 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:00:22,746 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:00:52,949 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:00:52,949 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:01:23,112 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:01:23,112 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:01:53,296 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:01:53,296 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:02:23,456 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:02:23,456 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:02:53,638 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:02:53,638 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:03:23,886 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:03:23,886 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:03:54,128 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:03:54,128 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:04:24,402 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:04:24,403 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:04:54,609 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:04:54,609 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:05:24,803 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:05:24,803 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:05:54,999 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:05:54,999 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:06:25,234 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:06:25,234 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:06:55,497 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:06:55,497 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:07:25,696 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:07:25,696 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:07:55,894 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:07:55,894 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:08:26,102 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:08:26,102 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:08:56,286 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:08:56,286 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:09:26,487 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:09:26,487 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:09:56,729 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:09:56,729 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:10:26,981 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:10:26,981 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:10:57,166 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:10:57,166 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:11:27,455 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:11:27,455 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:11:57,836 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:11:57,837 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:12:28,206 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:12:28,206 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:12:58,537 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:12:58,537 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:13:28,850 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:13:28,850 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:13:59,152 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:13:59,152 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:14:29,361 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:14:29,361 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:14:59,623 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:14:59,624 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:15:29,943 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:15:29,943 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:16:00,129 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:16:00,130 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:16:30,289 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:16:30,289 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:17:00,470 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:17:00,470 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:17:30,716 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:17:30,716 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:18:00,866 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:18:00,866 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:18:31,101 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:18:31,102 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:19:01,412 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:19:01,412 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:19:31,641 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:19:31,641 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:20:01,877 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:20:01,877 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:20:32,047 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:20:32,047 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:21:02,237 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:21:02,237 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:21:32,474 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:21:32,474 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:22:02,817 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:22:02,817 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:22:33,130 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:22:33,130 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:23:03,365 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:23:03,365 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:23:33,573 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:23:33,573 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:24:03,760 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:24:03,761 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:24:34,021 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:24:34,021 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:25:04,347 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:25:04,347 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:25:34,521 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:25:34,521 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:26:04,715 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:26:04,715 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:26:34,912 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:26:34,912 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:27:05,125 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:27:05,125 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:27:35,449 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:27:35,449 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:28:05,705 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:28:05,705 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:28:35,903 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:28:35,903 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:29:06,173 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:29:06,174 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:29:36,361 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:29:36,373 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:30:06,570 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:30:06,570 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:30:36,812 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:30:36,813 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:31:07,052 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:31:07,052 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:31:37,308 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:31:37,308 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:32:07,538 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:32:07,538 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:32:37,722 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:32:37,723 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:33:07,991 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:33:07,991 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:33:38,212 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:33:38,212 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:34:08,463 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:34:08,464 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:34:38,698 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:34:38,698 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:35:08,937 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:35:08,937 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:35:39,148 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:35:39,148 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:36:09,372 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:36:09,372 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:36:39,627 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:36:39,627 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:37:10,017 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:37:10,017 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:37:40,245 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:37:40,245 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:38:10,469 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:38:10,470 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:38:40,664 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:38:40,665 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:39:10,882 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:39:10,882 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:39:41,087 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:39:41,088 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:40:11,308 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:40:11,308 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:40:41,515 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:40:41,515 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:41:11,740 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:41:11,740 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:41:41,945 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:41:41,945 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:42:12,196 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:42:12,196 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:42:42,718 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:42:42,718 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:43:13,254 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:43:13,254 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:43:43,554 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:43:43,554 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:44:13,811 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:44:13,811 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:44:43,994 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:44:43,994 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:45:14,253 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:45:14,253 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:45:44,417 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:45:44,417 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:46:14,666 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:46:14,666 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:46:44,959 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:46:44,959 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:47:15,190 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:47:15,190 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:47:45,425 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:47:45,426 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:48:15,593 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:48:15,594 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:48:45,782 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:48:45,782 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:49:17,457 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:49:17,457 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:49:47,794 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:49:47,794 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:50:18,052 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:50:18,052 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:50:48,324 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:50:48,324 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:51:18,653 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:51:18,654 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:51:49,001 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:51:49,007 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:52:19,318 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:52:19,319 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:52:49,566 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:52:49,567 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:53:19,895 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:53:19,897 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:53:50,152 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:53:50,153 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:54:20,471 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:54:20,472 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:54:50,738 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:54:50,739 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:55:21,003 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:55:21,004 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:55:51,237 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:55:51,238 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:56:21,529 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:56:21,536 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:56:51,764 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:56:51,765 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 15:57:22,015 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 15:57:22,017 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 15:57:44,463 [Thread-3 | c.o.g.s.GraphDB] Stopping GraphDB.
+[INFO ] 2019-09-25 15:57:44,534 [Thread-3 | c.o.f.c.s.SemanticDataManagement] Shutting down current semantic location
+[INFO ] 2019-09-25 15:57:45,071 [Thread-10 | c.o.t.s.i.PluginManager] Shutting down plugins (DEFAULT)...
+[INFO ] 2019-09-25 15:57:45,279 [Thread-10 | c.o.t.b.AVLRepository] NumberOfStatements = 1968932
+[INFO ] 2019-09-25 15:57:45,279 [Thread-10 | c.o.t.b.AVLRepository] NumberOfExplicitStatements = 578518
+[INFO ] 2019-09-25 15:57:45,348 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Shutting down entity pool
+[INFO ] 2019-09-25 15:57:45,453 [Thread-10 | c.o.t.f.GraphDBFreeSchemaRepository] Entity pool was shut down
+[INFO ] 2019-09-25 16:01:50,630 [main | c.o.g.Config] Using 'jar:file:/opt/graphdb/dist/lib/graphdb-application-common-8.9.0.jar!/com/ontotext/graphdb/logback.xml' as logback's configuration file for graphdb
+[INFO ] 2019-09-25 16:01:53,279 [main | c.o.g.s.GraphDB] Starting GraphDB in workbench mode.
+[INFO ] 2019-09-25 16:02:05,029 [main | c.o.g.Config] GraphDB Home directory: /opt/graphdb/home
+[INFO ] 2019-09-25 16:02:05,036 [main | c.o.g.Config] GraphDB Config directory: /opt/graphdb/home/conf
+[INFO ] 2019-09-25 16:02:05,042 [main | c.o.g.Config] GraphDB Data directory: /opt/graphdb/home/data
+[INFO ] 2019-09-25 16:02:05,043 [main | c.o.g.Config] GraphDB Work directory: /opt/graphdb/home/work
+[INFO ] 2019-09-25 16:02:05,060 [main | c.o.g.Config] GraphDB Logs directory: /opt/graphdb/home/logs
+[INFO ] 2019-09-25 16:02:15,453 [main | c.o.g.s.GraphDB] Started GraphDB in workbench mode at port 7200.
+[INFO ] 2019-09-25 16:02:15,960 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Version: 8.9, revision: 459529247
+[INFO ] 2019-09-25 16:02:15,963 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Build date: Thu Mar 28 01:01:17 UTC 2019
+[INFO ] 2019-09-25 16:02:15,986 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Started repository sdgs-data in READ/WRITE mode.
+[INFO ] 2019-09-25 16:02:15,995 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'partialRDFS' to default value 'false'
+[INFO ] 2019-09-25 16:02:15,996 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-isolation' to default value 'true'
+[INFO ] 2019-09-25 16:02:15,997 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'checkForValidPropertiesAndClasses' to default value 'false'
+[INFO ] 2019-09-25 16:02:15,998 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'transaction-mode' to default value 'safe'
+[INFO ] 2019-09-25 16:02:16,004 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'entity-pool-implementation' to default value 'transactional'
+[INFO ] 2019-09-25 16:02:16,005 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'useShutdownHooks' to default value 'true'
+[INFO ] 2019-09-25 16:02:16,011 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for tuples: 7829
+[INFO ] 2019-09-25 16:02:16,015 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Cache pages for predicates: 1118
+[INFO ] 2019-09-25 16:02:16,017 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-25 16:02:16,067 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-25 16:02:16,068 [repositories/sdgs-data | c.o.t.e.EntityPoolFactory] Using entity pool implementation: transactional-disk
+[INFO ] 2019-09-25 16:02:16,076 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.connection.cache.size' to default value '2000'
+[INFO ] 2019-09-25 16:02:16,094 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.epool.onheap' to default value 'false'
+[INFO ] 2019-09-25 16:02:16,121 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restoring entity hash table...
+[INFO ] 2019-09-25 16:02:16,661 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Restored 428415 entities allocating 12.0 MB
+[INFO ] 2019-09-25 16:02:16,662 [repositories/sdgs-data | c.o.t.e.i.m.PersistedHashMap] Done in 540 ms.
+[INFO ] 2019-09-25 16:02:16,752 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'allow-system-entities-as-data' to default value 'false'
+[INFO ] 2019-09-25 16:02:16,755 [repositories/sdgs-data | c.o.t.u.l.LimitedObjectCacheFactory] Using LRU cache type: synch
+[INFO ] 2019-09-25 16:02:16,762 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-pool-reversecache' to default value 'true'
+[INFO ] 2019-09-25 16:02:16,768 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'cache-ratio-so-os-cso-cos' to default value '[50, 50, 50]'
+[INFO ] 2019-09-25 16:02:16,793 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.global.page.cache' to default value 'true'
+[INFO ] 2019-09-25 16:02:16,796 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '884.5M'
+[WARN ] 2019-09-25 16:02:17,412 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:02:17,414 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:02:17,724 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Rule list configuration present, it will override all other rule sets parameters!
+[INFO ] 2019-09-25 16:02:17,727 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'virtual.repository.mode' to default value 'false'
+[INFO ] 2019-09-25 16:02:17,847 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'epool.journal.buffer.size' to default value '1024'
+[INFO ] 2019-09-25 16:02:17,889 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'enable-debug-rules' to default value 'false'
+[INFO ] 2019-09-25 16:02:17,963 [repositories/sdgs-data | c.o.t.InferencerFactory] ruleSet=owl2-rl, partialRdfs=false
+[INFO ] 2019-09-25 16:02:17,978 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'filter.obj.only.hint' to default value 'true'
+[INFO ] 2019-09-25 16:02:18,073 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'check.pred.stats' to default value 'false'
+[INFO ] 2019-09-25 16:02:19,097 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'nonInterpretablePredicates' to default value 'null'
+[INFO ] 2019-09-25 16:02:19,098 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'disable-plugins' to default value '[]'
+[INFO ] 2019-09-25 16:02:19,099 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'skip-default-plugins' to default value 'false'
+[INFO ] 2019-09-25 16:02:19,099 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Searching for plugins available in the classpath...
+[INFO ] 2019-09-25 16:02:19,573 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin rdfrank
+[INFO ] 2019-09-25 16:02:19,575 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin direct
+[INFO ] 2019-09-25 16:02:19,579 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin geospatial
+[INFO ] 2019-09-25 16:02:19,579 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin notifications
+[INFO ] 2019-09-25 16:02:19,580 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin expose-entity
+[INFO ] 2019-09-25 16:02:19,581 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin literals-index
+[INFO ] 2019-09-25 16:02:19,582 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin script
+[INFO ] 2019-09-25 16:02:19,582 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin plugincontrol
+[INFO ] 2019-09-25 16:02:19,582 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin magic-predicates
+[INFO ] 2019-09-25 16:02:19,583 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin mongodb
+[INFO ] 2019-09-25 16:02:19,583 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-plugins' to default value '[]'
+[INFO ] 2019-09-25 16:02:19,584 [repositories/sdgs-data | c.o.GraphDBConfigParameters] Reading external plugins from /opt/graphdb/dist/lib/plugins
+[INFO ] 2019-09-25 16:02:19,584 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'register-external-plugins' to default value '[/opt/graphdb/dist/lib/plugins]'
+[INFO ] 2019-09-25 16:02:19,584 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Registering external plugins...
+[INFO ] 2019-09-25 16:02:19,584 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-fts-plugin for plugins
+[INFO ] 2019-09-25 16:02:19,603 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene
+[INFO ] 2019-09-25 16:02:19,603 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/graphdb-geosparql-plugin for plugins
+[INFO ] 2019-09-25 16:02:19,640 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin GeoSPARQL
+[INFO ] 2019-09-25 16:02:19,648 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/lucene-connector for plugins
+[INFO ] 2019-09-25 16:02:19,691 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin lucene-connector
+[INFO ] 2019-09-25 16:02:19,691 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/sparql-mm for plugins
+[INFO ] 2019-09-25 16:02:19,695 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin sparql-mm
+[INFO ] 2019-09-25 16:02:19,696 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/dependencies-plugin for plugins
+[INFO ] 2019-09-25 16:02:19,707 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin dependencies-plugin
+[INFO ] 2019-09-25 16:02:19,707 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/autocomplete-plugin for plugins
+[INFO ] 2019-09-25 16:02:19,712 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin autocomplete
+[INFO ] 2019-09-25 16:02:19,713 [repositories/sdgs-data | c.o.t.f.GraphDBFreeSchemaRepository] Scanning /opt/graphdb/dist/lib/plugins/similarity-plugin for plugins
+[INFO ] 2019-09-25 16:02:19,731 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Registering plugin similarity
+[INFO ] 2019-09-25 16:02:19,733 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugins... (DEFAULT)
+[INFO ] 2019-09-25 16:02:19,734 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'expose-entity'
+[INFO ] 2019-09-25 16:02:19,869 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'autocomplete'
+[INFO ] 2019-09-25 16:02:19,880 [repositories/sdgs-data | c.o.t.p.a.AutocompletePluginUtils] >>>>>>>> AutocompletePlugin: No configuration file found at /opt/graphdb/home/data/repositories/sdgs-data/storage/autocomplete/config.properties. Assuming default options for plugin.
+[INFO ] 2019-09-25 16:02:19,883 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'direct'
+[INFO ] 2019-09-25 16:02:19,884 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene'
+[INFO ] 2019-09-25 16:02:19,886 [repositories/sdgs-data | c.o.p.lucene] No Lucene indices were found
+[INFO ] 2019-09-25 16:02:19,887 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'plugincontrol'
+[INFO ] 2019-09-25 16:02:19,888 [repositories/sdgs-data | c.o.t.p.p.PluginControlPlugin] Plugin:plugincontrol initialized
+[INFO ] 2019-09-25 16:02:19,888 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'script'
+[INFO ] 2019-09-25 16:02:19,891 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'magic-predicates'
+[INFO ] 2019-09-25 16:02:19,892 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#foreach
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#length
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#concat
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#for
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://spinrdf.org/spif#split
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#member
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering TupleFunction: http://jena.hpl.hp.com/ARQ/list#index
+[INFO ] 2019-09-25 16:02:19,893 [repositories/sdgs-data | c.o.p.magic-predicates] Registering InverseMagicPredicate: http://jena.hpl.hp.com/ARQ/property#strSplit
+[INFO ] 2019-09-25 16:02:19,894 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'literals-index'
+[INFO ] 2019-09-25 16:02:19,939 [repositories/sdgs-data | c.o.p.literals-index] Literals indices restored.
+[INFO ] 2019-09-25 16:02:19,940 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'geospatial'
+[INFO ] 2019-09-25 16:02:19,942 [repositories/sdgs-data | c.o.t.p.g.GeoSpatialPlugin] Plugin:geospatial initialized
+[INFO ] 2019-09-25 16:02:19,943 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'sparql-mm'
+[INFO ] 2019-09-25 16:02:19,982 [repositories/sdgs-data | c.o.g.s.FunctionLoader] Registered 58 functions from package com.github.tkurz.sparqlmm.function.
+[INFO ] 2019-09-25 16:02:19,982 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'dependencies-plugin'
+[INFO ] 2019-09-25 16:02:19,989 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'similarity'
+[INFO ] 2019-09-25 16:02:19,992 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'GeoSPARQL'
+[INFO ] 2019-09-25 16:02:22,221 [repositories/sdgs-data | c.o.t.g.FunctionLoader] Registered 50 functions from package com.useekm.geosparql.
+[INFO ] 2019-09-25 16:02:22,221 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'lucene-connector'
+[INFO ] 2019-09-25 16:02:22,239 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'rdfrank'
+[INFO ] 2019-09-25 16:02:22,258 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'mongodb'
+[INFO ] 2019-09-25 16:02:22,259 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Initializing plugin 'notifications'
+[INFO ] 2019-09-25 16:02:22,262 [repositories/sdgs-data | c.o.t.s.i.PluginManager] Finished initializing plugins
+[INFO ] 2019-09-25 16:02:22,262 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.page.cache.size' to default value '884.5M'
+[INFO ] 2019-09-25 16:02:22,718 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.resolve.entities' to default value 'true'
+[INFO ] 2019-09-25 16:02:22,718 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'do.load.data' to default value 'true'
+[INFO ] 2019-09-25 16:02:22,718 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Data will be parsed + resolved + loaded.
+[INFO ] 2019-09-25 16:02:22,719 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.persistent.parallel.inferencers' to default value 'false'
+[INFO ] 2019-09-25 16:02:22,759 [repositories/sdgs-data | c.o.r.p.ParallelLoader] Using 4 threads for inference
+[INFO ] 2019-09-25 16:02:23,936 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'custom.validation.queries.file' to default value 'null'
+[INFO ] 2019-09-25 16:02:23,938 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query -553800129
+[INFO ] 2019-09-25 16:02:23,945 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'use.parallel.file.inserts' to default value 'true'
+[INFO ] 2019-09-25 16:02:24,003 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'deduplicate.construct' to default value 'true'
+[INFO ] 2019-09-25 16:02:24,109 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'reuse.vars.in.subselects' to default value 'false'
+[INFO ] 2019-09-25 16:02:24,165 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'in-clause-max-members' to default value '16'
+[INFO ] 2019-09-25 16:02:24,165 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'query.convert.values.clause' to default value 'true'
+[INFO ] 2019-09-25 16:02:24,181 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'hash.join' to default value 'false'
+[INFO ] 2019-09-25 16:02:24,189 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'merge.join' to default value 'false'
+[INFO ] 2019-09-25 16:02:24,190 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'PTO' to default value '2'
+[INFO ] 2019-09-25 16:02:24,190 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'FSIPC' to default value '2'
+[INFO ] 2019-09-25 16:02:24,265 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'health.minimal.free.storage' to default value '20.0M'
+[INFO ] 2019-09-25 16:02:24,327 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'health.max.query.time.seconds' to default value '20'
+[INFO ] 2019-09-25 16:02:24,606 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'default.min.distinct.threshold' to default value '250.0M'
+[INFO ] 2019-09-25 16:02:24,713 [repositories/sdgs-data | c.o.c.AbstractParameter] Configured parameter 'graphdb.engine.function.concat.max-length' to default value '10485760'
+[INFO ] 2019-09-25 16:02:25,343 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 1275344259
+[INFO ] 2019-09-25 16:02:30,083 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query -553800129 is finished
+[WARN ] 2019-09-25 16:02:47,776 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:02:47,776 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:03:18,018 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:03:18,020 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:03:48,328 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:03:48,330 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:04:18,634 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:04:18,635 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:04:48,870 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:04:48,870 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:05:19,153 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:05:19,154 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 16:05:21,803 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 1275344259 is finished
+[WARN ] 2019-09-25 16:05:49,383 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:05:49,383 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:06:19,716 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:06:19,716 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:06:50,041 [http-nio-7200-exec-4 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:06:50,041 [http-nio-7200-exec-4 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:07:20,371 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:07:20,377 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:07:50,694 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:07:50,695 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:08:20,942 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:08:20,942 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:08:51,192 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:08:51,192 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:09:21,479 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:09:21,479 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:09:51,768 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:09:51,768 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:10:21,975 [http-nio-7200-exec-8 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:10:21,975 [http-nio-7200-exec-8 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:10:52,194 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:10:52,195 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:11:22,457 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:11:22,458 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 16:11:32,331 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 162014776
+[INFO ] 2019-09-25 16:11:33,037 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 162014776 is finished
+[WARN ] 2019-09-25 16:11:52,927 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:11:52,928 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:12:23,254 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:12:23,255 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:12:53,794 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:12:53,794 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:13:24,146 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:13:24,147 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:13:54,443 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:13:54,443 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:14:24,658 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:14:24,658 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:14:54,913 [http-nio-7200-exec-5 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:14:54,913 [http-nio-7200-exec-5 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 16:15:06,172 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query 656274555
+[INFO ] 2019-09-25 16:15:06,914 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query 656274555 is finished
+[WARN ] 2019-09-25 16:15:25,099 [http-nio-7200-exec-7 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:15:25,099 [http-nio-7200-exec-7 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:15:55,330 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:15:55,330 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:16:25,592 [http-nio-7200-exec-9 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:16:25,592 [http-nio-7200-exec-9 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:16:55,877 [http-nio-7200-exec-3 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:16:55,878 [http-nio-7200-exec-3 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:17:26,215 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:17:26,216 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:17:56,448 [http-nio-7200-exec-10 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:17:56,448 [http-nio-7200-exec-10 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:18:26,789 [http-nio-7200-exec-1 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:18:26,790 [http-nio-7200-exec-1 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[INFO ] 2019-09-25 16:18:46,935 [repositories/sdgs-data | c.o.f.s.RepositoryController] GET query -1089276826
+[INFO ] 2019-09-25 16:18:47,749 [repositories/sdgs-data | c.o.g.s.TupleQueryResultView] Request for query -1089276826 is finished
+[WARN ] 2019-09-25 16:18:57,028 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:18:57,028 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:19:27,310 [http-nio-7200-exec-2 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:19:27,310 [http-nio-7200-exec-2 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
+[WARN ] 2019-09-25 16:19:57,509 [http-nio-7200-exec-6 | o.s.w.s.PageNotFound] No handler found for GET /
+[WARN ] 2019-09-25 16:19:57,510 [http-nio-7200-exec-6 | o.s.w.s.m.s.DefaultHandlerExceptionResolver] Resolved [org.springframework.web.servlet.NoHandlerFoundException: No handler found for GET /]
