@@ -64,14 +64,11 @@ def get_task():
         abort(400)
     if file and allowed_file(file.filename):
         text = parser.from_buffer(file.read())
-
-
         result = {
             "lang": detect(text['content']),
             "text": text['content'],
             "size": True
         }
-
         if(text['content'].__len__() > 70000):
             result["size"] = False
 

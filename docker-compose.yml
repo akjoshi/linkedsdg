@@ -36,8 +36,8 @@ services:
       context: ./graph
       dockerfile: Dockerfile
     restart: always
-    depends_on:
-      - graphdb
+    #depends_on:
+    #  - graphdb
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
@@ -51,8 +51,8 @@ services:
     build:
       context: ./concepts
       dockerfile: Dockerfile
-    depends_on:
-      - graphdb
+    #depends_on:
+    #  - graphdb
     restart: always
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
