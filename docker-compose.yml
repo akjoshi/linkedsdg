@@ -28,7 +28,8 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes: 
-      - ./db/data:/opt/graphdb/home
+    #  - ./db/data:/opt/graphdb/home
+       - graph-data:/opt/graphdb/home
     expose:
       - "7200"
     ports:
@@ -73,8 +74,6 @@ services:
       context: ./text
       dockerfile: Dockerfile
     restart: always
-    volumes: 
-      - ./text:/app
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
@@ -103,3 +102,5 @@ services:
       - "80"
     ports:
       - "8080:80"
+volumes:
+  graph-data:

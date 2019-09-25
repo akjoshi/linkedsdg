@@ -11,6 +11,7 @@ ENV GRAPHDB_HOME=${GRAPHDB_PARENT_DIR}/home
 ENV GRAPHDB_INSTALL_DIR=${GRAPHDB_PARENT_DIR}/dist
 
 ADD graphdb-free-${version}-dist.zip /tmp
+COPY data/ /opt/graphdb/home/
 
 RUN mkdir -p ${GRAPHDB_PARENT_DIR} && \
     cd ${GRAPHDB_PARENT_DIR} && \
