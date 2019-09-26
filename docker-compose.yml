@@ -7,12 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "80:80"
-    # depends_on:
-    #   - graphdb
-    #   - text
-    #   - webapp
-    #   - concepts
-    #   - graph
     environment:
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
@@ -28,20 +22,15 @@ services:
       dockerfile: Dockerfile
     restart: always
     volumes: 
-    #  - ./db/data:/opt/graphdb/home
        - graph-data:/opt/graphdb/home
     expose:
       - "7200"
-    ports:
-      - "7200:7200"
   graph:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:latest'
     build:
       context: ./graph
       dockerfile: Dockerfile
     restart: always
-    #depends_on:
-    #  - graphdb
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
@@ -49,15 +38,11 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5002"
-    ports:
-      - "5002:5002"
   concepts:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:latest'
     build:
       context: ./concepts
       dockerfile: Dockerfile
-    #depends_on:
-    #  - graphdb
     restart: always
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
@@ -66,8 +51,6 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5000"
-    ports:
-      - "5000:5000"
   text:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:latest'
     build:
@@ -81,17 +64,11 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5001"
-    ports:
-      - "5001:5001"
   webapp:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:latest'
     build:
       context: ./webapp
       dockerfile: Dockerfile
-    # depends_on:
-    #   - text
-    #   - concepts
-    #   - graphdb
     restart: always
     environment: 
       - GRAPHDB_REPO=${GRAPHDB_REPO}
@@ -100,7 +77,5 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "80"
-    ports:
-      - "8080:80"
 volumes:
   graph-data:
