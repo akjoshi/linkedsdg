@@ -46,6 +46,7 @@ services:
     expose:
       - "5002"
     networks:
+      - frontend
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
@@ -62,6 +63,7 @@ services:
     expose:
       - "5000"
     networks:
+      - frontend
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
@@ -78,7 +80,10 @@ services:
     expose:
       - "5001"
     networks:
+      - frontend
       - backend
+    ports:
+      - "5001:5001"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   webapp.sdgontologies.svc.cluster.local:
