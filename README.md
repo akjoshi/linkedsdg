@@ -24,6 +24,6 @@ Add the `-d` flag to run in the background as a daemon.
 
 To deploy this into production on kubernetes, use the following command: 
 
-`kompose up --namespace=sdgontologies`
+`kompose up -f docker-compose.yml docker-compose-prod.yml --namespace sdgontologies`
 
-Note that some of the services can take up to 10 minutes to run. 
+Note that some of the services can take up to 10 minutes to run.
