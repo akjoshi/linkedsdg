@@ -1,6 +1,6 @@
 version: '3.1'
 services: 
-  proxy: 
+  proxy.sdgontologies.svc.cluster.local: 
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:latest'
     build:
       context: ./proxy
@@ -19,7 +19,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
       kompose.service.type: LoadBalancer
-  graphdb:
+  graphdb.sdgontologies.svc.cluster.local:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:latest'
     build:
       context: ./db
@@ -33,7 +33,7 @@ services:
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
-  graph:
+  graph.sdgontologies.svc.cluster.local:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:latest'
     build:
       context: ./graph
@@ -46,11 +46,10 @@ services:
     expose:
       - "5002"
     networks:
-      - frontend
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
-  concepts:
+  concepts.sdgontologies.svc.cluster.local:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:latest'
     build:
       context: ./concepts
@@ -63,11 +62,10 @@ services:
     expose:
       - "5000"
     networks:
-      - frontend
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
-  text:
+  text.sdgontologies.svc.cluster.local:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:latest'
     build:
       context: ./text
@@ -80,11 +78,10 @@ services:
     expose:
       - "5001"
     networks:
-      - frontend
       - backend
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
-  webapp:
+  webapp.sdgontologies.svc.cluster.local:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:latest'
     build:
       context: ./webapp
