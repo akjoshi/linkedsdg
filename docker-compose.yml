@@ -1,4 +1,4 @@
-version: '3'
+version: '3.1'
 services: 
   proxy: 
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:latest'
@@ -15,6 +15,8 @@ services:
       - NGINX_HOST=${HOST}
       - NGINX_PORT=${DEV_PORT}
     command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
   graphdb:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:latest'
     build:
@@ -25,6 +27,8 @@ services:
        - graph-data:/opt/graphdb/home
     expose:
       - "7200"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
   graph:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:latest'
     build:
@@ -38,6 +42,8 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5002"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
   concepts:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:latest'
     build:
@@ -51,6 +57,8 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5000"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
   text:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:latest'
     build:
@@ -64,6 +72,8 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "5001"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
   webapp:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:latest'
     build:
@@ -77,5 +87,7 @@ services:
       - GRAPHDB_USE_HTTPS=${GRAPHDB_USE_HTTPS}
     expose:
       - "80"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
 volumes:
   graph-data:
