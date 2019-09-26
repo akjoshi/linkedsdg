@@ -1,0 +1,76 @@
+version: '3.1'
+services: 
+  proxy: 
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:latest'
+    build:
+      context: ./proxy
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+    command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+  graphdb:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:latest'
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    restart: always
+    expose:
+      - "7200"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+  graph:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:latest'
+    build:
+      context: ./graph
+      dockerfile: Dockerfile
+    restart: always
+    environment: 
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+    expose:
+      - "5002"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+  concepts:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:latest'
+    build:
+      context: ./concepts
+      dockerfile: Dockerfile
+    restart: always
+    environment: 
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+    expose:
+      - "5000"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+  text:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:latest'
+    build:
+      context: ./text
+      dockerfile: Dockerfile
+    restart: always
+    environment: 
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+    expose:
+      - "5001"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+  webapp:
+    environment: 
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+    expose:
+      - "80"
+    #labels:
+    #  kompose.image-pull-secret: ungpregcredtoken
+volumes:
+  graph-data:
