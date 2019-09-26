@@ -10,10 +10,10 @@ from pyld import jsonld
 import os
 
 
-graphdb_url = os.environ['GRAPHDB_URL']
+#graphdb_url = os.environ['GRAPHDB_URL']
 graphdb_repo = os.environ['GRAPHDB_REPO']
-graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
-graphdb_port = os.environ['GRAPHDB_PORT']
+#graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
+#graphdb_port = os.environ['GRAPHDB_PORT']
 
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})

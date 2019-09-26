@@ -23,27 +23,27 @@ http {
         server graph:5002;
     }
 
-    upstream graph_db {
-        server graphdb:7200;
-    }
+    #upstream graph_db {
+    #    server graphdb:7200;
+    #}
 
-    server {
-        listen 0.0.0.0:7200;
-        listen 127.0.0.1:7200;
-	    listen [::]:7200; 
-        location / {
-            proxy_pass         http://graph_db/;
-            rewrite ^/externalpath(.*)$ $1 break;
-            proxy_http_version 1.1;
-            proxy_set_header   Upgrade $http_upgrade;
-            proxy_set_header   Connection keep-alive;
-            proxy_set_header   Host $host;
-            proxy_cache_bypass $http_upgrade;
-            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header   X-External-Host  ${NGINX_HOST}:${NGINX_PORT};
-        }
-    }
+    #server {
+    #    listen 0.0.0.0:7200;
+    #    listen 127.0.0.1:7200;
+	#    listen [::]:7200; 
+    #    location / {
+    #        proxy_pass         http://graph_db/;
+    #        rewrite ^/externalpath(.*)$ $1 break;
+    #        proxy_http_version 1.1;
+    #        proxy_set_header   Upgrade $http_upgrade;
+    #        proxy_set_header   Connection keep-alive;
+    #        proxy_set_header   Host $host;
+    #        proxy_cache_bypass $http_upgrade;
+    #        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    #        proxy_set_header X-Forwarded-Proto $scheme;
+    #        proxy_set_header   X-External-Host  ${NGINX_HOST}:${NGINX_PORT};
+    #    }
+    #}
 
  
     server {
@@ -63,13 +63,13 @@ http {
             proxy_set_header   X-External-Host  ${NGINX_HOST}:${NGINX_PORT};
         }
 
-        location /files {
-            autoindex on;
-            sendfile           on;
-            sendfile_max_chunk 1m;
-            tcp_nopush on;
-            root /www;
-        }
+        #location /files {
+        #    autoindex on;
+        #    sendfile           on;
+        #    sendfile_max_chunk 1m;
+        #    tcp_nopush on;
+        #    root /www;
+        #}
 
         location /text/ {
             proxy_pass         http://text_server/;
@@ -113,18 +113,18 @@ http {
             proxy_set_header X-External-Path /graph;
         }
 
-        location /graphdb/ {
-            proxy_pass         http://graph_db/;
-            rewrite ^/externalpath(.*)$ $1 break;
-            proxy_http_version 1.1;
-            proxy_set_header   Upgrade $http_upgrade;
-            proxy_set_header   Connection keep-alive;
-            proxy_set_header   Host $host;
-            proxy_cache_bypass $http_upgrade;
-            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-            proxy_set_header   X-External-Host  ${NGINX_HOST}:${NGINX_PORT};
-            proxy_set_header X-External-Path /graphdb;
-        }
+        #location /graphdb/ {
+        #    proxy_pass         http://graph_db/;
+        #    rewrite ^/externalpath(.*)$ $1 break;
+        #    proxy_http_version 1.1;
+        #    proxy_set_header   Upgrade $http_upgrade;
+        #    proxy_set_header   Connection keep-alive;
+        #    proxy_set_header   Host $host;
+        #    proxy_cache_bypass $http_upgrade;
+        #    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        #    proxy_set_header X-Forwarded-Proto $scheme;
+        #    proxy_set_header   X-External-Host  ${NGINX_HOST}:${NGINX_PORT};
+        #    proxy_set_header X-External-Path /graphdb;
+        #}
     }
 }

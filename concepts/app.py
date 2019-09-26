@@ -13,10 +13,10 @@ import json
 import os
 import requests, time
 
-graphdb_url = os.environ['GRAPHDB_URL']
+#graphdb_url = os.environ['GRAPHDB_URL']
 graphdb_repo = os.environ['GRAPHDB_REPO']
-graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
-graphdb_port = os.environ['GRAPHDB_PORT']
+#graphdb_use_https = os.environ['GRAPHDB_USE_HTTPS']
+#graphdb_port = os.environ['GRAPHDB_PORT']
 
 
 SPARQL_QUERY = """
