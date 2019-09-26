@@ -8,6 +8,7 @@ services:
     ports:
       - "80:80"
     environment:
+      - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
       - GRAPHDB_PORT=${GRAPHDB_PORT}
@@ -17,6 +18,7 @@ services:
     command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
+      kompose.service.type: LoadBalancer
   graphdb:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:latest'
     build:
@@ -36,6 +38,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment: 
+      - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
       - GRAPHDB_PORT=${GRAPHDB_PORT}
@@ -51,6 +54,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment: 
+      - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
       - GRAPHDB_PORT=${GRAPHDB_PORT}
@@ -66,6 +70,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment: 
+      - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
       - GRAPHDB_PORT=${GRAPHDB_PORT}
@@ -81,6 +86,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     environment: 
+      - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=${GRAPHDB_REPO}
       - GRAPHDB_URL=${GRAPHDB_URL}
       - GRAPHDB_PORT=${GRAPHDB_PORT}
@@ -91,3 +97,5 @@ services:
       kompose.image-pull-secret: ungpregcredtoken
 volumes:
   graph-data:
+#networks:
+#  - onto-network
