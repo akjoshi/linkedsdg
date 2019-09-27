@@ -16,5 +16,5 @@ services:
     command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx-prod.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     networks:
       sdgnet:
-        ipv4_address: 172.28.238.10
+        ipv4_address: proxy
 

@@ -107,7 +107,7 @@ SELECT DISTINCT ?id ?label
 #   } 
 # """
 
-GRAPHDB = "http://172.28.238.20:7200/repositories/" + graphdb_repo
+GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
 
 while True:
     try:
@@ -115,6 +115,7 @@ while True:
         assert(int(response.status_code)<400)
         break
     except:
+        print("Graph DB not reachable... will try again...")
         time.sleep(5)
         continue
 

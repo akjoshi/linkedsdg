@@ -1,11 +1,11 @@
 {
-    "textApiUrl": "http://localhost/text/api",
-    "textLinkApiUrl": "http://localhost/text/apiURL",
-    "textLinkApiUrlcashed": "http://localhost/text/apiURLcashed",
-    "spacyApiUrl": "http://localhost/concepts/api",
-    "graphQueryApiUrl": "http://localhost/graph/api",
-    "statsApiUrl": "http://localhost/graph/stats",
-    "describeApiUrl": "http://localhost/graph/describe",
+    "textApiUrl": "http://0.0.0.0/text/api",
+    "textLinkApiUrl": "http://0.0.0.0/text/apiURL",
+    "textLinkApiUrlcashed": "http://0.0.0.0/text/apiURLcashed",
+    "spacyApiUrl": "http://0.0.0.0/concepts/api",
+    "graphQueryApiUrl": "http://0.0.0.0/graph/api",
+    "statsApiUrl": "http://0.0.0.0/graph/stats",
+    "describeApiUrl": "http://0.0.0.0/graph/describe",
     "prod": {
         "textApiUrl": "http://34.66.148.181:5001/api",
         "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",

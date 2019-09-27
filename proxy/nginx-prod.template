@@ -8,19 +8,19 @@ http {
     client_max_body_size 0;
 
     upstream client_server {
-        server 172.28.238.60:80;
+        server webapp:80;
     }
  
     upstream text_server {
-        server 172.28.238.50:5001;
+        server text:5001;
     }
 
     upstream concepts_server {
-        server 172.28.238.40:5000;
+        server concepts:5000;
     }
 
     upstream graph_server {
-        server 172.28.238.30:5002;
+        server graph:5002;
     }
 
  
