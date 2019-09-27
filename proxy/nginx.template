@@ -8,7 +8,7 @@ http {
     client_max_body_size 0;
 
     upstream client_server {
-        server webapp:80;
+        server webapp.sdgontologies.svc.cluster.local:80;
     }
  
     upstream text_server {
