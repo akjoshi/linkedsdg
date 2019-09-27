@@ -15,7 +15,10 @@ services:
       - NGINX_PORT=80
     command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     networks:
-      - frontend
+      sdgnet:
+        ipv4_address: 172.28.238.10
+        #aliases:
+        #  - proxy.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
       kompose.service.type: LoadBalancer
@@ -31,9 +34,10 @@ services:
     expose:
       - "7200"
     networks:
-      backend:
-        aliases:
-          - graphdb.sdgontologies.svc.cluster.local
+      sdgnet:
+        ipv4_address: 172.28.238.20
+        #aliases:
+        #  - graphdb.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   graph:
@@ -49,12 +53,10 @@ services:
     expose:
       - "5002"
     networks:
-      frontend:
-        aliases:
-          - graph.sdgontologies.svc.cluster.local
-      backend:
-        aliases:
-          - graph.sdgontologies.svc.cluster.local
+      sdgnet:
+        ipv4_address: 172.28.238.30
+        #aliases:
+        #  - graph.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   concepts:
@@ -70,12 +72,10 @@ services:
     expose:
       - "5000"
     networks:
-      frontend:
-        aliases:
-          - concepts.sdgontologies.svc.cluster.local
-      backend:
-        aliases:
-          - concepts.sdgontologies.svc.cluster.local
+      sdgnet:
+        ipv4_address: 172.28.238.40
+        #aliases:
+        #  - concepts.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   text:
@@ -91,14 +91,10 @@ services:
     expose:
       - "5001"
     networks:
-      frontend:
-        aliases:
-          - text.sdgontologies.svc.cluster.local
-      backend:
-        aliases:
-          - text.sdgontologies.svc.cluster.local
-    ports:
-      - "5001:5001"
+      sdgnet:
+        ipv4_address: 172.28.238.50
+        #aliases:
+        #  - text.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   webapp:
@@ -114,16 +110,18 @@ services:
     expose:
       - "80"
     networks:
-      frontend:
-        aliases:
-          - webapp.sdgontologies.svc.cluster.local
-      backend:
-        aliases:
-          - webapp.sdgontologies.svc.cluster.local
+      sdgnet:
+        ipv4_address: 172.28.238.60
+        #aliases:
+        #  - webapp.sdgontologies.svc.cluster.local
     labels:
       kompose.image-pull-secret: ungpregcredtoken
 volumes:
   graph-data:
 networks:
-  frontend:
-  backend:
+  sdgnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.238.0/24

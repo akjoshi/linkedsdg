@@ -107,7 +107,7 @@ SELECT DISTINCT ?id ?label
 #   } 
 # """
 
-GRAPHDB = "http://graphdb.sdgontologies.svc.cluster.local:7200/repositories/" + graphdb_repo
+GRAPHDB = "http://172.28.238.20:7200/repositories/" + graphdb_repo
 
 while True:
     try:
