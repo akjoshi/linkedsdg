@@ -12,11 +12,6 @@ WORKDIR /app
 COPY package*.json /app/
 RUN yarn
 COPY ./ /app/
-
-ARG NGINX_HOST
-ARG NGINX_PORT
-
-RUN envsubst '$NGINX_HOST $NGINX_PORT' < /app/src/config.template > /app/src/config.json
 RUN yarn build
 
 FROM nginx:1.17.3

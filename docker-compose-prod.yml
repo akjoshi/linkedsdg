@@ -1,10 +1,10 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:prod-latest'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-prod:latest'
     build:
       context: ./proxy
-      dockerfile: Dockerfile.prod
+      dockerfile: prod.Dockerfile
     restart: always
     ports:
       - "80:80"
@@ -12,17 +12,20 @@ services:
       - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=sdgs-data
       - GRAPHDB_PORT=7200
-      - NGINX_HOST=linkedsdgs.apps.officialstatistics.org
-      - NGINX_PORT=80
-    command: /bin/sh -c "envsubst '$$NGINX_HOST $$NGINX_PORT' < /etc/nginx/conf.d/nginx-prod.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+      #- NGINX_HOST=${HOST}
+      #- NGINX_PORT=80
+    command: /bin/sh -c "nginx -g 'daemon off;'"
+    labels:
+      kompose.image-pull-secret: "ungpregcredtoken"
+      kompose.service.type: LoadBalancer
+      kompose.service.expose: "true"
   webapp:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-prod:latest'
     build:
       context: ./webapp
       dockerfile: prod.Dockerfile
       args:
-        - NGINX_HOST=linkedsdgs.apps.officialstatistics.org
-        - NGINX_PORT=80
+      - NGINX_HOST=${HOST}
     restart: always
     environment: 
       - GET_HOSTS_FROM=dns
@@ -32,8 +35,9 @@ services:
       - "81"
     ports:
       - "81:81"
-    #networks:
-    #  sdgnet:
-    #    ipv4_address: 172.28.238.60
-        #aliases:
-        #  - webapp.sdgontologies.svc.cluster.local
+    labels:
+      kompose.image-pull-secret: ungpregcredtoken
+#volumes:
+#  graph-data:
+#networks:
+#  sdgnet:

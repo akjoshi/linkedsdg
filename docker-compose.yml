@@ -14,7 +14,8 @@ services:
       - GRAPHDB_PORT=7200
       - NGINX_HOST=${HOST}
       #- NGINX_PORT=80
-    command: /bin/sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    #command: /bin/sh -c "envsubst '$$NGINX_HOST' < /etc/nginx/conf.d/nginx.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    command: /bin/sh -c "cp /etc/nginx/conf.d/nginx.conf /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
       kompose.service.type: LoadBalancer
