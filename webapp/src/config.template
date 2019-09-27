@@ -1,0 +1,27 @@
+{
+    "textApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/text/api",
+    "textLinkApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/text/apiURL",
+    "textLinkApiUrlcashed": "http://${NGINX_HOST}:${NGINX_PORT}/text/apiURLcashed",
+    "spacyApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/concepts/api",
+    "graphQueryApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/graph/api",
+    "statsApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/graph/stats",
+    "describeApiUrl": "http://${NGINX_HOST}:${NGINX_PORT}/graph/describe",
+    "prod": {
+        "textApiUrl": "http://34.66.148.181:5001/api",
+        "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",
+        "textLinkApiUrlcashed": "http://34.66.148.181:5001/apiURLcashed",
+        "spacyApiUrl": "http://34.66.148.181:5000/api",
+        "graphQueryApiUrl": "http://34.66.148.181:5002/api",
+        "statsApiUrl": "http://34.66.148.181:5002/stats",
+        "describeApiUrl": "http://34.66.148.181:5002/describe"
+    },
+    "local": {
+        "textApiUrl": "http://localhost:5001/api",
+        "textLinkApiUrl": "http://localhost:5001/apiURL",
+        "textLinkApiUrlcashed": "http://localhost:5001/apiURLcashed",
+        "spacyApiUrl": "http://localhost:5000/api",
+        "graphQueryApiUrl": "http://localhost:5002/api",
+        "statsApiUrl": "http://localhost:5002/stats",
+        "describeApiUrl": "http://localhost:5002/describe"
+    }
+}

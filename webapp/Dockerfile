@@ -1,4 +1,5 @@
 FROM node:12.10.0 as build-stage
+
 WORKDIR /app
 COPY package*.json /app/
 RUN yarn
