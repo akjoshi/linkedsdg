@@ -7,7 +7,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 from flask_cors import CORS, cross_origin
 from pyld import jsonld
-import os
+import os, time
 
 
 #graphdb_url = os.environ['GRAPHDB_URL']
@@ -22,6 +22,17 @@ GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
 #GRAPHDB = "http://"+graphdb_url+":7200/repositories/" + graphdb_repo
 # GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 # GRAPHDB = "http://localhost:7200/repositories/sdg-stats"
+
+while True:
+    try:
+        response = requests.get(GRAPHDB + '/health')
+        assert(int(response.status_code)<400)
+        break
+    except:
+        print("Graph DB not reachable... will try again...")
+        time.sleep(5)
+        continue
+
 QUERY = """
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX dct: <http://purl.org/dc/terms/>

@@ -28,6 +28,8 @@ http {
         listen 0.0.0.0:80;
         listen 127.0.0.1:80;
 	    listen [::]:80;
+        error_log /var/log/nginx/krim.com.error.log;
+        
         location / {
             proxy_pass         http://client_server/;
             proxy_set_header   X-Real-IP $remote_addr;
