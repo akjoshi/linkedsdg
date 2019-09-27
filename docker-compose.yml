@@ -39,8 +39,6 @@ services:
       context: ./graph
       dockerfile: Dockerfile
     restart: always
-    links:
-      - "graphdb:graphdb.sdgontologies.svc.cluster.local"
     environment: 
       - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=sdgs-data
@@ -57,8 +55,6 @@ services:
       context: ./concepts
       dockerfile: Dockerfile
     restart: always
-    links:
-      - "graphdb:graphdb.sdgontologies.svc.cluster.local"
     environment: 
       - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=sdgs-data
