@@ -12,11 +12,11 @@ http {
     }
  
     upstream text_server {
-        server text:5001;
+        server text.sdgontologies.svc.cluster.local:5001;
     }
 
     upstream concepts_server {
-        server concepts:5000;
+        server concepts.sdgontologies.svc.cluster.local:5000;
     }
 
     upstream graph_server {
