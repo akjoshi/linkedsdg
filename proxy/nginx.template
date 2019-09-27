@@ -8,15 +8,15 @@ http {
     client_max_body_size 0;
 
     upstream client_server {
-        server webapp.sdgontologies.svc.cluster.local:80;
+        server webapp:80;
     }
  
     upstream text_server {
-        server text.sdgontologies.svc.cluster.local:5001;
+        server text:5001;
     }
 
     upstream concepts_server {
-        server concepts.sdgontologies.svc.cluster.local:5000;
+        server concepts:5000;
     }
 
     upstream graph_server {
