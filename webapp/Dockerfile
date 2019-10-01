@@ -15,7 +15,7 @@ COPY ./ /app/
 
 ARG NGINX_HOST
 
-#RUN envsubst '$NGINX_HOST' < /app/src/config.template > /app/src/config.json
+RUN envsubst '$NGINX_HOST' < /app/src/config.template > /app/src/config.json
 RUN yarn build
 
 FROM nginx:1.17.3
