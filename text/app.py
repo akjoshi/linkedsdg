@@ -22,9 +22,9 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 
-CORS(app, resources={r"/*": {"origins": "*"}})
+#CORS(app, resources={r"/*": {"origins": "*"}})
 
 # def normalise_white_space(text):
 #     text = re.sub(' +',' ', text)
