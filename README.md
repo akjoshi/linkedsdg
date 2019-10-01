@@ -22,8 +22,6 @@ To deploy this into production on kubernetes, use the following command:
 
 `docker-compose config > docker-compose-resolved.yaml && kompose up -f docker-compose-resolved.yaml --namespace sdgontologies`
 
-
-
-`kompose up -f docker-comp --namespace sdgontologies`
+`kompose up -f docker-compose.yml -f docker-compose-prod.yml --namespace sdgontologies`
 
 Note that some of the services can take up to 10 minutes to run.
