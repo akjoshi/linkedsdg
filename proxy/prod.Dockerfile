@@ -7,5 +7,4 @@ RUN set -x && \
     cp /usr/bin/envsubst /usr/local/bin/envsubst && \
 apk del build_deps
 
-COPY nginx.conf /etc/nginx/
-#COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /etc/nginx/conf.d/
