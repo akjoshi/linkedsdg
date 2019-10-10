@@ -18,9 +18,11 @@ To start the demo, copy .env.example to .env, and then set the parameters therei
 
 Add the `-d` flag to run in the background as a daemon.
 
-To deploy this into production on kubernetes, use the following command:
+To generate kubernetes deployment and service files, use the following command:
 
-`docker-compose config > docker-compose-resolved.yaml && kompose up -f docker-compose-resolved.yaml --namespace sdgontologies`
+`docker-compose config > docker-compose-resolved.yaml && kompose convert -f docker-compose-resolved.yaml`
+
+To deploy this directly into production on your own kubernetes cluster, use the following command (assumes the namespace of sdgontologies):
 
 `kompose up -f docker-compose.yml -f docker-compose-prod.yml --namespace sdgontologies`
 
