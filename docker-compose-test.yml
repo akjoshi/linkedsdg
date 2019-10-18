@@ -1,10 +1,10 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-prod:latest'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-test:latest'
     build:
       context: ./proxy
-      dockerfile: prod.Dockerfile
+      dockerfile: test.Dockerfile
     restart: always
     ports:
       - "80:80"
@@ -14,18 +14,16 @@ services:
       - GRAPHDB_PORT=7200
       #- NGINX_HOST=${HOST}
       #- NGINX_PORT=80
-    command: /bin/sh -c "cp /etc/nginx/conf.d/nginx.conf /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    command: /bin/sh -c "cp /etc/nginx/conf.d/nginx-test.conf /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
       kompose.service.type: LoadBalancer
       kompose.service.expose: "true"
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-prod:latest'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-test:latest'
     build:
       context: ./webapp
-      dockerfile: prod.Dockerfile
-      args:
-      - NGINX_HOST=${HOST}
+      dockerfile: test.Dockerfile
     restart: always
     environment: 
       - GET_HOSTS_FROM=dns
