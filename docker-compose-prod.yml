@@ -1,7 +1,7 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-prod:latest-whitelist'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-prod:latest'
     build:
       context: ./proxy
       dockerfile: prod.Dockerfile
