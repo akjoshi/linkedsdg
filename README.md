@@ -56,3 +56,7 @@ services:
 12. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]`
 
 13. Test the application. There should be no issues, except in rare occasions.
+
+14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed. 
+
+**Never delete deployment versions from the .k8s folder**
