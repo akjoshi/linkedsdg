@@ -106,7 +106,7 @@ class Upload extends Component {
                     <Row>
                         <Col lg={4}>
                             <h3 className="title">ANALYZE DOCUMENT</h3>
-                            <p className="Description">Upload a document related to Sustainable Development Goals or paste its URL in order to analyse it (PDF, DOC, DOCX, HTML - max. size: 70K words). </p>
+                            <p className="Description">Upload a document related to Sustainable Development Goals or paste its URL in order to analyse it (PDF, DOC, DOCX, HTML). </p>
                             <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
                             <p className="Description">You can also use some of the example links provided.</p>
 

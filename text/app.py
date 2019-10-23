@@ -69,8 +69,8 @@ def get_task():
             "text": text['content'],
             "size": True
         }
-        if(text['content'].__len__() > 70000):
-            result["size"] = False
+        # if(text['content'].__len__() > 70000):
+        #     result["size"] = False
 
         return Response(json.dumps(result), mimetype='application/json')
 
@@ -94,8 +94,8 @@ def get_task_url():
         "size": True
     }
 
-    if(text['content'].__len__() > 70000):
-        result["size"] = False
+    # if(text['content'].__len__() > 70000):
+    #     result["size"] = False
 
     return Response(json.dumps(result), mimetype='application/json')
 

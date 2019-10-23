@@ -18,14 +18,15 @@ graphdb_repo = os.environ['GRAPHDB_REPO']
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 
-GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
+GRAPHDB = "http://graphdb:3030/sdgs/sparql"
+HEALTHCHECK_URL = "http://graphdb:3030/index.html"
 #GRAPHDB = "http://"+graphdb_url+":7200/repositories/" + graphdb_repo
 # GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 # GRAPHDB = "http://localhost:7200/repositories/sdg-stats"
 
 while True:
     try:
-        response = requests.get(GRAPHDB + '/health')
+        response = requests.get(HEALTHCHECK_URL)
         assert(int(response.status_code)<400)
         break
     except:
@@ -41,18 +42,25 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT ?concept ?conceptBroader ?entity ?typeLabel WHERE {
     VALUES ?concept { %s }
 
-    GRAPH <http://data.un.org/concepts/sdg/extracted> {
+    GRAPH <http://linkedsdg.org/concept/extracted> {
         ?concept skos:broader* ?conceptBroader .   
     }
     
+    GRAPH ?g {
     ?conceptBroader skos:exactMatch ?conceptBroaderExact .
+    }
+    GRAPH ?g1 {
     ?entity dct:subject ?conceptBroaderExact .
+    }
 
-
+    GRAPH ?g2 {
     ?entity rdf:type ?type .
     FILTER (CONTAINS(str(?type), "ontology/sdg"))
+    }
+    GRAPH ?g3 {
     ?type rdfs:label ?typeName .
     FILTER(lang(?typeName)='en')
+    }
 
     BIND(STR(?typeName) as ?typeLabel)
 }
@@ -64,16 +72,20 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX sdgo: <http://data.un.org/ontology/sdg#>
 SELECT ?id ?type (GROUP_CONCAT(DISTINCT ?con; separator=";") as ?matches) where { 
     
-    # GRAPH <http://data.un.org/kos/sdg> { 
+    GRAPH <http://metadata.un.org/sdg> { 
         VALUES ?t { sdgo:Goal sdgo:Target sdgo:Indicator sdgo:Series }
         ?id a ?t
         BIND(STRAFTER(str(?t), "http://data.un.org/ontology/sdg#") as ?type)
-    # }
+    }
     
     OPTIONAL {
+        GRAPH <http://data.un.org/keywords/extracted> {
         		?id dct:subject ?conc .
+                }
+                GRAPH ?g {
         		?con skos:exactMatch ?conc .
-        FILTER (CONTAINS(str(?con), "http://data.un.org/concepts"))
+                }
+        FILTER (CONTAINS(str(?con), "http://linkedsdg.org/concept"))
     }
 } GROUP BY ?id ?type
 """
