@@ -20,6 +20,8 @@ Add the `-d` flag to run in the background as a daemon.
 
 ## To deploy to linkedsdg.apps.officialstatistics.org
 
+**Note: to deploy on a local kubernetes cluster, you need to find/replace `linkedsdg.apps.officialstatistics.org` with `localhost` in the webapp subfolder**
+
 Once you are satisfied with your changes, you will need to do the following:
 
 0. Modify all tags in docker-compose.yml, docker-compose-test.yml, and docker-compose-prod.yml. These must be incremented each time a new version is deployed. At the time this was written, then version was v0.4. So the tags would look like this: 
