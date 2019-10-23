@@ -1,32 +1,16 @@
   
 FROM openjdk:8-jdk
+COPY apache-jena-fuseki-3.13.1.zip /tmp/apache-jena-fuseki-3.13.1.zip
 
-# Build time argumentss
-ARG version=8.9.0
-ARG edition=free
+WORKDIR /tmp
+RUN unzip apache-jena-fuseki-3.13.1.zip
 
-ENV GRAPHDB_PARENT_DIR=/opt/graphdb
-ENV GRAPHDB_HOME=${GRAPHDB_PARENT_DIR}/home
+WORKDIR /tmp/apache-jena-fuseki-3.13.1
 
-ENV GRAPHDB_INSTALL_DIR=${GRAPHDB_PARENT_DIR}/dist
+COPY shiro.ini /tmp/apache-jena-fuseki-3.13.1/run/shiro.ini
 
-ADD graphdb-free-${version}-dist.zip /tmp
-COPY data/ /opt/graphdb/home/
+RUN chmod +x fuseki-server
 
-RUN mkdir -p ${GRAPHDB_PARENT_DIR} && \
-    cd ${GRAPHDB_PARENT_DIR} && \
-    unzip /tmp/graphdb-free-${version}-dist.zip && \
-    rm /tmp/graphdb-free-${version}-dist.zip && \
-    mv graphdb-${edition}-${version} dist && \
-    mkdir -p ${GRAPHDB_HOME}
+ENTRYPOINT ["./fuseki-server"]
 
-ENV PATH=${GRAPHDB_INSTALL_DIR}/bin:$PATH
-
-
-HEALTHCHECK CMD curl --fail http://localhost:7200/ || exit 1 --retries=10 --start-period=30
-
-CMD ["-Dgraphdb.home=/opt/graphdb/home"]
-
-ENTRYPOINT ["/opt/graphdb/dist/bin/graphdb"]
-
-EXPOSE 7200
+EXPOSE 3030

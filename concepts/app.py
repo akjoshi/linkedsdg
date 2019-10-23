@@ -24,22 +24,24 @@ PREFIX dct: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT DISTINCT ?id ?label ?lang where {
     
+    GRAPH <http://data.un.org/keywords/sdg> {
         [] dct:subject ?keyword .
+    }
     
 
-    GRAPH <http://data.un.org/concepts/sdg> {
+    GRAPH <http://linkedsdg.org/concept> {
         ?target skos:exactMatch ?keyword .
     }
     
-    GRAPH <http://data.un.org/concepts/sdg/extracted> {
+    GRAPH <http://linkedsdg.org/concept/extracted> {
         ?id skos:broader* ?target.            
     }
 
-    GRAPH <http://data.un.org/concepts/sdg> {
+    GRAPH <http://linkedsdg.org/concept> {
         ?id skos:exactMatch ?source
     }
      
-        
+    GRAPH ?g {
     {
         {
             ?source skos:prefLabel ?prefLabel .
@@ -54,7 +56,7 @@ SELECT DISTINCT ?id ?label ?lang where {
             BIND (lcase(str(?altLabel)) as ?label)
             BIND (lang(?altLabel) as ?lang)
         }
-    }
+    } }
 }
 """
 
@@ -107,11 +109,13 @@ SELECT DISTINCT ?id ?label
 #   } 
 # """
 
-GRAPHDB = "http://graphdb:7200/repositories/" + graphdb_repo
+GRAPHDB = "http://graphdb:3030/sdgs/sparql"
+
+HEALTHCHECK_URL = "http://graphdb:3030/index.html"
 
 while True:
     try:
-        response = requests.get(GRAPHDB + '/health')
+        response = requests.get(HEALTHCHECK_URL)
         assert(int(response.status_code)<400)
         break
     except:
@@ -450,7 +454,7 @@ def concepts():
 
     for concept_item in new_concepts:
         show_data.append({
-            "id": concept_item["uri"].replace("http://data.un.org/", ""),
+            "id": concept_item["uri"].replace("http://data.un.org/codes/sdg/", "").replace("http://linkedsdg.org/", ""),
             "label": concept_item["label"],
             "match": concept_item["sources"],
             "weight": concept_item["weight"],
@@ -523,7 +527,7 @@ def concepts():
     for uri in tops:
         if country_index[uri]["source"] == "geo":
             show_data.append({
-                "id": uri.replace("http://data.un.org/", ""),
+                "id": uri.replace("http://data.un.org/codes/sdg/", ""),
                 "iso3code": country_index[uri]["name"],
                 "label": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
@@ -532,7 +536,7 @@ def concepts():
             })
         if country_index[uri]["source"] == "geo-all":
             show_data.append({
-                "id": uri.replace("http://data.un.org/", ""),
+                "id": uri.replace("http://data.un.org/codes/sdg/", ""),
                 "label": country_index[uri]["label"],
                 "weight": all_areas[uri]["weight"],
                 "type": "region",

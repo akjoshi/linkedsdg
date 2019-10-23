@@ -66,7 +66,7 @@ export function selectImage() {
     while (index < 18) {
         let indexNr = ""
         index < 10 ? indexNr = "0" + index : indexNr = index;
-        images["http://data.un.org/kos/sdg/" + index] = require(`./img/${indexNr}.png`);
+        images["http://metadata.un.org/sdg/" + index] = require(`./img/${indexNr}.png`);
         index = index + 1;
     }
 

@@ -162,9 +162,9 @@ class ZoomableSunburst extends Component {
                                             <span>DESCRIPTION: </span>
                                             {this.state.clickedData.name}
                                         </p>
-                                        <p onClick={this.getJsonDescribeOfUri} className="uri-link">
+                                        <p className="uri-link">
                                             <span>URI: </span>
-                                            {this.state.clickedData.id}
+                                            <a href={this.state.clickedData.id} target="_blank" rel="noopener noreferrer" className="uri-link"> {this.state.clickedData.id}</a>
                                         </p>
                                         <p> <span>KEYWORDS: </span> </p>
                                         {/* {this.state.keyWords.map(x => <p>{x}</p>)} */}
