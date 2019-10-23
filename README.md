@@ -56,4 +56,3 @@ services:
 12. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]/prod`
 
 13. Test the application. There should be no issues, except in rare occasions.
-
