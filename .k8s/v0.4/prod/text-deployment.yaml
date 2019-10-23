@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   annotations:
     kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
-      convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s
+      convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s\v0.4\prod
     kompose.image-pull-secret: ungpregcredtoken
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
-    io.kompose.service: webapp
-  name: webapp
+    io.kompose.service: text
+  name: text
 spec:
   replicas: 1
   strategy: {}
@@ -17,7 +17,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: webapp
+        io.kompose.service: text
     spec:
       containers:
       - env:
@@ -27,10 +27,10 @@ spec:
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-prod:latest
-        name: webapp
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:v0.4
+        name: text
         ports:
-        - containerPort: 81
+        - containerPort: 5001
         resources: {}
       restartPolicy: Always
 status: {}

@@ -1,11 +1,11 @@
 {
-    "textApiUrl": "http://linkedsdgs.apps.officialstatistics.org/text/api",
-    "textLinkApiUrl": "http://linkedsdgs.apps.officialstatistics.org/text/apiURL",
-    "textLinkApiUrlcashed": "http://linkedsdgs.apps.officialstatistics.org/text/apiURLcashed",
-    "spacyApiUrl": "http://linkedsdgs.apps.officialstatistics.org/concepts/api",
-    "graphQueryApiUrl": "http://linkedsdgs.apps.officialstatistics.org/graph/api",
-    "statsApiUrl": "http://linkedsdgs.apps.officialstatistics.org/graph/stats",
-    "describeApiUrl": "http://linkedsdgs.apps.officialstatistics.org/graph/describe",
+    "textApiUrl": "http://linkedsdg.apps.officialstatistics.org/text/api",
+    "textLinkApiUrl": "http://linkedsdg.apps.officialstatistics.org/text/apiURL",
+    "textLinkApiUrlcashed": "http://linkedsdg.apps.officialstatistics.org/text/apiURLcashed",
+    "spacyApiUrl": "http://linkedsdg.apps.officialstatistics.org/concepts/api",
+    "graphQueryApiUrl": "http://linkedsdg.apps.officialstatistics.org/graph/api",
+    "statsApiUrl": "http://linkedsdg.apps.officialstatistics.org/graph/stats",
+    "describeApiUrl": "http://linkedsdg.apps.officialstatistics.org/graph/describe",
     "prod": {
         "textApiUrl": "http://34.66.148.181:5001/api",
         "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",
