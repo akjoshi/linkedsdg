@@ -37,7 +37,7 @@ services:
 
 3. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-test.yml push`
 
-4. Generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\[version]\test`
+4. Create the following folder `.k8s\[version]\test`and generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\[version]\test`
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
@@ -49,10 +49,10 @@ services:
 
 9. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-prod.yml push`
 
-10. Generate the proper deployment files for the production containers: `kompose convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s\[version]\prod`
+10. Create the following folder `.k8s\[version]` and generate the proper deployment files for the production containers: `kompose convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s\[version]`
 
 11. Ensure you are configured to push to the proper production cluster namespace: (sdgontologies)
 
-12. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]/prod`
+12. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]`
 
 13. Test the application. There should be no issues, except in rare occasions.
