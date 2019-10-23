@@ -18,6 +18,8 @@ To start the demo, copy .env.example to .env, and then set the parameters therei
 
 Add the `-d` flag to run in the background as a daemon.
 
+## To deploy to linkedsdg.apps.officialstatistics.org
+
 Once you are satisfied with your changes, you will need to do the following:
 
 0. Modify all tags in docker-compose.yml, docker-compose-test.yml, and docker-compose-prod.yml. These must be incremented each time a new version is deployed. At the time this was written, then version was v0.4. So the tags would look like this: 
@@ -35,9 +37,9 @@ services:
 
 3. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-test.yml push`
 
-4. Generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\test`
+4. Generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\[version]\test`
 
-5. Ensure you are configured to push to the proper test cluster namespace: (sdgontologies-test)
+5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
 6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/test`
 
@@ -55,16 +57,3 @@ services:
 
 13. Test the application. There should be no issues, except in rare occasions.
 
-To generate kubernetes deployment and service files, use the following command:
-
-`kompose convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s`
-
-To deploy this directly into production on your own kubernetes cluster, use the following command (assumes the namespace of sdgontologies):
-
-`kubectl apply -f ./.k8s`
-
-To delete everything:
-
-`kubectl delete deployment.apps/concepts deployment.apps/graph deployment.apps/graphdb deployment.apps/proxy deployment.apps/text deployment.apps/webapp service/proxy service/concepts service/graph service/graphdb service/text service/webapp`
-
-Note that some of the services can take up to 10 minutes to run.
