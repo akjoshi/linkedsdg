@@ -17,7 +17,4 @@ EXPOSE 3030
 
 WORKDIR /tmp/apache-jena-fuseki-3.13.1/bin
 
-RUN chmod +x s-put
-
-RUN ./s-put http://localhost:3030/sdgs default sdgs-data.nq
-
+RUN curl -F file=@sdgs-data.nq  http://localhost:3030/sdgs/data
