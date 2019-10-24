@@ -208,8 +208,8 @@ def add_to_country_matcher(label, i, lang):
 
 def get_sparql_results(sparql_query):
     sparql = SPARQLWrapper(GRAPHDB)
-    sparql.setHTTPAuth(BASIC)
-    sparql.setCredentials("sdg-guest", "lod4stats")
+    # sparql.setHTTPAuth(BASIC)
+    # sparql.setCredentials("sdg-guest", "lod4stats")
     sparql.setQuery(sparql_query)
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
@@ -222,6 +222,8 @@ def load_concepts():
         sources = json.load(f)
 
     concept_list = get_sparql_results(SPARQL_QUERY)['results']['bindings']
+
+    print("Number of concepts fetched from JENA: " + str(len(concept_list)))
 
     i = 1
     for concept in concept_list:
