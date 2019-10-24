@@ -15,4 +15,9 @@ ENTRYPOINT ["./fuseki-server"]
 
 EXPOSE 3030
 
-RUN ./bin/s-put http://localhost:3030/sdgs default ./bin/sdgs-data.nq
+WORKDIR /tmp/apache-jena-fuseki-3.13.1/bin
+
+RUN chmod +x s-put
+
+RUN ./s-put http://localhost:3030/sdgs default sdgs-data.nq
+
