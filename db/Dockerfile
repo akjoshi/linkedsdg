@@ -8,13 +8,9 @@ RUN unzip apache-jena-fuseki-3.13.1.zip
 WORKDIR /tmp/apache-jena-fuseki-3.13.1
 
 COPY shiro.ini /tmp/apache-jena-fuseki-3.13.1/run/shiro.ini
+#COPY entrypoint.sh /tmp/entrypoint.sh
 
 RUN chmod +x fuseki-server
 
 ENTRYPOINT ["./fuseki-server"]
-
-EXPOSE 3030
-
-WORKDIR /tmp/apache-jena-fuseki-3.13.1/bin
-
-RUN curl -F file=@sdgs-data.nq  http://localhost:3030/sdgs/data
+#ENTRYPOINT ["bash", "/tmp/entrypoint.sh"]
