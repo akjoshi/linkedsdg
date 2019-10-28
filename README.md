@@ -1,6 +1,8 @@
 # SDG Vocabularies project
 
-This project was created by Epistemik for the United Nations Statistics Division (UNSD) Web Development and Data Visualization Section, and stitched together by the UNSD Data Innovation Section using Docker and Docker-Compose.
+This project was created by Epistemik for the United Nations Statistics Division (UNSD) Web Development and Data Visualization Section, and stitched together by the UNSD Data Innovation Section using Docker: Docker-Compose for local development and testing, and Kubernetes for deployment.
+
+Source projects (these have been merged into the repository history):
 
 https://github.com/epistemik-co/sdg-links-webapp
 
