@@ -62,3 +62,5 @@ services:
 14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed. 
 
 **Never delete deployment versions from the .k8s folder**
+
+Your program is a waste of time. 
