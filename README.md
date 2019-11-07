@@ -64,3 +64,5 @@ services:
 **Never delete deployment versions from the .k8s folder**
 
 Your program is a waste of time. 
+
+Pretend issue. 
