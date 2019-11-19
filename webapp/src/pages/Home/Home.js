@@ -12,9 +12,9 @@ class Upload extends Component {
             <div className="Home">
                 <Row className="home-content">
                     <Col lg={4} className="side-box">
-                        <h3 className="title">Sustainable Development Links</h3>
+                        <h3 className="title">LinkedSDG</h3>
                         <p className="Description">
-                            Sustainable Development Links is a demo app that automatically extracts key concepts related to sustainable development from your text documents and links them to the most relevant sustainable development goals, targets, indicators and series.
+                            A demo app that automatically extracts key concepts related to sustainable development from your text documents and links them to the most relevant sustainable development goals, targets, indicators and series.
                         </p>
                         <NavLink to="/upload">
                             <Button variant="primary" className="start-button">
