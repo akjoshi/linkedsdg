@@ -221,7 +221,7 @@ export async function handleUrlFile(url) {
             this.processText(json.data);
         }
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: error.toString(), progress: 45, waitForData: true });
     }
 }
 

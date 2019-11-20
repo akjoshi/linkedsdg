@@ -45,7 +45,7 @@ services:
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
-6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/test`
+6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
 
 7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
 
