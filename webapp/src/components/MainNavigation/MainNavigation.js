@@ -9,7 +9,7 @@ const mainNavigation = props => (
         </div>
         <div className="nav-title">
             <NavLink to="/">
-                <h2>SUSTAINABLE DEVELOPMENT LINKS</h2>
+                <h2>LinkedSDG</h2>
             </NavLink>
         </div>
     </header>
