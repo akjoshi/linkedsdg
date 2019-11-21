@@ -50,7 +50,7 @@ services:
       - key: "purpose"
         operator: "Equal"
         value: "app"
-      effect: "NoSchedule"
+        effect: "NoSchedule"
 ```
 
 For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
