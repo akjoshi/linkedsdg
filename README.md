@@ -77,6 +77,6 @@ Alternatively, you can simply change the container version numbers in the deploy
 
 14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
 
-15. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node. 
+15. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node: : `kubectl delete --all pods,daemonsets,replicasets,services,deployments,pods,rc --namespace=sdgontologies-test`.
 
 **Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc. 
