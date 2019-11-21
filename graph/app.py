@@ -20,6 +20,7 @@ app = Flask(__name__)
 
 GRAPHDB = "http://graphdb:3030/sdgs/sparql"
 HEALTHCHECK_URL = "http://graphdb:3030/index.html"
+
 #GRAPHDB = "http://"+graphdb_url+":7200/repositories/" + graphdb_repo
 # GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 # GRAPHDB = "http://localhost:7200/repositories/sdg-stats"
@@ -33,6 +34,8 @@ while True:
         print("Graph DB not reachable... will try again...")
         time.sleep(5)
         continue
+
+os.system("curl -F file=@/app/sdgs-data.nq http://graphdb:3030/sdgs/data")
 
 QUERY = """
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>

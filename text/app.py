@@ -63,7 +63,11 @@ def get_task():
     if file.filename == '':
         abort(400)
     if file and allowed_file(file.filename):
-        text = parser.from_buffer(file.read())
+        try:
+            text = parser.from_buffer(file.read())
+        except Exception as e:
+            return(str(e)) 
+
         result = {
             "lang": detect(text['content']),
             "text": text['content'],

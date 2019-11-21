@@ -1,11 +1,11 @@
 {
-    "textApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/text/api",
-    "textLinkApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/text/apiURL",
-    "textLinkApiUrlcashed": "http://linkedsdgs-test.apps.officialstatistics.org/text/apiURLcashed",
-    "spacyApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/concepts/api",
-    "graphQueryApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/graph/api",
-    "statsApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/graph/stats",
-    "describeApiUrl": "http://linkedsdgs-test.apps.officialstatistics.org/graph/describe",
+    "textApiUrl": "http://35.223.106.165/text/api",
+    "textLinkApiUrl": "http://35.223.106.165/text/apiURL",
+    "textLinkApiUrlcashed": "http://35.223.106.165/text/apiURLcashed",
+    "spacyApiUrl": "http://35.223.106.165/concepts/api",
+    "graphQueryApiUrl": "http://35.223.106.165/graph/api",
+    "statsApiUrl": "http://35.223.106.165/graph/stats",
+    "describeApiUrl": "http://35.223.106.165/graph/describe",
     "prod": {
         "textApiUrl": "http://34.66.148.181:5001/api",
         "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",

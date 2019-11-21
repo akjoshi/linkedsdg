@@ -1,6 +1,8 @@
 # SDG Vocabularies project
 
-This project was created by Epistemik for the United Nations Statistics Division (UNSD) Web Development and Data Visualization Section, and stitched together by the UNSD Data Innovation Section using Docker and Docker-Compose.
+This project was created by Epistemik for the United Nations Statistics Division (UNSD) Web Development and Data Visualization Section, and stitched together by the UNSD Data Innovation Section using Docker: Docker-Compose for local development and testing, and Kubernetes for deployment.
+
+Source projects (these have been merged into the repository history):
 
 https://github.com/epistemik-co/sdg-links-webapp
 
@@ -45,7 +47,7 @@ services:
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
-6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/test`
+6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
 
 7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
 

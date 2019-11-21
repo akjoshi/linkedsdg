@@ -112,6 +112,7 @@ SELECT DISTINCT ?id ?label
 GRAPHDB = "http://graphdb:3030/sdgs/sparql"
 
 HEALTHCHECK_URL = "http://graphdb:3030/index.html"
+GRAPH_API_HEALTHCHECK = "http://graph:5002/"
 
 while True:
     try:
@@ -122,6 +123,18 @@ while True:
         print("Graph DB not reachable... will try again...")
         time.sleep(5)
         continue
+
+while True:
+    try:
+        response = requests.get(GRAPH_API_HEALTHCHECK)
+        assert(int(response.status_code)<400)
+        break
+    except:
+        print("Graph API not reachable... will try again...")
+        time.sleep(5)
+        continue
+
+#os.system("curl -F file=@/tmp/apache-jena-fuseki-3.13.1/bin/sdgs-data.nq http://graphdb:3030/sdgs/data")
 
 #GRAPHDB = "http://34.66.148.181:7200/repositories/sdg"
 
@@ -208,8 +221,8 @@ def add_to_country_matcher(label, i, lang):
 
 def get_sparql_results(sparql_query):
     sparql = SPARQLWrapper(GRAPHDB)
-    sparql.setHTTPAuth(BASIC)
-    sparql.setCredentials("sdg-guest", "lod4stats")
+    # sparql.setHTTPAuth(BASIC)
+    # sparql.setCredentials("sdg-guest", "lod4stats")
     sparql.setQuery(sparql_query)
     sparql.setReturnFormat(JSON)
     results = sparql.query().convert()
@@ -222,6 +235,8 @@ def load_concepts():
         sources = json.load(f)
 
     concept_list = get_sparql_results(SPARQL_QUERY)['results']['bindings']
+
+    print("Number of concepts fetched from JENA: " + str(len(concept_list)))
 
     i = 1
     for concept in concept_list:
