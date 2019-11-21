@@ -1,7 +1,7 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:v0.4.2'
     build: 
       context: ./proxy
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
       kompose.service.type: LoadBalancer
       kompose.service.expose: "true"
   graphdb:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.2'
     build:
       context: ./db
       dockerfile: Dockerfile
@@ -32,7 +32,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   graph:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4.2'
     build:
       context: ./graph
       dockerfile: Dockerfile
@@ -48,7 +48,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   concepts:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.2'
     build:
       context: ./concepts
       dockerfile: Dockerfile
@@ -64,7 +64,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   text:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:v0.4.2'
     build:
       context: ./text
       dockerfile: Dockerfile
@@ -80,7 +80,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.2'
     build:
       context: ./webapp
       dockerfile: Dockerfile
