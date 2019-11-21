@@ -43,7 +43,19 @@ services:
 
 3. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-test.yml push`
 
-4. Create the following folder `.k8s\[version]\test`and generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\[version]\test`
+4. Create the following folder `.k8s\[version]\test`and generate the proper deployment files for the test containers: `kompose convert -f docker-compose.yml -f docker-compose-test.yml -o .k8s\[version]\test`. After this is completed, you will need to modify all deployment files to contain the following node toleration:
+
+```
+      tolerations:
+      - key: "purpose"
+        operator: "Equal"
+        value: "app"
+      effect: "NoSchedule"
+```
+
+For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+
+Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc.
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
@@ -65,4 +77,6 @@ services:
 
 14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
 
-**Never delete deployment versions from the .k8s folder**
+15. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node. 
+
+**Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc. 

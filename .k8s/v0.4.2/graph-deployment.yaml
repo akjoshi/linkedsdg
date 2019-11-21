@@ -27,10 +27,15 @@ spec:
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4.2
         name: graph
         ports:
         - containerPort: 5002
         resources: {}
       restartPolicy: Always
+      tolerations:
+      - key: "purpose"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
 status: {}

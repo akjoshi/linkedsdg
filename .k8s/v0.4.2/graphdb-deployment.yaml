@@ -20,10 +20,15 @@ spec:
         io.kompose.service: graphdb
     spec:
       containers:
-      - image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4
+      - image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.2
         name: graphdb
         ports:
         - containerPort: 3030
         resources: {}
       restartPolicy: Always
+      tolerations:
+      - key: "purpose"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
 status: {}

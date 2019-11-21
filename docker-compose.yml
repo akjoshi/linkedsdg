@@ -80,7 +80,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.2'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.2.1'
     build:
       context: ./webapp
       dockerfile: Dockerfile
