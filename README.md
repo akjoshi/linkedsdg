@@ -16,6 +16,8 @@ To start the demo, copy .env.example to .env, and then set the parameters therei
 
 `docker-compose up`
 
+If you have run the containers in the past in your local environment and haven't run this command in a long time, you may need to run the build command with the `--no-cache` option, as in `docker-compose build --no-cache`. Otherwise commands that call `apt-get update` in Ubuntu containers will use cached versions and fail. 
+
 Add the `-d` flag to run in the background as a daemon.
 
 ## To deploy to linkedsdg.apps.officialstatistics.org
@@ -35,7 +37,7 @@ services:
 
 1. Login to containers.officialstatistics.org using your credentials: `docker login containers.officialstatistics.org -u [username] -p [your-token-from-gitlab]`
 
-2. Build the test containers: `docker-compose -f docker-compose.yml -f docker-compose-test.yml build`
+2. Build the test containers: `docker-compose -f docker-compose.yml -f docker-compose-test.yml build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this optino will force the build to take a very long time, but it will rebuild everything from scratch.
 
 3. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-test.yml push`
 
@@ -59,6 +61,6 @@ services:
 
 13. Test the application. There should be no issues, except in rare occasions.
 
-14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed. 
+14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
 
 **Never delete deployment versions from the .k8s folder**
