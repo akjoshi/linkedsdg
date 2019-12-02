@@ -166,9 +166,8 @@ export default class Datamap extends React.Component {
 
     loadLocations = () => {
         return this.state.countryList.map((x, index) => {
-            let open = x.open;
-            let data = this.props.matchQuotes.filter(y => y.url === `http://data.un.org/${x.id}`);
-
+            let open = x.open; 
+            let data = this.props.matchQuotes.filter(y => y.url === `http://data.un.org/codes/sdg/${x.id}`); 
             return (
 
                 <li key={index} className="event-list-item"
