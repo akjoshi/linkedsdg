@@ -18,7 +18,7 @@ To start the demo, copy .env.example to .env, and then set the parameters therei
 
 `docker-compose up`
 
-If you have run the containers in the past in your local environment and haven't run this command in a long time, you may need to run the build command with the `--no-cache` option, as in `docker-compose build --no-cache`. Otherwise commands that call `apt-get update` in Ubuntu containers will use cached versions and fail. 
+If you have run the containers in the past in your local environment and haven't run this command in a long time, you may need to run the build command with the `--no-cache` option, as in `docker-compose build --no-cache`. Otherwise commands that call `apt-get update` in Ubuntu containers will use cached versions and fail.
 
 Add the `-d` flag to run in the background as a daemon.
 
@@ -55,7 +55,7 @@ services:
 
 For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
-Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc.
+Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc. To do this, please copy the files and do a find-replace inside the new folder.
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
