@@ -71,6 +71,61 @@ class ZoomableSunburst extends Component {
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(this.props.data, undefined, 2);
     }
 
+    generateCSVData = async (children) => {
+        // console.log(children)
+        let returnData = []
+        for (let obj of children) {
+            let data = []
+            if (obj.children !== undefined) {
+                data = await this.generateCSVData(obj.children)
+            }
+            for (let keyWordURL of Object.keys(obj.keywords)) {
+                // console.log(keyWordURL)
+                let id = obj.id;
+                let label = obj.label;
+                let name = obj.name;
+                let keyWordLabel = obj.keywords[keyWordURL].label
+                for (let sourceURIObject of obj.keywords[keyWordURL].sources) {
+                    let sourceURI = sourceURIObject.uri
+                    data.push({
+                        'id': id,
+                        'label': label,
+                        'name': name,
+                        'keyWordURL': keyWordURL,
+                        'keyWordLabel': keyWordLabel,
+                        'sourceURI': sourceURI
+                    })
+                }
+            }
+            returnData = [...returnData, ...data]
+        }
+ 
+        return returnData;
+    }
+
+    handleDownloadCSV = async () => {
+        const { Parser } = require('json2csv');
+        console.log(this.props.data)
+        let csvData = await this.generateCSVData(this.props.data.children)
+        console.log(csvData)
+        const fields = ['id', 'label', 'name', 'keyWordURL', 'keyWordLabel', 'sourceURI'];
+        const opts = { fields };
+
+        try {
+            const parser = new Parser(opts);
+            const csv = parser.parse(csvData);
+            console.log(JSON.stringify(csv, undefined, 2));
+
+            var myWindow = window.open("", "MsgWindow");
+            myWindow.document.write('<pre id="json"></pre>');
+            myWindow.document.getElementById("json").innerHTML = csv;
+
+        } catch (err) {
+            console.error(err);
+        }
+
+    }
+
 
     handleExplore = async () => {
         if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
@@ -114,7 +169,7 @@ class ZoomableSunburst extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <React.Fragment >
                 <h3 className="Title">
                     Most relevant SDGs
                 </h3>
@@ -193,20 +248,27 @@ class ZoomableSunburst extends Component {
                 </div>
 
 
-                <Button variant="primary" onClick={this.handleCollapse} className="show-data-sun-button"> 
+                <Button variant="primary" onClick={this.handleCollapse} className="show-data-sun-button">
                     {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                 </Button>
-                {this.state.displayJson ?
-                    <React.Fragment>
-                        <div className="json-with-data">
-                            <ReactJson src={this.props.data} collapsed={2} displayDataTypes={false} name={"Relevant SDGs"} />
-                        </div>
-                        <Button variant="primary" onClick={this.handleDownload} className="sun-download">
-                            ⤓ download
+
+
+
+                {
+                    this.state.displayJson ?
+                        <React.Fragment>
+                            <div className="json-with-data">
+                                <ReactJson src={this.props.data} collapsed={2} displayDataTypes={false} name={"Relevant SDGs"} />
+                            </div>
+                            <Button variant="primary" onClick={this.handleDownload} className="sun-download">
+                                ⤓ download
+                        </Button>
+                            <Button variant="primary" onClick={this.handleDownloadCSV} className="sun-download">
+                                ⤓ download as CSV
                         </Button>
 
-                    </React.Fragment>
-                    : <React.Fragment></React.Fragment>
+                        </React.Fragment>
+                        : <React.Fragment></React.Fragment>
                 }
 
 
