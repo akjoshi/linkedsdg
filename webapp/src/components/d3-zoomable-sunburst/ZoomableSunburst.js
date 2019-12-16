@@ -84,6 +84,10 @@ class ZoomableSunburst extends Component {
                 let id = obj.id;
                 let label = obj.label;
                 let name = obj.name;
+                let weight = obj.value;
+                if(weight !== undefined){
+                    console.log(weight,id,name,label)
+                }
                 let keyWordLabel = obj.keywords[keyWordURL].label
                 for (let sourceURIObject of obj.keywords[keyWordURL].sources) {
                     let sourceURI = sourceURIObject.uri
@@ -93,7 +97,8 @@ class ZoomableSunburst extends Component {
                         'name': name,
                         'keyWordURL': keyWordURL,
                         'keyWordLabel': keyWordLabel,
-                        'sourceURI': sourceURI
+                        'sourceURI': sourceURI,
+                        "weight": weight
                     })
                 }
             }
@@ -108,7 +113,7 @@ class ZoomableSunburst extends Component {
         console.log(this.props.data)
         let csvData = await this.generateCSVData(this.props.data.children)
         console.log(csvData)
-        const fields = ['id', 'label', 'name', 'keyWordURL', 'keyWordLabel', 'sourceURI'];
+        const fields = ['id', 'label', 'name', 'keyWordURL', 'keyWordLabel', 'sourceURI', 'weight'];
         const opts = { fields };
 
         try {
