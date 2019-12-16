@@ -98,7 +98,6 @@ class ZoomableSunburst extends Component {
                         'id': id,
                         'label': label,
                         'name': name,
-                        'keyWordURL': keyWordURL,
                         'keyWordLabel': keyWordLabel,
                         'sourceURI': sourceURI,
                         "weight": weight
@@ -116,7 +115,7 @@ class ZoomableSunburst extends Component {
         console.log(this.props.data)
         let csvData = await this.generateCSVData(this.props.data.children)
         console.log(csvData)
-        const fields = ['id', 'label', 'name', 'keyWordURL', 'keyWordLabel', 'sourceURI', 'weight'];
+        const fields = ['id', 'label', 'name', 'keyWordLabel', 'sourceURI', 'weight'];
         const opts = { fields };
 
         try {
