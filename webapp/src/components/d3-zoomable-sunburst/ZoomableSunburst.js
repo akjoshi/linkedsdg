@@ -85,8 +85,11 @@ class ZoomableSunburst extends Component {
                 let label = obj.label;
                 let name = obj.name;
                 let weight = obj.value;
-                if(weight !== undefined){
-                    console.log(weight,id,name,label)
+                if(weight === undefined){
+                    weight = 0;
+                    for(let childrenObj of data){
+                        weight += childrenObj.weight;
+                    }
                 }
                 let keyWordLabel = obj.keywords[keyWordURL].label
                 for (let sourceURIObject of obj.keywords[keyWordURL].sources) {
