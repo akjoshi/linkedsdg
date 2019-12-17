@@ -11,6 +11,9 @@ const mainNavigation = props => (
             <NavLink to="/">
                 <h2>LinkedSDG</h2>
             </NavLink>
+            <NavLink to="/about">
+                <h2>About</h2>
+            </NavLink>
         </div>
     </header>
 );
