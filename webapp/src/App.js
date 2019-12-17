@@ -1,6 +1,5 @@
 import React from 'react';
-import Upload from './pages/Upload/Upload';
-import Home from './pages/Home/Home';
+import Upload from './pages/Upload/Upload'; 
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import Footer from './components/Footer/Footer'
@@ -18,8 +17,8 @@ function App() {
         <MainNavigation />
         <main className="main-content">
           <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/upload" component={Upload} />
+            <Route path="/" component={Upload} exact />
+            {/* <Route path="/about" component={About} /> */}
           </Switch>
         </main>
         <Footer />
