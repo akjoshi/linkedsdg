@@ -52,16 +52,24 @@ class About extends Component {
                         <Row className="logos">
 
                             <Col lg={3} md={6} xs={12} >
-                                <img src={logoUN} alt="logoUN"></img>
+                                <a href="https://www.un.org/development/desa/" alt="https://www.un.org/development/desa/">
+                                    <img src={logoUN} alt="logoUN"></img>
+                                </a>
                             </Col>
                             <Col lg={3} md={6} xs={12} >
-                                <img src={logoEpis} alt="logoEpis"></img>
+                                <a href="https://marketplace.officialstatistics.org/" alt="https://marketplace.officialstatistics.org/">
+                                    <img src={logoUNG} alt="logoUNG"></img>
+                                </a>
                             </Col>
                             <Col lg={3} md={6} xs={12} >
-                                <img src={logoSDG} alt="logoSDG"></img>
+                                <a href="http://www.sdg.org/" alt="http://www.sdg.org/">
+                                    <img src={logoSDG} alt="logoSDG"></img>
+                                </a>
                             </Col>
                             <Col lg={3} md={6} xs={12} >
-                                <img src={logoUNG} alt="logoUNG"></img>
+                                <a href="http://epistemik.co " alt="http://epistemik.co ">
+                                    <img src={logoEpis} alt="logoEpis"></img>
+                                </a>
                             </Col>
 
                         </Row>
@@ -88,3 +96,7 @@ class About extends Component {
 }
 
 export default About;
+
+
+
+
