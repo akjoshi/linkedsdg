@@ -12,6 +12,7 @@ import UploadForm from '../../components/UploadForm/UploadForm'
 import ZoomableSunburst from '../../components/d3-zoomable-sunburst/ZoomableSunburst'
 import DataMap from '../../components/DataMaps/DataMaps'
 import infoImg from './LinkedSDG_horiz.jpg';
+import Footer from '../../components/Footer/Footer'
 
 
 class Upload extends Component {
@@ -195,6 +196,9 @@ class Upload extends Component {
                         </div> :
                         <React.Fragment></React.Fragment>}
                 </div>
+
+
+                <Footer />
             </React.Fragment>
 
         )

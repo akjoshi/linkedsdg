@@ -78,10 +78,7 @@ class About extends Component {
                             <Col lg={12}>
                                 <h3 className="title">Contact</h3>
                                 <p className="Description">
-                                    If you have any questions, contact us!
-                                </p>
-                                <p className="Description">
-                                    Email: .....@.....
+                                    For enquiries and feedback, please send us an email to ...@...un.org.
                                 </p>
                             </Col>
                         </Row>

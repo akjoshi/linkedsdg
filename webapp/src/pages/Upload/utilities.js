@@ -106,7 +106,7 @@ async function loadExample(storedData) {
         }
         // console.log(json)
         example = json.data;
-    } catch (error) { 
+    } catch (error) {
         this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with loading cashed example, try other example.", progress: 45, waitForData: true });
         return;
     }
@@ -200,7 +200,7 @@ export async function handleUrlFile(url) {
     let tempArr = this.state.examples.filter(x => x.url === url);
     if (tempArr.length > 0) {
 
-    this.setState({  progress: 50 });
+        this.setState({ progress: 50 });
         this.loadExample = loadExample.bind(this);
         this.loadExample(tempArr[0]);
         return;
@@ -232,14 +232,54 @@ export async function handleUrlFile(url) {
 
 export async function processText(data) {
     try {
-
+        let text = data.text.split("announce").join("");
         const jsonText = await axios.post(config.spacyApiUrl, {
-            text: data.text,
+            text: text,
             lang: data.lang,
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+        // data.text = `announced announced` 
+        // // social order in the country. Moreover, the RGC through MOI announced that all`
+        // let jsonText = {}
+        // if (data.text.split(' ').length < 0) {
+        //     console.log("GOOD TO GO")
+
+        //     jsonText = await axios.post(config.spacyApiUrl, {
+        //         text: data.text,
+        //         lang: data.lang,
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         }
+        //     });
+        // }
+        // else{
+        //     let i = 0
+        //     let tokens = data.text.split(' ')  
+        //     let sizeOfLoad = 1
+        //     console.log(tokens.length)
+        //     while((i+1)*sizeOfLoad < tokens.length){
+        //         console.log(i)
+        //         // if(i === 17){
+        //         //     i++;
+        //         //     console.log(tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "))
+        //         //     continue;
+        //         // }
+        //         console.log(tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "))
+        //         jsonText = await axios.post(config.spacyApiUrl, {
+        //             text: tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "),
+        //             lang: data.lang,
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             }
+        //         });
+        //         console.log("DONE")
+        //         i++;
+        //     }
+        //     console.log(i)
+        // }
+
         if (jsonText.status !== 200 && jsonText.status !== 201) {
             throw new Error('Failed!');
         }
