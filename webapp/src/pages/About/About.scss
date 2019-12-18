@@ -27,29 +27,70 @@
         letter-spacing: .03em; 
       }
 
+      .about-link{
+        padding:0.5rem
+      }
+
 
       .main-image{
         width:100%;
         // text-align: center;
-        img{ 
-          max-width: 40%;
-          margin: 0 auto;
-          margin-bottom: 2rem;
+        img{ position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 70%;
+          margin: 0 auto; 
         }  
       }
 
-      @media only screen and (max-width: 720px) { 
-        
-        .main-image{ 
-          text-align: center;
-          img{ 
-            max-width: 80%; 
-            margin-bottom: 1rem;
-          }  
-        }
+
+    .logos{
+      width:100%;
+      min-height: 10vh;
+      margin-bottom: 2rem;
+      // text-align: center;
+      img{ 
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 7vh;
+        max-width: 70%;
+        margin: 0 auto; 
+      }  
     }
 
+    @media only screen and (max-width: 991px) { 
+      .main-image{ 
+        text-align: center;
+        img{ 
+          position: relative;
+          left: 0;
+          top: 0;
+          transform: translate(-0, -0);
+          margin: 2rem 0;
+          max-width: 60%;
+        }  
+      }
+
+      .logos{ 
+        text-align: center;
+        img{ 
+          position: relative;
+          left: 0;
+          top: 0;
+          transform: translate(-0, -0);
+          max-height: 15vh;
+          margin: 2rem 0;
+          max-width: 60%;
+        }  
+        
+      }
     }
+  }
+
+    
     
     
   }
