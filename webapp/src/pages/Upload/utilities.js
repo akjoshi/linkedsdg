@@ -107,7 +107,7 @@ async function loadExample(storedData) {
         // console.log(json)
         example = json.data;
     } catch (error) { 
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with loading cashed example, try other example.", progress: 45, waitForData: true });
         return;
     }
     // console.log(example)
@@ -159,7 +159,7 @@ async function loadExample(storedData) {
 export async function handleUploadFile(file) {
     this.setState({ progress: 10 })
     if (file === undefined) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
+        this.setState({ contentLoaded: false, isLoading: false, error: "A file needs to be provided!" });
         this.setState({ waitForData: true });
     }
     this.setState({ isLoading: true, error: '', loadedFrom: file.name, fileName: file.name });
@@ -217,11 +217,16 @@ export async function handleUrlFile(url) {
         if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
             this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is not supported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
         }
+        if (json.data.size === false) {
+            this.setState({ contentLoaded: false, isLoading: false, error: `Uploaded document is too large.`, progress: 45, waitForData: true });
+            this.setState({});
+        }
         else {
             this.processText(json.data);
         }
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: error.toString(), progress: 45, waitForData: true });
+        // this.setState({ contentLoaded: false, isLoading: false, error: error.toString(), progress: 45, waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!", progress: 45, waitForData: true });
     }
 }
 
@@ -306,6 +311,7 @@ export async function processText(data) {
         await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
 
     } catch (error) {
+        console.log(error)
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
         this.setState({ waitForData: true });
     }

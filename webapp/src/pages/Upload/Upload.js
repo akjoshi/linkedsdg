@@ -56,7 +56,7 @@ class Upload extends Component {
         })
     }
 
-    componentDidMount() { 
+    componentDidMount() {
         this.analyze()
     }
 
@@ -189,7 +189,11 @@ class Upload extends Component {
                             ) : (
                                     <React.Fragment></React.Fragment>
                                 ))}
-                    <p>{this.state.error}</p>
+                    {this.state.error ?
+                        <div className="no-data-text">
+                            <p><span role="img" aria-label="no-data">&#x1f6ab;</span> {this.state.error}</p>
+                        </div> :
+                        <React.Fragment></React.Fragment>}
                 </div>
             </React.Fragment>
 
