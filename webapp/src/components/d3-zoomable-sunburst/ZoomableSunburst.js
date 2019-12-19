@@ -85,10 +85,16 @@ class ZoomableSunburst extends Component {
                 let label = obj.label;
                 let name = obj.name;
                 let weight = obj.value;
-                if(weight === undefined){
+                if (weight === undefined) {
                     weight = 0;
-                    for(let childrenObj of data){
-                        weight += childrenObj.weight;
+                    let uriWeight = {}
+                    await data.map(obj => { 
+                        if (uriWeight[obj.id] === undefined) {
+                            uriWeight[obj.id] = obj.weight;
+                        } 
+                    })
+                    for (let key of Object.keys(uriWeight)) {
+                        weight += uriWeight[key];
                     }
                 }
                 let keyWordLabel = obj.keywords[keyWordURL].label
@@ -106,11 +112,24 @@ class ZoomableSunburst extends Component {
             }
             returnData = [...returnData, ...data]
         }
- 
+
         return returnData;
     }
 
     handleDownloadCSV = async () => {
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
         const { Parser } = require('json2csv');
         console.log(this.props.data)
         let csvData = await this.generateCSVData(this.props.data.children)
@@ -122,10 +141,10 @@ class ZoomableSunburst extends Component {
             const parser = new Parser(opts);
             const csv = parser.parse(csvData);
             console.log(JSON.stringify(csv, undefined, 2));
-
-            var myWindow = window.open("", "MsgWindow");
-            myWindow.document.write('<pre id="json"></pre>');
-            myWindow.document.getElementById("json").innerHTML = csv;
+            download("data.csv", csv);
+            // var myWindow = window.open("", "MsgWindow");
+            // myWindow.document.write('<pre id="json"></pre>');
+            // myWindow.document.getElementById("json").innerHTML = csv;
 
         } catch (err) {
             console.error(err);
@@ -270,6 +289,7 @@ class ZoomableSunburst extends Component {
                             <Button variant="primary" onClick={this.handleDownload} className="sun-download">
                                 ⤓ download
                         </Button>
+
                             <Button variant="primary" onClick={this.handleDownloadCSV} className="sun-download">
                                 ⤓ download as CSV
                         </Button>
@@ -282,7 +302,12 @@ class ZoomableSunburst extends Component {
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
 
-                        <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns} keyWords={this.state.clickedData.keyWords}></DataSeriesTable>
+                        <DataSeriesTable
+                            data={this.state.countrySeriesData}
+                            description={this.state.clickedData.name}
+                            columns={this.state.columns}
+                            keyWords={this.state.clickedData.keyWords} />
+
 
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
                             {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
