@@ -25,7 +25,8 @@
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
     "react-uid": "^2.2.0",
-    "semantic-ui-react": "^0.88.0"
+    "semantic-ui-react": "^0.88.0",
+    "swagger-ui-react": "^3.24.3"
   },
   "scripts": {
     "start": "react-scripts start",

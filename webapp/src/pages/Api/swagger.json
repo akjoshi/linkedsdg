@@ -1,0 +1,161 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "SPACY API",
+    "title": "Concept extraction api",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "linkedsdg.apps.officialstatistics.org",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Spacy",
+      "description": "Extracts concepts from text"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/text/apiURL": {
+      "post": {
+        "tags": [
+          "TEXT"
+        ],
+        "summary": "Text extract from url",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Text",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/concepts/api": {
+      "post": {
+        "tags": [
+          "Spacy"
+        ],
+        "summary": "Process text and returns context",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Text",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/spacy"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/graph/api": {
+      "post": {
+        "tags": [
+          "Graph"
+        ],
+        "summary": "Graph",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "body",
+            "description": "Text",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/graph"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "graph": {
+      "type": "object",
+      "required": [
+        "uri",
+        "weight"
+      ],
+      "properties": {
+        "uri": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer"
+        }
+      }
+    },
+    "spacy": {
+      "type": "object",
+      "required": [
+        "text",
+        "lang"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

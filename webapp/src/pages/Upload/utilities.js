@@ -206,6 +206,10 @@ export async function handleUrlFile(url) {
         return;
     }
     try {
+        console.log(url)
+        console.log(url)
+        console.log(url)
+        console.log(url)
         const json = await axios.post(config.textLinkApiUrl, url, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -233,6 +237,7 @@ export async function handleUrlFile(url) {
 export async function processText(data) {
     try {
         let text = data.text.split("announce").join("");
+        
         const jsonText = await axios.post(config.spacyApiUrl, {
             text: text,
             lang: data.lang,
@@ -335,6 +340,8 @@ export async function processText(data) {
         });
 
 
+        console.log("match")
+        console.log(match)
         const linkedDataResponse = await axios.post(config.graphQueryApiUrl, match, {
             headers: {
                 'Content-Type': 'application/json'

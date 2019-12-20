@@ -13,6 +13,9 @@ const mainNavigation = props => (
             </NavLink>
             <NavLink to="/about">
                 <h2>About</h2>
+            </NavLink> 
+            <NavLink to="/api">
+                <h2>API</h2>
             </NavLink>
         </div>
     </header>

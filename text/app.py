@@ -42,8 +42,9 @@ CORS(app)
 
 parserAPI = reqparse.RequestParser()
 parserAPI.add_argument('data', action='append') 
+ 
 
-@api.route('/<data>', endpoint='get_task_url3' )
+@api.route('/<data>:id', endpoint='get_task_url3' )
 @api.doc(params={'data': 'URL'})
 class MyResource(Resource):  
     @api.doc(responses={200: 'OK'})
