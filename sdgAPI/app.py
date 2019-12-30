@@ -10,10 +10,12 @@ from os.path import join, dirname, realpath
 import time
 import re
 import string
-import os 
+import os  
+from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = './'
 CORS(app)
 
 @app.route('/file', methods=['POST'])
@@ -21,19 +23,18 @@ def get_task_file():
     response_obj = {} 
     if 'file' not in request.files:
         abort(400) 
-    
-    print(request.files["file"].filename)
+     
+    f = request.files['file']
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))
+    f.save(file_path)
 
     # TEXT EXTRACT
-    url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api' 
-    headers = {'Content-type': 'multipart/form-data'} 
-
-    r1 = requests.request("POST", url1, files={'file':request.files['file']}, headers=headers) 
-
-    print(r1.text)
-    abort(400) 
-    response_obj["text"] = r1.json()
-    print("LELELELELE\n\n\n\n\n\n\n\n\n")
+    url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'  
+    files = {'file': open(file_path, 'rb')} 
+    r1 = requests.request("POST", url1, files=files) 
+    os.remove(file_path)  
+     
+    response_obj["text"] = r1.json() 
 
     url2 = 'http://linkedsdg.apps.officialstatistics.org/concepts/api'
     payload2 = json.dumps(response_obj["text"])
@@ -56,7 +57,7 @@ def get_task_url():
     response_obj = {}  
 
     # TEXT EXTRACT
-    url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL'
+    url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL' 
     payload = str(request.data, "utf-8")
     r1 = requests.request("POST", url, data=payload)
  
