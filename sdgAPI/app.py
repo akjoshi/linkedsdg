@@ -24,15 +24,11 @@ def get_task_file():
     if 'file' not in request.files:
         abort(400) 
      
-    f = request.files['file']
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(f.filename))
-    f.save(file_path)
-
     # TEXT EXTRACT
-    url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'  
-    files = {'file': open(file_path, 'rb')} 
-    r1 = requests.request("POST", url1, files=files) 
-    os.remove(file_path)  
+    f = request.files['file'] 
+    url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'   
+    files = {'file': (f.filename, f.stream, f.content_type, f.headers)}
+    r1 = requests.request("POST", url1, files=files)  
      
     response_obj["text"] = r1.json() 
 
