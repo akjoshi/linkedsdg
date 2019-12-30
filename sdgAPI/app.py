@@ -44,7 +44,6 @@ def get_task_url():
 
 
 def create_response(r1):
-
     response_obj = {}
     response_obj["text"] = r1.json()
 
@@ -69,10 +68,37 @@ def create_response(r1):
     url3 = "http://linkedsdg.apps.officialstatistics.org/graph/api"
     payload3 = json.dumps(data['concepts'])
     r3 = requests.request("POST", url3, data=payload3, headers=headers2)
-     
-    response_obj["sdgs"] = r3.json()
+      
+    response_obj["sdgs"] = data_sdgs_fix(r3.json())
 
     return json.dumps(response_obj)
+
+def data_sdgs_fix(obj):
+    obj["children"] = children_sdgs_fix(obj["children"])
+
+    return obj
+
+def children_sdgs_fix(arr):
+    for obj in arr:
+        if "children" in obj.keys():
+            children_sdgs_fix(obj["children"])
+        if "keywords" in obj.keys():
+            obj["keywords"] = obj_to_arr(obj["keywords"])
+
+    return arr
+        
+
+def obj_to_arr(obj):
+    arr = []
+    for prop_name in obj.keys(): 
+        if "concepts" in obj[prop_name].keys():
+            obj[prop_name]["concepts"] = obj_to_arr(obj[prop_name]["concepts"])
+        if "uri" in obj[prop_name].keys():
+            obj[prop_name]["uri"] = obj[prop_name]["uri"].strip("http://linkedsdg.org/")
+        arr.append(obj[prop_name])
+
+    return arr
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5002, debug=False)
