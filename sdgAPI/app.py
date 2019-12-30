@@ -63,14 +63,25 @@ def get_task_url():
     payload2 = json.dumps(response_obj["text"])
     headers2 = {'Content-type': 'application/json'} 
     r2 = requests.request("POST", url2, data=payload2, headers=headers2)
-    
-    response_obj["concepts"] = r2.json()
+     
+    data = r2.json() 
+    concepts = []
+    countries = []
+    for i, item in enumerate( data ): 
+        if item == "concepts": 
+            concepts = data[item]
+
+        if item == "countries": 
+            countries = data[item]["show_data"]
+
+    response_obj["concepts"] = concepts 
+    response_obj["countries"] = countries 
 
     url3 = "http://linkedsdg.apps.officialstatistics.org/graph/api"
-    payload3 = json.dumps(response_obj["concepts"]['concepts'])
+    payload3 = json.dumps(data['concepts'])
     r3 = requests.request("POST", url3, data=payload3, headers=headers2)
     
-    response_obj["graph"] = r3.json()
+    response_obj["sdgs"] = r3.json()
 
     return json.dumps(response_obj)
 

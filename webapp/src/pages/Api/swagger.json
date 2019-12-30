@@ -1,8 +1,8 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "SPACY API",
-    "title": "Concept extraction api",
+    "title": "LinkedSDGs API",
+    "description": "An API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series.",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
       "email": "apiteam@swagger.io"
@@ -12,24 +12,25 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host": "linkedsdg.apps.officialstatistics.org",
+  "hostRemote": "linkedsdg.apps.officialstatistics.org",
+  "host": "localhost:5002",
   "basePath": "",
   "tags": [
     {
-      "name": "Spacy",
-      "description": "Extracts concepts from text"
+      "name": "LinkedSDGs API",
+      "description": "Extracts concepts"
     }
   ],
   "schemes": [
     "http"
   ],
   "paths": {
-    "/text/apiURL": {
+    "/url": {
       "post": {
         "tags": [
-          "TEXT"
+          "LinkedSDGs API"
         ],
-        "summary": "Text extract from url",
+        "summary": "Extracts text from url",
         "description": "",
         "consumes": [
           "application/json"
@@ -39,121 +40,62 @@
         ],
         "parameters": [
           {
-            "name": "data",
+            "name": "URL",
             "in": "body",
-            "description": "Text",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "description": "Document URL",
+            "required": true, 
+            "type": "string" 
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
     },
-    "/concepts/api": {
+    "/file": {
       "post": {
         "tags": [
-          "Spacy"
+          "LinkedSDGs API"
         ],
-        "summary": "Process text and returns context",
+        "summary": "Extracts text from file",
         "description": "",
         "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json",
-          "application/xml"
-        ],
-        "parameters": [
-          {
-            "name": "data",
-            "in": "body",
-            "description": "Text",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/spacy"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/graph/api": {
-      "post": {
-        "tags": [
-          "Graph"
-        ],
-        "summary": "Graph",
-        "description": "",
-        "consumes": [
-          "application/json"
+          "multipart/form-data"
         ],
         "produces": [
           "application/json" 
         ],
         "parameters": [
           {
-            "name": "data",
-            "in": "body",
-            "description": "Text",
+            "name": "file",
+            "in": "formData",
+            "description": "Document",
             "required": true,
-            "schema": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/graph"
-              }
-            }
+            "type": "file" 
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
-    }
-  },
-  "definitions": {
-    "graph": {
-      "type": "object",
-      "required": [
-        "uri",
-        "weight"
-      ],
-      "properties": {
-        "uri": {
-          "type": "string"
-        },
-        "weight": {
-          "type": "integer"
-        }
-      }
-    },
-    "spacy": {
-      "type": "object",
-      "required": [
-        "text",
-        "lang"
-      ],
-      "properties": {
-        "text": {
-          "type": "string"
-        },
-        "lang": {
-          "type": "string"
-        }
-      }
-    }
-  },
+    } 
+  }, 
   "externalDocs": {
     "description": "Find out more about Swagger",
     "url": "http://swagger.io"
