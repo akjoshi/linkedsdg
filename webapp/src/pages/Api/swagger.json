@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "LinkedSDGs API",
-    "description": "An API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series.",
+    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki.",
     "termsOfService": "http://swagger.io/terms/",
     "contact": {
       "email": "apiteam@swagger.io"
@@ -17,8 +17,7 @@
   "basePath": "",
   "tags": [
     {
-      "name": "LinkedSDGs API",
-      "description": "Extracts concepts"
+      "name": "LinkedSDGs API"
     }
   ],
   "schemes": [
@@ -30,7 +29,7 @@
         "tags": [
           "LinkedSDGs API"
         ],
-        "summary": "Extracts text from url",
+        "summary": "For submitting documents via URLs",
         "description": "",
         "consumes": [
           "application/json"
@@ -65,7 +64,7 @@
         "tags": [
           "LinkedSDGs API"
         ],
-        "summary": "Extracts text from file",
+        "summary": "For submitting documents in files",
         "description": "",
         "consumes": [
           "multipart/form-data"
