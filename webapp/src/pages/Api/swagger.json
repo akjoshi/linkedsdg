@@ -13,7 +13,7 @@
     }
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
-  "host": "localhost:5002",
+  "host": "localhost:5003",
   "basePath": "",
   "tags": [
     {

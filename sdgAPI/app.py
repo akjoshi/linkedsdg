@@ -1,17 +1,10 @@
 #!flask/bin/python
-
-from flask import Flask, request, abort
-from tika import parser
-from langdetect import detect
+from flask import Flask, request, abort 
 from flask_cors import CORS, cross_origin
 import requests
 import json
 from os.path import join, dirname, realpath
-import time
-import re
-import string
 import os  
-from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
@@ -47,7 +40,7 @@ def create_response(r1):
     response_obj = {}
     response_obj["text"] = r1.json()
     del response_obj["text"]["size"]
-    
+
     # to be removed
     response_obj["text"]["text"] = response_obj["text"]["text"].replace('\n','').replace('\t','')
 
@@ -105,4 +98,4 @@ def obj_to_arr(obj):
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5002, debug=False)
+    app.run(host="0.0.0.0", port=5003, debug=False)
