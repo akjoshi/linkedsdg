@@ -100,7 +100,7 @@ def get_task():
 
         result = {
             "lang": detect(text['content']),
-            "text": text['content'],
+            "text": text['content'].replace('\n','').replace('\t',''),
             "size": True
         }
         if(text['content'].split(" ").__len__() > 10000):
@@ -126,7 +126,7 @@ def get_task_url():
     
     result = {
         "lang": detect(text['content']),
-        "text": text['content'],
+        "text": text['content'].replace('\n','').replace('\t',''),
         "size": True
     }
 

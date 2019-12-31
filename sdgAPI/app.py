@@ -46,6 +46,10 @@ def get_task_url():
 def create_response(r1):
     response_obj = {}
     response_obj["text"] = r1.json()
+    del response_obj["text"]["size"]
+    
+    # to be removed
+    response_obj["text"]["text"] = response_obj["text"]["text"].replace('\n','').replace('\t','')
 
     url2 = 'http://linkedsdg.apps.officialstatistics.org/concepts/api'
     payload2 = json.dumps(response_obj["text"])
@@ -63,7 +67,7 @@ def create_response(r1):
             countries = data[item]["show_data"]
 
     response_obj["concepts"] = concepts 
-    response_obj["countries"] = countries 
+    response_obj["geoAreas"] = countries 
 
     url3 = "http://linkedsdg.apps.officialstatistics.org/graph/api"
     payload3 = json.dumps(data['concepts'])
