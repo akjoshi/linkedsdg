@@ -51,12 +51,12 @@ def create_response(r1):
     payload2 = json.dumps(response_obj["text"])
     headers2 = {'Content-type': 'application/json'} 
     r2 = requests.request("POST", url2, data=payload2, headers=headers2)
-     
+
     data = r2.json() 
     concepts = []
     countries = []
     for i, item in enumerate( data ): 
-        if item == "concepts": 
+        if item == "concepts_show_data": 
             concepts = data[item]
 
         if item == "countries": 
