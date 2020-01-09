@@ -1,7 +1,7 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-test:v0.4.3'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-test:v0.4.4'
     build:
       context: ./proxy
       dockerfile: test.Dockerfile
@@ -20,7 +20,7 @@ services:
       kompose.service.type: LoadBalancer
       kompose.service.expose: "true"
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-test:v0.4.3'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-test:v0.4.4'
     build:
       context: ./webapp
       dockerfile: test.Dockerfile
