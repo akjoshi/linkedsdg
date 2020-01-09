@@ -27,7 +27,7 @@ spec:
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-test:v0.4.4
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp-test:v0.4.4b
         name: webapp
         ports:
         - containerPort: 81

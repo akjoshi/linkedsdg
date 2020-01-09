@@ -14,7 +14,7 @@ https://github.com/epistemik-co/sdg-links-text-extraction-api
 
 ## Getting up and running
 
-To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. Then:
+To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. NOTE the .env only sets values for localhost, NOT production. Then:
 
 `docker-compose up`
 
@@ -60,6 +60,14 @@ Alternatively, you can simply change the container version numbers in the deploy
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
 6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
+
+6a. Observe the IP address that is assigned to the proxy, and go to `webapp\src\config-test.json` in the project, and update the values of `textApiUrl`, etc, to point to the proper IP address.
+
+6b. Go back into the docker files and make a change to the container tags' version number for `docker-compose-test.yml` so that they are slightly different (and therefore k8s will pull them). 
+
+6c. Repeat steps 2 and 3, rebuilding and repushing the containers. Then go into the k8s folder and change `.k8s\v0.4.4\test\webapp-deployment.yaml` and `.k8s\v0.4.4\test\proxy-deployment.yaml` so that these also reference the new contanier tags.
+
+6d. Repeat step 6.
 
 7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
 
