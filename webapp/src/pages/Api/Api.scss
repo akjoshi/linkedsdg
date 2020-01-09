@@ -1,0 +1,113 @@
+@import '../../App.scss';
+
+.api-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+    overflow: visible;
+    width:80%;
+    max-width: 1200px;
+    margin: 0 auto;  
+    .api-content{
+        width:100%;
+        margin:0;
+   }
+ 
+    .api-content{
+      margin:0 auto;
+      
+
+    //   .title { 
+    //     display: inline-flex;
+    //     color: $grey;
+    //     border-bottom: $mainColor solid 3px;
+    //     line-height: 0.9;
+    //     padding-bottom: 10px;
+    //     margin-bottom: 1.5rem;     
+    //     font-size: 1.3rem;
+    //     text-transform: uppercase;
+    //     margin-top: 0;
+    //     letter-spacing: .03em; 
+    //   }
+
+    //   .api-link{
+    //     padding:0.5rem
+    //   }
+
+    //   .Description{
+    //     margin-bottom: 2rem;
+    //   }
+
+
+    //   .main-image{
+    //     width:100%;
+    //     // text-align: center;
+    //     img{ position: absolute;
+    //       left: 50%;
+    //       top: 50%;
+    //       transform: translate(-50%, -50%);
+    //       max-width: 70%;
+    //       margin: 0 auto; 
+    //     }  
+    //   }
+
+
+    // .logos{
+    //   width:100%;
+    //   min-height: 10vh;
+    //   margin-bottom: 2rem;
+    //   // text-align: center;
+    //   img{ 
+    //     position: absolute;
+    //     left: 50%;
+    //     top: 50%;
+    //     transform: translate(-50%, -50%);
+    //     max-height: 7vh;
+    //     max-width: 70%;
+    //     margin: 0 auto; 
+    //   }  
+    // }
+
+    // @media only screen and (max-width: 991px) { 
+    //   .main-image{ 
+    //     text-align: center;
+    //     img{ 
+    //       position: relative;
+    //       left: 0;
+    //       top: 0;
+    //       transform: translate(-0, -0);
+    //       margin: 2rem 0;
+    //       max-width: 60%;
+    //     }  
+    //   }
+
+    //   .logos{ 
+    //     text-align: center;
+    //     img{ 
+    //       position: relative;
+    //       left: 0;
+    //       top: 0;
+    //       transform: translate(-0, -0);
+    //       max-height: 15vh;
+    //       margin: 2rem 0;
+    //       max-width: 60%;
+    //     }  
+        
+    //   }
+    // }
+  }
+
+    
+    
+    
+  }
+  
+
+   
+
+
+ 
+
+ 

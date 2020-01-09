@@ -262,6 +262,7 @@ export default class Datamap extends React.Component {
 
                     {this.state.displayJson ?
                         <React.Fragment>
+                            <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the accompanying APIs.</p>
                             <div className="json-with-data">
                                 <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted areas"} />
                             </div>
