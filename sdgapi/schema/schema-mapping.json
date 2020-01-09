@@ -1,0 +1,419 @@
+{
+  "@context": {
+    "_id": "@id",
+    "_value": "@value",
+    "_type": "@type",
+    "DataSet": "http://purl.org/linked-data/cube#DataSet",
+    "DataSetInfo": "http://purl.org/linked-data/cube#DataSet",
+    "Observation": "http://purl.org/linked-data/cube#Observation",
+    "ObservationGroup": "http://purl.org/linked-data/cube#ObservationGroup",
+    "Slice": "http://purl.org/linked-data/cube#Slice",
+    "ComponentSet": "http://purl.org/linked-data/cube#ComponentSet",
+    "DimensionProperty": "http://purl.org/linked-data/cube#DimensionProperty",
+    "MeasureProperty": "http://purl.org/linked-data/cube#MeasureProperty",
+    "ComponentProperty": "http://purl.org/linked-data/cube#ComponentProperty",
+    "DataStructureDefinition": "http://purl.org/linked-data/cube#DataStructureDefinition",
+    "ComponentSpecification": "http://purl.org/linked-data/cube#ComponentSpecification",
+    "SliceKey": "http://purl.org/linked-data/cube#SliceKey",
+    "Code": "http://www.w3.org/2004/02/skos/core#Concept", 
+    "CodeScheme": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+    "dataSet": "http://purl.org/linked-data/cube#dataSet",
+    "observation": "http://purl.org/linked-data/cube#observation",
+    "slice": "http://purl.org/linked-data/cube#slice",
+    "unitMeasure": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+    "structure": "http://purl.org/linked-data/cube#structure",
+    "component": "http://purl.org/linked-data/cube#component",
+    "sliceStructure": "http://purl.org/linked-data/cube#sliceStructure",
+    "sliceKey": "http://purl.org/linked-data/cube#sliceKey",
+    "dimension": "http://purl.org/linked-data/cube#dimension",
+    "measure": "http://purl.org/linked-data/cube#measure",
+    "observedValue": "http://purl.org/linked-data/sdmx/2009/measure#obsValue",
+    "label": "http://www.w3.org/2000/01/rdf-schema#label", 
+    "units": "http://metadata.un.org/sdg/codes/units",
+    "geoArea": "http://metadata.un.org/sdg/codes/geoArea",
+    "disabilityStatus": "http://metadata.un.org/sdg/codes/disabilityStatus",
+    "bound": "http://metadata.un.org/sdg/codes/bound",
+    "modeOfTransportation": "http://metadata.un.org/sdg/codes/modeOfTransportation",
+    "hazardType": "http://metadata.un.org/sdg/codes/hazardType",
+    "typeOfOccupation": "http://metadata.un.org/sdg/codes/typeOfOccupation",
+    "year": "http://metadata.un.org/sdg/codes/year",
+    "nameOfInternationalInstitution": "http://metadata.un.org/sdg/codes/nameOfInternationalInstitution",
+    "educationLevel": "http://metadata.un.org/sdg/codes/educationLevel",
+    "location": "http://metadata.un.org/sdg/codes/location",
+    "ihrCapacity": "http://metadata.un.org/sdg/codes/ihrCapacity",
+    "typeOfSkill": "http://metadata.un.org/sdg/codes/typeOfSkill",
+    "cities": "http://metadata.un.org/sdg/codes/cities",
+    "nameOfNonCommunicableDisease": "http://metadata.un.org/sdg/codes/nameOfNonCommunicableDisease",
+    "freq": "http://metadata.un.org/sdg/codes/freq",
+    "sex": "http://metadata.un.org/sdg/codes/sex",
+    "typeOfMobileTechnology": "http://metadata.un.org/sdg/codes/typeOfMobileTechnology",
+    "levelStatus": "http://metadata.un.org/sdg/codes/levelStatus",
+    "age": "http://metadata.un.org/sdg/codes/age",
+    "typeOfProduct": "http://metadata.un.org/sdg/codes/typeOfProduct",
+    "migratoryStatus": "http://metadata.un.org/sdg/codes/migratoryStatus",
+    "typeOfSpeed": "http://metadata.un.org/sdg/codes/typeOfSpeed",
+    "componentProperty": "http://purl.org/linked-data/cube#componentProperty",
+    "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+    "notation": "http://www.w3.org/2004/02/skos/core#notation",
+    "codeList": "http://purl.org/linked-data/cube#codeList", 
+    "codeIDs": "http://purl.org/umu/uneskos#contains",
+    "codes": "http://purl.org/umu/uneskos#contains",
+    "sdmxDSDcode": "http://metadata.un.org/sdg/codes#sdmxDSDcode"
+  },
+  "@graph": [     
+    {
+      "@id": "http://metadata.un.org/sdg/codes#sdmxDSDcode",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#codeList",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/umu/uneskos#contains",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://www.w3.org/2004/02/skos/core#prefLabel",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://www.w3.org/2004/02/skos/core#notation",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#comment",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/SI_COV_CHLD/measure",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#DataSet",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#DataSet"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#Observation",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#Observation"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#ObservationGroup",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#ObservationGroup"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#Slice",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#Slice"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ObservationGroup"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#ComponentSet",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentSet"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#DimensionProperty",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#DimensionProperty"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentProperty"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#MeasureProperty",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#MeasureProperty"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentProperty"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#ComponentProperty",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentProperty"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#DataStructureDefinition",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#DataStructureDefinition"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentSet"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#ComponentSpecification",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentSpecification"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentSet"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#SliceKey",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#SliceKey"
+        },
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentSet"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        }
+      ]
+    },
+    {
+      "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://www.w3.org/2004/02/skos/core#ConceptScheme"
+        }
+      ]
+    },
+    { 
+      "@id": "http://purl.org/linked-data/cube#ComponentProperty",
+      "@type": "http://www.w3.org/2000/01/rdf-schema#Class",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+        {
+          "@id": "http://purl.org/linked-data/cube#ComponentProperty"
+        }
+      ]
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#dataSet",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#observation",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#slice",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/sdmx/2009/attribute#unitMeasure",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#structure",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#component",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#sliceStructure",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#sliceKey",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#dimension",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/cube#measure",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/units",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/geoArea",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/disabilityStatus",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/bound",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/modeOfTransportation",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/hazardType",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/typeOfOccupation",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/year",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/nameOfInternationalInstitution",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/educationLevel",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/location",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/ihrCapacity",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/typeOfSkill",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/cities",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/nameOfNonCommunicableDisease",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/freq",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/sex",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/typeOfMobileTechnology",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/levelStatus",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/age",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/typeOfProduct",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/migratoryStatus",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://metadata.un.org/sdg/codes/typeOfSpeed",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    },
+    {
+      "@id": "http://purl.org/linked-data/sdmx/2009/measure#obsValue",
+      "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
+      "http://schema.org/inverseOf": []
+    }
+  ]
+}
