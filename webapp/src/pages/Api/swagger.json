@@ -2,29 +2,24 @@
   "swagger": "2.0",
   "info": {
     "title": "LinkedSDGs API",
-    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki.",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "apiteam@swagger.io"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    }
+    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki."
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
-  "host": "localhost:5003",
+  "host": "localhost",
   "basePath": "",
   "tags": [
     {
       "name": "LinkedSDGs API"
+    },
+    {
+      "name": "StatisticSdg API"
     }
   ],
   "schemes": [
     "http"
   ],
   "paths": {
-    "/url": {
+    ":5003/url": {
       "post": {
         "tags": [
           "LinkedSDGs API"
@@ -59,7 +54,7 @@
         }
       }
     },
-    "/file": {
+    ":5003/file": {
       "post": {
         "tags": [
           "LinkedSDGs API"
@@ -93,10 +88,58 @@
           }
         }
       }
-    } 
-  }, 
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
+    } ,
+    ":4000/graphql": {
+      "post": {
+        "tags": [
+          "StatisticSdg API"
+        ],
+        "summary": "Api for statistic data about SDGs",
+        "description": "Full GraphQL api andpoint: http://localhost:4000/graphql",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+            "name": "URL",
+            "in": "body",
+            "description": "Query",
+            "required": true, 
+            "schema": {
+              "$ref": "#/definitions/graphql"
+            }
+            
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "graphql": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "User Status"
+        }
+      },
+      "xml": {
+        "name": "query"
+      }
+    }
   }
 }
