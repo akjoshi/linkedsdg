@@ -27,10 +27,11 @@ class UploadForm extends React.Component {
                                     <Form.Control
                                         type="text"
                                         className="input-data"
-                                        placeholder="URL"
+                                        placeholder="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
                                         value={this.props.URL}
                                         onChange={(e) => this.props.handleURLChange(e)} 
                                         onKeyDown={(e) => { if(e.key === 'Enter') { this.props.analyze(e) }}}  />
+                                        
                                 </div>
                             </div>
 

@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import BubbleChart from '../BubbleChart/BubbleChart'
 import lunr from 'lunr/lunr'
-import {uid} from 'react-uid';
+import { uid } from 'react-uid';
 
 import Form from 'react-bootstrap/Form'
 import ReactJson from 'react-json-view'
@@ -17,7 +17,7 @@ import ReactJson from 'react-json-view'
 class ConceptList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
             data: props.Concepts,
             displayData: props.Concepts,
             displayJson: false,
@@ -29,32 +29,32 @@ class ConceptList extends React.Component {
 
     updateDimensions() {
         var element = document.getElementById('keywords-list-id');
-        if(element !== null){
+        if (element !== null) {
             var positionInfo = element.getBoundingClientRect();
             let width = positionInfo.width;
-            element.style.height = (width-20) + "px";
+            element.style.height = (width - 20) + "px";
         }
     }
 
     componentDidMount() {
         this.updateDimensions();
         window.addEventListener("resize", this.updateDimensions.bind(this));
- 
-        const data = this.state.data;
-        
-        let idx = lunr(function () {  
-            this.field('label')  
 
-            for( let i in data){  
+        const data = this.state.data;
+
+        let idx = lunr(function () {
+            this.field('label')
+
+            for (let i in data) {
                 this.add({
                     'id': i,
-                    'label': data[i].label, 
+                    'label': data[i].label,
                 })
             }
-        }) 
+        })
 
-        this.setState({idx: idx}); 
-        
+        this.setState({ idx: idx });
+
     }
 
     /**
@@ -63,8 +63,8 @@ class ConceptList extends React.Component {
     componentWillUnmount() {
         window.removeEventListener("resize", this.updateDimensions.bind(this));
     }
- 
-    handleDownload = async () => { 
+
+    handleDownload = async () => {
         var myWindow = window.open("", "MsgWindow");
         myWindow.document.write('<pre id="json"></pre>');
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(this.props.displayData, undefined, 2);
@@ -75,25 +75,25 @@ class ConceptList extends React.Component {
     }
 
     handlerForOpen = async (uri) => {
-        let data = await this.state.data.map(x => {  if (x.id  === uri) { x.open = !x.open } return x })
+        let data = await this.state.data.map(x => { if (x.id === uri) { x.open = !x.open } return x })
         await this.setState({
             data: data,
         })
     }
 
-    handleSearch = async changeEvent => {  
+    handleSearch = async changeEvent => {
         await this.setState({
-            searchText: changeEvent.target.value 
-        }); 
+            searchText: changeEvent.target.value
+        });
 
-        let score = await this.state.idx.search("*" + this.state.searchText + "*"); 
-        if(score.length === 0){ 
+        let score = await this.state.idx.search("*" + this.state.searchText + "*");
+        if (score.length === 0) {
             score = this.state.idx.search(this.state.searchText);
         }
- 
-          
+
+
         let newData = [];
-        for(let elem of score){
+        for (let elem of score) {
             newData.push(this.state.data[elem.ref])
         }
 
@@ -131,7 +131,7 @@ class ConceptList extends React.Component {
                                     <Form.Control
                                         type="text"
                                         className="input-data"
-                                        placeholder="Search.." 
+                                        placeholder="Search.."
                                         onChange={(e) => this.handleSearch(e)} />
                                 </div>
                             </Col>
@@ -149,9 +149,10 @@ class ConceptList extends React.Component {
                     </div>
                 </div>
                 {this.state.displayJson ?
-                    <React.Fragment>
+                    <React.Fragment> 
+                        <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the accompanying APIs.</p>
                         <div className="json-with-data">
-                            <ReactJson src={this.props.displayData} collapsed={2} displayDataTypes={false} name={"Extracted concepts"}/>
+                            <ReactJson src={this.props.displayData} collapsed={2} displayDataTypes={false} name={"Extracted concepts"} />
                         </div>
                         <Button variant="primary" onClick={this.handleDownload}>
                             ⤓ download

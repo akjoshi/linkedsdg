@@ -1,6 +1,7 @@
 import React from 'react';
-import Upload from './pages/Upload/Upload';
-import Home from './pages/Home/Home';
+import Upload from './pages/Upload/Upload'; 
+import About from './pages/About/About'; 
+import Api from './pages/Api/Api'; 
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import MainNavigation from './components/MainNavigation/MainNavigation';
 import Footer from './components/Footer/Footer'
@@ -18,11 +19,13 @@ function App() {
         <MainNavigation />
         <main className="main-content">
           <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/upload" component={Upload} />
+            <Route path="/" component={Upload} exact />
+            <Route path="/about" component={About} />
+            <Route path="/api" component={Api} />
           </Switch>
         </main>
-        <Footer />
+
+        {/* <Footer /> */}
       </React.Fragment>
     </HashRouter>
   );
