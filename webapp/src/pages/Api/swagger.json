@@ -1,0 +1,102 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LinkedSDGs API",
+    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "hostRemote": "linkedsdg.apps.officialstatistics.org",
+  "host": "localhost:5003",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "LinkedSDGs API"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/url": {
+      "post": {
+        "tags": [
+          "LinkedSDGs API"
+        ],
+        "summary": "For submitting documents via URLs",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+            "name": "URL",
+            "in": "body",
+            "description": "Document URL",
+            "required": true, 
+            "type": "string" 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/file": {
+      "post": {
+        "tags": [
+          "LinkedSDGs API"
+        ],
+        "summary": "For submitting documents in files",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Document",
+            "required": true,
+            "type": "file" 
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    } 
+  }, 
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

@@ -11,6 +11,8 @@ import CopyIcon from './copy-icon.png';
 import UploadForm from '../../components/UploadForm/UploadForm'
 import ZoomableSunburst from '../../components/d3-zoomable-sunburst/ZoomableSunburst'
 import DataMap from '../../components/DataMaps/DataMaps'
+import infoImg from './LinkedSDG_horiz.jpg';
+import Footer from '../../components/Footer/Footer'
 
 
 class Upload extends Component {
@@ -28,7 +30,7 @@ class Upload extends Component {
         linkedData: {},
         isLoading: false,
         loadedFrom: '',
-        URL: '',
+        URL: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/',
         file: null,
         fileName: '',
         waitForData: true,
@@ -41,7 +43,7 @@ class Upload extends Component {
         downloadDataAboutCountry: [],
         conceptsShowData: {},
         matchQuotesForCounty: [],
-        examples: [], 
+        examples: require('./exampleArticles.json'),
     };
 
     clear = (event) => {
@@ -56,9 +58,7 @@ class Upload extends Component {
     }
 
     componentDidMount() {
-        let examples = require('./exampleArticles.json');
-        this.setState({ examples: examples })
-         
+        this.analyze()
     }
 
     handleOptionChange = changeEvent => {
@@ -101,85 +101,106 @@ class Upload extends Component {
 
     render() {
         return (
-            <div className="Upload">
-                <div className="upload-content">
-                    <Row>
-                        <Col lg={4}>
-                            <h3 className="title">ANALYZE DOCUMENT</h3>
-                            <p className="Description">Upload a document related to Sustainable Development Goals or paste its URL in order to analyse it (PDF, DOC, DOCX, HTML). </p>
-                            <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
-                            <p className="Description">You can also use some of the example links provided.</p>
+            <React.Fragment>
+                <div className="Upload">
+                    <div className="upload-content">
+                        <Row className="home-content">
+                            <Col lg={12} className="main-image">
+                                <img src={infoImg} alt="Upload"></img>
+                            </Col>
+                            <Col lg={12} className="side-box">
+                                {/* <h3 className="title">LinkedSDG</h3> */}
+                                <p className="Description">
+                                    A demo app that automatically extracts key concepts related to sustainable development from your text documents and links them to the most relevant sustainable development goals, targets, indicators and series.
+                                </p>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={4}>
+                                <h3 className="title">ANALYZE DOCUMENT</h3>
+                                <p className="Description">Upload a document related to Sustainable Development Goals or paste its URL in order to analyse it (PDF, DOC, DOCX, HTML  - max 10K words). </p>
+                                <p className="Description">The document can be in either of the six official UN languages: Arabic, Chinese, English, French, Russian and Spanish. </p>
+                                <p className="Description">You can also use some of the example links provided.</p>
 
-                            {/* <div className="analyze-button-container">
+                                {/* <div className="analyze-button-container">
                                 <Button variant="primary" className="analyze-button desktop" onClick={this.analyze}>
                                     {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
                                 </Button>
                             </div> */}
 
-                        </Col>
-                        <Col lg={8} className="example-links">
-                            <React.Fragment>
-                                <div className="Upload-Content" key={this.context.waitForData}>
-                                    <div className="File-Upload-by-form">
-                                        <UploadForm
-                                            handleOptionChange={this.handleOptionChange}
-                                            handleURLChange={this.handleURLChange}
-                                            handleFileChange={this.handleFileChange}
-                                            selectedOption={this.state.selectedOption}
-                                            URL={this.state.URL}
-                                            fileName={this.state.fileName}
-                                            analyze={this.analyze}
-                                        ></UploadForm>
+                            </Col>
+                            <Col lg={8} className="example-links">
+                                <React.Fragment>
+                                    <div className="Upload-Content" key={this.context.waitForData}>
+                                        <div className="File-Upload-by-form">
+                                            <UploadForm
+                                                handleOptionChange={this.handleOptionChange}
+                                                handleURLChange={this.handleURLChange}
+                                                handleFileChange={this.handleFileChange}
+                                                selectedOption={this.state.selectedOption}
+                                                URL={this.state.URL}
+                                                fileName={this.state.fileName}
+                                                analyze={this.analyze}
+                                            ></UploadForm>
+                                        </div>
+                                        <div className="analyze-button-container">
+                                            <Button variant="primary" className="analyze-button " onClick={this.analyze}>
+                                                {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
+                                            </Button>
+                                        </div>
                                     </div>
-                                    <div className="analyze-button-container">
-                                        <Button variant="primary" className="analyze-button " onClick={this.analyze}>
-                                            {this.state.isLoading ? (<React.Fragment>Loading...</React.Fragment>) : (<React.Fragment>ANALYZE</React.Fragment>)}
-                                        </Button>
-                                    </div>
-                                </div>
 
-                                <div className="example-links-list">
-                                    <p className="small-label">Examples</p>
-                                    <ul>
-                                        {this.state.examples.map((x, index) =>
-                                            <li key={index}>
-                                                <a href={x.url} target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
-                                                <div className="tooltip">
-                                                    <span onClick={() => this.setState({ selectedOption: "fromURL", URL: x.url })} >{x.label}</span>
-                                                    <span className="tooltiptext">Click to copy</span>
-                                                </div>
-                                            </li>
-                                        )}
-                                    </ul>
+                                    <div className="example-links-list">
+                                        <p className="small-label">Examples</p>
+                                        <ul>
+                                            {this.state.examples.map((x, index) =>
+                                                <li key={index}>
+                                                    <a href={x.url} target="_blank"><span ><img alt="Copy" src={CopyIcon}></img></span></a>
+                                                    <div className="tooltip">
+                                                        <span onClick={() => this.setState({ selectedOption: "fromURL", URL: x.url })} >{x.label}</span>
+                                                        <span className="tooltiptext">Click to copy</span>
+                                                    </div>
+                                                </li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                </React.Fragment>
+                            </Col>
+                        </Row>
+                    </div>
+
+
+                    {this.state.isLoading ? (
+                        <div className="progress-bar-container">
+                            <h4>Progress:</h4>
+                            <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} striped={false} />
+                        </div>
+                    ) : (
+                            !this.state.waitForData ? (
+                                <div className="Data-Area" >
+                                    <div id="Data-Area-id"></div>
+
+                                    <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
+
+                                    <DataMap data={this.state.dataForDataMap} matchQuotes={this.state.matchQuotesForCounty} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
+
+                                    <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
+
                                 </div>
-                            </React.Fragment>
-                        </Col>
-                    </Row>
+                            ) : (
+                                    <React.Fragment></React.Fragment>
+                                ))}
+                    {this.state.error ?
+                        <div className="no-data-text">
+                            <p><span role="img" aria-label="no-data">&#x1f6ab;</span> {this.state.error}</p>
+                        </div> :
+                        <React.Fragment></React.Fragment>}
                 </div>
 
 
-                {this.state.isLoading ? (
-                    <div className="progress-bar-container">
-                        <h4>Progress:</h4>
-                        <ProgressBar animated now={this.state.progress} label={`${this.state.progress}%`} striped={false} />
-                    </div>
-                ) : (
-                        !this.state.waitForData ? (
-                            <div className="Data-Area" >
-                                <div id="Data-Area-id"></div>
+                <Footer />
+            </React.Fragment>
 
-                                <ConceptList Concepts={this.state.concepts} fullConcepts={this.state.fullConcepts} displayData={this.state.conceptsShowData}></ConceptList>
-
-                                <DataMap data={this.state.dataForDataMap} matchQuotes={this.state.matchQuotesForCounty} downloadData={this.state.downloadDataAboutCountry} responsive={true} />
-
-                                <ZoomableSunburst data={this.state.dataForSun} dataForSeries={this.state.dataForSeries} />
-
-                            </div>
-                        ) : (
-                                <React.Fragment></React.Fragment>
-                            ))}
-                <p>{this.state.error}</p>
-            </div>
         )
     }
 }

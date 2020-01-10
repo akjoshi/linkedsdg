@@ -14,11 +14,11 @@ https://github.com/epistemik-co/sdg-links-text-extraction-api
 
 ## Getting up and running
 
-To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. Then:
+To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. NOTE the .env only sets values for localhost, NOT production. Then:
 
 `docker-compose up`
 
-If you have run the containers in the past in your local environment and haven't run this command in a long time, you may need to run the build command with the `--no-cache` option, as in `docker-compose build --no-cache`. Otherwise commands that call `apt-get update` in Ubuntu containers will use cached versions and fail. 
+If you have run the containers in the past in your local environment and haven't run this command in a long time, you may need to run the build command with the `--no-cache` option, as in `docker-compose build --no-cache`. Otherwise commands that call `apt-get update` in Ubuntu containers will use cached versions and fail.
 
 Add the `-d` flag to run in the background as a daemon.
 
@@ -55,11 +55,19 @@ services:
 
 For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
-Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc.
+Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc. To do this, please copy the files and do a find-replace inside the new folder.
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
 6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
+
+6a. Observe the IP address that is assigned to the proxy, and go to `webapp\src\config-test.json` in the project, and update the values of `textApiUrl`, etc, to point to the proper IP address.
+
+6b. Go back into the docker files and make a change to the container tags' version number for `docker-compose-test.yml` so that they are slightly different (and therefore k8s will pull them). 
+
+6c. Repeat steps 2 and 3, rebuilding and repushing the containers. Then go into the k8s folder and change `.k8s\v0.4.4\test\webapp-deployment.yaml` and `.k8s\v0.4.4\test\proxy-deployment.yaml` so that these also reference the new contanier tags.
+
+6d. Repeat step 6.
 
 7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
 
