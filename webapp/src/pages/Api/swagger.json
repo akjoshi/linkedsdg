@@ -2,15 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "LinkedSDGs API",
-    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki.",
-    "termsOfService": "http://swagger.io/terms/",
-    "contact": {
-      "email": "apiteam@swagger.io"
-    },
-    "license": {
-      "name": "Apache 2.0",
-      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-    }
+    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki."
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
   "host": "localhost:5003",
@@ -43,7 +35,9 @@
             "in": "body",
             "description": "Document URL",
             "required": true, 
-            "type": "string" 
+            "schema": {
+              "$ref": "#/definitions/url"
+            }
           }
         ],
         "responses": {
@@ -78,7 +72,9 @@
             "in": "formData",
             "description": "Document",
             "required": true,
-            "type": "file" 
+            "schema": {
+              "$ref": "#/definitions/file"
+            }
           }
         ],
         "responses": {
@@ -94,9 +90,15 @@
         }
       }
     } 
-  }, 
-  "externalDocs": {
-    "description": "Find out more about Swagger",
-    "url": "http://swagger.io"
+  },
+  "definitions": {
+    "url": {
+      "type": "string",
+      "example": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
+    },
+    "file": {
+      "type": "file" 
+    }
   }
+
 }

@@ -111,7 +111,7 @@ class Upload extends Component {
                             <Col lg={12} className="side-box">
                                 {/* <h3 className="title">LinkedSDG</h3> */}
                                 <p className="Description">
-                                    A demo app that automatically extracts key concepts related to sustainable development from your text documents and links them to the most relevant sustainable development goals, targets, indicators and series.
+                                    A demo app that automatically extracts key concepts related to sustainable development from text documents and links them to the most relevant sustainable development goals, targets, indicators and series.
                                 </p>
                             </Col>
                         </Row>

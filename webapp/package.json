@@ -23,10 +23,11 @@
     "react-dropzone": "^10.1.4",
     "react-json-view": "^1.19.1",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1",
+    "react-scripts": "^3.3.0",
     "react-uid": "^2.2.0",
     "semantic-ui-react": "^0.88.0",
-    "swagger-ui-react": "^3.24.3"
+    "swagger-ui-react": "^3.24.3",
+    "zenscroll": "^4.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -31,10 +31,13 @@ class About extends Component {
 
                                         <h3 className="title">About</h3>
                                         <p className="Description">
-                                            LinkedSDGs application has been developed under the leadership of the Statistics Division and the Division for Sustainable Development Goals’ (DSDG) of the Department of Economic and Social Affairs, with the support of resources from the EU grant entitled “SD2015: delivering on the promise of the SDGs”. It showcases the usefulness of adopting Semantic Web technologies and Linked Open Data principles for extracting SDG related metadata from documents and establishing the connections among various SDGs.  It is hosted under the infrastructure of the UN Global Platform for Official Statistics initiative.  For more information, see:
+                                            LinkedSDGs application has been developed under the leadership of the Statistics Division and the Division for Sustainable Development Goals’ (DSDG) of the Department of Economic and Social Affairs, with the support of resources from the EU grant entitled “SD2015: delivering on the promise of the SDGs”. It showcases the usefulness of adopting Semantic Web technologies and Linked Open Data principles for extracting SDG related metadata from documents and establishing the connections among various SDGs.  It is hosted under the infrastructure of the UN Global Platform for Official Statistics initiative.  
+                                        </p>
+                                        <p className="Description">
+                                            For more information, see:
                                             <a href="https://sustainabledevelopment.un.org/LinkedSDGs/about" target="_blank" className="about-link">
                                                 <span >https://sustainabledevelopment.un.org/LinkedSDGs/about</span>
-                                            </a> .
+                                            </a>
                                         </p>
                                     </Col>
                                     <Col lg={4} className="main-image">
