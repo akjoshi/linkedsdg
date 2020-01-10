@@ -27,7 +27,36 @@
     }
 
     .upload-content{
-      margin:0 auto; 
+      margin:0 auto;
+
+      .home-content{
+        margin-bottom: 2rem;
+      }
+      
+      .main-image{
+        width:100%;
+        // text-align: center;
+        img{ 
+          max-width: 40%;
+          margin: 0 auto;
+          margin-bottom: 2rem;
+        }  
+      }
+
+      @media only screen and (max-width: 720px) {
+        .home-content{
+          margin-bottom: 1rem;
+        }
+        
+        .main-image{ 
+          text-align: center;
+          img{ 
+            max-width: 80%; 
+            margin-bottom: 1rem;
+          }  
+        }
+        }
+  
       
       .title { 
         display: inline-flex;
@@ -184,6 +213,7 @@
       .information-source{
           font-size: 0.75rem;
       }
+
     }
   }
 
@@ -217,4 +247,9 @@
     width:100%;
   }
 
- 
+  .no-data-text{
+    text-align: center;
+    padding-top: 1rem;
+    color: $grey; 
+    width: 100%;
+}

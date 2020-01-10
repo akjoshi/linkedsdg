@@ -10,7 +10,8 @@ apk del build_deps
 
 WORKDIR /app
 COPY package*.json /app/
-RUN yarn
+COPY package-lock.json /app/
+RUN yarn install --network-timeout 1000000
 COPY ./ /app/
 
 ARG NGINX_HOST

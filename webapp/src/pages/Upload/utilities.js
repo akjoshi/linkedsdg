@@ -106,8 +106,8 @@ async function loadExample(storedData) {
         }
         // console.log(json)
         example = json.data;
-    } catch (error) { 
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
+    } catch (error) {
+        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with loading cashed example, try other example.", progress: 45, waitForData: true });
         return;
     }
     // console.log(example)
@@ -159,7 +159,7 @@ async function loadExample(storedData) {
 export async function handleUploadFile(file) {
     this.setState({ progress: 10 })
     if (file === undefined) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
+        this.setState({ contentLoaded: false, isLoading: false, error: "A file needs to be provided!" });
         this.setState({ waitForData: true });
     }
     this.setState({ isLoading: true, error: '', loadedFrom: file.name, fileName: file.name });
@@ -200,12 +200,16 @@ export async function handleUrlFile(url) {
     let tempArr = this.state.examples.filter(x => x.url === url);
     if (tempArr.length > 0) {
 
-    this.setState({  progress: 50 });
+        this.setState({ progress: 50 });
         this.loadExample = loadExample.bind(this);
         this.loadExample(tempArr[0]);
         return;
     }
     try {
+        console.log(url)
+        console.log(url)
+        console.log(url)
+        console.log(url)
         const json = await axios.post(config.textLinkApiUrl, url, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -217,24 +221,70 @@ export async function handleUrlFile(url) {
         if (!["en", "es", "fr", "zh", "ar", "ru"].includes(json.data.lang)) {
             this.setState({ contentLoaded: false, isLoading: false, error: `This language ( ${json.data.lang} ) is not supported! Supported languages: Arabic, Chinese, English, French, Russian and Spanish.`, progress: 45, waitForData: true });
         }
+        if (json.data.size === false) {
+            this.setState({ contentLoaded: false, isLoading: false, error: `Uploaded document is too large.`, progress: 45, waitForData: true });
+            this.setState({});
+        }
         else {
             this.processText(json.data);
         }
     } catch (error) {
-        this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with the URL, please try again!", progress: 45, waitForData: true });
+        // this.setState({ contentLoaded: false, isLoading: false, error: error.toString(), progress: 45, waitForData: true });
+        this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!", progress: 45, waitForData: true });
     }
 }
 
 export async function processText(data) {
     try {
-
+        let text = data.text.split("announce").join("");
+        
         const jsonText = await axios.post(config.spacyApiUrl, {
-            text: data.text,
+            text: text,
             lang: data.lang,
             headers: {
                 'Content-Type': 'application/json'
             }
         });
+        // data.text = `announced announced` 
+        // // social order in the country. Moreover, the RGC through MOI announced that all`
+        // let jsonText = {}
+        // if (data.text.split(' ').length < 0) {
+        //     console.log("GOOD TO GO")
+
+        //     jsonText = await axios.post(config.spacyApiUrl, {
+        //         text: data.text,
+        //         lang: data.lang,
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         }
+        //     });
+        // }
+        // else{
+        //     let i = 0
+        //     let tokens = data.text.split(' ')  
+        //     let sizeOfLoad = 1
+        //     console.log(tokens.length)
+        //     while((i+1)*sizeOfLoad < tokens.length){
+        //         console.log(i)
+        //         // if(i === 17){
+        //         //     i++;
+        //         //     console.log(tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "))
+        //         //     continue;
+        //         // }
+        //         console.log(tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "))
+        //         jsonText = await axios.post(config.spacyApiUrl, {
+        //             text: tokens.slice(i*sizeOfLoad, (i+1)*sizeOfLoad).join(" "),
+        //             lang: data.lang,
+        //             headers: {
+        //                 'Content-Type': 'application/json'
+        //             }
+        //         });
+        //         console.log("DONE")
+        //         i++;
+        //     }
+        //     console.log(i)
+        // }
+
         if (jsonText.status !== 200 && jsonText.status !== 201) {
             throw new Error('Failed!');
         }
@@ -290,6 +340,8 @@ export async function processText(data) {
         });
 
 
+        console.log("match")
+        console.log(match)
         const linkedDataResponse = await axios.post(config.graphQueryApiUrl, match, {
             headers: {
                 'Content-Type': 'application/json'
@@ -306,6 +358,7 @@ export async function processText(data) {
         await this.setState({ contentLoaded: true, isLoading: false, waitForData: false, progress: 0 });
 
     } catch (error) {
+        console.log(error)
         this.setState({ contentLoaded: false, isLoading: false, error: "Something went wrong try again!" });
         this.setState({ waitForData: true });
     }

@@ -166,9 +166,8 @@ export default class Datamap extends React.Component {
 
     loadLocations = () => {
         return this.state.countryList.map((x, index) => {
-            let open = x.open;
-            let data = this.props.matchQuotes.filter(y => y.url === `http://data.un.org/${x.id}`);
-
+            let open = x.open; 
+            let data = this.props.matchQuotes.filter(y => y.url === `http://data.un.org/codes/sdg/${x.id}`); 
             return (
 
                 <li key={index} className="event-list-item"
@@ -263,6 +262,7 @@ export default class Datamap extends React.Component {
 
                     {this.state.displayJson ?
                         <React.Fragment>
+                            <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the accompanying APIs.</p>
                             <div className="json-with-data">
                                 <ReactJson src={this.props.downloadData} collapsed={2} displayDataTypes={false} name={"Extracted areas"} />
                             </div>

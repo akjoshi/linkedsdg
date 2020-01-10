@@ -11,6 +11,7 @@ import time
 import re
 import string
 import os
+from flask_restplus import Resource, Api, reqparse
 
 #graphdb_url = os.environ['GRAPHDB_URL']
 #graphdb_repo = os.environ['GRAPHDB_REPO']
@@ -22,6 +23,7 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 
 app = Flask(__name__)
+api = Api(app)
 CORS(app)
 
 #CORS(app, resources={r"/*": {"origins": "*"}})
@@ -38,10 +40,38 @@ CORS(app)
 #     text = normalise_white_space(text)
 #     return text
 
+parserAPI = reqparse.RequestParser()
+parserAPI.add_argument('data', action='append') 
+ 
 
-@app.route('/')
-def index():
-    return "Hello, World!"
+@api.route('/<data>:id', endpoint='get_task_url3' )
+@api.doc(params={'data': 'URL'})
+class MyResource(Resource):  
+    @api.doc(responses={200: 'OK'})
+    def post(self, data): 
+        print("request") 
+        print(data)  
+        response = data
+        print(response)
+        response.raw.decode_content = True
+        #if response.status_code == 200:
+
+        text = parser.from_buffer(response.content)
+        
+        result = {
+            "lang": detect(text['content']),
+            "text": text['content'],
+            "size": True
+        }
+
+        if(text['content'].split(" ").__len__() > 10000):
+            result["size"] = False
+
+        return Response(json.dumps(result), mimetype='application/json')
+
+        #abort(400)
+        #return 'Something went wrong, try again!'
+
 
 
 @app.before_request
@@ -63,14 +93,18 @@ def get_task():
     if file.filename == '':
         abort(400)
     if file and allowed_file(file.filename):
-        text = parser.from_buffer(file.read())
+        try:
+            text = parser.from_buffer(file.read())
+        except Exception as e:
+            return(str(e)) 
+
         result = {
             "lang": detect(text['content']),
-            "text": text['content'],
+            "text": text['content'].replace('\n','').replace('\t',''),
             "size": True
         }
-        # if(text['content'].__len__() > 70000):
-        #     result["size"] = False
+        if(text['content'].split(" ").__len__() > 10000):
+            result["size"] = False
 
         return Response(json.dumps(result), mimetype='application/json')
 
@@ -78,8 +112,36 @@ def get_task():
     return 'Something went wrong, try again!'
 
 
+ 
+
 @app.route('/apiURL', methods=['POST'])
 def get_task_url():
+    print(request.data)
+    response = requests.get(request.data, stream=True, verify=False)
+    print(response)
+    response.raw.decode_content = True
+    #if response.status_code == 200:
+
+    text = parser.from_buffer(response.content)
+    
+    result = {
+        "lang": detect(text['content']),
+        "text": text['content'].replace('\n','').replace('\t',''),
+        "size": True
+    }
+
+    if(text['content'].split(" ").__len__() > 10000):
+        result["size"] = False
+
+    return Response(json.dumps(result), mimetype='application/json')
+
+    #abort(400)
+    #return 'Something went wrong, try again!'
+
+
+
+@app.route('/', methods=['POST'])
+def get_task_url2():
     print(request.data)
     response = requests.get(request.data, stream=True, verify=False)
     print(response)
@@ -94,8 +156,8 @@ def get_task_url():
         "size": True
     }
 
-    # if(text['content'].__len__() > 70000):
-    #     result["size"] = False
+    if(text['content'].split(" ").__len__() > 10000):
+        result["size"] = False
 
     return Response(json.dumps(result), mimetype='application/json')
 

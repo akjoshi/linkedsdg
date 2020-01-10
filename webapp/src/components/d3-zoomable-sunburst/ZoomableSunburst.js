@@ -71,6 +71,87 @@ class ZoomableSunburst extends Component {
         myWindow.document.getElementById("json").innerHTML = JSON.stringify(this.props.data, undefined, 2);
     }
 
+    generateCSVData = async (children) => {
+        // console.log(children)
+        let returnData = []
+        for (let obj of children) {
+            let data = []
+            if (obj.children !== undefined) {
+                data = await this.generateCSVData(obj.children)
+            }
+            for (let keyWordURL of Object.keys(obj.keywords)) {
+                // console.log(keyWordURL)
+                let id = obj.id;
+                let label = obj.label;
+                let name = obj.name;
+                let weight = obj.value;
+                if (weight === undefined) {
+                    weight = 0;
+                    let uriWeight = {}
+                    await data.map(obj => { 
+                        if (uriWeight[obj.id] === undefined) {
+                            uriWeight[obj.id] = obj.weight;
+                        } 
+                    })
+                    for (let key of Object.keys(uriWeight)) {
+                        weight += uriWeight[key];
+                    }
+                }
+                let keyWordLabel = obj.keywords[keyWordURL].label
+                for (let sourceURIObject of obj.keywords[keyWordURL].sources) {
+                    let sourceURI = sourceURIObject.uri
+                    data.push({
+                        'id': id,
+                        'label': label,
+                        'name': name,
+                        'keyWordLabel': keyWordLabel,
+                        'sourceURI': sourceURI,
+                        "weight": weight
+                    })
+                }
+            }
+            returnData = [...returnData, ...data]
+        }
+
+        return returnData;
+    }
+
+    handleDownloadCSV = async () => {
+        function download(filename, text) {
+            var element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+            element.setAttribute('download', filename);
+
+            element.style.display = 'none';
+            document.body.appendChild(element);
+
+            element.click();
+
+            document.body.removeChild(element);
+        }
+
+        const { Parser } = require('json2csv');
+        console.log(this.props.data)
+        let csvData = await this.generateCSVData(this.props.data.children)
+        console.log(csvData)
+        const fields = ['id', 'label', 'name', 'keyWordLabel', 'sourceURI', 'weight'];
+        const opts = { fields };
+
+        try {
+            const parser = new Parser(opts);
+            const csv = parser.parse(csvData);
+            console.log(JSON.stringify(csv, undefined, 2));
+            download("data.csv", csv);
+            // var myWindow = window.open("", "MsgWindow");
+            // myWindow.document.write('<pre id="json"></pre>');
+            // myWindow.document.getElementById("json").innerHTML = csv;
+
+        } catch (err) {
+            console.error(err);
+        }
+
+    }
+
 
     handleExplore = async () => {
         if (this.state.clickedData.label !== undefined && this.state.clickedData.label.split(" ")[0] === "Series") {
@@ -114,7 +195,7 @@ class ZoomableSunburst extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <React.Fragment >
                 <h3 className="Title">
                     Most relevant SDGs
                 </h3>
@@ -193,27 +274,41 @@ class ZoomableSunburst extends Component {
                 </div>
 
 
-                <Button variant="primary" onClick={this.handleCollapse} className="show-data-sun-button"> 
+                <Button variant="primary" onClick={this.handleCollapse} className="show-data-sun-button">
                     {!this.state.displayJson ? <React.Fragment>Show data</React.Fragment> : <React.Fragment>Hide data</React.Fragment>}
                 </Button>
-                {this.state.displayJson ?
-                    <React.Fragment>
-                        <div className="json-with-data">
-                            <ReactJson src={this.props.data} collapsed={2} displayDataTypes={false} name={"Relevant SDGs"} />
-                        </div>
-                        <Button variant="primary" onClick={this.handleDownload} className="sun-download">
-                            ⤓ download
+
+
+
+                {
+                    this.state.displayJson ?
+                        <React.Fragment>
+                            <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the accompanying APIs.</p>
+                            <div className="json-with-data">
+                                <ReactJson src={this.props.data} collapsed={2} displayDataTypes={false} name={"Relevant SDGs"} />
+                            </div>
+                            <Button variant="primary" onClick={this.handleDownload} className="sun-download">
+                                ⤓ download
                         </Button>
 
-                    </React.Fragment>
-                    : <React.Fragment></React.Fragment>
+                            <Button variant="primary" onClick={this.handleDownloadCSV} className="sun-download">
+                                ⤓ download as CSV
+                        </Button>
+
+                        </React.Fragment>
+                        : <React.Fragment></React.Fragment>
                 }
 
 
                 {(this.state.sunState === "series" && this.state.countrySeriesData["@graph"] !== undefined && this.state.countrySeriesData["@graph"].length > 0) ? (
                     <div className="country-series-info">
 
-                        <DataSeriesTable data={this.state.countrySeriesData} description={this.state.clickedData.name} columns={this.state.columns} keyWords={this.state.clickedData.keyWords}></DataSeriesTable>
+                        <DataSeriesTable
+                            data={this.state.countrySeriesData}
+                            description={this.state.clickedData.name}
+                            columns={this.state.columns}
+                            keyWords={this.state.clickedData.keyWords} />
+
 
                         <Button variant="primary" onClick={this.handleExplore} className="button-for-table explore-all-data">
                             {!this.state.exploreAllLoading ? <React.Fragment>Explore data for all locations</React.Fragment> : <React.Fragment>Loading...</React.Fragment>}
