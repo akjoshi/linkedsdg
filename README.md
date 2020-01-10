@@ -61,38 +61,30 @@ Alternatively, you can simply change the container version numbers in the deploy
 
 6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
 
-6a. Observe the IP address that is assigned to the proxy, and go to `webapp\src\config-test.json` in the project, and update the values of `textApiUrl`, etc, to point to the proper IP address.
+7. Observe the IP address that is assigned to the proxy, and go to `webapp\src\config-test.json` in the project, and update the values of `textApiUrl`, etc, to point to the proper IP address.
 
-6b. Go back into the docker files and make a change to the container tags' version number for `docker-compose-test.yml` so that they are slightly different (and therefore k8s will pull them). 
+8. Go back into the docker files and make a change to the container tags' version number for `docker-compose-test.yml` so that they are slightly different (and therefore k8s will pull them). 
 
-6c. Repeat steps 2 and 3, rebuilding and repushing the containers. Then go into the k8s folder and change `.k8s\v0.4.4\test\webapp-deployment.yaml` and `.k8s\v0.4.4\test\proxy-deployment.yaml` so that these also reference the new contanier tags.
+9. Repeat steps 2 and 3, rebuilding and repushing the containers. Then go into the k8s folder and change `.k8s\v0.4.4\test\webapp-deployment.yaml` and `.k8s\v0.4.4\test\proxy-deployment.yaml` so that these also reference the new contanier tags.
 
-6d. Repeat step 6.
+10. Repeat step 6.
 
-7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
+11. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
 
-8. Build the production containers: `docker-compose -f docker-compose.yml -f docker-compose-prod.yml build`
+12. Build the production containers: `docker-compose -f docker-compose.yml -f docker-compose-prod.yml build`
 
-9. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-prod.yml push`
+13. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-prod.yml push`
 
-10. Create the following folder `.k8s\[version]` and generate the proper deployment files for the production containers: `kompose convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s\[version]`
+14. Create the following folder `.k8s\[version]` and generate the proper deployment files for the production containers: `kompose convert -f docker-compose.yml -f docker-compose-prod.yml -o .k8s\[version]`
 
-11. Ensure you are configured to push to the proper production cluster namespace: (sdgontologies)
+15. Ensure you are configured to push to the proper production cluster namespace: (sdgontologies)
 
-12. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]`
+16. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]`
 
-13. Test the application. There should be no issues, except in rare occasions.
+17. Test the application. There should be no issues, except in rare occasions.
 
-14. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
+18. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
 
-15. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node: : `kubectl delete --all pods,daemonsets,replicasets,services,deployments,pods,rc --namespace=sdgontologies-test`.
+19. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node: : `kubectl delete --all pods,daemonsets,replicasets,services,deployments,pods,rc --namespace=sdgontologies-test`.
 
-<<<<<<< HEAD
-**Never delete deployment versions from the .k8s folder**
-
-Your program is a waste of time. 
-
-Pretend issue. Another pretend issue. Yet another issue. Pretend pretend pretend.
-=======
-**Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc. 
->>>>>>> 5cd359aac83a5ad825e44c451aeafcff206480c7
+**Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc.
