@@ -40,6 +40,13 @@ const options = {
   sizePerPageRenderer
 };
 
+const changeAnchorHref = (e) => {
+  var pagintationLinks = document.getElementsByClassName("page-link");
+  for (let link of pagintationLinks) {
+    link.href = "#Data-table-id";
+  }
+}
+
 
 class DataSeriesComponent extends Component {
 
@@ -48,8 +55,9 @@ class DataSeriesComponent extends Component {
     keyWordsString: ""
   });
 
-  componentDidMount() { 
+  componentDidMount() {
 
+    changeAnchorHref();
     let keyWordsString = "";
     for (let obj in this.props.keyWords) {
       keyWordsString = keyWordsString + this.props.keyWords[obj].label + ", ";
@@ -113,7 +121,8 @@ class DataSeriesComponent extends Component {
               >
                 {
                   props => (
-                    <div>
+                    <div onClick={changeAnchorHref}>
+                      <div id="Data-table-id"></div>
                       <BootstrapTable {...props.baseProps} pagination={paginationFactory(options)} filter={filterFactory()} />
                       <ExportCSVButton {...props.csvProps} className="export-csv-button">Export CSV</ExportCSVButton>
                     </div>
