@@ -5,21 +5,18 @@
     "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki."
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
-  "host": "localhost",
+  "host": "localhost:5003",
   "basePath": "",
   "tags": [
     {
       "name": "LinkedSDGs API"
-    },
-    {
-      "name": "StatisticSdg API"
     }
   ],
   "schemes": [
     "http"
   ],
   "paths": {
-    ":5003/url": {
+    "/url": {
       "post": {
         "tags": [
           "LinkedSDGs API"
@@ -38,7 +35,9 @@
             "in": "body",
             "description": "Document URL",
             "required": true, 
-            "type": "string" 
+            "schema": {
+              "$ref": "#/definitions/url"
+            }
           }
         ],
         "responses": {
@@ -54,7 +53,7 @@
         }
       }
     },
-    ":5003/file": {
+    "/file": {
       "post": {
         "tags": [
           "LinkedSDGs API"
@@ -73,45 +72,9 @@
             "in": "formData",
             "description": "Document",
             "required": true,
-            "type": "file" 
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          },
-          "400": {
-            "description": "Bad Request Error"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    } ,
-    ":4000/graphql": {
-      "post": {
-        "tags": [
-          "StatisticSdg API"
-        ],
-        "summary": "Api for statistic data about SDGs",
-        "description": "Full GraphQL api andpoint: http://localhost:4000/graphql",
-        "consumes": [
-          "application/json"
-        ],
-        "produces": [
-          "application/json" 
-        ],
-        "parameters": [
-          {
-            "name": "URL",
-            "in": "body",
-            "description": "Query",
-            "required": true, 
             "schema": {
-              "$ref": "#/definitions/graphql"
+              "$ref": "#/definitions/file"
             }
-            
           }
         ],
         "responses": {
@@ -126,20 +89,16 @@
           }
         }
       }
-    }
+    } 
   },
   "definitions": {
-    "graphql": {
-      "type": "object",
-      "properties": {
-        "query": {
-          "type": "string",
-          "description": "User Status"
-        }
-      },
-      "xml": {
-        "name": "query"
-      }
+    "url": {
+      "type": "string",
+      "example": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
+    },
+    "file": {
+      "type": "file" 
     }
   }
+
 }

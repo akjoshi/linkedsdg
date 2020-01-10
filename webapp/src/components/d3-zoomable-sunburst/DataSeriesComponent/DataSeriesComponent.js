@@ -48,7 +48,7 @@ class DataSeriesComponent extends Component {
     keyWordsString: ""
   });
 
-  componentDidMount() {
+  componentDidMount() { 
 
     let keyWordsString = "";
     for (let obj in this.props.keyWords) {
