@@ -3,7 +3,7 @@ const util = require('util');
 
 const fetchData = async (fieldNodes, database, tree) => {
     database.updateDB();
-    
+
     fieldNodes = fieldNodes.filter(x => x.name.value === "DataSet")
     for (let fieldNode of fieldNodes) {
         // console.log(util.inspect(fieldNode, false, null, true /* enable colors */))
@@ -24,13 +24,13 @@ const fetchData = async (fieldNodes, database, tree) => {
         console.log(query)
         console.log('\n')
         console.log('\n')
-        
-        let response = await axios.get("http://localhost:3030/stats/sparql",
+
+        let response = await axios.get("http://35.223.33.153:3030/stats/sparql",
             {
                 params: {
                     query: query
-                } 
-        });
+                }
+            });
 
         await database.insertRDF(response.data, null)
         // PUT IT IN DB
@@ -109,12 +109,32 @@ const renderOptionals = (selections, tree, parent, parentQueryName, parentArgume
         if (parent.name === "Slice") {
             let filter = parentArguments.filter(x => `http://metadata.un.org/sdg/codes/${x.name.value}` === objInfo.uri)[0]
             if (filter) {
-                optional += newTriple
-                let value = filter.value.value
-                if (value.startsWith("_")) {
-                    value = value.replace("_", "")
+                if (filter.value.kind === "EnumValue") {
+                    optional += newTriple
+                    let value = filter.value.value
+                    if (value.startsWith("_")) {
+                        value = value.replace("_", "")
+                    }
+                    optional += `FILTER (?${objID} in (<${objInfo.uri}/${value}>))\n`
                 }
-                optional += `FILTER (?${objID} in (<${objInfo.uri}/${value}>))\n`
+
+                else if (filter.value.kind === "ListValue") {
+                    let values = filter.value.values.map(x => {
+                        let value = x.value
+                        if (value.startsWith("_")) {
+                            value = value.replace("_", "")
+                        }
+                        return value
+                    })
+                    optional += newTriple 
+                    optional += `FILTER (?${objID} in (${values.map(x => `<${objInfo.uri}/${x}> `)}))\n`
+
+
+                }
+                else {
+                    console.log("ERROR on slice filter:")
+                    console.log(filter)
+                }
             }
             else {
                 optional = `OPTIONAL { \n`
@@ -124,7 +144,7 @@ const renderOptionals = (selections, tree, parent, parentQueryName, parentArgume
         else if (parent.name === "Observation") {
             let filter = parentArguments.filter(x => x.name.value === propertyName)[0]
             if (filter) {
-                if(filter.value.kind === "StringValue"){
+                if (filter.value.kind === "IntValue") {
                     optionals += newTriple
                     let value = filter.value.value
                     if (value.startsWith("_")) {
@@ -132,22 +152,22 @@ const renderOptionals = (selections, tree, parent, parentQueryName, parentArgume
                     }
                     optionals += `FILTER ((str(?${objID}) = "${value}"))\n`
                 }
-                else if(filter.value.kind === "ListValue"){ 
+                else if (filter.value.kind === "ListValue") {
                     let values = filter.value.values.map(x => `"${x.value}"`)
                     optionals += `VALUES ?${objID} { ${values.join(" ")} } .\n`
                     optionals += newTriple
                 }
-                else{
+                else {
                     console.log("ERROR on Observation filter:")
                     console.log(filter)
                 }
 
-            } 
+            }
             else {
                 optional = `OPTIONAL { \n`
                 optional += newTriple
             }
-        } 
+        }
         else {
             optional = `OPTIONAL { \n`
             optional += newTriple
@@ -188,18 +208,18 @@ const addMissingFilters = (selections, tree, parent, parentQueryName, parentArgu
 
     // list filters
     // console.log(parentArguments)
-    if(parentArguments.length === 0){
+    if (parentArguments.length === 0) {
         return { triples: triples, optionals: optionals }
     }
 
     let filters = parentArguments.map(x => x.name.value)
 
-    for(let elem of selections){
+    for (let elem of selections) {
         filters = filters.filter(x => x !== elem.name.value)
     }
     // console.log(filters) // those needs to be added
 
-    for(let propertyName of filters){
+    for (let propertyName of filters) {
         let objID = `x_${count[0]}`;
         count[0] += 1;
 
@@ -210,37 +230,68 @@ const addMissingFilters = (selections, tree, parent, parentQueryName, parentArgu
 
         newTriple = `?${parentQueryName} <${objInfo.uri}> ?${objID} .\n`
 
-        
+
         if (parent.name === "Slice") {
             triples.push(newTriple)
             let filter = parentArguments.filter(x => x.name.value === propertyName)[0]
-            if (filter) {
+            if (filter.value.kind === "EnumValue") {
                 optionals += newTriple
                 let value = filter.value.value
                 if (value.startsWith("_")) {
                     value = value.replace("_", "")
                 }
                 optionals += `FILTER (?${objID} in (<${objInfo.uri}/${value}>))\n`
-            } 
-        } 
+            }
+
+            else if (filter.value.kind === "ListValue") {
+                let values = filter.value.values.map(x => {
+                    let value = x.value
+                    if (value.startsWith("_")) {
+                        value = value.replace("_", "")
+                    }
+                    return value
+                })
+                optionals += newTriple 
+                optionals += `FILTER (?${objID} in (${values.map(x => `<${objInfo.uri}/${x}> `)}))\n`
+            }
+            else {
+                console.log("ERROR on slice filter:")
+                console.log(filter)
+            }
+        }
         else if (parent.name === "Observation") {
-            triples.push(newTriple)
             let filter = parentArguments.filter(x => x.name.value === propertyName)[0]
             if (filter) {
-                optionals += newTriple
-                let value = filter.value.value
-                if (value.startsWith("_")) {
-                    value = value.replace("_", "")
+                if (filter.value.kind === "IntValue") {
+                    optionals += newTriple
+                    let value = filter.value.value
+                    if (value.startsWith("_")) {
+                        value = value.replace("_", "")
+                    }
+                    optionals += `FILTER ((str(?${objID}) = "${value}"))\n`
                 }
-                optionals += `FILTER (?${objID} in str(<${value}>))\n`
-            } 
-        } 
-        else{
+                else if (filter.value.kind === "ListValue") {
+                    let values = filter.value.values.map(x => `"${x.value}"`)
+                    optionals += `VALUES ?${objID} { ${values.join(" ")} } .\n`
+                    optionals += newTriple
+                }
+                else {
+                    console.log("ERROR on Observation filter:")
+                    console.log(filter)
+                }
+
+            }
+            else {
+                optional = `OPTIONAL { \n`
+                optional += newTriple
+            }
+        }
+        else {
             console.log(parent.name)
-            
+
         }
     }
-    
+
     console.log(optionals)
 
     return { triples: triples, optionals: optionals }
