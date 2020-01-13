@@ -90,11 +90,28 @@ services:
       - GRAPHDB_REPO=sdgs-data
       - GRAPHDB_PORT=7200
     expose:
+      - "4000"
+    ports:
+      - "4000:4000"
+    labels:
+      kompose.image-pull-secret: "ungpregcredtoken"
+  swaggerapi:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi:v0.4.3'
+    build:
+      context: ./swaggerapi
+      dockerfile: Dockerfile
+    restart: always
+    environment: 
+      - GET_HOSTS_FROM=dns
+      - GRAPHDB_REPO=sdgs-data
+      - GRAPHDB_PORT=7200
+    expose:
       - "5003"
     ports:
       - "5003:5003"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
+      
   webapp:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.3'
     build:
@@ -117,3 +134,5 @@ services:
 #  graph-data:
 #networks:
 #  sdgnet:
+
+

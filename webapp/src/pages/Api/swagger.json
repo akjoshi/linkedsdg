@@ -7,6 +7,9 @@
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
   "host": "localhost:5003",
   "basePath": "",
+  "contact": {
+    "email": "joshi6@un.org"
+  },
   "tags": [
     {
       "name": "LinkedSDGs API"

@@ -31,16 +31,6 @@ const fetchData = async (fieldNodes, database, tree) => {
                     query: query
                 } 
         });
-        // let response = await axios.get("http://sdg-links.org:7200/repositories/cubes-api",
-        //     {
-        //         params: {
-        //             query: query
-        //         },
-        //         headers: {
-        //             Authorization: `Basic c2RnLWd1ZXN0OmxvZDRzdGF0cw==`
-        //         }
-        // });
-        // console.log(response.data)
 
         await database.insertRDF(response.data, null)
         // PUT IT IN DB
