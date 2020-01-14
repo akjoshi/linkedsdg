@@ -30,14 +30,14 @@
           "application/json"
         ],
         "produces": [
-          "application/json" 
+          "application/json"
         ],
         "parameters": [
           {
             "name": "URL",
             "in": "body",
             "description": "Document URL",
-            "required": true, 
+            "required": true,
             "schema": {
               "$ref": "#/definitions/url"
             }
@@ -67,17 +67,36 @@
           "multipart/form-data"
         ],
         "produces": [
-          "application/json" 
+          "application/json"
         ],
         "parameters": [
           {
-            "name": "file",
             "in": "formData",
-            "description": "Document",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/file"
-            }
+            "name": "file",
+            "type": "file",
+            "required": "true",
+            "description": "The file to upload."
+          },
+          {
+            "in": "formData",
+            "name": "options",
+            "type": "object", 
+            "value": "{\n  \"geoAreas\": true,\n  \"concepts\": true,\n  \"sdgs\": true,\n  \"text\": true\n}",
+            "properties": {
+              "geoAreas": {
+                "type": "boolean"
+              },
+              "concepts": {
+                "type": "boolean"
+              },
+              "sdgs": {
+                "type": "boolean"
+              },
+              "text": {
+                "type": "boolean"
+              }
+            },
+            "required": "false"
           }
         ],
         "responses": {
@@ -92,16 +111,62 @@
           }
         }
       }
-    } 
+    }
   },
   "definitions": {
     "url": {
-      "type": "string",
-      "example": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "example": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
+        },
+        "geoAreas": {
+          "type": "boolean"
+        },
+        "concepts": {
+          "type": "boolean"
+        },
+        "sdgs": {
+          "type": "boolean"
+        },
+        "text": {
+          "type": "boolean"
+        }
+      }
     },
     "file": {
-      "type": "file" 
+      "type": "object",
+      "properties":  [
+        {
+          "in": "formData",
+          "name": "file",
+          "type": "file",
+          "required": "true",
+          "description": "The file to upload."
+        },
+        {
+          "in": "formData",
+          "name": "options",
+          "type": "object", 
+          "value": "{\n  \"geoAreas\": true,\n  \"concepts\": true,\n  \"sdgs\": true,\n  \"text\": true\n}",
+          "properties": {
+            "geoAreas": {
+              "type": "boolean"
+            },
+            "concepts": {
+              "type": "boolean"
+            },
+            "sdgs": {
+              "type": "boolean"
+            },
+            "text": {
+              "type": "boolean"
+            }
+          },
+          "required": "false"
+        }
+      ]
     }
   }
-
 }

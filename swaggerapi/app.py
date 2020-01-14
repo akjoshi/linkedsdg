@@ -21,31 +21,67 @@ def get_task_file():
     url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'   
     files = {'file': (f.filename, f.stream, f.content_type, f.headers)}
     r1 = requests.request("POST", url1, files=files)  
+
+    payload = {}
+    if "options" in request.form:
+        payload = json.loads(request.form["options"]) 
      
-    return create_response(r1)
+    return create_response(r1, payload)
 
 
 @app.route('/url', methods=['POST'])
 def get_task_url(): 
     # TEXT EXTRACT
     url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL' 
-    payload = str(request.data, "utf-8")
-    r1 = requests.request("POST", url, data=payload)
- 
-    return create_response(r1)
+    payload = request.get_json()
+    print(payload["query"]) 
+    r1 = requests.request("POST", url, data=payload["query"])
+    return create_response(r1, payload)
  
 
 
-def create_response(r1):
+def create_response(r1, payload):
+    print(payload)
+    if "geoAreas" not in  payload:
+         payload["geoAreas"] = True
+    if "concepts" not in  payload:
+         payload["concepts"] = True
+    if "sdgs" not in  payload:
+         payload["sdgs"] = True
+    if "text" not in  payload:
+        payload["text"] = True
+
+    geoAreasFlag = payload["geoAreas"]
+    conceptsFlag = payload["concepts"]
+    sdgsFlag = payload["sdgs"]
+    textFlag = payload["text"]  
+
+    print(geoAreasFlag)
+    print(conceptsFlag)
+    print(sdgsFlag)
+    print(textFlag)
+
+
     response_obj = {}
-    response_obj["text"] = r1.json()
-    del response_obj["text"]["size"]
+    if geoAreasFlag == False and conceptsFlag == False and sdgsFlag == False and textFlag == False:
+        return json.dumps(response_obj)
 
-    # to be removed
-    response_obj["text"]["text"] = response_obj["text"]["text"].replace('\n','').replace('\t','')
+
+    if textFlag == True:
+        response_obj["text"] = r1.json() 
+        del response_obj["text"]["size"]
+        response_obj["text"]["text"] = response_obj["text"]["text"].replace('\n','').replace('\t','')
+
+    if geoAreasFlag == False and conceptsFlag == False and sdgsFlag == False:
+        return json.dumps(response_obj)
+
+    data = {}
+    data["text"] = r1.json() 
+    del data["text"]["size"]
+    data["text"]["text"] = data["text"]["text"].replace('\n','').replace('\t','')
 
     url2 = 'http://linkedsdg.apps.officialstatistics.org/concepts/api'
-    payload2 = json.dumps(response_obj["text"])
+    payload2 = json.dumps(data["text"])
     headers2 = {'Content-type': 'application/json'} 
     r2 = requests.request("POST", url2, data=payload2, headers=headers2)
 
@@ -59,8 +95,14 @@ def create_response(r1):
         if item == "countries": 
             countries = data[item]["show_data"]
 
-    response_obj["concepts"] = concepts 
-    response_obj["geoAreas"] = countries 
+    if  conceptsFlag == True:
+        response_obj["concepts"] = concepts 
+
+    if geoAreasFlag == True:
+        response_obj["geoAreas"] = countries 
+
+    if sdgsFlag == False:
+        return json.dumps(response_obj)
 
     url3 = "http://linkedsdg.apps.officialstatistics.org/graph/api"
     payload3 = json.dumps(data['concepts'])
