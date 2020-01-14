@@ -150,7 +150,8 @@ class ConceptList extends React.Component {
                 </div>
                 {this.state.displayJson ?
                     <React.Fragment> 
-                        <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the accompanying APIs.</p>
+                        <p>The following downloadable data sample contains structured version of the information visualized above. Such data is available for programmatic consumption via the 
+                            <a href="https://code.officialstatistics.org/cslovell/sdg-docker-ontologies/API"> accompanying APIs.</a></p>
                         <div className="json-with-data">
                             <ReactJson src={this.props.displayData} collapsed={2} displayDataTypes={false} name={"Extracted concepts"} />
                         </div>
