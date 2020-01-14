@@ -1,5 +1,4 @@
 .env
 ./vscode
-.devcontainer
-*.nt
+.devcontainer 
 node_modules/
