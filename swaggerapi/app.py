@@ -18,7 +18,7 @@ def get_task_file():
       
     # TEXT EXTRACT
     f = request.files['file'] 
-    url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'   
+    url1 = 'http://text:5001/api'   
     files = {'file': (f.filename, f.stream, f.content_type, f.headers)}
     r1 = requests.request("POST", url1, files=files)  
  
@@ -33,7 +33,7 @@ def get_task_file():
 @app.route('/url', methods=['POST'])
 def get_task_url(): 
     # TEXT EXTRACT
-    url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL'  
+    url = 'http://text:5001/apiURL'  
     r1 = requests.request("POST", url, data=request.args.get("url"))
 
 
@@ -71,7 +71,7 @@ def create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag):
     del data["text"]["size"]
     data["text"]["text"] = data["text"]["text"].replace('\n','').replace('\t','')
 
-    url2 = 'http://linkedsdg.apps.officialstatistics.org/concepts/api'
+    url2 = 'http://concepts:5000/api'
     payload2 = json.dumps(data["text"])
     headers2 = {'Content-type': 'application/json'} 
     r2 = requests.request("POST", url2, data=payload2, headers=headers2)
@@ -95,7 +95,7 @@ def create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag):
     if sdgsFlag == False:
         return json.dumps(response_obj)
 
-    url3 = "http://linkedsdg.apps.officialstatistics.org/graph/api"
+    url3 = "http://graph:5002/api"
     payload3 = json.dumps(data['concepts'])
     r3 = requests.request("POST", url3, data=payload3, headers=headers2)
       

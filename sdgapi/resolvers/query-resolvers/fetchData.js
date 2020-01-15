@@ -25,7 +25,7 @@ const fetchData = async (fieldNodes, database, tree) => {
         console.log('\n')
         console.log('\n')
 
-        let response = await axios.get("http://35.223.33.153:3030/stats/sparql",
+        let response = await axios.get("http://graphdb:3030/stats/sparql",
             {
                 params: {
                     query: query
