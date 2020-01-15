@@ -15,52 +15,43 @@ CORS(app)
 def get_task_file(): 
     if 'file' not in request.files:
         abort(400) 
-     
+      
     # TEXT EXTRACT
     f = request.files['file'] 
     url1 = 'http://linkedsdg.apps.officialstatistics.org/text/api'   
     files = {'file': (f.filename, f.stream, f.content_type, f.headers)}
     r1 = requests.request("POST", url1, files=files)  
-
-    payload = {}
-    if "options" in request.form:
-        payload = json.loads(request.form["options"]) 
-     
-    return create_response(r1, payload)
+ 
+    geoAreasFlag = request.args.get('geoAreas') in ["true", "True"]
+    conceptsFlag = request.args.get('concepts') in ["true", "True"]
+    sdgsFlag = request.args.get('sdgs') in ["true", "True"]
+    textFlag = request.args.get('text') in ["true", "True"]
+ 
+    return create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag)
 
 
 @app.route('/url', methods=['POST'])
 def get_task_url(): 
     # TEXT EXTRACT
-    url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL' 
-    payload = request.get_json()
-    print(payload["query"]) 
-    r1 = requests.request("POST", url, data=payload["query"])
-    return create_response(r1, payload)
+    url = 'http://linkedsdg.apps.officialstatistics.org/text/apiURL'  
+    r1 = requests.request("POST", url, data=request.args.get("url"))
+
+
+    geoAreasFlag = request.args.get('geoAreas') in ["true", "True"]
+    conceptsFlag = request.args.get('concepts') in ["true", "True"]
+    sdgsFlag = request.args.get('sdgs') in ["true", "True"]
+    textFlag = request.args.get('text') in ["true", "True"]
+
+    return create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag)
  
 
 
-def create_response(r1, payload):
-    print(payload)
-    if "geoAreas" not in  payload:
-         payload["geoAreas"] = True
-    if "concepts" not in  payload:
-         payload["concepts"] = True
-    if "sdgs" not in  payload:
-         payload["sdgs"] = True
-    if "text" not in  payload:
-        payload["text"] = True
-
-    geoAreasFlag = payload["geoAreas"]
-    conceptsFlag = payload["concepts"]
-    sdgsFlag = payload["sdgs"]
-    textFlag = payload["text"]  
-
+def create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag):
+   
     print(geoAreasFlag)
     print(conceptsFlag)
     print(sdgsFlag)
-    print(textFlag)
-
+    print(textFlag) 
 
     response_obj = {}
     if geoAreasFlag == False and conceptsFlag == False and sdgsFlag == False and textFlag == False:

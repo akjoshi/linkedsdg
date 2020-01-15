@@ -34,13 +34,39 @@
         ],
         "parameters": [
           {
-            "name": "URL",
-            "in": "body",
-            "description": "Document URL",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/url"
-            }
+            "in": "query",
+            "name": "url",
+            "type": "string",
+            "default": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/",
+            "description": "URL of the text document."
+          },
+          {
+            "in": "query",
+            "name": "text",
+            "description": "Include extracted text in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "geoAreas",
+            "description": "Include extracted geographical areas in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "concepts",
+            "description": "Include extracted concepts in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "sdgs",
+            "description": "Include extracted SDGs in the response.",
+            "type": "boolean",
+            "default": true
           }
         ],
         "responses": {
@@ -75,28 +101,35 @@
             "name": "file",
             "type": "file",
             "required": "true",
-            "description": "The file to upload."
+            "description": "Document with text."
           },
           {
-            "in": "formData",
-            "name": "options",
-            "type": "object", 
-            "value": "{\n  \"geoAreas\": true,\n  \"concepts\": true,\n  \"sdgs\": true,\n  \"text\": true\n}",
-            "properties": {
-              "geoAreas": {
-                "type": "boolean"
-              },
-              "concepts": {
-                "type": "boolean"
-              },
-              "sdgs": {
-                "type": "boolean"
-              },
-              "text": {
-                "type": "boolean"
-              }
-            },
-            "required": "false"
+            "in": "query",
+            "name": "text",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted text in the response."
+          },
+          {
+            "in": "query",
+            "name": "geoAreas",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted geographical areas in the response."
+          },
+          {
+            "in": "query",
+            "name": "concepts",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted concepts in the response."
+          },
+          {
+            "in": "query",
+            "name": "sdgs",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted SDGs in the response."
           }
         ],
         "responses": {
@@ -116,55 +149,81 @@
   "definitions": {
     "url": {
       "type": "object",
-      "properties": {
-        "query": {
+      "properties": [
+        {
+          "in": "query",
+          "name": "url",
           "type": "string",
-          "example": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/"
+          "default": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/",
+          "description": "URL of the text document."
         },
-        "geoAreas": {
-          "type": "boolean"
+        {
+          "in": "query",
+          "name": "text",
+          "description": "Include extracted text in the response.",
+          "type": "boolean",
+          "default": true
         },
-        "concepts": {
-          "type": "boolean"
+        {
+          "in": "query",
+          "name": "geoAreas",
+          "description": "Include extracted geographical areas in the response.",
+          "type": "boolean",
+          "default": true
         },
-        "sdgs": {
-          "type": "boolean"
+        {
+          "in": "query",
+          "name": "concepts",
+          "description": "Include extracted concepts in the response.",
+          "type": "boolean",
+          "default": true
         },
-        "text": {
-          "type": "boolean"
+        {
+          "in": "query",
+          "name": "sdgs",
+          "description": "Include extracted SDGs in the response.",
+          "type": "boolean",
+          "default": true
         }
-      }
+      ]
     },
     "file": {
       "type": "object",
-      "properties":  [
+      "properties": [
         {
           "in": "formData",
           "name": "file",
           "type": "file",
           "required": "true",
-          "description": "The file to upload."
+          "description": "Document with text."
         },
         {
-          "in": "formData",
-          "name": "options",
-          "type": "object", 
-          "value": "{\n  \"geoAreas\": true,\n  \"concepts\": true,\n  \"sdgs\": true,\n  \"text\": true\n}",
-          "properties": {
-            "geoAreas": {
-              "type": "boolean"
-            },
-            "concepts": {
-              "type": "boolean"
-            },
-            "sdgs": {
-              "type": "boolean"
-            },
-            "text": {
-              "type": "boolean"
-            }
-          },
-          "required": "false"
+          "in": "query",
+          "name": "text",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted text in the response."
+        },
+        {
+          "in": "query",
+          "name": "geoAreas",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted geographical areas in the response."
+        },
+        {
+          "in": "query",
+          "name": "concepts",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted concepts in the response."
+        },
+        {
+          "in": "query",
+          "name": "sdgs",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted SDGs in the response."
         }
       ]
     }
