@@ -8,4 +8,10 @@ RUN set -x && \
 apk del build_deps
 
 #COPY nginx.conf /etc/nginx/
+#COPY nginx.template /etc/nginx/conf.d/
 COPY nginx.conf /etc/nginx/conf.d/
+
+#ARG NGINX_PORT
+
+#RUN envsubst '$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/nginx.conf
+

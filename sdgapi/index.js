@@ -81,8 +81,9 @@ async function init(app, index) {
     });
 
 
-    const path = '/graphql' + index;
-    server.applyMiddleware({ app, path });
+    const path = '/';
+    server.applyMiddleware({ app, path: '/', playgroundPath: '/' });
+    //server.applyMiddleware({ app, path });
 
 }
 
