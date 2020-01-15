@@ -306,9 +306,6 @@ type Slice  {
     year: [Int]
   ): [Observation]
  
-  """Indicates the value of the dimension: units."""
-    units: Code
-
     """Indicates the value of the dimension: geoArea."""
     geoArea: Code
 
