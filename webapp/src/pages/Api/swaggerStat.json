@@ -31,6 +31,13 @@
         ],
         "parameters": [
           {
+          "in": "header" ,    
+          "name": "Accept",
+          "type": "string" ,
+          "required": false,
+          "value": "application/ld+json"
+          },
+          {
             "name": "URL",
             "in": "body",
             "description": "Query",
@@ -61,7 +68,7 @@
       "properties": {
         "query": {
           "type": "string", 
-          "example": "{JSON_LD_CONTEXT DataSet(series: EN_MAT_DOMCMPG) { _id } }"
+          "example": "{ DataSet(series: EN_MAT_DOMCMPG) { _id } }"
         }
       } 
     }
