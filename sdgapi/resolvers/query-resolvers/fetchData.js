@@ -18,12 +18,7 @@ const fetchData = async (fieldNodes, database, tree) => {
         let { CONSTRUCT, WHERE } = renderQueryData(fieldNode, tree)
         // GET ALL DATA
 
-        const query = `${imports}\nCONSTRUCT {\n${CONSTRUCT}}\nwhere {\n${WHERE}}`
-        console.log('\n')
-        console.log('\n')
-        console.log(query)
-        console.log('\n')
-        console.log('\n')
+        const query = `${imports}\nCONSTRUCT {\n${CONSTRUCT}}\nwhere {\n${WHERE}}` 
 
         let response = await axios.get("http://graphdb:3030/stats/sparql",
             {
@@ -35,12 +30,10 @@ const fetchData = async (fieldNodes, database, tree) => {
         await database.insertRDF(response.data, null)
         // PUT IT IN DB
     }
-    console.log(database.database.size)
     return
 }
 
 const renderQueryData = (fieldNode, tree) => {
-    console.log("RENDER")
     constructTriples = []
     whereBody = ``
 
@@ -174,7 +167,6 @@ const renderOptionals = (selections, tree, parent, parentQueryName, parentArgume
         }
 
         // TEST
-        console.log(selection)
         if (selection.selectionSet && (selection.name.value === "slice" || selection.name.value === "observation")) {
             let objInfoChild = parent.data[selection.name.value]
             if (parent.data[selection.name.value].kind === "ListType") {
@@ -292,7 +284,6 @@ const addMissingFilters = (selections, tree, parent, parentQueryName, parentArgu
         }
     }
 
-    console.log(optionals)
 
     return { triples: triples, optionals: optionals }
 }

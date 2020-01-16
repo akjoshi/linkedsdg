@@ -35,9 +35,6 @@ app.listen({ port: 4000 }, () =>
 );
 
 async function init(app, index) {
-    // const database2 = new DatabaseInterface(require('./schema/schema-mapping'));
-    // // load data
-    // database2.database = database.dbCopy()
     const rootResolver = new Resolver(database, Warnings, require('./schema/schema-mapping')).rootResolver; // Generate Resolvers for graphql
 
     schema = makeExecutableSchema({
@@ -73,34 +70,17 @@ async function init(app, index) {
                         ...response.data
                     }
                 } 
-                // console.log(util.inspect(query, false, null, true /* enable colors */))
-                // console.log(util.inspect(response, false, null, true /* enable colors */))
             }
             return response;
-        }
+        },
+        playground: {
+            endpoint: "/",
+            tabs: require("./tabs.js"),
+          },
     });
 
-
-    const path = '/';
     server.applyMiddleware({ app, path: '/', playgroundPath: '/' });
-    //server.applyMiddleware({ app, path });
-
 }
-
-app.get('/api/dynamic', function (req, res) {
-    let id = uuidv1();
-    init(app, id);
-    res.send(id)
-});
-
-setInterval(function () {
-    const used = process.memoryUsage().heapUsed / 1024 / 1024;
-    console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
-
-    console.log(`Database size: ${database.database.size}`);
-    return Math.round(used * 100) / 100;
-}, 5000);
-
 
 async function setDB() {
 
