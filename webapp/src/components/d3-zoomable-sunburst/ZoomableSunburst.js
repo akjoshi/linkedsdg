@@ -259,7 +259,7 @@ class ZoomableSunburst extends Component {
                                         <React.Fragment>
                                             <p>The United Nations <b>Sustainable Development Goals</b> (SDGs) are 17 global goals that all UN Member States have agreed to try to achieve by the year 2030.</p>
                                             <p>The 17 SDGs are articulated into 169 <b>targets</b>, 230 <b>indicators</b>, and over 400 <b>data series</b> that help to measure the progress towards achieving the SDGs.</p>
-                                            <p>The full SDG Taxonomy is officially published and maintained as <b>linked open data</b> at: <a href="http://metadata.un.org/sdg/" target="_blank" className="uri-link">http://metadata.un.org/sdg/</a>.</p>
+                                            <p>The full SDG Taxonomy is officially published and maintained as <b>linked open data</b> at: <a href="http://metadata.un.org/sdg/" target="_blank" className="uri-link">http://metadata.un.org/sdg/</a></p>
                                             <p>Explore the SDG wheel to find goals, targets, indicators and data series that are most relevant to the processed document, based on the extracted concepts and geographical areas.</p>
                                         </React.Fragment>
 
