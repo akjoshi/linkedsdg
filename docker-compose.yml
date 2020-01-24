@@ -1,7 +1,7 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:${TAG}'
     build: 
       context: ./proxy
       dockerfile: Dockerfile
@@ -20,7 +20,7 @@ services:
       kompose.service.type: LoadBalancer
       kompose.service.expose: "true"
   graphdb:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:${TAG}'
     build:
       context: ./db
       dockerfile: Dockerfile
@@ -32,7 +32,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   graph:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:${TAG}'
     build:
       context: ./graph
       dockerfile: Dockerfile
@@ -48,7 +48,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   concepts:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:${TAG}'
     build:
       context: ./concepts
       dockerfile: Dockerfile
@@ -64,7 +64,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   text:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:${TAG}'
     build:
       context: ./text
       dockerfile: Dockerfile
@@ -80,12 +80,13 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   sdg:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:${TAG}'
     build:
       context: ./sdgapi
       dockerfile: Dockerfile
     restart: always
     environment: 
+      - HOST_URL=${HOST}
       - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=sdgs-data
       - GRAPHDB_PORT=7200
@@ -96,7 +97,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   swaggerapi:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi:${TAG}'
     build:
       context: ./swaggerapi
       dockerfile: Dockerfile
@@ -113,7 +114,7 @@ services:
       kompose.image-pull-secret: "ungpregcredtoken"
       
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:v0.4.5.1'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:${TAG}'
     build:
       context: ./webapp
       dockerfile: Dockerfile

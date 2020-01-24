@@ -14,6 +14,8 @@ COPY package-lock.json /app/
 RUN yarn install --network-timeout 1000000
 COPY ./ /app/
 COPY ./src/config-test.json /app/src/config.json
+RUN cp /app/src/pages/Api/swagger.test /app/src/pages/Api/swagger.json
+RUN cp /app/src/pages/Api/swaggerStat.test /app/src/pages/Api/swaggerStat.json
 RUN yarn build
 
 FROM nginx:1.17.3

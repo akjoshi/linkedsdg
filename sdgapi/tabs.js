@@ -1,7 +1,7 @@
  module.exports = [              
     {
     name:"DataSetInfo",
-    endpoint: "/",
+    endpoint: process.env.HOST_URL + '/graphql',
     query: `
     {
       DataSetInfo {
@@ -41,7 +41,7 @@
     },
     {
     name:"DataSet",
-    endpoint: "/",
+    endpoint: process.env.HOST_URL + '/graphql',
     query: `
     {
       DataSet(series: SL_DOM_TSPDCW) {
@@ -99,7 +99,7 @@
     },
     {
     name:"DimensionProperty",
-    endpoint: "/",
+    endpoint: process.env.HOST_URL + '/graphql',
     query: `
     {
       DimensionProperty {
@@ -119,7 +119,7 @@
     },
     {
     name:"MeasureProperty",
-    endpoint: "/",
+    endpoint: process.env.HOST_URL + '/graphql',
     query: `
     {
       MeasureProperty {
@@ -134,7 +134,7 @@
     },
     {
     name:"CodeScheme",
-    endpoint: "/",
+    endpoint: process.env.HOST_URL + '/graphql',
     query: `
     {
       CodeScheme {

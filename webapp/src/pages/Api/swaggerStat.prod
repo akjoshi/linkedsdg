@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "SDG data series GraphQL API",
-    "description": "This GraphQL-based API serves SDG statistical data series (release 2019.Q2.G.01) represented in the [RDF Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/).\n\nThe GraphQL playground for this API is avaibale at: .../graphql\n\nFor more details on the underlying linked data model see: https://github.com/UNStats/LOD4Stats/wiki/SDG-series-as-RDF-Data-Cubes"
+    "description": "This GraphQL-based API serves SDG statistical data series (release 2019.Q2.G.01) represented in the [RDF Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/).\n\nThe GraphQL playground for this API is avaibale at: linkedsdg.apps.officialstatistics.org/graphql\n\nFor more details on the underlying linked data model see: https://github.com/UNStats/LOD4Stats/wiki/SDG-series-as-RDF-Data-Cubes"
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
   "host": "linkedsdg.apps.officialstatistics.org/graphql",
@@ -22,7 +22,7 @@
           "SDG data series GraphQL API"
         ],
         "summary": "Api for statistic data about SDGs",
-        "description": "The GraphQL playground for this API is avaibale at: http://localhost:4000/graphql",
+        "description": "The GraphQL playground for this API is avaibale at: linkedsdg.apps.officialstatistics.org/graphql",
         "consumes": [
           "application/json"
         ],
@@ -68,7 +68,7 @@
       "properties": {
         "query": {
           "type": "string", 
-          "example": "{ DataSet(series: EN_MAT_DOMCMPG) { _id } }"
+          "example": "{JSON_LD_CONTEXT DataSet(series: EN_MAT_DOMCMPG) { _id } }"
         }
       } 
     }

@@ -34,7 +34,7 @@ spec:
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-test:v0.4.5.1
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy-test:v0.4.5.4
         name: proxy
         ports:
         - containerPort: 80

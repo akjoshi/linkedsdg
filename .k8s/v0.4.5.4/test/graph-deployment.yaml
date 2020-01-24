@@ -8,8 +8,8 @@ metadata:
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
-    io.kompose.service: swaggerapi
-  name: swaggerapi
+    io.kompose.service: graph
+  name: graph
 spec:
   replicas: 1
   strategy: {}
@@ -17,7 +17,7 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: swaggerapi
+        io.kompose.service: graph
     spec:
       containers:
       - env:
@@ -27,10 +27,10 @@ spec:
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi:v0.4.5.1
-        name: swaggerapi
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph:v0.4.5.4
+        name: graph
         ports:
-        - containerPort: 5003
+        - containerPort: 5002
         resources: {}
       restartPolicy: Always
       tolerations:

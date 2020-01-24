@@ -5,7 +5,7 @@
     "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki."
   },
   "hostRemote": "linkedsdg.apps.officialstatistics.org",
-  "host": "${NGINX_HOST}/swaggerapi",
+  "host": "35.225.36.105/swaggerapi",
   "basePath": "",
   "contact": {
     "email": "statistics@un.org"

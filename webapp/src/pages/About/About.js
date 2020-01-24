@@ -81,7 +81,7 @@ class About extends Component {
                             <Col lg={12}>
                                 <h3 className="title">Contact</h3>
                                 <p className="Description">
-                                    For enquiries and feedback, please send us an email to joshi6@un.org.
+                                    For enquiries and feedback, please send us an email to statistics@un.org.
                                 </p>
                             </Col>
                         </Row>

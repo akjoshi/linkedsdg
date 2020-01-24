@@ -78,7 +78,7 @@ async function init(app, index) {
             tabs: require("./tabs.js"),
           },
     });
-
+    
     server.applyMiddleware({ app, path: '/', playgroundPath: '/' });
 }
 
