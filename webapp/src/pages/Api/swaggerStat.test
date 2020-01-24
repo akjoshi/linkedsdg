@@ -1,0 +1,76 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "SDG data series GraphQL API",
+    "description": "This GraphQL-based API serves SDG statistical data series (release 2019.Q2.G.01) represented in the [RDF Data Cube Vocabulary](https://www.w3.org/TR/vocab-data-cube/).\n\nThe GraphQL playground for this API is avaibale at: ${NGINX_HOST}/graphql\n\nFor more details on the underlying linked data model see: https://github.com/UNStats/LOD4Stats/wiki/SDG-series-as-RDF-Data-Cubes"
+  },
+  "hostRemote": "linkedsdg.apps.officialstatistics.org",
+  "host": "35.225.36.105/graphql",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "SDG data series GraphQL API"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": { 
+    "/graphql": {
+      "post": {
+        "tags": [
+          "SDG data series GraphQL API"
+        ],
+        "summary": "Api for statistic data about SDGs",
+        "description": "The GraphQL playground for this API is avaibale at: 35.225.36.105/graphql",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json" 
+        ],
+        "parameters": [
+          {
+          "in": "header" ,    
+          "name": "Accept",
+          "type": "string" ,
+          "required": false,
+          "value": "application/ld+json"
+          },
+          {
+            "name": "URL",
+            "in": "body",
+            "description": "Query",
+            "required": true, 
+            "schema": {
+              "$ref": "#/definitions/graphql"
+            }
+            
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "graphql": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string", 
+          "example": "{JSON_LD_CONTEXT DataSet(series: EN_MAT_DOMCMPG) { _id } }"
+        }
+      } 
+    }
+  }
+}

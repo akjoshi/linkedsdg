@@ -1,270 +1,204 @@
-schemaString = `
-"""
-Exposes linked data context mapppings for this schema. Response to the full
-_CONTEXT query returns a valid JSON-LD context sufficient to interpret data
-returned by other queries and inserted via mutations.
-"""
-type _CONTEXT {
-  """@id"""
-  value: String
-}
-
-"""All object types in the schema."""
-enum _OBJECT_TYPES { 
-  ComponentProperty
-  ComponentSet
-  ComponentSpecification
-  Code
-  CodeScheme
-  DataSet
-  DataStructureDefinition
-  DimensionProperty
-  MeasureProperty
-  Observation
-  ObservationGroup
-  Slice 
-}
- 
-
-"""
-Abstract super-property of all properties representing dimensions, attributes or measures
-"""
-type ComponentProperty {
-  """
-  Type of object
-  """
-  _type: String
-
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
-}
-
-"""
-Abstract class of things which reference one or more ComponentProperties
-"""
-type ComponentSet {
-  """
-  Type of object
-  """
-  _type: String
-  
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
-}
-
-union MeasureProperty_v_DimensionProperty = MeasureProperty | DimensionProperty
-
-"""
-Used to define properties of a component (attribute, dimension etc) which are specific to its usage in a DSD.
-
-Broader types: ComponentSet
-"""
-type ComponentSpecification {
-  """
-  Type of object
-  """
-  _type: String
-  
-  """
-  An alternative to qb:componentProperty which makes explicit that the component is a dimension
-  """
-  dimension: [DimensionProperty]
-
-  """
-  An alternative to qb:componentProperty which makes explicit that the component is a measure
-  """
-  measure: MeasureProperty 
-
-  componentProperty: MeasureProperty_v_DimensionProperty
-
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
-}
-
-"""
-A Code from an SDG coding system.
+schemaString = `"""
+A code from an SDG coding scheme.
 """
 type Code {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
   
   """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID! 
+  _id: ID! 
 
+  """The label of the object.""" 
   prefLabel: String
+
+  """The conventional notation for this object.""" 
   notation: String
+
+  """The corrsponding SDMX notation for this object.""" 
   sdmxDSDcode: String
 }
 
 """
-A code list from an SDG coding system.
+An SDG coding scheme.
 """
 type CodeScheme {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
   
   """The URI identfier of the object.""" 
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
+  _id: ID!
   
+  """The label of the object.""" 
   prefLabel: String
-  codeIDs: [ID!] 
   
+  """The codes in this code scheme.""" 
   codes: [Code]
  
 }
 
 
 """
-Represents a collection of observations, possibly organized into various slices,
-conforming to some common dimensional structure.
-
-Broader types: Thing
+A collection of observations, organized into temporal slices, conforming to some common dimensional structure.
 """
 type DataSet{ 
   """
-  Type of object
+  The type of the object.
   """
   _type: String
 
-  """
-  Indicates a subset of a DataSet defined by fixing a subset of the dimensional values
-  """
-  slice( 
-    geoArea: [geoAreaCodes]
-    disabilityStatus: [disabilityStatusCodes]
-    bound: [boundCodes]
-    modeOfTransportation: [modeOfTransportationCodes]
-    hazardType: [hazardTypeCodes]
-    typeOfOccupation: [typeOfOccupationCodes]
-    nameOfInternationalInstitution: [nameOfInternationalInstitutionCodes]
-    educationLevel: [educationLevelCodes]
-    location: [locationCodes]
-    ihrCapacity: [ihrCapacityCodes]
-    typeOfSkill: [typeOfSkillCodes]
-    cities: [citiesCodes]
-    nameOfNonCommunicableDisease: [nameOfNonCommunicableDiseaseCodes]
-    freq: [freqCodes]
-    sex: [sexCodes]
-    typeOfMobileTechnology: [typeOfMobileTechnologyCodes]
-    levelStatus: [levelStatusCodes]
-    age: [ageCodes]
-    typeOfProduct: [typeOfProductCodes]
-    migratoryStatus: [migratoryStatusCodes]
-    typeOfSpeed: [typeOfSpeedCodes]
-  ): [Slice]
+  """The URI identfier of the object."""
+  _id: ID!
 
   """The unit in which the data values are measured."""
   unitMeasure: Code
 
-  """indicates the structure to which this data set conforms"""
+  """Indicates the structure to which this data set conforms."""
   structure: DataStructureDefinition
 
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
+  """The label of the object."""   
   label: String
 
+  """The conventional notation for this object."""
   notation: String
+
+  """
+  Indicates a subset of a dataset defined by fixing a subset of the dimensional values (here all except for year).
+  """
+  slice( 
+
+    """The filter on the dimension: geoArea."""
+    geoArea: [geoAreaCodes]
+
+    """The filter on the dimension: disabilityStatus."""
+    disabilityStatus: [disabilityStatusCodes]
+
+    """The filter on the dimension: bound."""
+    bound: [boundCodes]
+
+    """The filter on the dimension: modeOfTransportation."""
+    modeOfTransportation: [modeOfTransportationCodes]
+
+    """The filter on the dimension: hazardType."""
+    hazardType: [hazardTypeCodes]
+
+    """The filter on the dimension: typeOfOccupation."""
+    typeOfOccupation: [typeOfOccupationCodes]
+
+    """The filter on the dimension: nameOfInternationalInstitution."""
+    nameOfInternationalInstitution: [nameOfInternationalInstitutionCodes]
+
+    """The filter on the dimension: educationLevel."""
+    educationLevel: [educationLevelCodes]
+
+    """The filter on the dimension: location."""
+    location: [locationCodes]
+
+    """The filter on the dimension: ihrCapacity."""
+    ihrCapacity: [ihrCapacityCodes]
+
+    """The filter on the dimension: typeOfSkill."""
+    typeOfSkill: [typeOfSkillCodes]
+
+    """The filter on the dimension: cities."""
+    cities: [citiesCodes]
+
+    """The filter on the dimension: nameOfNonCommunicableDisease."""
+    nameOfNonCommunicableDisease: [nameOfNonCommunicableDiseaseCodes]
+
+    """The filter on the dimension: freq."""
+    freq: [freqCodes]
+
+    """The filter on the dimension: sex."""
+    sex: [sexCodes]
+
+    """The filter on the dimension: typeOfMobileTechnology."""
+    typeOfMobileTechnology: [typeOfMobileTechnologyCodes]
+
+    """The filter on the dimension: levelStatus."""
+    levelStatus: [levelStatusCodes]
+
+    """The filter on the dimension: age."""
+    age: [ageCodes]
+
+    """The filter on the dimension: typeOfProduct."""
+    typeOfProduct: [typeOfProductCodes]
+
+    """The filter on the dimension: migratoryStatus."""
+    migratoryStatus: [migratoryStatusCodes]
+
+    """The filter on the dimension: typeOfSpeed."""
+    typeOfSpeed: [typeOfSpeedCodes]
+
+  ): [Slice]
 
 }
 
 """
-Defines the structure of a DataSet or slice
-
-Broader types: ComponentSet
+Defines the structure of a dataset. 
 """
 type DataStructureDefinition {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
   
   """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
+  _id: ID!
 
+  """The dimensions of this data cube."""
   dimension: [DimensionProperty]
+
+  """The measure property of this data cube."""
   measure: MeasureProperty
 }
 
 
 """
-The class of components which represent the dimensions of the cube
-
-Broader types: ComponentProperty
+The properties which represent the dimensions of the cube.
 """
 type DimensionProperty {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
   
   """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): String
+  _id: String
 
+  """The label of the object.""" 
   label: String
 
+  """The conventional notation for this object."""
   notation: String
   
+  """The code scheme for this dimension. """
   codeList: CodeScheme
 
+  """The corrsponding SDMX notation for this object.""" 
   sdmxDSDcode: String
 }
 
 
 """
-The class of components which represent the measured value of the phenomenon being observed
-
-Broader types: ComponentProperty
+The properties which represent the measured value of the phenomenon being observed.
 """
 type MeasureProperty {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
   
   """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): String
+  _id: String
 
+  """The conventional notation for this object."""
   notation: String
 
+  """The label of the object.""" 
   label: String
 
 }
@@ -275,64 +209,44 @@ A single observation in the cube, may have one or more associated measured value
 """
 type Observation {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
-  
-  """indicates the data set of which this observation is a part"""
-  dataSet: DataSet
+
+  """The URI identfier of the object."""
+  _id: ID!
 
   """The unit in which the data values are measured."""
   unitMeasure: Code
 
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
-
-  """indicates the value of the dimension: year"""
+  """Indicates the value of the dimension: year."""
   year: Int
 
-  """indicates the value of the observed measure"""
+  """The value of the observed measure."""
   observedValue: String
  
 }
 
 
-"""
-A, possibly arbitrary, group of observations.
-"""
-type ObservationGroup {
+type DataSetInfo {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
-  
-  """indicates a observation contained within this slice of the data set"""
-  observation: [Observation]
 
   """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
-
-  
-}
-
-type DataSetInfo {
   _id: ID!
-  _type: String
+
+  """The label of the object.""" 
   label: String
+
+  """The conventional notation for this object."""
   notation: String
 
   """The unit in which the data values are measured."""
   unitMeasure: Code
 
-  """indicates the structure to which this data set conforms"""
+  """Indicates the structure to which this data set conforms"""
   structure: DataStructureDefinition
 }
 
@@ -340,13 +254,13 @@ type DataSetInfo {
 """Get objects of specific types."""
 type Query {
 
-  """List avaible objects of type: DataSet."""
+  """List available datasets (SDG data series) with their core metadata."""
   DataSetInfo: [DataSetInfo]
   
-  """List objects of type: DataSet."""
+  """Query data from a specified dataset (SDG data series)."""
   DataSet( 
     """
-    The DataSeries name filter
+    The code of a selected dataset.
     """
     series: SeriesCodes! 
   ): DataSet
@@ -357,10 +271,11 @@ type Query {
   """List objects of type: MeasureProperty."""
   MeasureProperty: [MeasureProperty]
  
- 
+  
+  """List objects of type: CodeScheme."""
   CodeScheme(
     """
-    Code schemes
+    Filter of the code schemes.
     """
     codeSchemes: codeSchemes
     
@@ -368,149 +283,144 @@ type Query {
  
 
   """
-  The mapping from types and properties of the GraphQL schema to the corresponding URIs of the structured data schema.
+  The mapping from types and fields of the GraphQL schema to the corresponding URIs of the employed linked data vocabularies.
   """
   JSON_LD_CONTEXT: String
 }
 
 """
-Denotes a subset of a DataSet defined by fixing a subset of the dimensional values, component properties on the Slice
-
-Broader types: ObservationGroup
+A subset of a dataset defined by fixing a subset of the dimensional values (all except for the year). Note that the dimensions of the slice are always the same as its dataset, minus the dimension year.
 """
 type Slice  {
   """
-  Type of object
+  The type of the object.
   """
   _type: String
+
+  """The URI identfier of the object."""
+  _id: ID!
   
-  """indicates a observation contained within this slice of the data set"""
+  """Indicates a observation contained within this slice of the data set."""
   observation(
+    """The filter on the dimension: year. The available data ranges over years 1990-2019."""
     year: [Int]
   ): [Observation]
  
-  """indicates the value of the dimension: units"""
-    units: Code!
+    """Indicates the value of the dimension: geoArea."""
+    geoArea: Code
 
-    """indicates the value of the dimension: geoArea"""
-    geoArea: Code!
+    """Indicates the value of the dimension: disabilityStatus."""
+    disabilityStatus: Code
 
-    """indicates the value of the dimension: disabilityStatus"""
-    disabilityStatus: Code!
+    """Indicates the value of the dimension: bound."""
+    bound: Code
 
-    """indicates the value of the dimension: bound"""
-    bound: Code!
+    """Indicates the value of the dimension: modeOfTransportation."""
+    modeOfTransportation: Code
 
-    """indicates the value of the dimension: modeOfTransportation"""
-    modeOfTransportation: Code!
+    """Indicates the value of the dimension: hazardType."""
+    hazardType: Code
 
-    """indicates the value of the dimension: hazardType"""
-    hazardType: Code!
-
-    """indicates the value of the dimension: typeOfOccupation"""
-    typeOfOccupation: Code!
+    """Indicates the value of the dimension: typeOfOccupation."""
+    typeOfOccupation: Code
  
-    """indicates the value of the dimension: nameOfInternationalInstitution"""
-    nameOfInternationalInstitution: Code!
+    """Indicates the value of the dimension: nameOfInternationalInstitution."""
+    nameOfInternationalInstitution: Code
 
-    """indicates the value of the dimension: educationLevel"""
-    educationLevel: Code!
+    """Indicates the value of the dimension: educationLevel."""
+    educationLevel: Code
 
-    """indicates the value of the dimension: location"""
-    location: Code!
+    """Indicates the value of the dimension: location."""
+    location: Code
 
-    """indicates the value of the dimension: ihrCapacity"""
-    ihrCapacity: Code!
+    """Indicates the value of the dimension: ihrCapacity."""
+    ihrCapacity: Code
 
-    """indicates the value of the dimension: typeOfSkill"""
-    typeOfSkill: Code!
+    """Indicates the value of the dimension: typeOfSkill."""
+    typeOfSkill: Code
 
-    """indicates the value of the dimension: cities"""
-    cities: Code!
+    """Indicates the value of the dimension: cities."""
+    cities: Code
 
-    """indicates the value of the dimension: nameOfNonCommunicableDisease"""
-    nameOfNonCommunicableDisease: Code!
+    """Indicates the value of the dimension: nameOfNonCommunicableDisease."""
+    nameOfNonCommunicableDisease: Code
 
-    """indicates the value of the dimension: freq"""
-    freq: Code!
+    """Indicates the value of the dimension: freq."""
+    freq: Code
 
-    """indicates the value of the dimension: sex"""
-    sex: Code!
+    """Indicates the value of the dimension: sex."""
+    sex: Code
 
-    """indicates the value of the dimension: typeOfMobileTechnology"""
-    typeOfMobileTechnology: Code!
+    """Indicates the value of the dimension: typeOfMobileTechnology."""
+    typeOfMobileTechnology: Code
 
-    """indicates the value of the dimension: levelStatus"""
-    levelStatus: Code!
+    """Indicates the value of the dimension: levelStatus."""
+    levelStatus: Code
 
-    """indicates the value of the dimension: age"""
-    age: Code!
+    """Indicates the value of the dimension: age."""
+    age: Code
 
-    """indicates the value of the dimension: typeOfProduct"""
-    typeOfProduct: Code!
+    """Indicates the value of the dimension: typeOfProduct."""
+    typeOfProduct: Code
 
-    """indicates the value of the dimension: migratoryStatus"""
-    migratoryStatus: Code!
+    """Indicates the value of the dimension: migratoryStatus."""
+    migratoryStatus: Code
 
-    """indicates the value of the dimension: typeOfSpeed"""
-    typeOfSpeed: Code!
+    """Indicates the value of the dimension: typeOfSpeed."""
+    typeOfSpeed: Code
 
-  """The URI identfier of the object."""
-  _id(
-    """The URI must be on the provided list of URIs."""
-    only: [String]
-  ): ID!
  
 }
  
+"""The SDG coding schemes."""
 enum codeSchemes{
-  """Coding scheme for attribute: age"""
-  ageCodes
-  """Coding scheme for attribute: sex"""
-  sexCodes
-  """Coding scheme for attribute: location"""
-  locationCodes
-  """Coding scheme for attribute: name of international institution"""
-  nameOfInternationalInstitutionCodes
-  """Coding scheme for attribute: cities"""
-  citiesCodes
-  """Coding scheme for attribute: type of product"""
-  typeOfProductCodes
-  """Coding scheme for attribute: bound"""
-  boundCodes
-  """Coding scheme for attribute: freq"""
-  freqCodes
-  """Coding scheme for attribute: type of speed"""
-  typeOfSpeedCodes
-  """Coding scheme for attribute: name of non-communicable disease"""
-  nameOfNonCommunicableDiseaseCodes
-  """Coding scheme for attribute: type of occupation"""
-  typeOfOccupationCodes
-  """Coding scheme for attribute: IHR capacity"""
-  ihrCapacityCodes
-  """Coding scheme for attribute: education level"""
-  educationLevelCodes
-  """Coding scheme for attribute: type of skill"""
-  typeOfSkillCodes
-  """Coding scheme for attribute: level status"""
-  levelStatusCodes
-  """Coding scheme for attribute: disability status"""
-  disabilityStatusCodes
-  """Coding scheme for attribute: migratory status"""
-  migratoryStatusCodes
-  """Coding scheme for attribute: mode of transportation"""
-  modeOfTransportationCodes
-  """Coding scheme for attribute: type of mobile technology"""
-  typeOfMobileTechnologyCodes
-  """Coding scheme for attribute: geographic area (UN M49 standard)"""
-  geoAreaCodes
-  """Units of measurement coding scheme"""
+  """Units of measurement coding scheme."""
   unitsCodes
-  """Coding scheme for attribute: hazard type"""
+  """Coding scheme for the dimension: age."""
+  ageCodes
+  """Coding scheme for the dimension: sex."""
+  sexCodes
+  """Coding scheme for the dimension: location."""
+  locationCodes
+  """Coding scheme for the dimension: nameOfInternationalInstitution."""
+  nameOfInternationalInstitutionCodes
+  """Coding scheme for the dimension: cities."""
+  citiesCodes
+  """Coding scheme for the dimension: typeOfProduct."""
+  typeOfProductCodes
+  """Coding scheme for the dimension: bound."""
+  boundCodes
+  """Coding scheme for the dimension: freq."""
+  freqCodes
+  """Coding scheme for the dimension: typeOfSpeed."""
+  typeOfSpeedCodes
+  """Coding scheme for the dimension: nameOfNonCommunicableDisease."""
+  nameOfNonCommunicableDiseaseCodes
+  """Coding scheme for the dimension: typeOfOccupation."""
+  typeOfOccupationCodes
+  """Coding scheme for the dimension: ihrCapacity."""
+  ihrCapacityCodes
+  """Coding scheme for the dimension: educationLevel."""
+  educationLevelCodes
+  """Coding scheme for the dimension: typeOfSkill."""
+  typeOfSkillCodes
+  """Coding scheme for the dimension: levelStatus."""
+  levelStatusCodes
+  """Coding scheme for the dimension: disabilityStatus."""
+  disabilityStatusCodes
+  """Coding scheme for the dimension: migratoryStatus."""
+  migratoryStatusCodes
+  """Coding scheme for the dimension: modeOfTransportation."""
+  modeOfTransportationCodes
+  """Coding scheme for the dimension: typeOfMobileTechnology."""
+  typeOfMobileTechnologyCodes
+  """Coding scheme for the dimension: geoArea (UN M49 standard)."""
+  geoAreaCodes
+  """Coding scheme for the dimension: hazardType."""
   hazardTypeCodes
 }
 
-
+"""The codes of the available datasets (SDG data series)."""
 enum SeriesCodes { 
 """Indicator of Food Price Anomalies (IFPA), by type of product"""
 AG_FPA_COMM
@@ -1302,126 +1212,89 @@ DC_ODA_TOTGGE
 DC_ODA_TOTLGE
 }
 
+"""The codes of the units of measurement."""
 enum unitsCodes {
-
   """Constant 2010 United States dollars"""
   CON_10USD
-
   """Constant USD"""
   CON_USD
-
   """Current local currency"""
   CUR_LCU
-
   """Billions of current United States dollars"""
   CU_USD_B
-
   """Millions of current United States dollars"""
   CU_USD_M
-
   """Micrograms per cubic meter"""
   GPERM3
-
   """Thousands of hectares"""
   HA_TH
-
   """Index"""
   INDEX
-
   """Kilograms per constant USD"""
   KG_PER_CON_USD
-
   """Square kilometers"""
   KM2
-
   """Litres pure alcohol"""
   LITRES_PURE_ALCOHOL
-
   """Megajoules per USD constant 2011 PPP GDP"""
   MJ_PER_GDP_CON_PPP_USD
-
   """Million of cubic metres per annum"""
   M_M3_PER_YR
-
   """Not applicable"""
   NA
-
   """Number"""
   NUMBER
-
   """Millions"""
   NUM_M
-
   """Thousands"""
   NUM_TH
-
   """Percentage"""
   PERCENT
-
   """Per million population"""
   PER_1000000_POP
-
   """Per 100,000 employees"""
   PER_100000_EMP
-
   """Per 100,000 live births"""
   PER_100000_LIVE_BIRTHS
-
   """Per 100,000 population"""
   PER_100000_POP
-
   """Per 10,000 population"""
   PER_10000_POP
-
   """Per 1,000 live births"""
   PER_1000_LIVE_BIRTHS
-
   """Per 1,000 population"""
   PER_1000_POP
-
   """Per 1,000 uninfected population"""
   PER_1000_UNINFECTED_POP
-
   """Per 100 population"""
   PER_100_POP
-
   """% of married women aged 20-24 years"""
   PER_MARW_20T24Y
-
   """% of children aged 0-59 months"""
   PER_POP_U5
-
   """Passenger kilometres"""
   P_KM
-
   """Ratio"""
   RATIO
-
   """Tonnes"""
   TONNES
-
   """Millions of tonnes"""
   TONNES_M
-
   """Tonne kilometres"""
   T_KM
-
   """Tonnes per hectare"""
   T_PER_HA
-
   """USD"""
   USD
-
   """United States dollars per cubic metre"""
   USD_PER_M3
-
   """Millions of children aged 0-59 months"""
   NUM_U5_M
-
   """Millions of constant 2015 United States dollars"""
   CON_USD_M
 }
 
+"""The codes of the dimension: geoArea."""
 enum geoAreaCodes {
 
   """Bulgaria"""
@@ -1454,23 +1327,14 @@ enum geoAreaCodes {
   """Central African Republic"""
   _140
 
-  """Asia"""
-  _142
-
   """Sri Lanka"""
   _144
 
   """Chad"""
   _148
 
-  """Europe"""
-  _150
-
   """Chile"""
   _152
-
-  """Northern Europe"""
-  _154
 
   """China"""
   _156
@@ -1510,9 +1374,6 @@ enum geoAreaCodes {
 
   """Cyprus"""
   _196
-
-  """Sub-Saharan Africa"""
-  _202
 
   """Czechia"""
   _203
@@ -2141,20 +2002,8 @@ enum geoAreaCodes {
   """Bolivia (Plurinational State of)"""
   _068
 
-  """Western Africa"""
-  _011
-
-  """Antarctica"""
-  _010
-
   """Solomon Islands"""
   _090
-
-  """World"""
-  _001
-
-  """Central America"""
-  _013
 
   """Algeria"""
   _012
@@ -2173,15 +2022,6 @@ enum geoAreaCodes {
 
   """Bosnia and Herzegovina"""
   _070
-
-  """Eastern Africa"""
-  _014
-
-  """Africa"""
-  _002
-
-  """South America"""
-  _005
 
   """Caribbean"""
   _029
@@ -2213,9 +2053,6 @@ enum geoAreaCodes {
   """Armenia"""
   _051
 
-  """Americas"""
-  _019
-
   """Bouvet Island"""
   _074
 
@@ -2225,10 +2062,9 @@ enum geoAreaCodes {
   """British Indian Ocean Territory"""
   _086
 
-  """Southern Africa"""
-  _018
 }
 
+"""The codes of the dimension: disabilityStatus."""
 enum disabilityStatusCodes {
 
   """No breakdown"""
@@ -2241,6 +2077,7 @@ enum disabilityStatusCodes {
   PWD
 }
 
+"""The codes of the dimension: bound."""
 enum boundCodes {
 
   """Lower bound"""
@@ -2253,6 +2090,8 @@ enum boundCodes {
   UB
 }
 
+
+"""The codes of the dimension: modeOfTransportation."""
 enum modeOfTransportationCodes {
 
   """Rail transport"""
@@ -2265,6 +2104,7 @@ enum modeOfTransportationCodes {
   ROA
 }
 
+"""The codes of the dimension: hazardType."""
 enum hazardTypeCodes {
 
   """Frost"""
@@ -2445,6 +2285,7 @@ enum hazardTypeCodes {
   CONTM
 }
 
+"""The codes of the dimension: typeOfOccupation."""
 enum typeOfOccupationCodes {
 
   """Plant and machine operators and assemblers (isco-88)"""
@@ -2532,6 +2373,7 @@ enum typeOfOccupationCodes {
   isco88_2
 }
 
+"""The codes of the dimension: nameOfInternationalInstitution."""
 enum nameOfInternationalInstitutionCodes {
 
   """International Monetary Fund"""
@@ -2568,6 +2410,7 @@ enum nameOfInternationalInstitutionCodes {
   ECOSOC
 }
 
+"""The codes of the dimension: educationLevel."""
 enum educationLevelCodes {
 
   """Primary"""
@@ -2589,6 +2432,7 @@ enum educationLevelCodes {
   UPPSEC
 }
 
+"""The codes of the dimension: location."""
 enum locationCodes {
 
   """Urban"""
@@ -2601,6 +2445,7 @@ enum locationCodes {
   _T
 }
 
+"""The codes of the dimension: ihrCapacity."""
 enum ihrCapacityCodes {
 
   """Laboratory"""
@@ -2682,6 +2527,7 @@ enum ihrCapacityCodes {
   SPAR08
 }
 
+"""The codes of the dimension: typeOfSkill."""
 enum typeOfSkillCodes {
 
   """Sending e-mails with attached files"""
@@ -2718,6 +2564,7 @@ enum typeOfSkillCodes {
   ARSP
 }
 
+"""The codes of the dimension: cities."""
 enum citiesCodes {
 
   """Callao, Callao Cercado"""
@@ -3435,6 +3282,7 @@ enum citiesCodes {
   TOMPKINS_COUNTY
 }
 
+"""The codes of the dimension: nameOfNonCommunicableDisease."""
 enum nameOfNonCommunicableDiseaseCodes {
 
   """Chronic respiratory disease"""
@@ -3450,12 +3298,14 @@ enum nameOfNonCommunicableDiseaseCodes {
   CAN
 }
 
+"""The codes of the dimension: freq."""
 enum freqCodes {
-
   """Annual"""
   A
 }
 
+
+"""The codes of the dimension: sex."""
 enum sexCodes {
 
   """No breakdown"""
@@ -3468,6 +3318,7 @@ enum sexCodes {
   F
 }
 
+"""The codes of the dimension: typeOfMobileTechnology."""
 enum typeOfMobileTechnologyCodes {
 
   """At least 4G mobile network"""
@@ -3480,6 +3331,7 @@ enum typeOfMobileTechnologyCodes {
   AL2G
 }
 
+"""The codes of the dimension: levelStatus."""
 enum levelStatusCodes {
 
   """Low level of implementation"""
@@ -3522,6 +3374,7 @@ enum levelStatusCodes {
   LOPAR
 }
 
+"""The codes of the dimension: age."""
 enum ageCodes {
 
   """16 to 65 years old"""
@@ -3747,6 +3600,7 @@ enum ageCodes {
   Y10T14
 }
 
+"""The codes of the dimension: typeOfProduct."""
 enum typeOfProductCodes {
 
   """Rice"""
@@ -3840,6 +3694,7 @@ enum typeOfProductCodes {
   OIL
 }
 
+"""The codes of the dimension: migratoryStatus."""
 enum migratoryStatusCodes {
 
   """EU Migrants"""
@@ -3858,6 +3713,7 @@ enum migratoryStatusCodes {
   MIGPER
 }
 
+"""The codes of the dimension: typeOfSpeed."""
 enum typeOfSpeedCodes {
 
   """Between 256 kbps and 2 mbps"""

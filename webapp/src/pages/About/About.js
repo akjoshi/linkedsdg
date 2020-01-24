@@ -70,7 +70,7 @@ class About extends Component {
                                 </a>
                             </Col>
                             <Col lg={3} md={6} xs={12} >
-                                <a href="http://epistemik.co " alt="http://epistemik.co ">
+                                <a href="http://epistemik.co" alt="http://epistemik.co ">
                                     <img src={logoEpis} alt="logoEpis"></img>
                                 </a>
                             </Col>
@@ -81,7 +81,7 @@ class About extends Component {
                             <Col lg={12}>
                                 <h3 className="title">Contact</h3>
                                 <p className="Description">
-                                    For enquiries and feedback, please send us an email to ...@...un.org.
+                                    For enquiries and feedback, please send us an email to statistics@un.org.
                                 </p>
                             </Col>
                         </Row>

@@ -24,6 +24,74 @@ Add the `-d` flag to run in the background as a daemon.
 
 ## To deploy to linkedsdg.apps.officialstatistics.org
 
+### New Instructions (as of Jan 24, 2020)
+
+0. **Configure Test Deployment Settings.**  Open the .env file in the local directory and ensure the HOST, TAG, and PORT variables are set. These will be used throughout all parts of the application. The TAG number must be incremented by 1 for every deployment so that the tags are unique and do not override previous deployments. For the test deployment, add the suffix -test to the TAG variable. Ensure the HOST number is the IP address of the test system.
+
+```
+HOST=35.225.36.105
+TAG=[version]-test
+PORT=80
+```
+
+In the above, [version] would be something like `0.4.5.5-test`.
+
+1. Login to containers.officialstatistics.org using your credentials: `docker login containers.officialstatistics.org -u [username] -p [your-token-from-gitlab]`
+
+2. Build the test containers: `docker-compose build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this optino will force the build to take a very long time, but it will rebuild everything from scratch.
+
+3. Push them to the registry: `docker-compose push`.
+
+4. Create the following folder `.k8s\[version]\test`and generate the proper deployment files for the test containers: First run the command `docker-compose config > docker-compose-resolved.yaml` and then run `kompose convert -f docker-compose-resolved.yaml -o .k8s\[version]\test`. After this is completed, you will need to modify all deployment files to contain the following node toleration:
+
+```
+      tolerations:
+      - key: "purpose"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
+```
+
+5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
+
+6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`
+
+7. Test the application to see it works. If there are any issues, make the needed changes and start from 2.
+
+8. Go to the .env file again and configure the deployment parameters. 
+
+```
+HOST=linkedsdg.apps.officialstatistics.org
+TAG=[version]-prod
+PORT=80
+```
+
+9. Build the production containers: `docker-compose build`.
+
+10. Push them to the registry: `docker-compose push`.
+
+11. Create the following folder `.k8s\[version]`and generate the proper deployment files for the test containers: First run the command `docker-compose config > docker-compose-resolved.yaml` and then run `kompose convert -f docker-compose-resolved.yaml -o .k8s\[version]`. After this is completed, you will need to modify all deployment files to contain the following node toleration:
+
+```
+      tolerations:
+      - key: "purpose"
+        operator: "Equal"
+        value: "app"
+        effect: "NoSchedule"
+```
+
+12. Ensure you are configured to push to the proper production cluster namespace: (sdgontologies)
+
+13. Deploy the application to Kubernetes: `kubectl apply -f ./.k8s/[version]`
+
+14. Test the application. There should be no issues, except in rare occasions.
+
+15. If you need to rollback to a previous version, simply run `kubectl apply -f ./.k8s/[version]`, where `[version]` is the version that previously was deployed.
+
+16. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node: : `kubectl delete --all pods,daemonsets,replicasets,services,deployments,pods,rc --namespace=sdgontologies-test`.
+
+### Old instructions
+
 **Note: to deploy on a local kubernetes cluster, you need to find/replace `linkedsdg.apps.officialstatistics.org` with `localhost` in the webapp subfolder**
 
 Once you are satisfied with your changes, you will need to do the following:
@@ -39,7 +107,7 @@ services:
 
 1. Login to containers.officialstatistics.org using your credentials: `docker login containers.officialstatistics.org -u [username] -p [your-token-from-gitlab]`
 
-2. Build the test containers: `docker-compose -f docker-compose.yml -f docker-compose-test.yml build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this optino will force the build to take a very long time, but it will rebuild everything from scratch.
+2. Build the test containers: `docker-compose -f docker-compose.yml -f docker-compose-test.yml build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this option will force the build to take a very long time, but it will rebuild everything from scratch.
 
 3. Push them to the registry: `docker-compose -f docker-compose.yml -f docker-compose-test.yml push`
 
@@ -54,8 +122,6 @@ services:
 ```
 
 For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
-
-Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc. To do this, please copy the files and do a find-replace inside the new folder.
 
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
@@ -79,6 +145,7 @@ Alternatively, you can simply change the container version numbers in the deploy
 
 15. Ensure you are configured to push to the proper production cluster namespace: (sdgontologies)
 
+<<<<<<< HEAD
 16. Push the new configuration to the production namespace: `kubectl apply -f ./.k8s/[version]`
 
 17. Test the application. There should be no issues, except in rare occasions.
@@ -88,3 +155,10 @@ Alternatively, you can simply change the container version numbers in the deploy
 19. Delete the test deployment as it consumes loads of memory and can lead to pods being evicted from the node: : `kubectl delete --all pods,daemonsets,replicasets,services,deployments,pods,rc --namespace=sdgontologies-test`.
 
 **Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc.
+=======
+**Never delete previous deployment versions from the .k8s folder**: Only copy the folder, give it a new names, change the version number, etc. 
+
+
+
+
+>>>>>>> api

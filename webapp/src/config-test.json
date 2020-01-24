@@ -1,5 +1,5 @@
 {
-    "textApiUrl": "http://35.225.36.105/text/api",
+    "textApiUrl": "http://35.225.36.105//text/api",
     "textLinkApiUrl": "http://35.225.36.105/text/apiURL",
     "textLinkApiUrlcashed": "http://35.225.36.105/text/apiURLcashed",
     "spacyApiUrl": "http://35.225.36.105/concepts/api",
