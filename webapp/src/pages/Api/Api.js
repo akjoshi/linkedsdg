@@ -15,7 +15,8 @@ class Api extends Component {
     }
 
     state = {
-        swagger: require('./swagger.json')
+        swagger: require('./swagger.json'),
+        swaggerStat: require('./swaggerStat.json')
     };
 
     render() {
@@ -26,6 +27,11 @@ class Api extends Component {
                         <Row>
                             <Col lg={12}>
                                 <SwaggerUI spec={this.state.swagger} /> 
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col lg={12}>
+                                <SwaggerUI spec={this.state.swaggerStat} /> 
                             </Col>
                         </Row>
 

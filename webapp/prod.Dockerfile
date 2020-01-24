@@ -13,6 +13,7 @@ COPY package*.json /app/
 COPY package-lock.json /app/
 RUN yarn install --network-timeout 1000000
 COPY ./ /app/
+
 RUN yarn build
 
 FROM nginx:1.17.3

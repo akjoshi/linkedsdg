@@ -1,0 +1,231 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "LinkedSDGs API",
+    "description": "This API automatically extracts key concepts related to sustainable development from submitted text documents and links them to the most relevant sustainable development goals, targets, indicators and series. \n\nThe SDG taxonomy, used by the API, is available at http://metadata.un.org/sdg. \n\nFor more technical background please consult https://github.com/UNStats/LOD4Stats/wiki."
+  },
+  "hostRemote": "linkedsdg.apps.officialstatistics.org",
+  "host": "35.225.36.105/swaggerapi",
+  "basePath": "",
+  "contact": {
+    "email": "statistics@un.org"
+  },
+  "tags": [
+    {
+      "name": "LinkedSDGs API"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/url": {
+      "post": {
+        "tags": [
+          "LinkedSDGs API"
+        ],
+        "summary": "For submitting documents via URLs",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "url",
+            "type": "string",
+            "default": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/",
+            "description": "URL of the text document."
+          },
+          {
+            "in": "query",
+            "name": "text",
+            "description": "Include extracted text in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "geoAreas",
+            "description": "Include extracted geographical areas in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "concepts",
+            "description": "Include extracted concepts in the response.",
+            "type": "boolean",
+            "default": true
+          },
+          {
+            "in": "query",
+            "name": "sdgs",
+            "description": "Include extracted SDGs in the response.",
+            "type": "boolean",
+            "default": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/file": {
+      "post": {
+        "tags": [
+          "LinkedSDGs API"
+        ],
+        "summary": "For submitting documents in files",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "formData",
+            "name": "file",
+            "type": "file",
+            "required": "true",
+            "description": "Document with text."
+          },
+          {
+            "in": "query",
+            "name": "text",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted text in the response."
+          },
+          {
+            "in": "query",
+            "name": "geoAreas",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted geographical areas in the response."
+          },
+          {
+            "in": "query",
+            "name": "concepts",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted concepts in the response."
+          },
+          {
+            "in": "query",
+            "name": "sdgs",
+            "type": "boolean",
+            "default": true,
+            "description": "Include extracted SDGs in the response."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request Error"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "url": {
+      "type": "object",
+      "properties": [
+        {
+          "in": "query",
+          "name": "url",
+          "type": "string",
+          "default": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3657896/",
+          "description": "URL of the text document."
+        },
+        {
+          "in": "query",
+          "name": "text",
+          "description": "Include extracted text in the response.",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "in": "query",
+          "name": "geoAreas",
+          "description": "Include extracted geographical areas in the response.",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "in": "query",
+          "name": "concepts",
+          "description": "Include extracted concepts in the response.",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "in": "query",
+          "name": "sdgs",
+          "description": "Include extracted SDGs in the response.",
+          "type": "boolean",
+          "default": true
+        }
+      ]
+    },
+    "file": {
+      "type": "object",
+      "properties": [
+        {
+          "in": "formData",
+          "name": "file",
+          "type": "file",
+          "required": "true",
+          "description": "Document with text."
+        },
+        {
+          "in": "query",
+          "name": "text",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted text in the response."
+        },
+        {
+          "in": "query",
+          "name": "geoAreas",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted geographical areas in the response."
+        },
+        {
+          "in": "query",
+          "name": "concepts",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted concepts in the response."
+        },
+        {
+          "in": "query",
+          "name": "sdgs",
+          "type": "boolean",
+          "default": true,
+          "description": "Include extracted SDGs in the response."
+        }
+      ]
+    }
+  }
+}

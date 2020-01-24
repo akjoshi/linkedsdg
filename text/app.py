@@ -10,8 +10,7 @@ from os.path import join, dirname, realpath
 import time
 import re
 import string
-import os
-from flask_restplus import Resource, Api, reqparse
+import os 
 
 #graphdb_url = os.environ['GRAPHDB_URL']
 #graphdb_repo = os.environ['GRAPHDB_REPO']
@@ -39,41 +38,9 @@ CORS(app)
 #         text = label.replace(char, ' ')
 #     text = normalise_white_space(text)
 #     return text
-
-parserAPI = reqparse.RequestParser()
-parserAPI.add_argument('data', action='append') 
  
-
-@api.route('/<data>:id', endpoint='get_task_url3' )
-@api.doc(params={'data': 'URL'})
-class MyResource(Resource):  
-    @api.doc(responses={200: 'OK'})
-    def post(self, data): 
-        print("request") 
-        print(data)  
-        response = data
-        print(response)
-        response.raw.decode_content = True
-        #if response.status_code == 200:
-
-        text = parser.from_buffer(response.content)
-        
-        result = {
-            "lang": detect(text['content']),
-            "text": text['content'],
-            "size": True
-        }
-
-        if(text['content'].split(" ").__len__() > 10000):
-            result["size"] = False
-
-        return Response(json.dumps(result), mimetype='application/json')
-
-        #abort(400)
-        #return 'Something went wrong, try again!'
-
-
-
+ 
+ 
 @app.before_request
 def log_request_info():
     app.logger.debug('Headers: %s', request.headers)
