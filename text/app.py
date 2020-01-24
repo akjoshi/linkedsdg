@@ -22,7 +22,6 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 
 app = Flask(__name__)
-api = Api(app)
 CORS(app)
 
 #CORS(app, resources={r"/*": {"origins": "*"}})
