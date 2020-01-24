@@ -114,9 +114,13 @@ GRAPHDB = "http://graphdb:3030/sdgs/sparql"
 HEALTHCHECK_URL = "http://graphdb:3030/index.html"
 GRAPH_API_HEALTHCHECK = "http://graph:5002/"
 
+time.sleep(60)
+
 while True:
+    
     try:
         response = requests.get(HEALTHCHECK_URL)
+        print(response)
         assert(int(response.status_code)<400)
         break
     except:
@@ -127,6 +131,7 @@ while True:
 while True:
     try:
         response = requests.get(GRAPH_API_HEALTHCHECK)
+        print(response)
         assert(int(response.status_code)<400)
         break
     except:

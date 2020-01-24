@@ -3,13 +3,13 @@ kind: Deployment
 metadata:
   annotations:
     kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
-      convert -f docker-compose-resolved.yaml -o .k8s\v0.4.5.6
+      convert -f docker-compose-resolved.yaml -o .k8s\v0.4.5.8
     kompose.image-pull-secret: ungpregcredtoken
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
-    io.kompose.service: concepts
-  name: concepts
+    io.kompose.service: graphdb
+  name: graphdb
 spec:
   replicas: 1
   strategy: {}
@@ -17,20 +17,13 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: concepts
+        io.kompose.service: graphdb
     spec:
       containers:
-      - env:
-        - name: GET_HOSTS_FROM
-          value: dns
-        - name: GRAPHDB_PORT
-          value: "7200"
-        - name: GRAPHDB_REPO
-          value: sdgs-data
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.5.6-prod
-        name: concepts
+      - image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.5.8
+        name: graphdb
         ports:
-        - containerPort: 5000
+        - containerPort: 3030
         resources: {}
       restartPolicy: Always
       tolerations:

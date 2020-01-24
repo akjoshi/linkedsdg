@@ -3,15 +3,13 @@ kind: Deployment
 metadata:
   annotations:
     kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe
-      convert -f docker-compose-resolved.yaml -o .k8s\v0.4.5.6
+      convert -f docker-compose-resolved.yaml -o .k8s\v0.4.5.8
     kompose.image-pull-secret: ungpregcredtoken
-    kompose.service.expose: "true"
-    kompose.service.type: LoadBalancer
     kompose.version: 1.17.0 (a74acad)
   creationTimestamp: null
   labels:
-    io.kompose.service: proxy
-  name: proxy
+    io.kompose.service: concepts
+  name: concepts
 spec:
   replicas: 1
   strategy: {}
@@ -19,29 +17,20 @@ spec:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: proxy
+        io.kompose.service: concepts
     spec:
       containers:
-      - args:
-        - /bin/sh
-        - -c
-        - cp /etc/nginx/conf.d/nginx.conf /etc/nginx/nginx.conf && nginx -g 'daemon
-          off;'
-        env:
+      - env:
         - name: GET_HOSTS_FROM
           value: dns
         - name: GRAPHDB_PORT
           value: "7200"
         - name: GRAPHDB_REPO
           value: sdgs-data
-        - name: NGINX_HOST
-          value: linkedsdg.apps.officialstatistics.org
-        - name: NGINX_PORT
-          value: "80"
-        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:v0.4.5.6-prod
-        name: proxy
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.5.8
+        name: concepts
         ports:
-        - containerPort: 80
+        - containerPort: 5000
         resources: {}
       restartPolicy: Always
       tolerations:
