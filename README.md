@@ -123,11 +123,8 @@ services:
 
 For documentation on how to do this, go to: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 
-<<<<<<< HEAD
 Alternatively, you can simply change the container version numbers in the deployment files if nothing major is changing in terms of node affinity, networking, etc. To do this, please copy the files and do a find-replace inside the new folder.
 
-=======
->>>>>>> dev
 5. Ensure you are configured to push to the proper test namespace: (sdgontologies-test)
 
 6. Push the new configuration to the test namespace: `kubectl apply -f ./.k8s/[version]/test`

@@ -45,8 +45,8 @@ spec:
         resources: {}
       restartPolicy: Always
       tolerations:
-      - key: "purpose"
+      - key: "hub.jupyter.org_dedicated"
         operator: "Equal"
-        value: "app"
+        value: "user"
         effect: "NoSchedule"
 status: {}
