@@ -74,7 +74,7 @@ async function init(app, index) {
             return response;
         },
         playground: {
-            endpoint: "/",
+            endpoint: process.env.HOST_URL + '/graphql',
             tabs: require("./tabs.js"),
           },
     });
