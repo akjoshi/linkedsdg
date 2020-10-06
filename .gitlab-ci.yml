@@ -180,7 +180,10 @@ build-webapp:
     - master
 
 deploy-k8s-(stage):
-  environment: staging
+  environment: 
+    name: review/$CI_COMMIT_REF_SLUG
+    url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
+    on_stop: stop_review
   image:
     name: ubuntu:20.04
     entrypoint: [""]
@@ -189,7 +192,7 @@ deploy-k8s-(stage):
   #when: manual
   script:
     - apt-get update
-    - apt-get -y install curl 
+    - apt-get -y install curl gettext-base
     - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
     - chmod +x ./kubectl
     - mv ./kubectl /usr/local/bin/kubectl
@@ -203,9 +206,33 @@ deploy-k8s-(stage):
     - TAG=$CI_COMMIT_SHORT_SHA
     - envsubst '${TAG}' < ./.k8s/kustomize/staging/kustomization.templ.yaml > ./.k8s/kustomize/staging/kustomization.yaml
     - kubectl apply -k ./.k8s/kustomize/staging
+    - external_ip=""; while [ -z $external_ip ]; do echo "Waiting for endpoint..."; external_ip=$(kubectl get svc service/proxy --template="{{range .status.loadBal ancer.ingress}}{{.ip}}{{end}}"); [ -z "$external_ip" ] && sleep 10; done; echo "End point ready-" && echo $external_ip; export DYNAMIC_ENVIRONMENT_URL=$external_ip
     - DYNAMIC_ENVIRONMENT_URL=$(kubectl get -ojsonpath='{.status.loadBalancer.ingress[0].ip}'  service/proxy)
-    - echo $DYNAMIC_ENVIRONMENT_URL
-#    - kubectl set image $K8S_DEPLOYMENT_NAME $CI_PROJECT_NAME=$IMAGE_TAG
-#    - kubectl rollout restart $K8S_DEPLOYMENT_NAME
+    - echo "DYNAMIC_ENVIRONMENT_URL=$DYNAMIC_ENVIRONMENT_URL" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env                                                       # Report back dotenv file to rails.
   only:
   - master
+
+stop_review:
+  script:
+  - apt-get update
+    - apt-get -y install curl gettext-base
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
+    - echo $KUBE_URL 
+    - echo $KUBE_CA_PEM_FILE
+    - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_PEM_FILE"
+    - kubectl config set-credentials gitlab-service-account --token="$KUBE_TOKEN"
+    - kubectl create namespace ontologies-test --cluster=k8s --user=gitlab-service-account
+    - kubectl config set-context default --cluster=k8s --user=gitlab-service-account --namespace=ontologies-test
+    - kubectl config use-context default
+    - TAG=$CI_COMMIT_SHORT_SHA
+    - envsubst '${TAG}' < ./.k8s/kustomize/staging/kustomization.templ.yaml > ./.k8s/kustomize/staging/kustomization.yaml
+    - kubectl delete -k ./.k8s/kustomize/staging
+  when: manual
+  environment:
+    name: review/$CI_COMMIT_REF_SLUG
+    action: stop
