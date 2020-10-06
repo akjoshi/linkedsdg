@@ -13,8 +13,8 @@ variables:
 
 stages:
     - "build"
+    - "stage"
     - "review"
-    - "deploy"
 build-jena-live:
   stage: build
   <<: *shared
@@ -187,7 +187,7 @@ review:
   image:
     name: ubuntu:20.04
     entrypoint: [""]
-  stage: review
+  stage: stage
   # Optional: Manual gate
   #when: manual
   script:
