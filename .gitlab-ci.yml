@@ -197,10 +197,11 @@ deploy-k8s-(stage):
     - echo $KUBE_CA_PEM_FILE
     - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_PEM_FILE"
     - kubectl config set-credentials gitlab-service-account --token="$KUBE_TOKEN"
-    - kubectl create namespace sdgontologies-staging-$CI_COMMIT_SHORT_SHA --cluster=k8s --user=gitlab-service-account
-    - kubectl config set-context default --cluster=k8s --user=gitlab-service-account --namespace=sdgontologies-staging-$CI_COMMIT_SHORT_SHA
+    - kubectl create namespace ontologies-test --cluster=k8s --user=gitlab-service-account
+    - kubectl config set-context default --cluster=k8s --user=gitlab-service-account --namespace=ontologies-test
     - kubectl config use-context default
     - TAG=$CI_COMMIT_SHORT_SHA
+    - envsubst '${TAG}' < ./.k8s/kustomize/staging/kustomization.templ.yaml > ./.k8s/kustomize/staging/kustomization.yaml
     - kubectl apply -k ./.k8s/kustomize/staging
     - DYNAMIC_ENVIRONMENT_URL=$(kubectl get -ojsonpath='{.status.loadBalancer.ingress[0].ip}'  service/proxy)
     - echo $DYNAMIC_ENVIRONMENT_URL
