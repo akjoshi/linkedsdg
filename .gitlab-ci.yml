@@ -185,7 +185,7 @@ build-webapp:
 
 review:
   environment: 
-    name: review/$CI_COMMIT_SHORT_SHA
+    name: staging
     url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
     on_stop: stop_review
   image:
