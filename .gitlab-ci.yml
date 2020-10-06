@@ -239,5 +239,5 @@ stop_review:
   - kubectl delete -k ./.k8s/kustomize/staging
   when: manual
   environment:
-    name: review/$CI_COMMIT_SHORT_SHA
+    name: staging
     action: stop
