@@ -184,7 +184,6 @@ build-webapp:
     - master
 
 review:
-  <<: *shared
   environment: 
     name: staging
     url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
@@ -197,6 +196,9 @@ review:
   #when: manual
   script:
     - apt-get update
+    - chmod +x ./get-docker.sh
+    - docker login -u CI_USERNAME -p "$CI_BUILD_TOKEN" http://containers.officialstatistics.org
+    - ./get-docker.sh
     - apt-get -y install curl gettext-base
     - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
     - chmod +x ./kubectl
