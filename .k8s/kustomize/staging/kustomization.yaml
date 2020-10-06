@@ -3,12 +3,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 # namespace to deploy all Resources 
-namespace: sdgontologies
+namespace: staging-$(TAG)
 
 configMapGenerator:
   - name: common-config
     env: common.env
-#    namespace: ontologies-test
+    namespace: staging-$(TAG)
 #secretGenerator:
 #  - name: common-secret
 #    env: common-secret.env    
@@ -16,21 +16,21 @@ configMapGenerator:
 
 images:
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
   - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp
-    newTag: $(TAG)
+    newTag: staging-$(TAG)
 
 resources:
 - graphdb.deployment.yaml
