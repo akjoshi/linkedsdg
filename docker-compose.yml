@@ -82,6 +82,20 @@ services:
       - "5001:5001"
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
+  config:
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/config:${TAG}-${HOST}'
+    build: 
+      context: ./config
+      dockerfile: Dockerfile
+    restart: always
+    environment: 
+      - HOST_URL=${HOST}
+    expose: 
+      - "5007"
+    ports: 
+      - "5007:5007"
+    labels:
+      kompose.image-pull-secret: "ungpregcredtoken"
   sdg:
     image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:${TAG}-${HOST}'
     build:
