@@ -15,6 +15,7 @@ spec:
   - name: "81"
     port: 81
     targetPort: 81
+  imagePullPolicy: Always
   selector:
     io.kompose.service: webapp
 status:
