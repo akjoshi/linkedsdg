@@ -26,13 +26,7 @@ ALLOWED_EXTENSIONS = set(['pdf', 'doc', 'html', 'docx'])
 
 app = Flask(__name__)
 CORS(app)
-cache = Cache(app, config={
-    'CACHE_TYPE': 'redis',
-    'CACHE_KEY_PREFIX': 'text_cache',
-    'CACHE_REDIS_HOST': 'redis',
-    'CACHE_REDIS_PORT': '6379',
-    'CACHE_REDIS_URL': 'redis://redis:6379'
-    })
+
 #CORS(app, resources={r"/*": {"origins": "*"}})
 
 # def normalise_white_space(text):
@@ -50,7 +44,6 @@ cache = Cache(app, config={
  
  
 @app.before_request
-@cache.memoize(timeout=60)
 def log_request_info():
     app.logger.debug('Headers: %s', request.headers)
     app.logger.debug('Body: %s', request.get_data())
@@ -62,7 +55,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@cache.memoize(timeout=60)
+
 @app.route('/api', methods=['POST'])
 def get_task():
     if 'file' not in request.files:
@@ -93,7 +86,7 @@ def get_task():
 
 
  
-@cache.memoize(timeout=60)
+
 @app.route('/apiURL', methods=['POST'])
 def get_task_url():
     print(request.data)
@@ -121,7 +114,7 @@ def get_task_url():
     #return 'Something went wrong, try again!'
 
 
-@cache.memoize(timeout=60)
+
 @app.route('/', methods=['POST'])
 def get_task_url2():
     print(request.data)
@@ -148,7 +141,7 @@ def get_task_url2():
     #abort(400)
     #return 'Something went wrong, try again!'
 
-@cache.memoize(timeout=60)
+
 @app.route('/apiURLcashed', methods=['POST'])
 def get_task_url_cashed():
 

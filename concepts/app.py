@@ -444,16 +444,7 @@ app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-cache = Cache(app, config={
-    'CACHE_TYPE': 'redis',
-    'CACHE_KEY_PREFIX': 'concepts_cache',
-    'CACHE_REDIS_HOST': 'redis',
-    'CACHE_REDIS_PORT': '6379',
-    'CACHE_REDIS_URL': 'redis://redis:6379'
-    })
-
 @app.route("/api", methods=['POST'])
-@cache.memoize(50)
 def concepts():
 
     task = request.get_json()

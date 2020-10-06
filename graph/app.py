@@ -19,14 +19,6 @@ graphdb_repo = os.environ['GRAPHDB_REPO']
 app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 
-cache = Cache(app, config={
-    'CACHE_TYPE': 'redis',
-    'CACHE_KEY_PREFIX': 'graph_cache',
-    'CACHE_REDIS_HOST': 'redis',
-    'CACHE_REDIS_PORT': '6379',
-    'CACHE_REDIS_URL': 'redis://redis:6379'
-    })
-
 
 GRAPHDB = "http://graphdb:3030/sdgs/sparql"
 HEALTHCHECK_URL = "http://graphdb:3030/index.html"
@@ -175,7 +167,6 @@ with open('response-template.json', encoding="utf-8") as f:
 with open('cubes.json', encoding="utf-8") as f:
     cubes = json.load(f)
 
-@cache.memoize(timeout=60)
 def get_sparql_results(sparql_query):
     sparql = SPARQLWrapper(GRAPHDB)
     sparql.setHTTPAuth(BASIC)
@@ -228,7 +219,6 @@ for entity in keyword_results:
 #     ?entityLow dct:subject ?conceptBroader .
 #     ?entityLow skos:broader* ?entity .
 #     ?entity dct:subject ?conceptBroader .
-@cache.memoize(timeout=60)
 def add_remaining_keywords(entities_results):
     for entity in keywords_index:
         if entity in entities_results:
@@ -241,7 +231,6 @@ def add_remaining_keywords(entities_results):
     return entities_results
 
 
-@cache.memoize(timeout=60)
 def merge(source, target):
     for key in source:
         target[key] = source[key]
@@ -250,7 +239,6 @@ def merge(source, target):
 
     return target
 
-@cache.memoize(timeout=60)
 def get_final_result(entities):
 
     resp = copy.deepcopy(response_template)
@@ -337,7 +325,6 @@ def index():
 
 
 @app.route('/describe', methods=['POST'])
-@cache.memoize(timeout=60)
 @cross_origin()
 def get_description():
     uri = request.get_json()["uri"]
@@ -347,7 +334,6 @@ def get_description():
     return Response(json.dumps(json.loads(response.content.decode('utf-8'))), mimetype='application/json')
 
 @app.route('/stats', methods=['POST'])
-@cache.memoize(timeout=60)
 @cross_origin()
 def get_related_stats():
     input_params = request.get_json()
@@ -493,7 +479,6 @@ def get_related_stats():
 
 
 @app.route('/api', methods=['POST'])
-@cache.memoize(timeout=60)
 @cross_origin()
 def get_related_entities():
     input_matches = request.get_json()
@@ -521,7 +506,6 @@ def get_related_entities():
 
     return json.dumps(result), 200, {'Content-Type': 'application/json'}
 
-@cache.memoize(timeout=60)
 def process_sparql_result(result, index, concept_index):
     entity = result["entity"]["value"]
     concept = result["concept"]["value"]
@@ -571,7 +555,6 @@ def process_sparql_result(result, index, concept_index):
     
     return index
 
-@cache.memoize(timeout=60)
 def extend_concept_index(match, concept_index):
     uri = match["uri"]
     weight = 1
