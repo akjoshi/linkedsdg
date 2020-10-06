@@ -282,5 +282,3 @@ stop_review:
   environment:
     name: staging
     action: stop
-  needs:
-    - job: review
