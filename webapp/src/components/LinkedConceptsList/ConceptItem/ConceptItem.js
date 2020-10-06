@@ -6,6 +6,7 @@ import axios from 'axios';
 import './ConceptItem.scss';
 
 let config = require('../../../config.json');
+//import config from '../../../config.js';
 
 
 class ConceptItem extends React.Component {

@@ -1,5 +1,6 @@
 import axios from 'axios';
 let config = require('../../config.json');
+//import config from '../../config.js';
 
 function findContext(data, key) {
     var filtered = data['matches'].filter(x => { return x['url'] === key });
@@ -95,6 +96,7 @@ async function loadExample(storedData) {
 
     let dir = "./examples/" + storedData.id + "/data.json";
     let example = {};
+    console.log("config file:", config);
     try {
         const json = await axios.post(config.textLinkApiUrlcashed, dir, {
             headers: {
@@ -108,6 +110,7 @@ async function loadExample(storedData) {
         example = json.data;
     } catch (error) {
         this.setState({ contentLoaded: false, isLoading: false, error: "There was a problem with loading cashed example, try other example.", progress: 45, waitForData: true });
+        console.log(error);
         return;
     }
     // console.log(example)

@@ -12,6 +12,7 @@ apk del build_deps
 COPY nginx.conf /etc/nginx/conf.d/
 
 #ARG NGINX_PORT
+#ARG NGINX_HOST 
 
-#RUN envsubst '$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/nginx.conf
-
+#RUN envsubst '$NGINX_PORT' < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/nginx.templ
+#RUN envsubst '$NGINX_HOST' < /etc/nginx/conf.d/nginx.templ > /etc/nginx/conf.d/nginx.conf

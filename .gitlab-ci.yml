@@ -1,0 +1,210 @@
+image: docker:git
+services:
+  - docker:dind
+variables:
+  DOCKER_DRIVER: overlay
+
+.shared_hidden_key: &shared  # This is an anchor
+  before_script:
+    - docker login -u CI_USERNAME -p "$CI_BUILD_TOKEN" http://containers.officialstatistics.org
+
+#before_script:
+#  - docker login -u CI_USERNAME -p "$CI_BUILD_TOKEN" http://containers.officialstatistics.org
+
+build-jena-live:
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/db:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/db:live-latest" ./db
+    - docker push  "$REGISTRY_IMAGE/db"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-proxy-live: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/proxy:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/proxy:live-latest" --build-arg NGINX_HOST=$PROD_HOST --build-arg NGINX_PORT=80 ./proxy 
+    - docker push "$REGISTRY_IMAGE/proxy"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+  
+build-graph-live: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/graph:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/graph:live-latest" ./graph
+    - docker push  "$REGISTRY_IMAGE/graph"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-concepts-live: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/concepts:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/concepts:live-latest" ./concepts
+    - docker push  "$REGISTRY_IMAGE/concepts"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-text-live: 
+  stage: build
+  <<: *shared
+  script:
+    - docker build -t "$REGISTRY_IMAGE/text:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/text:live-latest" ./text
+    - docker push  "$REGISTRY_IMAGE/text"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-sdgapi-live: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/sdgapi:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/sdgapi:live-latest" ./sdgapi
+    - docker push  "$REGISTRY_IMAGE/sdgapi"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-swaggerapi-live:
+  stage: build
+  <<: *shared
+  script:
+    - docker build -t "$REGISTRY_IMAGE/swaggerapi:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/swaggerapi:live-latest" ./swaggerapi
+    - docker push  "$REGISTRY_IMAGE/swaggerapi"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-webapp-live:
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/webapp:live-$CI_COMMIT_TAG" -t "$REGISTRY_IMAGE/webapp:live-latest" --build-arg NGINX_HOST=$live-HOST ./webapp
+    - docker push  "$REGISTRY_IMAGE/webapp"
+  only:
+    - /^live-.*$/
+  except:
+  - branches
+  - triggers
+
+build-jena:
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/db:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/db:staging-latest" ./db
+    - docker push  "$REGISTRY_IMAGE/db"
+  only:
+    - master
+
+build-proxy: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/proxy:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/proxy:staging-latest" --build-arg NGINX_HOST=$STAGING_HOST --build-arg NGINX_PORT=80 ./proxy
+    - docker push  "$REGISTRY_IMAGE/proxy"
+  only:
+    - master
+  
+build-graph: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/graph:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/graph:staging-latest" ./graph
+    - docker push  "$REGISTRY_IMAGE/graph"
+  only:
+    - master
+
+build-concepts: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/concepts:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/concepts:staging-latest" ./concepts
+    - docker push  "$REGISTRY_IMAGE/concepts"
+  only:
+    - master
+
+build-text: 
+  stage: build
+  <<: *shared
+  script:
+    - docker build -t "$REGISTRY_IMAGE/text:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/text:staging-latest" ./text
+    - docker push  "$REGISTRY_IMAGE/text"
+  only:
+    - master
+
+build-sdgapi: 
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/sdgapi:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/sdgapi:staging-latest" ./sdgapi
+    - docker push  "$REGISTRY_IMAGE/sdgapi"
+  only:
+    - master
+
+build-swaggerapi:
+  stage: build
+  <<: *shared
+  script:
+    - docker build -t "$REGISTRY_IMAGE/swaggerapi:staging-$CI_COMMIT_SHORT_SHA" -t "$REGISTRY_IMAGE/swaggerapi:staging-latest" ./swaggerapi
+    - docker push  "$REGISTRY_IMAGE/swaggerapi"
+  only:
+    - master
+
+build-webapp:
+  stage: build
+  <<: *shared
+  script: 
+    - docker build -t "$REGISTRY_IMAGE/webapp:staging-$CI_COMMIT_SHORT_SHA.stage" -t "$REGISTRY_IMAGE/webapp:staging-latest" --build-arg NGINX_HOST=${STAGING-HOST} ./webapp
+    - docker push  "$REGISTRY_IMAGE/webapp"
+  only:
+    - master
+
+deploy-k8s-(stage):
+  environment: staging
+  image:
+    name: ubuntu:20.04
+    entrypoint: [""]
+  stage: deploy
+  # Optional: Manual gate
+  #when: manual
+  script:
+    - apt-get update
+    - apt-get -y install curl 
+    - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
+    - chmod +x ./kubectl
+    - mv ./kubectl /usr/local/bin/kubectl
+    - echo $KUBE_URL 
+    - echo $KUBE_CA_PEM_FILE
+    - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_PEM_FILE"
+    - kubectl config set-credentials gitlab-service-account --token="$KUBE_TOKEN"
+    - kubectl create namespace sdgontologies-dev-$CI_COMMIT_SHORT_SHA --cluster=k8s --user=gitlab-service-account
+    - kubectl config set-context default --cluster=k8s --user=gitlab-service-account --namespace=sdgontologies-dev-$CI_COMMIT_SHORT_SHA
+    - kubectl config use-context default
+    - TAG=$CI_COMMIT_SHORT_SHA
+    #- kubectl apply -k ./.k8s/kustomize/live
+    - DYNAMIC_ENVIRONMENT_URL=$(kubectl get -ojsonpath='{.status.loadBalancer.ingress[0].ip}'  service/proxy)
+    - echo $DYNAMIC_ENVIRONMENT_URL
+#    - kubectl set image $K8S_DEPLOYMENT_NAME $CI_PROJECT_NAME=$IMAGE_TAG
+#    - kubectl rollout restart $K8S_DEPLOYMENT_NAME
+  only:
+  - master

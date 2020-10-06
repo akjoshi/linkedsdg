@@ -12,9 +12,28 @@ https://github.com/epistemik-co/sdg-links-concept-extraction-api
 
 https://github.com/epistemik-co/sdg-links-text-extraction-api
 
+## Tips 
+
+If you want to do Kubernetes locally, check out Kind: https://kubernetes.io/docs/setup/learning-environment/kind/
+
+Perhaps the coolest Kubernetes IDE is Lens: https://github.com/lensapp/lens
+
+We need to use Kustomize to simplify the deployment. For more information see the Kustomize docs: https://github.com/kubernetes-sigs/kustomize
+
+## Problems
+
+We are using a Flask development server in production, a big no-no. We need to switch in gunicorn or some other production Flask server. 
+
 ## Getting up and running
 
-To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. NOTE the .env only sets values for localhost, NOT production. Then:
+To start the demo, copy .env.example to .env, and then set the parameters therein to the appropriate values. NOTE the .env only sets values for localhost, NOT production. 
+
+You may need to manually download two files that are usually not automatically pulled via git. These are:
+
+* './db/apache-jena-fuseki-3.13.1.zip'
+* './graph/cubes.zip'
+
+Then:
 
 `docker-compose up`
 
@@ -38,7 +57,9 @@ In the above, [version] would be something like `0.4.5.5-test`.
 
 1. Login to containers.officialstatistics.org using your credentials: `docker login containers.officialstatistics.org -u [username] -p [your-token-from-gitlab]`
 
-2. Build the test containers: `docker-compose build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this optino will force the build to take a very long time, but it will rebuild everything from scratch.
+2. Build the test containers: `docker-compose build`. If you have not rebuilt these containers recently, you may want to consider running them with the `--no-cache` option at the end. Note that this option will force the build to take a very long time, but it will rebuild everything from scratch.
+
+NOTE: The Nginx proxy container requires the HOST_URL as a build arg. This means that if you deploy to a new domain, you need to pass this new build arg into the container at build time.
 
 3. Push them to the registry: `docker-compose push`.
 

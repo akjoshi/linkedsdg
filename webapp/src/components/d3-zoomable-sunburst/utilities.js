@@ -6,6 +6,7 @@ import Collapse from 'react-bootstrap/Collapse'
 import './ZoomableSunburst.scss'
 
 let config = require('../../config.json');
+//import config from '../../config.js';
 
 export function setSunState(deeper = true) {
     if (deeper === true) {

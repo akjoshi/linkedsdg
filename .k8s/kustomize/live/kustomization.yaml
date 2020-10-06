@@ -1,0 +1,44 @@
+# kustomization.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# namespace to deploy all Resources 
+namespace: sdgontologies
+
+#configMapGenerator:
+#  - name: common-config
+#    env: common.env
+#    namespace: ontologies-test
+#secretGenerator:
+#  - name: common-secret
+#    env: common-secret.env    
+#    namespace: ontologies-test
+
+images:
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy
+    newTag: v0.4.5.8
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb
+    newTag: v0.4.5.8
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graph
+    newTag: v0.4.5.8
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts
+    newTag: v0.4.5.8
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text
+    newTag: v0.4.5.9
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi
+    newTag: v0.4.5.8
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi
+    newTag: "v0.4.5.8"
+  - name: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp
+    newTag: v0.4.5.8
+
+resources:
+- graphdb.deployment.yaml
+- graph.deployment.yaml
+- text.deployment.yaml
+- concepts.deployment.yaml
+- webapp.deployment.yaml
+- swaggerapi.deployment.yaml
+- sdg.deployment.yaml
+- proxy.deployment.yaml
+- proxy-ingress.yaml

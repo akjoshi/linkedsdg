@@ -6,4 +6,5 @@ WORKDIR /app
 COPY ./requirements.txt /app/requirements.txt
 RUN pip3 install -r requirements.txt
 COPY . /app
-CMD ["python3", "-u", "app.py"]
+#CMD ["python3", "-u", "app.py"]
+CMD ["gunicorn", "-c", "gunicorn.config.py", "app:app"]

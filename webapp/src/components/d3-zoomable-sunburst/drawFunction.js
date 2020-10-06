@@ -5,6 +5,7 @@ import { selectFilter } from 'react-bootstrap-table2-filter';
 import { textFilter } from 'react-bootstrap-table2-filter';
 
 let config = require('../../config.json');
+//import config from '../../config.js';
 
 export async function drawChart() {
     const uris = require('./data/sdgURIS.json')
