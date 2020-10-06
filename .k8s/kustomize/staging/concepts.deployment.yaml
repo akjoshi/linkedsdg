@@ -55,7 +55,21 @@ spec:
         image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/concepts:v0.4.5.8
         name: concepts
         ports:
-        - containerPort: 5000
+        - name: liveness-port
+          containerPort: 5000
+          hostPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: liveness-port
+          failureThreshold: 1
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /
+            port: liveness-port
+          failureThreshold: 50
+          periodSeconds: 10
         resources: {}
       restartPolicy: Always
       affinity:
