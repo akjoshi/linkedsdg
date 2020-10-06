@@ -11,7 +11,9 @@ from flask import request
 from flask_cors import CORS
 import json
 import os
-import requests, time
+import requests, time, logging
+from flask_caching import Cache
+
 
 #graphdb_url = os.environ['GRAPHDB_URL']
 graphdb_repo = os.environ['GRAPHDB_REPO']
@@ -120,22 +122,22 @@ while True:
     
     try:
         response = requests.get(HEALTHCHECK_URL)
-        print(response)
+        print(response, flush=True)
         assert(int(response.status_code)<400)
         break
     except:
-        print("Graph DB not reachable... will try again...")
+        print("Graph DB not reachable... will try again...", flush=True)
         time.sleep(5)
         continue
 
 while True:
     try:
         response = requests.get(GRAPH_API_HEALTHCHECK)
-        print(response)
+        print(response, flush=True)
         assert(int(response.status_code)<400)
         break
     except:
-        print("Graph API not reachable... will try again...")
+        print("Graph API not reachable... will try again...", flush=True)
         time.sleep(5)
         continue
 
@@ -155,7 +157,7 @@ concept_matcher = {
    "zh": PhraseMatcher(nlp.vocab),
    "ar": PhraseMatcher(nlp.vocab)
 }
-
+\
 country_matcher = {
    "en": PhraseMatcher(nlp.vocab),
    "fr": PhraseMatcher(nlp.vocab),
@@ -194,10 +196,12 @@ country_spacy_ids = {
 }
 country_index = {}
 
+
 def normalise_white_space(text):
     text = re.sub(' +',' ', text)
     text = re.sub('\n',' ', text)
     return text
+
     
 def shallow_clean(text):
     text = normalise_white_space(text).lower()
@@ -206,6 +210,7 @@ def shallow_clean(text):
     text = normalise_white_space(text)
     return text
 
+
 def add_to_concept_matcher(label, i, lang):
     if label not in concept_spacy_ids[lang]:
         concept_pattern = [nlp(text) for text in [label]]
@@ -213,6 +218,7 @@ def add_to_concept_matcher(label, i, lang):
         concept_spacy_ids[lang][label]=[i]
     else:
         concept_spacy_ids[lang][label].append(i)
+
 
 def add_to_country_matcher(label, i, lang):
     if label not in country_spacy_ids[lang]:
@@ -233,15 +239,18 @@ def get_sparql_results(sparql_query):
     results = sparql.query().convert()
     return results
 
+
 def load_concepts():
-    print("\n\nLoading concepts...")
+    logging.info("\n\nLoading concepts...", flush=True)
+    print("\n\nLoading concepts...", flush=True)
 
     with open('sources.json') as f:
         sources = json.load(f)
 
     concept_list = get_sparql_results(SPARQL_QUERY)['results']['bindings']
-
-    print("Number of concepts fetched from JENA: " + str(len(concept_list)))
+    
+    #logging.info("Number of concepts fetched from JENA: " + str(len(concept_list)))
+    print("Number of concepts fetched from JENA: " + str(len(concept_list)), flush=True)
 
     i = 1
     for concept in concept_list:
@@ -267,13 +276,13 @@ def load_concepts():
         if i > 0 and i % 1000 == 0: 
             print(i / 1000)
 
-    print("\n\nLoading stopwords...")
+    print("\n\nLoading stopwords...", flush=True)
 
     stopword_records = csv.DictReader(open("stopwords.csv"), delimiter=",")
     for word in stopword_records:
         stopwords.append(word['label'])
 
-    print("\n\nLoading main index...")
+    print("\n\nLoading main index...", flush=True)
     concept_source_index = csv.DictReader(open("concepts-source-index.tsv", encoding="utf8"), delimiter="\t")
     for concept in concept_source_index:
         concept_id = concept["id"]
@@ -296,7 +305,7 @@ def load_concepts():
             "sources": exact
         }
 
-    print("\n\nLoading countries...")
+    print("\n\nLoading countries...", flush=True)
     # countries_list = csv.DictReader(open("countries.tsv", encoding="utf8"), delimiter="\t")
 
     countries_list = get_sparql_results(SPARQL_QUERY_COUNTRIES)['results']['bindings']
@@ -313,7 +322,7 @@ def load_concepts():
             country_source[i] = "geo"
         i += 1
 
-    print("\n\nLoading countries main index...")
+    print("\n\nLoading countries main index...", flush=True)
 
     country_source_index = csv.DictReader(open("countries-source-index.tsv", encoding="utf8"), delimiter="\t")
     for country in country_source_index:
@@ -325,6 +334,7 @@ def load_concepts():
             "source": source,
             "name": country["name"]
         }
+
 
 def update_matches(start, end, match_id, current_matches, matcher_id):
 
@@ -364,12 +374,14 @@ def update_matches(start, end, match_id, current_matches, matcher_id):
         returned_matches.append(new_match)
     return returned_matches
 
+
 def clean_citation(citation):
     new_citation = {
         "matched_phrase": citation["phrase"],
         "quote": citation["contextl"].replace("[...] ", "") + " " + citation["phrase"] + " " + citation["contextr"].replace(" [...]", "")
     }    
     return new_citation
+
 
 def extract_concepts(input, matcher_id, lang):
     labels = {}
@@ -432,9 +444,16 @@ app = Flask(__name__)
 # CORS(app, resources={r"/*": {"origins": "http://34.66.148.181:3000"}})
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-
+cache = Cache(app, config={
+    'CACHE_TYPE': 'redis',
+    'CACHE_KEY_PREFIX': 'concepts_cache',
+    'CACHE_REDIS_HOST': 'redis',
+    'CACHE_REDIS_PORT': '6379',
+    'CACHE_REDIS_URL': 'redis://redis:6379'
+    })
 
 @app.route("/api", methods=['POST'])
+@cache.memoize(50)
 def concepts():
 
     task = request.get_json()
@@ -588,6 +607,11 @@ def concepts():
 
 # app.run(host="0.0.0.0", port=5000)
 
+def create_app():
+    load_concepts()
+    return app
+
+#below is not used in production - gunicorn calls the "create_app" above
 if __name__ == '__main__':
     load_concepts()
-    app.run(host="0.0.0.0", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=5000, debug=False, threaded=True)

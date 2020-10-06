@@ -5,6 +5,7 @@ import './ZoomableSunburst.scss'
 import Baner from './baner.png'
 import axios from 'axios';
 import ReactJson from 'react-json-view'
+//import config from '../../config.js';
 
 import {
     chooseState,
@@ -162,6 +163,7 @@ class ZoomableSunburst extends Component {
                 }
 
                 let config = require('../../config.json');
+                
                 const text = await axios.post(config.statsApiUrl, dataForApi, {
                     headers: {
                         'Content-Type': 'application/json'

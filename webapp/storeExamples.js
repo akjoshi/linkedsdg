@@ -2,6 +2,7 @@ const fs = require('fs');
 const rimraf = require("rimraf");
 const pathUrls = './src/pages/Upload/exampleArticles.json';
 const config = require('./src/config.json');
+//import config from './src/config.js';
 const pathToExamples = './src/pages/Upload/examples';
 const axios = require('axios');
 const examples = require(pathUrls);

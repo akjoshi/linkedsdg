@@ -5,13 +5,24 @@ import requests
 import json
 from os.path import join, dirname, realpath
 import os  
+from flask_caching import Cache
 
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = './'
 CORS(app)
 
+cache = Cache(app, config={
+    'CACHE_TYPE': 'redis',
+    'CACHE_KEY_PREFIX': 'swaggerapi_cache',
+    'CACHE_REDIS_HOST': 'redis',
+    'CACHE_REDIS_PORT': '6379',
+    'CACHE_REDIS_URL': 'redis://redis:6379'
+    })
+
+
 @app.route('/file', methods=['POST'])
+@cache.memoize(timeout=60)
 def get_task_file(): 
     if 'file' not in request.files:
         abort(400) 
@@ -31,6 +42,7 @@ def get_task_file():
 
 
 @app.route('/url', methods=['POST'])
+@cache.memoize(timeout=60)
 def get_task_url(): 
     # TEXT EXTRACT
     url = 'http://text:5001/apiURL'  
@@ -45,7 +57,7 @@ def get_task_url():
     return create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag)
  
 
-
+@cache.memoize(timeout=60)
 def create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag):
    
     print(geoAreasFlag)
@@ -103,11 +115,13 @@ def create_response(r1, geoAreasFlag, conceptsFlag, sdgsFlag, textFlag):
 
     return json.dumps(response_obj)
 
+@cache.memoize(timeout=60)
 def data_sdgs_fix(obj):
     obj["children"] = children_sdgs_fix(obj["children"])
 
     return obj
 
+@cache.memoize(timeout=60)
 def children_sdgs_fix(arr):
     for obj in arr:
         if "children" in obj.keys():
@@ -117,7 +131,7 @@ def children_sdgs_fix(arr):
 
     return arr
         
-
+@cache.memoize(timeout=60)
 def obj_to_arr(obj):
     arr = []
     for prop_name in obj.keys(): 

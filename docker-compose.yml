@@ -1,13 +1,16 @@
 version: '3.1'
 services: 
   proxy: 
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:${TAG}'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/proxy:${TAG}-${HOST}'
     build: 
       context: ./proxy
       dockerfile: Dockerfile
+      args:
+        - NGINX_HOST=${HOST}
+        - NGINX_PORT=80
     restart: always
     ports:
-      - "80:80"
+      - "${PORT}:80"
     environment:
       - GET_HOSTS_FROM=dns
       - GRAPHDB_REPO=sdgs-data
@@ -80,7 +83,7 @@ services:
     labels:
       kompose.image-pull-secret: "ungpregcredtoken"
   sdg:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:${TAG}'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:${TAG}-${HOST}'
     build:
       context: ./sdgapi
       dockerfile: Dockerfile
@@ -114,7 +117,7 @@ services:
       kompose.image-pull-secret: "ungpregcredtoken"
       
   webapp:
-    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:${TAG}'
+    image: 'containers.officialstatistics.org/cslovell/sdg-docker-ontologies/webapp:${TAG}-${HOST}'
     build:
       context: ./webapp
       dockerfile: Dockerfile
@@ -122,15 +125,23 @@ services:
       - NGINX_HOST=${HOST}
     restart: always
     environment: 
-      - GET_HOSTS_FROM=dns
-      - GRAPHDB_REPO=sdgs-data
-      - GRAPHDB_PORT=720080
+      env_file: .env
+      NODE_ENV: development
+      GET_HOSTS_FROM: dns
+      GRAPHDB_REPO: sdgs-data
+      GRAPHDB_PORT: 720080
+      NGINX_HOST: ${HOST}
     expose:
       - "81"
     ports:
       - "81:81"
     labels:
       kompose.image-pull-secret: ungpregcredtoken
+  redis:
+    image: redis:6.0.6-buster
+    expose: 
+      - "6379"
+
 #volumes:
 #  graph-data:
 #networks:

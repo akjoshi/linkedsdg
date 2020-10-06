@@ -1,11 +1,11 @@
 {
-    "textApiUrl": "http://${NGINX_HOST}/text/api",
-    "textLinkApiUrl": "http://${NGINX_HOST}/text/apiURL",
-    "textLinkApiUrlcashed": "http://${NGINX_HOST}/text/apiURLcashed",
-    "spacyApiUrl": "http://${NGINX_HOST}/concepts/api",
-    "graphQueryApiUrl": "http://${NGINX_HOST}/graph/api",
-    "statsApiUrl": "http://${NGINX_HOST}/graph/stats",
-    "describeApiUrl": "http://${NGINX_HOST}/graph/describe",
+    "textApiUrl": "/text/api",
+    "textLinkApiUrl": "/text/apiURL",
+    "textLinkApiUrlcashed": "/text/apiURLcashed",
+    "spacyApiUrl": "/concepts/api",
+    "graphQueryApiUrl": "/graph/api",
+    "statsApiUrl": "/graph/stats",
+    "describeApiUrl": "/graph/describe",
     "prod": {
         "textApiUrl": "http://34.66.148.181:5001/api",
         "textLinkApiUrl": "http://34.66.148.181:5001/apiURL",
