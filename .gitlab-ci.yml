@@ -183,7 +183,7 @@ build-webapp:
   only:
     - master
 
-review:
+push-to-k8s:
   image:
     name: ubuntu:20.04
     entrypoint: [""]
@@ -223,7 +223,7 @@ review:
   only:
   - master
 
-webapp-url-fix:
+review:
   stage: review
   artifacts:
     reports:
@@ -254,7 +254,7 @@ webapp-url-fix:
     - envsubst '${TAG}' < ./.k8s/kustomize/staging/kustomization.templ.yaml > ./.k8s/kustomize/staging/kustomization.yaml
     - kubectl apply -k ./.k8s/kustomize/staging
   needs:
-    - job: review
+    - job: push-to-k8s
       artifacts: true
 
 
