@@ -204,7 +204,6 @@ review:
     - echo $KUBE_CA_PEM_FILE
     - kubectl config set-cluster k8s --server="$KUBE_URL" --certificate-authority="$KUBE_CA_PEM_FILE"
     - kubectl config set-credentials gitlab-service-account --token="$KUBE_TOKEN"
-    - kubectl create namespace ontologies-test --cluster=k8s --user=gitlab-service-account
     - kubectl config set-context default --cluster=k8s --user=gitlab-service-account --namespace=ontologies-test
     - kubectl config use-context default
     - TAG=$CI_COMMIT_SHORT_SHA
