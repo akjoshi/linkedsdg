@@ -184,10 +184,6 @@ build-webapp:
     - master
 
 review:
-  environment: 
-    name: staging
-    url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
-    on_stop: stop_review
   image:
     name: ubuntu:20.04
     entrypoint: [""]
@@ -229,6 +225,13 @@ review:
 
 webapp-url-fix:
   stage: review
+  artifacts:
+    reports:
+      dotenv: deploy.env      
+  environment: 
+    name: staging
+    url: $DYNAMIC_ENVIRONMENT_URL                                              # and set the variable produced in script to `environment:url`
+    on_stop: stop_review
   image: 
     name: ubuntu:20.04
     entrypoint: [""]
