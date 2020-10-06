@@ -210,7 +210,7 @@ review:
     - envsubst '${TAG}' < ./.k8s/kustomize/staging/kustomization.templ.yaml > ./.k8s/kustomize/staging/kustomization.yaml
     - kubectl apply -k ./.k8s/kustomize/staging
     - external_ip=""; while [ -z $external_ip ]; do echo "Waiting for endpoint..."; external_ip=$(kubectl get service/proxy --template="{{range .status.loadBalancer.ingress}}{{.ip}}{{end}}"); [ -z "$external_ip" ] && sleep 10; done; echo "End point ready-" && echo $external_ip; export DYNAMIC_ENVIRONMENT_URL=$external_ip
-    - export DYNAMIC_ENVIRONMENT_URL=$(kubectl get -ojsonpath='{.status.loadBalancer.ingress[0].ip}'  service/proxy)
+    - export DYNAMIC_ENVIRONMENT_URL=http://$(kubectl get -ojsonpath='{.status.loadBalancer.ingress[0].ip}'  service/proxy)
     - echo "DYNAMIC_ENVIRONMENT_URL=$DYNAMIC_ENVIRONMENT_URL" >> deploy.env
   artifacts:
     reports:
@@ -224,7 +224,7 @@ stop_review:
     name: ubuntu:20.04
     entrypoint: [""]
   script:
-    - apt-get updateg
+    - apt-get update
     - apt-get -y install curl gettext-base
     - curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.14.0/bin/linux/amd64/kubectl
     - chmod +x ./kubectl
