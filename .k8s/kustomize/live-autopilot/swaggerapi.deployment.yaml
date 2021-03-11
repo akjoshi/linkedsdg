@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: swaggerapi
+  name: swaggerapi
+spec:
+  clusterIP: None
+  ports:
+  - name: "5003"
+    port: 5003
+  selector:
+    app: swaggerapi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: swaggerapi
+  name: swaggerapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: swaggerapi
+  template:
+    metadata:
+      labels:
+        app: swaggerapi
+    spec:
+      containers:
+      - env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: GRAPHDB_PORT
+          value: "7200"
+        - name: GRAPHDB_REPO
+          value: sdgs-data
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/swaggerapi:v0.4.5.8
+        name: swaggerapi
+        ports:
+        - containerPort: 5003
+        resources: {}
+      restartPolicy: Always
+status: {}

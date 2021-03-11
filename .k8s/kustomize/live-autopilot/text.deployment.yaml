@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: text
+  name: text
+spec:
+  clusterIP: None
+  ports:
+  - name: "5001"
+    port: 5001
+  selector:
+    app: text
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: text
+  name: text
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: text
+  template:
+    metadata:
+      labels:
+        app: text
+    spec:
+      containers:
+      - env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: GRAPHDB_PORT
+          value: "7200"
+        - name: GRAPHDB_REPO
+          value: sdgs-data
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/text:v0.4.5.9
+        imagePullPolicy: Always
+        name: text
+        ports:
+        - containerPort: 5001
+        resources: {}
+      restartPolicy: Always
+status: {}

@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: proxy
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          serviceName: webapp
+          servicePort: 81
+      - path: /text
+        pathType: Prefix
+        backend:
+          serviceName: text
+          servicePort: 5001
+      - path: /concepts
+        pathType: Prefix
+        backend:
+          serviceName: concepts
+          servicePort: 5000
+      - path: /graph
+        pathType: Prefix
+        backend:
+          serviceName: graph
+          servicePort: 5002
+      - path: /swaggerapi
+        pathType: Prefix
+        backend:
+          serviceName: swaggerapi
+          servicePort: 5003
+      - path: /graphql
+        pathType: Prefix
+        backend:
+          serviceName: sdg
+          servicePort: 4000
+status:
+  loadBalancer: {}

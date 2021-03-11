@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: graphdb
+  name: graphdb
+spec:
+  clusterIP: None
+  ports:
+  - name: "3030"
+    port: 3030
+  selector:
+    app: graphdb
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    app: graphdb
+  name: graphdb
+spec:
+  serviceName: "graphdb"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: graphdb
+  template:
+    metadata:
+      labels:
+        app: graphdb
+    spec:
+      containers:
+      - image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/graphdb:v0.4.5.8
+        imagePullPolicy: Always
+        name: graphdb
+        ports:
+        - containerPort: 3030
+        resources: {}
+        volumeMounts:
+        - mountPath: /fuseki/databases
+          name: graphdb-volume
+      restartPolicy: Always
+  volumeClaimTemplates:
+  - metadata:
+      name: graphdb-volume
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests: 
+          storage: 10Gi

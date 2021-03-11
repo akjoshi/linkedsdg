@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: sdg
+  name: sdg
+spec:
+  clusterIP: None
+  ports:
+  - name: "4000"
+    port: 4000
+  selector:
+    app: sdg
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sdg
+  name: sdg
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      app: sdg
+  template:
+    metadata:
+      labels:
+        app: sdg
+    spec:
+      containers:
+      - env:
+        - name: GET_HOSTS_FROM
+          value: dns
+        - name: GRAPHDB_PORT
+          value: "7200"
+        - name: GRAPHDB_REPO
+          value: sdgs-data
+        - name: HOST_URL
+          value: linkedsdg.apps.officialstatistics.org
+        image: containers.officialstatistics.org/cslovell/sdg-docker-ontologies/sdgapi:v0.4.5.8
+        name: sdg
+        ports:
+        - containerPort: 4000
+        resources: {}
+      restartPolicy: Always
+status: {}
